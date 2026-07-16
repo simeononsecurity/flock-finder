@@ -724,15 +724,20 @@ let ouiCounts = {};
 
 async function loadData() {
     try {
-        // Try relative paths — works both locally (../data/) and on GitHub Pages (data/)
+        // Try multiple paths — local dev, GitHub Pages (Actions deploy), and raw GitHub fallback
+        const PATHS = [
+            'data/flock_cameras.geojson',                   // GitHub Pages (Actions _site/data/)
+            '../data/flock_cameras.geojson',                 // Local dev (docs/ → ../data/)
+            'https://raw.githubusercontent.com/simeononsecurity/flock-finder/main/data/flock_cameras.geojson',
+        ];
         let resp;
-        try {
-            resp = await fetch('data/flock_cameras.geojson');
-            if (!resp.ok) throw new Error('not found at data/');
-        } catch {
-            resp = await fetch('../data/flock_cameras.geojson');
+        for (const url of PATHS) {
+            try {
+                resp = await fetch(url);
+                if (resp.ok) break;
+            } catch { /* try next */ }
         }
-        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        if (!resp || !resp.ok) throw new Error('Could not load GeoJSON from any source');
         const data = await resp.json();
 
         const rawFeatures = data.features || [];
