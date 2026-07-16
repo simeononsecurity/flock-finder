@@ -49,14 +49,14 @@ jobs:
       - name: Check for data changes
         id: check
         run: |
-          git diff --quiet data/ || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet data/ README.md || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push updated data
         if: steps.check.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json
+          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json README.md
           CAMERAS=$(python3 -c "import json; d=json.load(open('data/scan_stats.json')); print(d.get('total_cameras', 0))")
           NEW=$(python3 -c "import json; d=json.load(open('data/scan_stats.json')); print(d.get('new_this_scan', 0))")
           git commit -m "data: update Flock camera data ($CAMERAS total, +$NEW new) [skip ci]"

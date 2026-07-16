@@ -523,6 +523,59 @@ def write_stats(records: dict, ouis_queried: int, api_requests: int,
     print(f"  [✓] Stats: {output_path}")
 
 
+def update_readme(stats_path: Path, readme_path: Path = None) -> None:
+    """
+    Auto-update the README.md stats section between STATS_START/STATS_END markers.
+    Reads scan_stats.json and replaces the stats table in README.md.
+    """
+    if readme_path is None:
+        readme_path = PROJECT_DIR / "README.md"
+
+    if not stats_path.exists() or not readme_path.exists():
+        return
+
+    try:
+        with open(stats_path, "r") as f:
+            stats = json.load(f)
+
+        total = stats.get("total_cameras", 0)
+        ouis_found = stats.get("unique_ouis_found", 0)
+        ouis_queried = stats.get("ouis_queried", 0)
+        countries = stats.get("cameras_by_country", {})
+        regions = stats.get("cameras_by_region", {})
+        retention = stats.get("data_retention_days", 730)
+        timestamp = stats.get("scan_timestamp", "")[:10]
+
+        new_stats = (
+            "<!-- STATS_START -->\n"
+            "| Metric | Value |\n"
+            "|--------|-------|\n"
+            f"| 📸 **Cameras Mapped** | {total:,} |\n"
+            f"| 📡 **OUI Prefixes with Data** | {ouis_found} / 31 |\n"
+            f"| 🌎 **Countries** | {len(countries)} |\n"
+            f"| 🗺️ **Regions** | {len(regions)} |\n"
+            f"| 🕐 **Last Updated** | {timestamp} |\n"
+            f"| 📦 **Data Retention** | {retention} days ({retention // 365} years) |\n"
+            "<!-- STATS_END -->"
+        )
+
+        with open(readme_path, "r") as f:
+            content = f.read()
+
+        import re
+        pattern = r"<!-- STATS_START -->.*?<!-- STATS_END -->"
+        if re.search(pattern, content, re.DOTALL):
+            updated = re.sub(pattern, new_stats, content, flags=re.DOTALL)
+            with open(readme_path, "w") as f:
+                f.write(updated)
+            print(f"  [✓] README: updated stats ({total:,} cameras, {len(countries)} countries)")
+        else:
+            print("  [!] README: no STATS_START/STATS_END markers found — skipping")
+
+    except Exception as exc:
+        print(f"  [!] README update failed: {exc}")
+
+
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
@@ -699,6 +752,9 @@ def main():
     write_geojson(merged, geojson_out)
     write_csv(merged, csv_out)
     write_stats(merged, len(ouis), client.request_count, new_this_scan, stats_out)
+
+    # Update README with cumulative stats
+    update_readme(stats_out)
 
     # ── Summary ───────────────────────────────────────────────────────────────
     print()

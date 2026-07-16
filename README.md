@@ -6,6 +6,19 @@ An open-source project that queries the [WiGLE](https://wigle.net) crowdsourced 
 
 Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](https://github.com/simeononsecurity/track-openroaming-passpoint).
 
+<!-- STATS_START -->
+| Metric | Value |
+|--------|-------|
+| 📸 **Cameras Mapped** | 9,234 |
+| 📡 **OUI Prefixes with Data** | 6 / 31 |
+| 🌎 **Countries** | 92 |
+| 🗺️ **Regions** | 50 |
+| 🕐 **Last Updated** | 2026-07-16 |
+| 📦 **Data Retention** | 730 days (2 years) |
+<!-- STATS_END -->
+
+> *Stats update automatically after each scan via GitHub Actions.*
+
 ---
 
 ## 🔍 How It Works
