@@ -7,7 +7,11 @@ ALPR camera OUI prefixes. Outputs GeoJSON + CSV for the web map.
 
 Data is CUMULATIVE — each run merges new results with existing data.
 Records older than 2 years (based on lasttime) are pruned automatically.
-All pages are fetched for each OUI (full pagination).
+
+**Incremental scanning** — per-OUI state is tracked so that subsequent
+runs only request data updated since the previous successful scan (with a
+1-day overlap for safety).  Interrupted pagination (e.g. rate-limit) is
+automatically resumed on the next run.
 
 Based on research by @NitekryDPaul (promiscuous-mode OUI discovery) and
 the DeFlock project (https://www.deflock.me).
@@ -22,6 +26,7 @@ Usage:
     python3 scripts/wigle_query.py --bbox 37,-97,39,-94  # Bounding box
     python3 scripts/wigle_query.py --country US        # Country filter
     python3 scripts/wigle_query.py --dry-run           # Auth check only
+    python3 scripts/wigle_query.py --full-rescan       # Ignore saved state
 """
 
 import csv
@@ -54,10 +59,15 @@ PAGE_SIZE = 100              # WiGLE default page size
 # Data retention — discard records with lasttime older than this
 MAX_AGE_DAYS = 730           # 2 years
 
+# Safety overlap when doing incremental fetches — re-query 1 day before the
+# last successful scan to avoid missing records that arrived between scans.
+INCREMENTAL_OVERLAP_DAYS = 1
+
 # Output files
 GEOJSON_OUTPUT = DATA_DIR / "flock_cameras.geojson"
 CSV_OUTPUT = DATA_DIR / "flock_cameras.csv"
 STATS_OUTPUT = DATA_DIR / "scan_stats.json"
+SCAN_STATE_FILE = DATA_DIR / "scan_state.json"
 
 
 # ─── Flock Safety OUI List ────────────────────────────────────────────────────
@@ -86,6 +96,122 @@ FLOCK_OUIS_FALLBACK = [
     "90:35:EA", "5C:93:A2", "64:6E:69", "48:27:EA", "A4:CF:12",
     "82:6B:F2",
 ]
+
+
+# ─── Scan State Persistence ──────────────────────────────────────────────────
+
+def load_scan_state(state_path: Path = None) -> dict:
+    """
+    Load per-OUI scan state from disk.
+
+    Returns a dict keyed by OUI prefix (uppercase), e.g.:
+        {
+            "70:C9:4E": {
+                "last_completed": "2025-07-14T12:00:00+00:00",
+                "status": "completed",       # completed | interrupted
+                "search_after": null,         # pagination cursor (if interrupted)
+                "page": 0,                    # page reached (if interrupted)
+                "fetched_so_far": 0,          # results from interrupted scan
+                "since_date": "20250713"      # lastupdt value used
+            },
+            ...
+        }
+    """
+    if state_path is None:
+        state_path = SCAN_STATE_FILE
+    if not state_path.exists():
+        return {}
+    try:
+        with open(state_path, "r") as f:
+            data = json.load(f)
+        # The state file has a top-level "ouis" dict
+        return data.get("ouis", {})
+    except Exception as exc:
+        print(f"  [!] Could not load scan state: {exc}")
+        return {}
+
+
+def save_scan_state(oui_states: dict, state_path: Path = None) -> None:
+    """Persist per-OUI scan state to disk."""
+    if state_path is None:
+        state_path = SCAN_STATE_FILE
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    envelope = {
+        "updated": datetime.now(timezone.utc).isoformat(),
+        "description": "Per-OUI incremental scan state for flock-finder. "
+                       "Delete this file to force a full rescan.",
+        "ouis": oui_states,
+    }
+    with open(state_path, "w") as f:
+        json.dump(envelope, f, indent=2)
+
+
+def compute_since_date(oui_state: dict, max_age_days: int) -> str:
+    """
+    Determine the `lastupdt` filter date for a given OUI.
+
+    - If the OUI was fully completed before, use (last_completed − overlap).
+    - If the OUI scan was interrupted, reuse the same since_date that was in
+      progress (so the resumed pagination stays consistent).
+    - If no prior state, fall back to the full retention window.
+
+    Returns date string in WiGLE format: 'YYYYMMDD'
+    """
+    if not oui_state:
+        # First time — full retention window
+        cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+        return cutoff.strftime("%Y%m%d")
+
+    status = oui_state.get("status", "")
+
+    if status == "interrupted":
+        # Resume: reuse the exact same since_date so pagination is consistent
+        saved = oui_state.get("since_date", "")
+        if saved:
+            return saved
+        # Fallback if missing for some reason
+        cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+        return cutoff.strftime("%Y%m%d")
+
+    if status == "completed":
+        last_done = oui_state.get("last_completed", "")
+        if last_done:
+            try:
+                # Parse ISO format
+                dt = datetime.fromisoformat(last_done)
+                # Go back INCREMENTAL_OVERLAP_DAYS for safety
+                since = dt - timedelta(days=INCREMENTAL_OVERLAP_DAYS)
+                # But never go past the full retention window
+                floor = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+                if since < floor:
+                    since = floor
+                return since.strftime("%Y%m%d")
+            except (ValueError, TypeError):
+                pass
+
+    # Fallback — full window
+    cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+    return cutoff.strftime("%Y%m%d")
+
+
+def sort_ouis_by_priority(ouis: list, oui_states: dict) -> list:
+    """
+    Sort OUI list so that interrupted scans come first (to finish them),
+    then never-scanned OUIs, then completed OUIs sorted oldest-first.
+    This maximises useful work under daily API limits.
+    """
+    def sort_key(oui):
+        state = oui_states.get(oui.upper(), {})
+        status = state.get("status", "never")
+        if status == "interrupted":
+            return (0, "")  # Highest priority — finish what we started
+        elif status == "never" or not status:
+            return (1, "")  # Second priority — never scanned
+        else:
+            # Completed — sort oldest first so stale data gets refreshed
+            return (2, state.get("last_completed", ""))
+
+    return sorted(ouis, key=sort_key)
 
 
 # ─── WiGLE API Client ────────────────────────────────────────────────────────
@@ -165,6 +291,9 @@ class WiGLEClient:
             elif resp.status_code == 429:
                 print("  [!] 429 Rate limited — daily API quota exceeded")
                 return {"success": False, "error": "rate_limited"}
+            elif resp.status_code == 404:
+                # WiGLE returns 404 when no results match the search
+                return {"success": True, "results": [], "totalResults": 0}
             else:
                 print(f"  [!] HTTP {resp.status_code}: {resp.text[:200]}")
                 return {"success": False, "error": f"http_{resp.status_code}"}
@@ -179,19 +308,28 @@ class WiGLEClient:
 # ─── Query Logic ──────────────────────────────────────────────────────────────
 
 def query_oui(client: WiGLEClient, oui: str, country: str = None,
-              bbox: tuple = None, since_date: str = None) -> list:
+              bbox: tuple = None, since_date: str = None,
+              resume_search_after: str = None,
+              resume_page: int = 0) -> tuple:
     """
     Query WiGLE for ALL WiFi networks matching a given OUI prefix.
     Paginates through every page until no more results.
 
     Args:
         since_date: YYYYMMDD — only fetch records updated after this date
+        resume_search_after: Pagination cursor to resume from (if resuming)
+        resume_page: Page number to resume from (cosmetic, for logging)
 
-    Returns list of network dicts with location data.
+    Returns:
+        (networks, rate_limited, final_search_after, final_page)
+        - networks: list of network dicts
+        - rate_limited: bool — whether we hit the API rate limit
+        - final_search_after: last pagination cursor (for save/resume)
+        - final_page: last page number reached
     """
     networks = []
-    search_after = None
-    page = 0
+    search_after = resume_search_after
+    page = resume_page
     rate_limited = False
 
     netid_pattern = oui.upper()
@@ -217,7 +355,7 @@ def query_oui(client: WiGLEClient, oui: str, country: str = None,
         if not result.get("success", False):
             error = result.get("error", "unknown")
             if error == "rate_limited":
-                print(f"    ⚠ Rate limited after {len(networks)} results — stopping this OUI")
+                print(f"    ⚠ Rate limited after {len(networks)} results — saving state for resume")
                 rate_limited = True
                 break
             elif error == "unauthorized":
@@ -264,7 +402,7 @@ def query_oui(client: WiGLEClient, oui: str, country: str = None,
         # Rate limiting between pages
         time.sleep(RATE_LIMIT_DELAY)
 
-    return networks, rate_limited
+    return networks, rate_limited, search_after, page
 
 
 # ─── Cumulative Data Management ──────────────────────────────────────────────
@@ -607,6 +745,10 @@ def main():
         help="Don't merge with existing data — start fresh"
     )
     parser.add_argument(
+        "--full-rescan", action="store_true",
+        help="Ignore saved scan state — query the full retention window for every OUI"
+    )
+    parser.add_argument(
         "--max-age-days", type=int, default=MAX_AGE_DAYS,
         help=f"Prune records older than this many days (default: {MAX_AGE_DAYS})"
     )
@@ -617,11 +759,11 @@ def main():
     print(banner)
     print("  Flock Finder — WiGLE ALPR Camera Mapper")
     print("  OUI research: @NitekryDPaul  |  Inspired by DeFlock")
-    print("  Mode: CUMULATIVE (merge + 2-year retention)")
+    print("  Mode: CUMULATIVE (merge + incremental + 2-year retention)")
     print(banner)
 
     # ── Load credentials ──────────────────────────────────────────────────────
-    print("\n[1/6] Loading credentials…")
+    print("\n[1/7] Loading credentials…")
     load_dotenv(ENV_FILE)
 
     api_name = os.getenv("WIGLE_API_NAME")
@@ -638,14 +780,14 @@ def main():
     print(f"  API Name: {api_name[:12]}…")
 
     # ── Authenticate ──────────────────────────────────────────────────────────
-    print("\n[2/6] Authenticating with WiGLE…")
+    print("\n[2/7] Authenticating with WiGLE…")
     client = WiGLEClient(api_name, api_token)
 
     if not client.verify_auth():
         sys.exit(1)
 
     # ── Load OUI list ─────────────────────────────────────────────────────────
-    print("\n[3/6] Loading Flock Safety OUI list…")
+    print("\n[3/7] Loading Flock Safety OUI list…")
 
     if args.oui:
         ouis = [args.oui.upper()]
@@ -668,54 +810,106 @@ def main():
     if args.country:
         print(f"  Country filter: {args.country}")
 
-    # Calculate the 2-year-ago date for the WiGLE lastupdt filter
-    cutoff_date = (datetime.now(timezone.utc) - timedelta(days=args.max_age_days))
-    since_date = cutoff_date.strftime("%Y%m%d")
-    print(f"  Data retention: {args.max_age_days} days (since {cutoff_date.strftime('%Y-%m-%d')})")
+    # ── Load scan state for incremental mode ──────────────────────────────────
+    output_dir = Path(args.output_dir) if args.output_dir else DATA_DIR
+    state_path = output_dir / "scan_state.json"
+
+    print(f"\n[4/7] Loading scan state for incremental mode…")
+    if args.full_rescan:
+        oui_states = {}
+        print("  --full-rescan: ignoring saved state, querying full window")
+    else:
+        oui_states = load_scan_state(state_path)
+        if oui_states:
+            completed = sum(1 for s in oui_states.values() if s.get("status") == "completed")
+            interrupted = sum(1 for s in oui_states.values() if s.get("status") == "interrupted")
+            print(f"  [✓] Loaded state: {completed} completed, {interrupted} interrupted, "
+                  f"{len(ouis) - completed - interrupted} never scanned")
+        else:
+            print("  No prior state — first run, will do full scan for all OUIs")
+
+    # Sort OUIs: interrupted first, then never-scanned, then oldest completed
+    ouis = sort_ouis_by_priority(ouis, oui_states)
 
     if args.dry_run:
-        print("\n  [DRY RUN] Would query these OUIs:")
+        print("\n  [DRY RUN] Would query these OUIs (in priority order):")
         for oui in ouis:
-            print(f"    • {oui}")
+            state = oui_states.get(oui.upper(), {})
+            status = state.get("status", "never scanned")
+            since = compute_since_date(state, args.max_age_days)
+            label = ""
+            if status == "interrupted":
+                label = f"  ← RESUME from page {state.get('page', '?')}"
+            elif status == "completed":
+                label = f"  (incremental since {since})"
+            else:
+                label = f"  (full scan since {since})"
+            print(f"    • {oui}  [{status}]{label}")
         print(f"\n  Total: {len(ouis)} OUI prefixes")
-        print(f"  All pages will be fetched per OUI (full pagination)")
         sys.exit(0)
 
     # ── Load existing data for cumulative merge ───────────────────────────────
-    output_dir = Path(args.output_dir) if args.output_dir else DATA_DIR
     geojson_out = output_dir / "flock_cameras.geojson"
     csv_out = output_dir / "flock_cameras.csv"
     stats_out = output_dir / "scan_stats.json"
 
-    print(f"\n[4/6] Loading existing data for cumulative merge…")
+    print(f"\n[5/7] Loading existing data for cumulative merge…")
     if args.no_merge:
         existing = {}
         print("  --no-merge: starting with empty dataset")
     else:
         existing = load_existing_data(geojson_out)
 
-    # ── Query WiGLE ───────────────────────────────────────────────────────────
-    print(f"\n[5/6] Querying WiGLE for {len(ouis)} OUI prefixes (all pages)…")
+    # ── Query WiGLE (incremental + resumable) ─────────────────────────────────
+    print(f"\n[6/7] Querying WiGLE for {len(ouis)} OUI prefixes (incremental)…")
     print(f"  Rate limit: {RATE_LIMIT_DELAY}s between requests")
-    print(f"  WiGLE lastupdt filter: {since_date}")
     print()
 
     all_new_networks = []
     ouis_with_results = 0
+    ouis_skipped_rate_limit = 0
     hit_rate_limit = False
 
     for i, oui in enumerate(ouis, 1):
+        oui_key = oui.upper()
+
         if hit_rate_limit:
+            ouis_skipped_rate_limit += 1
             print(f"  [{i:2d}/{len(ouis)}] Skipping OUI {oui} — rate limited")
             continue
 
-        print(f"  [{i:2d}/{len(ouis)}] Querying OUI {oui}…")
+        # Determine incremental since_date for this OUI
+        oui_state = oui_states.get(oui_key, {})
+        since_date = compute_since_date(oui_state, args.max_age_days)
 
-        networks, was_limited = query_oui(
+        # Check if we should resume pagination
+        resume_cursor = None
+        resume_page = 0
+        status_label = "full"
+
+        if oui_state.get("status") == "interrupted":
+            resume_cursor = oui_state.get("search_after")
+            resume_page = oui_state.get("page", 0)
+            prev_fetched = oui_state.get("fetched_so_far", 0)
+            status_label = f"RESUME from page {resume_page} ({prev_fetched} prior)"
+            print(f"  [{i:2d}/{len(ouis)}] Resuming OUI {oui}  [{status_label}]  "
+                  f"(lastupdt≥{since_date})")
+        elif oui_state.get("status") == "completed":
+            status_label = "incremental"
+            print(f"  [{i:2d}/{len(ouis)}] Querying OUI {oui}  [{status_label}]  "
+                  f"(lastupdt≥{since_date})")
+        else:
+            status_label = "first scan"
+            print(f"  [{i:2d}/{len(ouis)}] Querying OUI {oui}  [{status_label}]  "
+                  f"(lastupdt≥{since_date})")
+
+        networks, was_limited, final_cursor, final_page = query_oui(
             client, oui,
             country=args.country,
             bbox=bbox,
             since_date=since_date,
+            resume_search_after=resume_cursor,
+            resume_page=resume_page,
         )
 
         if networks:
@@ -723,19 +917,45 @@ def main():
             all_new_networks.extend(networks)
             print(f"         → {len(networks)} cameras found")
         else:
-            print(f"         → no results")
+            print(f"         → no new results")
+
+        # Update per-OUI state
+        now_iso = datetime.now(timezone.utc).isoformat()
 
         if was_limited:
+            # Save interrupted state for resumption
+            prev_fetched = oui_state.get("fetched_so_far", 0) if oui_state.get("status") == "interrupted" else 0
+            oui_states[oui_key] = {
+                "status": "interrupted",
+                "search_after": final_cursor,
+                "page": final_page,
+                "fetched_so_far": prev_fetched + len(networks),
+                "since_date": since_date,
+                "interrupted_at": now_iso,
+            }
             hit_rate_limit = True
-            print("  ⚠ Rate limit hit — stopping further OUI queries")
-            print("    Re-run tomorrow to continue from where we left off")
+            print("  ⚠ Rate limit hit — state saved, will resume next run")
+        else:
+            # Completed successfully
+            oui_states[oui_key] = {
+                "status": "completed",
+                "last_completed": now_iso,
+                "search_after": None,
+                "page": final_page,
+                "fetched_so_far": 0,
+                "since_date": since_date,
+                "results_this_scan": len(networks),
+            }
+
+        # Save state after EVERY OUI so we don't lose progress on crash/kill
+        save_scan_state(oui_states, state_path)
 
         # Rate limit between OUI queries
         if i < len(ouis) and not hit_rate_limit:
             time.sleep(RATE_LIMIT_DELAY)
 
     # ── Merge + Prune ─────────────────────────────────────────────────────────
-    print(f"\n[6/6] Merging and writing output…")
+    print(f"\n[7/7] Merging and writing output…")
     print(f"  New results this scan: {len(all_new_networks)}")
 
     count_before = len(existing)
@@ -757,6 +977,9 @@ def main():
     update_readme(stats_out)
 
     # ── Summary ───────────────────────────────────────────────────────────────
+    completed = sum(1 for s in oui_states.values() if s.get("status") == "completed")
+    interrupted = sum(1 for s in oui_states.values() if s.get("status") == "interrupted")
+
     print()
     print(banner)
     print(f"  Scan Complete!")
@@ -764,10 +987,16 @@ def main():
     print(f"  Total cameras (cumulative) : {len(merged)}")
     print(f"  New this scan              : {new_this_scan}")
     print(f"  OUIs with results          : {ouis_with_results}/{len(ouis)}")
+    print(f"  OUIs completed (all-time)  : {completed}/{len(ouis)}")
+    if interrupted:
+        print(f"  OUIs interrupted           : {interrupted} (will resume next run)")
+    if ouis_skipped_rate_limit:
+        print(f"  OUIs skipped (rate limit)  : {ouis_skipped_rate_limit}")
     print(f"  API requests made          : {client.request_count}")
     if hit_rate_limit:
-        print(f"  ⚠ Rate limited             : yes (re-run tomorrow)")
+        print(f"  ⚠ Rate limited             : yes (state saved — re-run to continue)")
     print(f"  Data retention             : {args.max_age_days} days")
+    print(f"  Scan state                 : {state_path}")
     print(f"  GeoJSON                    : {geojson_out}")
     print(f"  CSV                        : {csv_out}")
     print(f"  Stats                      : {stats_out}")
@@ -775,6 +1004,11 @@ def main():
     print()
     print("  Open docs/index.html to view the interactive map.")
     print("  Or: python3 -m http.server 8080")
+    print()
+    print("  💡 Next run will be incremental — only fetching updates.")
+    print("     Use --full-rescan to force a complete re-query.")
+    if hit_rate_limit:
+        print("     Interrupted OUIs will auto-resume from where they stopped.")
 
 
 if __name__ == "__main__":

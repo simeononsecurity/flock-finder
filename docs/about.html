@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About ALPRs — Flock Finder</title>
+    <meta name="description" content="What are Automated License Plate Readers (ALPRs)? Why should you care? Research, evidence, and community resources for fighting mass vehicle surveillance.">
+
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --accent: #ff3b3b;
+            --accent-glow: rgba(255, 59, 59, 0.3);
+            --text: #e0e0e0;
+            --text-muted: #888;
+            --border: #2a2a3a;
+            --green: #00e676;
+            --yellow: #ffd600;
+            --blue: #64b5f6;
+            --purple: #b388ff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ── Header ──────────────────────────────────── */
+        header {
+            background: linear-gradient(135deg, #0d0d15 0%, #1a0a0a 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .logo h1 { font-size: 1.3rem; font-weight: 700; color: #fff; }
+        .logo h1 span { color: var(--accent); }
+
+        nav a {
+            color: var(--text-muted);
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* ── Hero ────────────────────────────────────── */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            background: radial-gradient(ellipse at center, rgba(255,59,59,0.08) 0%, transparent 70%);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .hero h2 .highlight { color: var(--accent); }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* ── Content ─────────────────────────────────── */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .section h3 .icon { margin-right: 0.5rem; }
+
+        .section h4 {
+            font-size: 1.15rem;
+            color: #fff;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .section p { margin-bottom: 1rem; }
+        .section p:last-child { margin-bottom: 0; }
+
+        /* ── Video ────────────────────────────────────── */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto 1.5rem;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+
+        .video-caption {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Blockquote ──────────────────────────────── */
+        blockquote {
+            border-left: 3px solid var(--accent);
+            margin: 1.25rem 0;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 59, 59, 0.05);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-size: 0.85rem;
+        }
+
+        /* ── Cards ────────────────────────────────────── */
+        .danger-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .danger-card {
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .danger-card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.05rem;
+        }
+
+        .danger-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ── Lists ────────────────────────────────────── */
+        .incident-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .incident-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .incident-list li:last-child { border-bottom: none; }
+        .incident-list li::before { content: "⚠️ "; }
+
+        /* ── FAQ ──────────────────────────────────────── */
+        details {
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        details summary {
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            font-weight: 700;
+            color: #fff;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        details summary::-webkit-details-marker { display: none; }
+
+        details summary::after {
+            content: "▸";
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+            color: var(--accent);
+        }
+
+        details[open] summary::after { transform: rotate(90deg); }
+
+        details .faq-body {
+            padding: 0 1.25rem 1.25rem;
+            color: var(--text-muted);
+        }
+
+        details .faq-body p { margin-bottom: 0.75rem; }
+
+        /* ── Resource grid ────────────────────────────── */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .resource-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .resource-card .resource-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.4rem;
+        }
+
+        .resource-card .resource-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── DeFlock banner ───────────────────────────── */
+        .deflock-banner {
+            background: linear-gradient(135deg, #0d1a0d 0%, #12121a 50%, #0d1a0d 100%);
+            border: 1px solid #2a4a2a;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .deflock-banner .tag {
+            display: inline-block;
+            background: rgba(0, 230, 118, 0.12);
+            border: 1px solid rgba(0, 230, 118, 0.3);
+            color: var(--green);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .deflock-banner h3 { font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
+
+        .deflock-banner p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .btn-deflock {
+            display: inline-block;
+            background: var(--green);
+            color: #000;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-deflock:hover {
+            background: #00c853;
+            box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
+            text-decoration: none;
+        }
+
+        /* ── Footer ──────────────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        /* ── Responsive ──────────────────────────────── */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.6rem; }
+            .section { padding: 1.5rem; }
+            header { padding: 0.75rem 1rem; }
+            nav a { margin-left: 0.75rem; font-size: 0.8rem; }
+            .content { padding: 0 1rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────── -->
+<header>
+    <a class="logo" href="index.html">
+        <div class="logo-icon">📡</div>
+        <h1>Flock <span>Finder</span></h1>
+    </a>
+    <nav>
+        <a href="index.html">Map</a>
+        <a href="#what-are-alprs">What are ALPRs?</a>
+        <a href="#why-care">Why Care?</a>
+        <a href="#incidents">Incidents</a>
+        <a href="#faq">FAQ</a>
+        <a href="#resources">Resources</a>
+        <a href="https://github.com/simeononsecurity/flock-finder" target="_blank">GitHub</a>
+    </nav>
+</header>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<section class="hero">
+    <h2>Your Car Is Being <span class="highlight">Tracked</span></h2>
+    <p>
+        Automated License Plate Readers are mass surveillance cameras that record every vehicle
+        that passes — whether or not you're suspected of a crime. Here's what you need to know.
+    </p>
+</section>
+
+<!-- ── Content ─────────────────────────────────────────────── -->
+<div class="content">
+
+    <!-- ── What are ALPRs? ──────────────────────────────── -->
+    <section class="section" id="what-are-alprs">
+        <h3><span class="icon">📸</span> What Are ALPRs?</h3>
+
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/vWj26RIlN_I?si=l4A3SK9oAYiJW5k3"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p class="video-caption">Video explanation of modern LPRs by Christophe</p>
+
+        <p>
+            Automated License Plate Readers (ALPRs or LPRs) are AI-powered cameras that capture
+            and analyze images of <strong>all passing vehicles</strong>, storing details like your car's
+            <strong>location, date, and time</strong>. They also capture your car's <strong>make, model,
+            color</strong>, and <strong>identifying features</strong> such as dents, roof racks, and bumper
+            stickers, often turning these into <strong>searchable data points</strong>.
+        </p>
+        <p>
+            These cameras collect data on millions of vehicles <strong>regardless of whether the driver
+            is suspected of a crime</strong>. These systems are marketed as indispensable tools to fight crime,
+            but they ignore the powerful tools police already have to track criminals, such as cell phone
+            location data, <strong>creating a loophole that doesn't require a warrant</strong>.
+        </p>
+        <p>
+            For a detailed explanation of how ALPRs are a threat to privacy, see this
+            <a href="https://www.aclu.org/issues/privacy-technology/you-are-being-tracked" target="_blank">ACLU article</a>
+            as well as this
+            <a href="https://sls.eff.org/technologies/automated-license-plate-readers-alprs" target="_blank">EFF article</a>
+            on ALPRs.
+        </p>
+    </section>
+
+    <!-- ── Why Should You Be Concerned? ─────────────────── -->
+    <section class="section" id="why-care">
+        <h3><span class="icon">🚨</span> Why Should You Be Concerned?</h3>
+        <p>ALPRs invade your privacy and violate your civil liberties. Here's how:</p>
+
+        <div class="danger-grid">
+            <div class="danger-card">
+                <h4>📊 Unproven Effectiveness</h4>
+                <p>No independent research proves ALPRs reduce crime. Studies claiming otherwise
+                are often produced by the companies selling them and the agencies buying them.</p>
+            </div>
+            <div class="danger-card">
+                <h4>🔓 Security Failures</h4>
+                <p>ALPR vendors have a history of poor security — leaked credentials, exposed live feeds,
+                and misconfigured systems putting your data at risk.</p>
+            </div>
+            <div class="danger-card">
+                <h4>👁️ Mass Surveillance</h4>
+                <p>Less than 0.3% of ALPR scans result in useful leads. The other 99.7% is bulk surveillance
+                of innocent people's movements stored indefinitely.</p>
+            </div>
+            <div class="danger-card">
+                <h4>⚖️ Discrimination</h4>
+                <p>ALPRs disproportionately surveil communities of color. In Oak Park, IL, 84% of
+                Flock-triggered stops targeted Black drivers in the first 10 months.</p>
+            </div>
+        </div>
+
+        <h4>ALPRs Do Not Reduce Crime</h4>
+        <p>
+            Flock Safety claims that
+            <a href="https://www.flocksafety.com/articles/10-of-reported-crime-in-the-u-s-is-solved-using-flock-technology" target="_blank">10% of Reported Crime in the U.S. Is Solved Using Flock Technology</a>.
+            The study that Flock cites was conducted by two Flock employees and "given legitimacy with the
+            'oversight' of two academic researchers whose names are also on the paper" according to
+            <a href="https://www.404media.co/researcher-who-oversaw-flock-surveillance-study-now-has-concerns-about-it/" target="_blank">a report by 404 Media</a>.
+            Flock Safety is using the veneer of an academic study as part of its sales pitch.
+        </p>
+
+        <blockquote>
+            Our findings indicate that, when small numbers of LPR patrols are used in crime hot spots
+            in the way we have tested them here, they do not seem to generate either a general or offense-specific
+            deterrent effect.
+            <cite>— <a href="https://link.springer.com/article/10.1007/s11292-011-9133-9" target="_blank">Journal of Experimental Criminology</a></cite>
+        </blockquote>
+
+        <blockquote>
+            There is not even a moderate degree of correlation between ALPRs and stolen vehicle recoveries,
+            let alone any apparent causality.
+            <cite>— <a href="https://www.independent.org/publications/article.asp?id=13893" target="_blank">Automated License Plate Readers: A Study in Failure</a></cite>
+        </blockquote>
+
+        <h4>ALPRs Are a Major Security Risk</h4>
+        <p>
+            Companies that make ALPRs have a history of poor security practices, which can lead to data
+            breaches and unauthorized access to sensitive information:
+        </p>
+        <ul class="incident-list">
+            <li>
+                <strong>Nov 2025:</strong> A security researcher found
+                <a href="https://www.404media.co/flock-logins-exposed-in-malware-infections-senator-asks-ftc-to-investigate-the-company/" target="_blank">Flock logins for sale on Russian hacking forums</a>,
+                since Flock negligently doesn't require multifactor authentication — an alleged violation
+                of federal law and industry standard security practices.
+            </li>
+            <li>
+                <strong>Jan 2025:</strong> Motorola Solutions' ALPR system was
+                <a href="https://www.404media.co/researcher-turns-insecure-license-plate-cameras-into-open-source-surveillance-tool/" target="_blank">found to have a critical security flaw</a>
+                that allowed anyone to access live data from their cameras. Data includes
+                <strong>license plate numbers, make, model, color, and timestamps</strong>. A
+                <strong>live feed</strong> of both cameras (color and infrared) was also available to
+                stream using a web browser.
+            </li>
+            <li>
+                <strong>Jul 2025:</strong> Flock Safety
+                <a href="https://nexanet.ai/blog/misconfigured-demo-exposed-flock-safetys-83000-camera-nationwide-tracking-system" target="_blank">exposed a misconfigured demo site</a>
+                that included their internal search interface and source code revealing confidence score
+                calculations, plus a live ArcGIS admin API key with access to over 50 private data layers.
+            </li>
+        </ul>
+
+        <h4>ALPRs Are Dragnet Surveillance</h4>
+        <p>
+            See <a href="https://en.wikipedia.org/wiki/Dragnet_(policing)" target="_blank">Dragnet (Policing)</a>
+            on Wikipedia.
+        </p>
+        <p>
+            A study of ALPRs in Piedmont, CA found that <strong>less than 0.3%</strong> of ALPR hits might
+            translate into a useful investigative lead. Most license plates recorded were not on any hot list,
+            yet police still logged information on people's movements throughout the day.
+        </p>
+        <p>
+            You can verify this yourself through Flock's own transparency portals:
+        </p>
+        <ul class="incident-list" style="list-style:none;">
+            <li style="padding:0.4rem 0;">📊 <a href="https://transparency.flocksafety.com/oak-park-il-pd" target="_blank">Oak Park, IL Transparency Portal</a></li>
+            <li style="padding:0.4rem 0;">📊 <a href="https://transparency.flocksafety.com/vallejo-ca-pd" target="_blank">Vallejo, CA Transparency Portal</a></li>
+        </ul>
+    </section>
+
+    <!-- ── Documented Incidents ──────────────────────────── -->
+    <section class="section" id="incidents">
+        <h3><span class="icon">⚠️</span> Documented Misuse &amp; Harm</h3>
+        <p>
+            There are many documented cases where police have knowingly used ALPRs to commit crimes and
+            put people in danger. It's often only after harm is done that an officer is caught and punished, if at all.
+        </p>
+
+        <h4>Stalking &amp; Abuse of Power</h4>
+        <ul class="incident-list">
+            <li><a href="https://www.404media.co/a-texas-cop-searched-license-plate-cameras-nationwide-for-a-woman-who-got-an-abortion/" target="_blank">Texas police used Flock ALPRs to track a woman who had an abortion across state lines</a></li>
+            <li><a href="https://www.kwch.com/2022/10/31/kechi-police-lieutenant-arrested-using-police-technology-stalk-wife/" target="_blank">A police officer used Flock Safety ALPRs to stalk his estranged wife in Kechi, KS</a></li>
+            <li><a href="https://apnews.com/general-news-699236946e3140659fff8a2362e16f43" target="_blank">A police officer accepted a bribe to run a woman's license plate in Georgia</a></li>
+            <li><a href="https://apnews.com/general-news-699236946e3140659fff8a2362e16f43" target="_blank">A police officer used ALPRs to stalk his ex-girlfriend in Ohio</a></li>
+            <li><a href="https://information.auditor.ca.gov/pdfs/reports/2019-118.pdf" target="_blank">California agencies keeping data longer than necessary and sharing it with unauthorized agencies</a></li>
+            <li><a href="https://inewsource.org/2022/01/06/police-share-license-plate-data/" target="_blank">Police in San Diego County breaking the law sharing drivers' data</a></li>
+        </ul>
+
+        <h4>Dangerous Police Encounters from ALPR Errors</h4>
+        <p>
+            The negligent use of ALPRs has led to dangerous police encounters, including pulling guns on
+            innocent drivers:
+        </p>
+        <ul class="incident-list">
+            <li><a href="https://www.aclu.org/blog/privacy-technology/location-tracking/san-francisco-woman-pulled-out-car-gunpoint-because" target="_blank">San Francisco woman pulled out of car at gunpoint because of license plate reader error</a></li>
+            <li><a href="https://gizmodo.com/cops-terrorize-black-family-but-blame-license-plate-rea-1844602731" target="_blank">Cops terrorize Black family but blame license plate reader for misidentifying 'stolen' vehicle</a></li>
+            <li><a href="https://www.techdirt.com/2019/02/20/deputies-sued-after-false-alpr-hit-leads-to-guns-out-traffic-stop-california-privacy-activist/" target="_blank">Deputies sued after false ALPR hit leads to guns-out traffic stop of California privacy activist</a></li>
+            <li><a href="https://www.ktvu.com/news/privacy-advocate-sues-coco-sheriffs-deputies-after-license-plate-readers-target-his-car-stolen" target="_blank">Privacy advocate sues CoCo sheriff's deputies after license plate readers target his car stolen</a></li>
+            <li><a href="https://denverite.com/2025/10/27/bow-mar-flock-cameras-accusation/" target="_blank">A Denver woman had to prove her innocence</a> after incompetent detectives relied on Flock cameras to pin a $25 package theft on her.</li>
+        </ul>
+
+        <h4>ALPRs Result in Racist Policing</h4>
+        <p>
+            ALPRs are more likely to surveil communities with a higher density of Black and brown people,
+            reinforcing systemic racism in policing.
+        </p>
+        <p>
+            The Electronic Frontier Foundation
+            <a href="https://www.eff.org/deeplinks/2015/01/what-we-learned-oakland-raw-alpr-data" target="_blank">reviewed the use of ALPRs by the Oakland Police Department</a>
+            and found that ALPR cameras were more likely to scan license plates in communities with a higher
+            density of Black and brown people.
+        </p>
+        <p>
+            <a href="https://www.ap.org/ap-in-the-news/2012/with-cameras-informants-nypd-eyed-mosques" target="_blank">A report by The Associated Press</a>
+            shows that after 9/11, the NYPD used ALPRs to monitor Muslims visiting mosques.
+        </p>
+        <p>A study of Flock Safety's impact in Oak Park, IL found:</p>
+        <blockquote>
+            In the first 10 months of their use, 84% of the drivers stopped by Oak Park police because of Flock were Black.
+            <cite>— <a href="https://www.freedomtothriveop.com/blog/zine-analyzes-flock-alpr-cameras-in-oak-park-il" target="_blank">Freedom to Thrive Oak Park</a></cite>
+        </blockquote>
+
+        <h4>ALPRs Put Undocumented People at Risk</h4>
+        <p>
+            Police agencies frequently share ALPR data with ICE, putting undocumented people at risk,
+            even in states where this is legally prohibited:
+        </p>
+        <ul class="incident-list">
+            <li><a href="https://www.404media.co/ice-taps-into-nationwide-ai-enabled-camera-network-data-shows/" target="_blank">ICE taps into Flock's nationwide camera network, data shows</a></li>
+            <li><a href="https://www.latimes.com/business/technology/story/2020-12-21/pasadena-long-beach-police-ice-automated-license-plate-reader-data" target="_blank">Police in Pasadena, Long Beach pledged not to send plate data to ICE. They shared it anyway.</a></li>
+            <li><a href="https://www.aclu-il.org/en/press-releases/ice-targeting-immigrants-based-automatic-license-plate-reader-alpr-data-supplied" target="_blank">Documents reveal ICE using driver location data from local police for deportations</a></li>
+            <li><a href="https://www.nwpb.org/2022/12/22/new-report-finds-data-sharing-with-federal-immigration-agencies-might-violate-washington-law/" target="_blank">New report finds data sharing with federal immigration agencies might violate Washington law</a></li>
+        </ul>
+    </section>
+
+    <!-- ── FAQ ──────────────────────────────────────────── -->
+    <section class="section" id="faq">
+        <h3><span class="icon">❓</span> Frequently Asked Questions</h3>
+
+        <details open>
+            <summary>Are ALPRs a necessary tool for police?</summary>
+            <div class="faq-body">
+                <p>No. Police have always had methods to obtain location information for suspects of crimes. These methods used to require establishing probable cause and obtaining a search warrant, which provides oversight and accountability as required by the 4th Amendment. ALPRs, on the other hand, collect location data on all of us, and they are searched without any warrants or oversight.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Why should I care if I have nothing to hide?</summary>
+            <div class="faq-body">
+                <p><strong>1. You don't get to decide what looks suspicious tomorrow.</strong></p>
+                <p>Just because you're not doing anything wrong today doesn't mean you won't be watched tomorrow. License plate cameras don't know your intentions — only your movements. A trip to a protest, a friend's house in a "high-crime" area, or even a misread plate can flag you as "suspicious."</p>
+                <p>As history has shown, when governments gain unchecked surveillance powers, they're eventually used against people who weren't doing anything wrong — <strong>until someone decided they were</strong>. For example, until early in 2025, ALPRs weren't used for tracking immigrants, legal or otherwise, but <strong>now they are</strong>, despite policies prohibiting it.</p>
+                <p><strong>2. Mistakes happen, and you're the one who pays for them.</strong></p>
+                <p>ALPRs are not always accurate. People have been pulled over at gunpoint, arrested, or detained because a camera misread a plate or flagged the wrong car. If you "have nothing to hide," you also have nothing to correct the record with when a machine error points the finger at you.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Do these cameras only record vehicles involved in crimes?</summary>
+            <div class="faq-body">
+                <p><strong>No, ALPRs record all vehicles that pass by</strong>, not just those involved in crimes. They capture license plates, unique identifying features, locations, dates, and times of every vehicle, regardless of whether the driver is suspected of wrongdoing. This means even if you're not doing anything wrong, your movements are still being tracked and stored, often for long periods of time.</p>
+                <p>Additionally, the data can be shared with other law enforcement agencies and third parties, further extending the reach of this surveillance.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Do police need a warrant to search these cameras?</summary>
+            <div class="faq-body">
+                <p><strong>No, police do not need a warrant to search these cameras.</strong> The data collected by ALPRs is owned by the police department, and law enforcement agencies can access it without a warrant. There is often <strong>no oversight at all</strong> on how these searches are conducted, <a href="https://ij.org/case/norfolk-virginia-camera-surveillance/" target="_blank">raising concerns about their constitutionality under the Fourth Amendment</a>.</p>
+                <p>Some agencies have implemented policies, but <strong>these policies are meaningless</strong>, as most agencies have opted into an extensive data sharing network that allows other agencies to access their data without the same restrictions, with <strong>tens of thousands of national searches</strong> occurring daily.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>What oversight is there for these systems?</summary>
+            <div class="faq-body">
+                <p><strong>There is little to no oversight for these systems.</strong> While some police departments have implemented policies regarding ALPR use, they are often weak and poorly enforced. Many agencies have no policies at all.</p>
+                <p>While Flock offers a transparency portal for their customers, they allow customers to cherry-pick what information is included or excluded. They also lack meaningful data, often <a href="https://www.9news.com/article/news/local/denver-city-councilmembers-police-department-audit-license-plate-camera-data-usage/73-3777d34d-7723-4397-af37-716a6db6ebd9" target="_blank">underreporting the number of agencies with access</a>.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Can Flock be trusted to keep our data safe?</summary>
+            <div class="faq-body">
+                <p>Absolutely not. In November 2025, <a href="https://www.404media.co/flock-logins-exposed-in-malware-infections-senator-asks-ftc-to-investigate-the-company/" target="_blank">Flock logins were found for sale on Russian hacking forums</a> since Flock negligently doesn't require multifactor authentication.</p>
+                <p>Flock has also been caught lying on the record. Their CEO <a href="https://youtu.be/aMfO7D-f7U0?si=23FNwA91zVTwxb02&t=898" target="_blank">claimed Flock had no federal contracts</a>, but weeks later, <a href="https://www.9news.com/article/news/local/flock-federal-immigration-agents-access-tracking-data/73-a8aee742-56d4-4a57-b5bb-0373286dfef8" target="_blank">9News discovered</a> that Border Patrol actually had access to Flock's systems.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How can I get these cameras out of my city/town?</summary>
+            <div class="faq-body">
+                <p>Several cities have killed ALPR contracts, such as <a href="https://www.denver7.com/news/local-news/denver-city-council-rejects-contract-expansion-for-license-plate-recognition-cameras-in-the-city" target="_blank">Denver</a> and <a href="https://eff.org/deeplinks/2025/06/victory-austin-organizers-cancel-citys-flock-alpr-contract" target="_blank">Austin</a>. An effective strategy is to raise concerns in your community, build a group of advocates, and petition the city council not to extend the contract.</p>
+                <p>Check <a href="https://deflock.org" target="_blank">DeFlock</a> for local groups and upcoming meetings near you.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- ── DeFlock Banner ───────────────────────────────── -->
+    <section class="deflock-banner" id="deflock">
+        <div class="tag">🛡️ Community Partner</div>
+        <h3>DeFlock — Fighting ALPR Surveillance</h3>
+        <p>
+            <a href="https://deflock.org" target="_blank" style="color:var(--green);">DeFlock</a>
+            is a community-driven project dedicated to tracking, documenting, and raising awareness about
+            ALPR surveillance infrastructure. Much of the research and information on this page comes from
+            their work. Visit their site to learn more, submit camera locations, and get involved.
+        </p>
+        <a href="https://deflock.org" target="_blank" class="btn-deflock">Visit DeFlock.org →</a>
+    </section>
+
+    <!-- ── How Flock Finder Works ───────────────────────── -->
+    <section class="section" id="how-it-works">
+        <h3><span class="icon">🔬</span> How Flock Finder Works</h3>
+        <p>
+            <strong>Flock Safety</strong> ALPR cameras have WiFi transceivers that periodically wake to
+            upload captured license plate data. These transmissions use MAC addresses with identifiable
+            <strong>OUI</strong> (Organizationally Unique Identifier) prefixes.
+        </p>
+        <p>
+            <strong><a href="https://github.com/NitekryDPaul" target="_blank">@NitekryDPaul</a></strong>
+            discovered 30 of these OUI prefixes through promiscuous-mode 2.4 GHz analysis. A 31st was
+            contributed by <strong>Michael / <a href="https://github.com/DeflockJoplin/flock-you" target="_blank">DeFlockJoplin</a></strong>
+            during field testing in Joplin, MO.
+        </p>
+        <p>
+            This project takes those 31 known OUI prefixes, queries the
+            <a href="https://wigle.net" target="_blank">WiGLE</a> crowdsourced WiFi database for matching networks,
+            and displays camera locations on an <a href="index.html">interactive map</a>.
+        </p>
+    </section>
+
+    <!-- ── Similar Projects / Resources ─────────────────── -->
+    <section class="section" id="resources">
+        <h3><span class="icon">🔗</span> Similar Projects &amp; Resources</h3>
+        <p>Explore other initiatives working to protect privacy and track surveillance infrastructure.</p>
+
+        <div class="resource-grid">
+            <a class="resource-card" href="https://deflock.org" target="_blank">
+                <div class="resource-name">🛡️ DeFlock</div>
+                <div class="resource-desc">Community-driven ALPR tracking, documentation, and awareness. Submit camera locations, find groups, and explore surveillance data.</div>
+            </a>
+            <a class="resource-card" href="https://haveibeenflocked.com" target="_blank">
+                <div class="resource-name">🔍 Have I Been Flocked?</div>
+                <div class="resource-desc">See if your license plate has been searched in Flock's system, as well as concerning trends in Flock usage.</div>
+            </a>
+            <a class="resource-card" href="https://dontgetflocked.com" target="_blank">
+                <div class="resource-name">🗺️ FlockHopper</div>
+                <div class="resource-desc">Get directions that avoid ALPR cameras, and see how many are normally on your route.</div>
+            </a>
+            <a class="resource-card" href="https://alpr.watch/" target="_blank">
+                <div class="resource-name">📅 Upcoming Meetings</div>
+                <div class="resource-desc">Find upcoming public meetings related to ALPR deployments in your area.</div>
+            </a>
+            <a class="resource-card" href="https://eyesonflock.com" target="_blank">
+                <div class="resource-name">👁️ Eyes On Flock</div>
+                <div class="resource-desc">Dashboard for tracking Flock usage patterns, including total cameras &amp; top search reasons.</div>
+            </a>
+            <a class="resource-card" href="https://alprwatch.org/flock/suspected-locations/" target="_blank">
+                <div class="resource-name">📍 Suspected Locations</div>
+                <div class="resource-desc">Map of locations where ALPRs may be, based on 811 locate requests, FOIA, and other sources.</div>
+            </a>
+            <a class="resource-card" href="https://alprwatch.org/flock/map" target="_blank">
+                <div class="resource-name">🆕 Recent Submissions</div>
+                <div class="resource-desc">Explore recently added Flock cameras in the US.</div>
+            </a>
+            <a class="resource-card" href="https://atlasofsurveillance.org/atlas" target="_blank">
+                <div class="resource-name">🗺️ Atlas of Surveillance (EFF)</div>
+                <div class="resource-desc">EFF's comprehensive database of surveillance technologies used by law enforcement.</div>
+            </a>
+            <a class="resource-card" href="https://plateprivacy.com" target="_blank">
+                <div class="resource-name">📊 Plate Privacy (IJ)</div>
+                <div class="resource-desc">The Institute for Justice's site analyzing ALPR usage patterns in the US.</div>
+            </a>
+            <a class="resource-card" href="https://www.noalprs.com" target="_blank">
+                <div class="resource-name">🚫 NoALPRs.com</div>
+                <div class="resource-desc">Resources and advocacy for communities fighting ALPR deployments.</div>
+            </a>
+            <a class="resource-card" href="https://github.com/DeflockJoplin/flock-you" target="_blank">
+                <div class="resource-name">🐦 DeFlockJoplin</div>
+                <div class="resource-desc">Open-source Flock camera detection firmware and field research. Contributed the 31st OUI prefix.</div>
+            </a>
+            <a class="resource-card" href="https://github.com/simeononsecurity/track-openroaming-passpoint" target="_blank">
+                <div class="resource-name">📡 Track OpenRoaming Passpoint</div>
+                <div class="resource-desc">Sister project by the Flock Finder author — mines WiGLE data for OpenRoaming Passpoint hotspots.</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ── Take Action ──────────────────────────────────── -->
+    <section class="section" id="take-action">
+        <h3><span class="icon">✊</span> Take Action</h3>
+        <div class="danger-grid">
+            <div class="danger-card">
+                <h4>🗺️ Explore the Map</h4>
+                <p>Use the <a href="index.html">Flock Finder map</a> to see if surveillance cameras
+                are deployed in your area. Share the data with your community.</p>
+            </div>
+            <div class="danger-card">
+                <h4>📢 Attend Public Meetings</h4>
+                <p>Many ALPR deployments happen without community input. Check
+                <a href="https://alpr.watch/" target="_blank">ALPR Watch</a> for upcoming meetings near you.</p>
+            </div>
+            <div class="danger-card">
+                <h4>📝 File FOIA Requests</h4>
+                <p>Use public records requests to learn how your local police use ALPRs, who they share
+                data with, and how long they retain it.</p>
+            </div>
+            <div class="danger-card">
+                <h4>💻 Contribute</h4>
+                <p>Flock Finder is open source. Help on
+                <a href="https://github.com/simeononsecurity/flock-finder" target="_blank">GitHub</a> or
+                <a href="https://deflock.org" target="_blank">submit cameras to DeFlock</a>.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+    <p>
+        <strong>Flock Finder</strong> — Open-source ALPR surveillance mapping<br>
+        Made by <a href="https://simeononsecurity.com" target="_blank">@simeononsecurity</a> &nbsp;|&nbsp;
+        Sponsored by <a href="https://stscollective.com" target="_blank">STSCollective</a>
+    </p>
+    <p style="margin-top:0.5rem;">
+        OUI research: <a href="https://github.com/NitekryDPaul">@NitekryDPaul</a> &nbsp;|&nbsp;
+        Data: <a href="https://wigle.net">WiGLE</a>
+    </p>
+    <p style="margin-top:0.5rem;">
+        <a href="index.html">Map</a> &nbsp;|&nbsp;
+        <a href="https://deflock.org">DeFlock.org</a> &nbsp;|&nbsp;
+        <a href="https://github.com/simeononsecurity/flock-finder">GitHub</a> &nbsp;|&nbsp;
+        <a href="https://github.com/DeflockJoplin/flock-you">DeFlockJoplin</a> &nbsp;|&nbsp;
+        <a href="https://www.noalprs.com">NoALPRs.com</a>
+    </p>
+    <p style="margin-top:1rem; font-size:0.8rem;">
+        Much of the ALPR research and documentation on this page is sourced from
+        <a href="https://deflock.org">DeFlock.org</a> — a community resource for ALPR awareness.<br>
+        Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors
+    </p>
+</footer>
+
+</body>
+</html>

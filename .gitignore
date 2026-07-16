@@ -24,6 +24,9 @@ venv/
 *~
 .DS_Store
 
+# Scan state (local incremental scan checkpoints — not shared)
+data/scan_state.json
+
 # Logs
 *.log
 
