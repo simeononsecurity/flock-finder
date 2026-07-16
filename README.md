@@ -6,6 +6,8 @@ An open-source project that queries the [WiGLE](https://wigle.net) crowdsourced 
 
 Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](https://github.com/simeononsecurity/track-openroaming-passpoint).
 
+[![Dependency Graph](https://github.com/simeononsecurity/flock-finder/actions/workflows/dependabot/update-graph/badge.svg)](https://github.com/simeononsecurity/flock-finder/actions/workflows/dependabot/update-graph) [![pages-build-deployment](https://github.com/simeononsecurity/flock-finder/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/simeononsecurity/flock-finder/actions/workflows/pages/pages-build-deployment) [![Update Flock Camera Data](https://github.com/simeononsecurity/flock-finder/actions/workflows/update-data.yml/badge.svg)](https://github.com/simeononsecurity/flock-finder/actions/workflows/update-data.yml)
+
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
