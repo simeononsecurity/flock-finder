@@ -52,7 +52,7 @@ Combined with wildcard probe request detection (802.11 management frames type=0 
 
 ```bash
 # Clone the repo
-git clone https://github.com/dagnazty/flock-finder.git
+git clone https://github.com/simeononsecurity/flock-finder.git
 cd flock-finder
 
 # Install dependencies

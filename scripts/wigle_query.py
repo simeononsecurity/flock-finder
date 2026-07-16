@@ -98,7 +98,7 @@ class WiGLEClient:
         self.session.auth = (api_name, api_token)
         self.session.headers.update({
             "Accept": "application/json",
-            "User-Agent": "flock-finder/1.0 (https://github.com/dagnazty/flock-finder)",
+            "User-Agent": "flock-finder/1.0 (https://github.com/simeononsecurity/flock-finder)",
         })
         self.request_count = 0
 
