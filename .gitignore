@@ -1,0 +1,32 @@
+# API keys and secrets
+.env
+.env.local
+.env.production
+!.env.example
+secrets/
+api_key.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary
+tmp/
+temp/

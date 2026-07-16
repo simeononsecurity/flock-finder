@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flock Finder — Map Surveillance Cameras Near You</title>
+    <meta name="description" content="An open-source project mapping Flock Safety ALPR license plate reader cameras using WiGLE WiFi data and OUI fingerprinting.">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --accent: #ff3b3b;
+            --accent-glow: rgba(255, 59, 59, 0.3);
+            --text: #e0e0e0;
+            --text-muted: #888;
+            --border: #2a2a3a;
+            --green: #00e676;
+            --yellow: #ffd600;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── Header ──────────────────────────────────── */
+        header {
+            background: linear-gradient(135deg, #0d0d15 0%, #1a0a0a 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .logo h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .logo h1 span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* ── Hero ────────────────────────────────────── */
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            background: radial-gradient(ellipse at center, rgba(255,59,59,0.08) 0%, transparent 70%);
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .stat-banner {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            min-width: 160px;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Map ─────────────────────────────────────── */
+        #map-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        #map {
+            width: 100%;
+            height: 65vh;
+            min-height: 400px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            z-index: 1;
+        }
+
+        .map-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.75rem 0;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .map-controls input[type="text"] {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            width: 300px;
+        }
+
+        .map-controls input[type="text"]::placeholder {
+            color: var(--text-muted);
+        }
+
+        .btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            background: #ff5252;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 59, 59, 0.1);
+        }
+
+        /* ── Info Sections ───────────────────────────── */
+        .sections {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .info-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .info-section h3 .icon { margin-right: 0.5rem; }
+
+        .danger-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .danger-card {
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .danger-card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .danger-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .oui-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .oui-table th, .oui-table td {
+            padding: 0.5rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .oui-table th {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .oui-table tr:hover td {
+            background: var(--bg-card-hover);
+        }
+
+        /* ── Footer ──────────────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+
+        /* ── Leaflet popup override ──────────────────── */
+        .leaflet-popup-content-wrapper {
+            background: var(--bg-card) !important;
+            color: var(--text) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 8px !important;
+        }
+        .leaflet-popup-tip {
+            background: var(--bg-card) !important;
+        }
+        .leaflet-popup-content {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .leaflet-popup-content strong {
+            color: var(--accent);
+        }
+
+        /* Cluster overrides */
+        .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large {
+            background: rgba(255, 59, 59, 0.25) !important;
+        }
+        .marker-cluster-small div, .marker-cluster-medium div, .marker-cluster-large div {
+            background: var(--accent) !important;
+            color: #fff !important;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.5rem; }
+            .stat-banner { gap: 1rem; }
+            .stat-box { min-width: 120px; padding: 0.75rem 1rem; }
+            .map-controls input[type="text"] { width: 100%; }
+            header { padding: 0.75rem 1rem; }
+            nav a { margin-left: 0.75rem; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────── -->
+<header>
+    <div class="logo">
+        <div class="logo-icon">📡</div>
+        <h1>Flock <span>Finder</span></h1>
+    </div>
+    <nav>
+        <a href="#map-container">Map</a>
+        <a href="#about">About ALPRs</a>
+        <a href="#oui-data">OUI Data</a>
+        <a href="https://github.com/dagnazty/flock-finder" target="_blank">GitHub</a>
+    </nav>
+</header>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<section class="hero">
+    <h2>Map Surveillance Cameras Near You</h2>
+    <p>An open-source project mapping Flock Safety ALPR license plate readers using WiGLE WiFi data and OUI fingerprinting research by <strong>@NitekryDPaul</strong>.</p>
+
+    <div class="stat-banner">
+        <div class="stat-box">
+            <div class="number" id="total-cameras">—</div>
+            <div class="label">Cameras Mapped</div>
+        </div>
+        <div class="stat-box">
+            <div class="number" id="total-ouis">31</div>
+            <div class="label">Known OUI Prefixes</div>
+        </div>
+        <div class="stat-box">
+            <div class="number" id="total-regions">—</div>
+            <div class="label">Regions Covered</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Map ─────────────────────────────────────────────────── -->
+<div id="map-container">
+    <div class="map-controls">
+        <input type="text" id="search-input" placeholder="🔍 Search by city, state, or BSSID…">
+        <div>
+            <button class="btn btn-outline" onclick="locateMe()">📍 My Location</button>
+            <button class="btn" onclick="resetMap()">🗺️ Reset View</button>
+        </div>
+    </div>
+    <div id="map"></div>
+    <p style="text-align:right;color:var(--text-muted);font-size:0.75rem;margin-top:0.5rem;">
+        Data: <a href="https://wigle.net" target="_blank" style="color:var(--accent)">WiGLE</a> &nbsp;|&nbsp;
+        Map: © <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--accent)">OpenStreetMap</a> contributors &nbsp;|&nbsp;
+        Last updated: <span id="last-updated">—</span>
+    </p>
+</div>
+
+<!-- ── About ALPRs ────────────────────────────────────────── -->
+<div class="sections">
+    <section class="info-section" id="about">
+        <h3><span class="icon">📸</span> What are ALPRs?</h3>
+        <p>
+            Automated License Plate Readers (ALPRs or LPRs) are AI-powered cameras that capture
+            and analyze images of <strong>all</strong> passing vehicles, storing details like your car's location,
+            date, and time. They also capture your car's make, model, color, and identifying features
+            such as dents, roof racks, and bumper stickers — often turning these into searchable data points.
+        </p>
+        <p style="margin-top:1rem;">
+            These cameras collect data on <strong>millions of vehicles</strong> regardless of whether the driver
+            is suspected of a crime. Data is shared across thousands of law enforcement agencies nationwide,
+            often without warrants, oversight, or transparency.
+        </p>
+
+        <div class="danger-grid">
+            <div class="danger-card">
+                <h4>🔒 Privacy Violations</h4>
+                <p>ALPRs track your movements and store data for extended periods, creating a detailed
+                record of your location history without your knowledge or consent.</p>
+            </div>
+            <div class="danger-card">
+                <h4>⚠️ Risk of Misuse</h4>
+                <p>Data from ALPRs has led to wrongful arrests, racial profiling, and cases of
+                officers stalking ex-partners. Once collected, there's little oversight.</p>
+            </div>
+            <div class="danger-card">
+                <h4>📊 Limited Benefits</h4>
+                <p>No substantial evidence proves ALPRs effectively prevent crime. They ignore
+                existing tools police already have, like cell phone location data with warrants.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <h3><span class="icon">🐦</span> What is Flock Safety?</h3>
+        <p>
+            <strong>Flock Safety</strong> is one of the largest ALPR vendors in the United States.
+            Their cameras are installed for police departments, businesses, and HOAs. Captured vehicle
+            data is uploaded to Flock's cloud system, where participating agencies can search and share
+            information across jurisdictions — often secretly and without community approval.
+        </p>
+        <p style="margin-top:1rem;">
+            This project identifies Flock cameras through their <strong>WiFi radio signatures</strong>.
+            Every Flock camera has a WiFi transceiver that periodically wakes to upload data. These
+            transmissions use MAC addresses with identifiable OUI (Organizationally Unique Identifier)
+            prefixes — discovered through promiscuous-mode 2.4 GHz research by <strong>@NitekryDPaul</strong>.
+        </p>
+    </section>
+
+    <section class="info-section" id="oui-data">
+        <h3><span class="icon">📡</span> Flock Safety WiFi OUI Fingerprints</h3>
+        <p>
+            These 31 OUI prefixes were identified by <strong>@NitekryDPaul</strong> through promiscuous-mode
+            analysis of Flock camera WiFi traffic. The 31st prefix (<code>82:6B:F2</code>) was contributed
+            by <strong>Michael / DeFlockJoplin</strong> during field testing.
+        </p>
+        <div style="max-height: 400px; overflow-y: auto; margin-top: 1rem;">
+            <table class="oui-table" id="oui-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>OUI Prefix</th>
+                        <th>Source</th>
+                        <th>Cameras Found</th>
+                    </tr>
+                </thead>
+                <tbody id="oui-table-body">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <h3><span class="icon">🔬</span> Detection Method</h3>
+        <p>
+            Flock cameras spend most of their duty cycle asleep, waking briefly to upload captured
+            plate data. During sleep windows, a passive sniffer can still see them named as the
+            <strong>destination</strong> (addr1) of probe responses and data frames from nearby APs.
+        </p>
+        <p style="margin-top:1rem;">
+            The <strong>addr1 technique</strong> — matching on the receiver address in addition to the
+            transmitter — is @NitekryDPaul's key discovery. Combined with wildcard probe request detection
+            (management frames type=0 subtype=4 with empty SSID), this yields a very tight signature
+            that field-tested at <strong>11 of 12 cameras caught with only 2 false positives</strong>
+            in Joplin, MO.
+        </p>
+        <p style="margin-top:1rem;">
+            This web map uses <strong>WiGLE</strong> (wigle.net) crowdsourced WiFi data to find
+            networks matching these OUIs at scale — mapping cameras across the entire country.
+        </p>
+    </section>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+    <p>
+        <strong>Flock Finder</strong> — Open-source ALPR surveillance mapping<br>
+        OUI research: <a href="https://github.com/NitekryDPaul">@NitekryDPaul</a> &nbsp;|&nbsp;
+        Inspired by <a href="https://www.deflock.me">DeFlock</a> &nbsp;|&nbsp;
+        Data: <a href="https://wigle.net">WiGLE</a>
+    </p>
+    <p style="margin-top:0.5rem;">
+        <a href="https://github.com/dagnazty/flock-finder">GitHub</a> &nbsp;|&nbsp;
+        <a href="https://github.com/DeflockJoplin/flock-you">DeFlockJoplin</a> &nbsp;|&nbsp;
+        <a href="https://www.noalprs.com">NoALPRs.com</a>
+    </p>
+    <p style="margin-top:1rem;">
+        Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors
+    </p>
+</footer>
+
+<!-- ── Scripts ─────────────────────────────────────────────── -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<script>
+// ── Flock OUI list (for table) ────────────────────────────────────────────
+const FLOCK_OUIS = [
+    { oui: "70:C9:4E", source: "@NitekryDPaul" },
+    { oui: "3C:91:80", source: "@NitekryDPaul" },
+    { oui: "D8:F3:BC", source: "@NitekryDPaul" },
+    { oui: "80:30:49", source: "@NitekryDPaul" },
+    { oui: "B8:35:32", source: "@NitekryDPaul" },
+    { oui: "14:5A:FC", source: "@NitekryDPaul" },
+    { oui: "74:4C:A1", source: "@NitekryDPaul" },
+    { oui: "08:3A:88", source: "@NitekryDPaul" },
+    { oui: "9C:2F:9D", source: "@NitekryDPaul" },
+    { oui: "C0:35:32", source: "@NitekryDPaul" },
+    { oui: "94:08:53", source: "@NitekryDPaul" },
+    { oui: "E4:AA:EA", source: "@NitekryDPaul" },
+    { oui: "F4:6A:DD", source: "@NitekryDPaul" },
+    { oui: "F8:A2:D6", source: "@NitekryDPaul" },
+    { oui: "24:B2:B9", source: "@NitekryDPaul" },
+    { oui: "00:F4:8D", source: "@NitekryDPaul" },
+    { oui: "D0:39:57", source: "@NitekryDPaul" },
+    { oui: "E8:D0:FC", source: "@NitekryDPaul" },
+    { oui: "E0:4F:43", source: "@NitekryDPaul" },
+    { oui: "B8:1E:A4", source: "@NitekryDPaul" },
+    { oui: "70:08:94", source: "@NitekryDPaul" },
+    { oui: "58:8E:81", source: "@NitekryDPaul" },
+    { oui: "EC:1B:BD", source: "@NitekryDPaul" },
+    { oui: "3C:71:BF", source: "@NitekryDPaul" },
+    { oui: "58:00:E3", source: "@NitekryDPaul" },
+    { oui: "90:35:EA", source: "@NitekryDPaul" },
+    { oui: "5C:93:A2", source: "@NitekryDPaul" },
+    { oui: "64:6E:69", source: "@NitekryDPaul" },
+    { oui: "48:27:EA", source: "@NitekryDPaul" },
+    { oui: "A4:CF:12", source: "@NitekryDPaul" },
+    { oui: "82:6B:F2", source: "DeFlockJoplin" },
+];
+
+// ── Initialize Map ─────────────────────────────────────────────────────────
+const map = L.map('map', {
+    center: [39.8283, -98.5795],  // Center of US
+    zoom: 4,
+    zoomControl: true,
+    preferCanvas: true,
+});
+
+// Dark tile layer
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OSM contributors &copy; CARTO',
+    maxZoom: 19,
+}).addTo(map);
+
+// Marker cluster group
+const markers = L.markerClusterGroup({
+    chunkedLoading: true,
+    maxClusterRadius: 50,
+    spiderfyOnMaxZoom: true,
+    showCoverageOnHover: false,
+    iconCreateFunction: function(cluster) {
+        const count = cluster.getChildCount();
+        let size = 'small';
+        if (count > 100) size = 'large';
+        else if (count > 10) size = 'medium';
+        return L.divIcon({
+            html: '<div>' + count + '</div>',
+            className: 'marker-cluster marker-cluster-' + size,
+            iconSize: L.point(40, 40),
+        });
+    },
+});
+
+// Custom camera icon
+const cameraIcon = L.divIcon({
+    html: '<div style="background:rgba(255,59,59,0.85);width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 8px rgba(255,59,59,0.6);"></div>',
+    className: '',
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+});
+
+// ── Load GeoJSON Data ──────────────────────────────────────────────────────
+let allFeatures = [];
+let ouiCounts = {};
+
+async function loadData() {
+    try {
+        const resp = await fetch('../data/flock_cameras.geojson');
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+
+        allFeatures = data.features || [];
+        const totalCameras = allFeatures.length;
+
+        // Update stats
+        document.getElementById('total-cameras').textContent = totalCameras.toLocaleString();
+        if (data.properties && data.properties.generated) {
+            document.getElementById('last-updated').textContent =
+                new Date(data.properties.generated).toLocaleDateString();
+        }
+
+        // Count regions and OUIs
+        const regions = new Set();
+        allFeatures.forEach(f => {
+            const region = f.properties.region;
+            if (region) regions.add(region);
+            const oui = (f.properties.oui || f.properties.netid?.substring(0, 8) || '').toUpperCase();
+            ouiCounts[oui] = (ouiCounts[oui] || 0) + 1;
+        });
+        document.getElementById('total-regions').textContent = regions.size;
+
+        // Add markers
+        allFeatures.forEach(feature => {
+            const [lon, lat] = feature.geometry.coordinates;
+            const p = feature.properties;
+
+            const popup = `
+                <strong>📸 Flock Camera</strong><br>
+                <strong>BSSID:</strong> ${p.netid || '—'}<br>
+                <strong>SSID:</strong> ${p.ssid || '(hidden)'}<br>
+                <strong>OUI:</strong> ${p.oui || '—'}<br>
+                <strong>Channel:</strong> ${p.channel || '—'}<br>
+                <strong>Location:</strong> ${p.city || ''}${p.city && p.region ? ', ' : ''}${p.region || ''}<br>
+                <strong>Road:</strong> ${p.road || '—'}<br>
+                <strong>First Seen:</strong> ${p.firsttime || '—'}<br>
+                <strong>Last Seen:</strong> ${p.lasttime || '—'}<br>
+                <strong>Country:</strong> ${p.country || '—'}
+            `;
+
+            const marker = L.marker([lat, lon], { icon: cameraIcon }).bindPopup(popup);
+            markers.addLayer(marker);
+        });
+
+        map.addLayer(markers);
+
+        // Fit bounds if we have data
+        if (allFeatures.length > 0) {
+            map.fitBounds(markers.getBounds(), { padding: [40, 40] });
+        }
+
+        // Populate OUI table
+        populateOuiTable();
+
+        console.log(`Loaded ${totalCameras} cameras from ${regions.size} regions`);
+
+    } catch (err) {
+        console.warn('Could not load GeoJSON:', err.message);
+        document.getElementById('total-cameras').textContent = '0';
+        document.getElementById('total-regions').textContent = '0';
+
+        // Show placeholder message on map
+        L.popup()
+            .setLatLng([39.8283, -98.5795])
+            .setContent(`
+                <strong>No data yet!</strong><br>
+                Run the scanner first:<br>
+                <code>python3 scripts/wigle_query.py</code><br>
+                Then reload this page.
+            `)
+            .openOn(map);
+
+        populateOuiTable();
+    }
+}
+
+// ── OUI Table ──────────────────────────────────────────────────────────────
+function populateOuiTable() {
+    const tbody = document.getElementById('oui-table-body');
+    tbody.innerHTML = '';
+
+    FLOCK_OUIS.forEach((entry, i) => {
+        const count = ouiCounts[entry.oui] || 0;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${i + 1}</td>
+            <td style="color:${count > 0 ? 'var(--green)' : 'var(--text)'}">${entry.oui}</td>
+            <td>${entry.source}</td>
+            <td style="color:${count > 0 ? 'var(--accent)' : 'var(--text-muted)'};font-weight:${count > 0 ? '700' : '400'}">${count > 0 ? count.toLocaleString() : '—'}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// ── Search ─────────────────────────────────────────────────────────────────
+document.getElementById('search-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        const query = this.value.trim().toLowerCase();
+        if (!query) return resetMap();
+
+        const matches = allFeatures.filter(f => {
+            const p = f.properties;
+            return (p.city || '').toLowerCase().includes(query)
+                || (p.region || '').toLowerCase().includes(query)
+                || (p.country || '').toLowerCase().includes(query)
+                || (p.netid || '').toLowerCase().includes(query)
+                || (p.road || '').toLowerCase().includes(query)
+                || (p.postalcode || '').toLowerCase().includes(query);
+        });
+
+        if (matches.length > 0) {
+            const bounds = L.latLngBounds(
+                matches.map(f => [f.geometry.coordinates[1], f.geometry.coordinates[0]])
+            );
+            map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+        } else {
+            // Try geocoding via Nominatim
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`)
+                .then(r => r.json())
+                .then(results => {
+                    if (results.length > 0) {
+                        map.setView([results[0].lat, results[0].lon], 12);
+                    }
+                });
+        }
+    }
+});
+
+// ── Controls ───────────────────────────────────────────────────────────────
+function locateMe() {
+    map.locate({ setView: true, maxZoom: 13 });
+}
+
+function resetMap() {
+    if (allFeatures.length > 0) {
+        map.fitBounds(markers.getBounds(), { padding: [40, 40] });
+    } else {
+        map.setView([39.8283, -98.5795], 4);
+    }
+    document.getElementById('search-input').value = '';
+}
+
+// ── Load data on page ready ────────────────────────────────────────────────
+loadData();
+</script>
+
+</body>
+</html>

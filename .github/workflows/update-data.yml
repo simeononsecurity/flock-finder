@@ -1,0 +1,63 @@
+name: Update Flock Camera Data
+
+on:
+  schedule:
+    # Run daily at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      country:
+        description: 'Country filter (e.g., US). Leave empty for worldwide.'
+        required: false
+        default: ''
+      max_per_oui:
+        description: 'Max results per OUI prefix'
+        required: false
+        default: '1000'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Query WiGLE for Flock cameras
+        env:
+          WIGLE_API_NAME: ${{ secrets.WIGLE_API_NAME }}
+          WIGLE_API_TOKEN: ${{ secrets.WIGLE_API_TOKEN }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.country }}" ]; then
+            ARGS="$ARGS --country ${{ github.event.inputs.country }}"
+          fi
+          if [ -n "${{ github.event.inputs.max_per_oui }}" ]; then
+            ARGS="$ARGS --max-per-oui ${{ github.event.inputs.max_per_oui }}"
+          fi
+          python3 scripts/wigle_query.py $ARGS
+
+      - name: Check for changes
+        id: check
+        run: |
+          git diff --quiet data/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated data
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json
+          CAMERAS=$(python3 -c "import json; d=json.load(open('data/scan_stats.json')); print(d.get('total_cameras', 0))")
+          git commit -m "data: update Flock camera data ($CAMERAS cameras) [skip ci]"
+          git push
