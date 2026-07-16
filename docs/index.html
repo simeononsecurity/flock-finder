@@ -269,6 +269,102 @@
             background: var(--bg-card-hover);
         }
 
+        /* ── Sponsor Section ─────────────────────────── */
+        .sponsor-banner {
+            background: linear-gradient(135deg, #1a1225 0%, #12121a 50%, #1a1225 100%);
+            border: 1px solid #3a2a5a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sponsor-banner .sponsor-tag {
+            display: inline-block;
+            background: rgba(138, 79, 255, 0.15);
+            border: 1px solid rgba(138, 79, 255, 0.3);
+            color: #b388ff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .sponsor-banner h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .sponsor-banner .sponsor-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+
+        .product-card:hover {
+            border-color: #8a4fff;
+            transform: translateY(-2px);
+        }
+
+        .product-card .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .product-card .product-cta {
+            display: inline-block;
+            background: rgba(138, 79, 255, 0.15);
+            color: #b388ff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid rgba(138, 79, 255, 0.3);
+        }
+
+        .made-by {
+            margin-top: 1.25rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .made-by a {
+            color: #b388ff;
+            text-decoration: none;
+        }
+        .made-by a:hover { text-decoration: underline; }
+
         /* ── Footer ──────────────────────────────────── */
         footer {
             text-align: center;
@@ -471,12 +567,62 @@
             networks matching these OUIs at scale — mapping cameras across the entire country.
         </p>
     </section>
+
+    <!-- ── Sponsor: STSCollective ─────────────────────────── -->
+    <section class="sponsor-banner" id="sponsor">
+        <div class="sponsor-tag">⚡ Sponsored by STSCollective</div>
+        <h3>Detect Flock Cameras in Real Time</h3>
+        <p class="sponsor-subtitle">
+            Portable hardware detectors built by
+            <a href="https://simeononsecurity.com" target="_blank" style="color:#b388ff;">@simeononsecurity</a>
+            — detect Flock ALPR cameras on the go using the same OUI signatures mapped on this page.
+        </p>
+
+        <div class="product-grid">
+            <a class="product-card" href="https://stscollective.com/products/flockyou-m5-atom-lite-flock-camera-detector?variant=52097594884398" target="_blank" rel="noopener">
+                <div class="product-name">🔴 FlockYou — M5 Atom Lite</div>
+                <div class="product-desc">
+                    Compact Flock camera detector powered by ESP32. Scans WiFi for known Flock OUI prefixes
+                    and alerts you with LED indicators. Pocket-sized and plug-and-play.
+                </div>
+                <span class="product-cta">View on STSCollective →</span>
+            </a>
+
+            <a class="product-card" href="https://stscollective.com/products/flockyou-pro-flock-camera-detector-led-audio?variant=52207474606382" target="_blank" rel="noopener">
+                <div class="product-name">🔊 FlockYou Pro — LED + Audio</div>
+                <div class="product-desc">
+                    The Pro model adds audio alerts alongside LED notifications for Flock camera detection.
+                    Never miss a camera — hear it and see it. Ideal for daily driving.
+                </div>
+                <span class="product-cta">View on STSCollective →</span>
+            </a>
+
+            <a class="product-card" href="https://stscollective.com/products/flockyou-atom-voices3r-flock-camera-detector-audio-alert?variant=52144399909166" target="_blank" rel="noopener">
+                <div class="product-name">🗣️ FlockYou Atom VoiceS3R — Audio Alert</div>
+                <div class="product-desc">
+                    Voice-enabled Flock detector with spoken audio alerts when ALPR cameras are nearby.
+                    Uses the Atom VoiceS3R platform for clear, hands-free notifications while driving.
+                </div>
+                <span class="product-cta">View on STSCollective →</span>
+            </a>
+        </div>
+
+        <p class="made-by">
+            Hardware & firmware by <a href="https://simeononsecurity.com" target="_blank">@simeononsecurity</a>
+            &nbsp;·&nbsp;
+            Shop: <a href="https://stscollective.com" target="_blank">stscollective.com</a>
+        </p>
+    </section>
 </div>
 
 <!-- ── Footer ─────────────────────────────────────────────── -->
 <footer>
     <p>
         <strong>Flock Finder</strong> — Open-source ALPR surveillance mapping<br>
+        Made by <a href="https://simeononsecurity.com" target="_blank">@simeononsecurity</a> &nbsp;|&nbsp;
+        Sponsored by <a href="https://stscollective.com" target="_blank">STSCollective</a>
+    </p>
+    <p style="margin-top:0.5rem;">
         OUI research: <a href="https://github.com/NitekryDPaul">@NitekryDPaul</a> &nbsp;|&nbsp;
         Inspired by <a href="https://www.deflock.me">DeFlock</a> &nbsp;|&nbsp;
         Data: <a href="https://wigle.net">WiGLE</a>
@@ -589,7 +735,22 @@ async function loadData() {
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const data = await resp.json();
 
-        allFeatures = data.features || [];
+        const rawFeatures = data.features || [];
+
+        // ── Dedup by netid — keep only the record with the latest lasttime ──
+        const dedupMap = new Map();
+        rawFeatures.forEach(f => {
+            const netid = (f.properties.netid || '').toUpperCase();
+            if (!netid) return;
+            const existing = dedupMap.get(netid);
+            if (!existing || (f.properties.lasttime || '') > (existing.properties.lasttime || '')) {
+                dedupMap.set(netid, f);
+            }
+        });
+        allFeatures = Array.from(dedupMap.values());
+        const dupsRemoved = rawFeatures.length - allFeatures.length;
+        if (dupsRemoved > 0) console.log(`Dedup: removed ${dupsRemoved} duplicate entries`);
+
         const totalCameras = allFeatures.length;
 
         // Update stats

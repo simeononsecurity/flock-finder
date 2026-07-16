@@ -373,6 +373,35 @@ def prune_old_records(records: dict, max_age_days: int = MAX_AGE_DAYS) -> dict:
 
 # ─── Output Generators ───────────────────────────────────────────────────────
 
+def dedup_by_netid(records: dict) -> dict:
+    """
+    Final deduplication pass — guarantee exactly one record per netid (BSSID).
+    Keeps the record with the most recent lasttime.
+
+    This runs as a safety net after merge to ensure no duplicates survive
+    from any source (API returning dupes, case-sensitivity, etc.).
+    """
+    clean = {}
+    dupes = 0
+
+    for netid, net in records.items():
+        # Normalize key to uppercase
+        key = netid.upper()
+        if key in clean:
+            dupes += 1
+            old_lt = clean[key].get("lasttime", "")
+            new_lt = net.get("lasttime", "")
+            if new_lt >= old_lt:
+                clean[key] = net
+        else:
+            clean[key] = net
+
+    if dupes > 0:
+        print(f"  Dedup: removed {dupes} duplicate netids (kept latest lasttime)")
+
+    return clean
+
+
 def write_geojson(records: dict, output_path: Path) -> None:
     """Write networks as GeoJSON FeatureCollection for the web map."""
     features = []
@@ -662,6 +691,9 @@ def main():
 
     # Prune old records
     merged = prune_old_records(merged, max_age_days=args.max_age_days)
+
+    # Final dedup — guarantee no duplicate netids (safety net)
+    merged = dedup_by_netid(merged)
 
     # Write outputs
     write_geojson(merged, geojson_out)
