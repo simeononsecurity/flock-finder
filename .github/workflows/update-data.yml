@@ -10,6 +10,11 @@ on:
         description: 'Country filter (e.g., US). Leave empty for worldwide.'
         required: false
         default: ''
+      full_rescan:
+        description: 'Force full rescan (ignore incremental state)'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -35,7 +40,21 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Query WiGLE for Flock cameras (all OUIs, full pagination)
+      # Restore incremental scan state from previous runs.
+      # scan_state.json is gitignored (local checkpoint), so we persist it
+      # across CI runs via the Actions cache. The cache key rotates monthly
+      # to force a periodic full rescan; restore-keys ensures we always pick
+      # up the most recent state even after key rotation.
+      - name: Restore scan state cache
+        if: ${{ github.event.inputs.full_rescan != 'true' }}
+        uses: actions/cache@v4
+        with:
+          path: data/scan_state.json
+          key: scan-state-${{ hashFiles('data/flock_ouis.csv') }}-${{ github.run_id }}
+          restore-keys: |
+            scan-state-${{ hashFiles('data/flock_ouis.csv') }}-
+
+      - name: Query WiGLE for Flock cameras (incremental)
         env:
           WIGLE_API_NAME: ${{ secrets.WIGLE_API_NAME }}
           WIGLE_API_TOKEN: ${{ secrets.WIGLE_API_TOKEN }}
@@ -43,6 +62,9 @@ jobs:
           ARGS=""
           if [ -n "${{ github.event.inputs.country }}" ]; then
             ARGS="$ARGS --country ${{ github.event.inputs.country }}"
+          fi
+          if [ "${{ github.event.inputs.full_rescan }}" = "true" ]; then
+            ARGS="$ARGS --full-rescan"
           fi
           python3 scripts/wigle_query.py $ARGS
 
