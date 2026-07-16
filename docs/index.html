@@ -578,7 +578,14 @@ let ouiCounts = {};
 
 async function loadData() {
     try {
-        const resp = await fetch('../data/flock_cameras.geojson');
+        // Try relative paths — works both locally (../data/) and on GitHub Pages (data/)
+        let resp;
+        try {
+            resp = await fetch('data/flock_cameras.geojson');
+            if (!resp.ok) throw new Error('not found at data/');
+        } catch {
+            resp = await fetch('../data/flock_cameras.geojson');
+        }
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const data = await resp.json();
 

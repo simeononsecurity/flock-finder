@@ -5,6 +5,10 @@ Flock Finder — WiGLE Dataset Query
 Queries the WiGLE WiFi database for networks matching known Flock Safety
 ALPR camera OUI prefixes. Outputs GeoJSON + CSV for the web map.
 
+Data is CUMULATIVE — each run merges new results with existing data.
+Records older than 2 years (based on lasttime) are pruned automatically.
+All pages are fetched for each OUI (full pagination).
+
 Based on research by @NitekryDPaul (promiscuous-mode OUI discovery) and
 the DeFlock project (https://www.deflock.me).
 
@@ -15,8 +19,9 @@ WiGLE API docs: https://api.wigle.net
 Usage:
     python3 scripts/wigle_query.py                    # Full scan, all OUIs
     python3 scripts/wigle_query.py --oui 70:c9:4e     # Single OUI
-    python3 scripts/wigle_query.py --bbox 37,-97,39,-94  # Bounding box (lat,lon,lat,lon)
+    python3 scripts/wigle_query.py --bbox 37,-97,39,-94  # Bounding box
     python3 scripts/wigle_query.py --country US        # Country filter
+    python3 scripts/wigle_query.py --dry-run           # Auth check only
 """
 
 import csv
@@ -25,7 +30,7 @@ import os
 import sys
 import time
 import argparse
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import requests
@@ -44,8 +49,10 @@ WIGLE_SEARCH_ENDPOINT = f"{WIGLE_API_BASE}/network/search"
 
 # Rate limiting — WiGLE daily API limits are strict
 RATE_LIMIT_DELAY = 2.0      # seconds between requests
-MAX_RESULTS_PER_OUI = 1000  # max results per OUI (WiGLE pages at 100)
 PAGE_SIZE = 100              # WiGLE default page size
+
+# Data retention — discard records with lasttime older than this
+MAX_AGE_DAYS = 730           # 2 years
 
 # Output files
 GEOJSON_OUTPUT = DATA_DIR / "flock_cameras.geojson"
@@ -118,20 +125,14 @@ class WiGLEClient:
                     latrange1: float = None, latrange2: float = None,
                     longrange1: float = None, longrange2: float = None,
                     country: str = None, search_after: str = None,
-                    results_per_page: int = PAGE_SIZE) -> dict:
+                    results_per_page: int = PAGE_SIZE,
+                    lastupdt: str = None) -> dict:
         """
         Search WiGLE WiFi database.
 
         Args:
             netid: BSSID/MAC address pattern (e.g., "70:C9:4E" for OUI prefix)
-            ssid: SSID pattern to search
-            latrange1/2, longrange1/2: Bounding box coordinates
-            country: ISO country code (e.g., "US")
-            search_after: Pagination token from previous response
-            results_per_page: Number of results per page (max 100)
-
-        Returns:
-            API response dict with 'success', 'results', 'searchAfter', etc.
+            lastupdt: Only return results updated after this date (YYYYMMDD)
         """
         params = {"resultsPerPage": results_per_page}
         if netid:
@@ -150,6 +151,8 @@ class WiGLEClient:
             params["country"] = country
         if search_after:
             params["searchAfter"] = search_after
+        if lastupdt:
+            params["lastupdt"] = lastupdt
 
         self.request_count += 1
         try:
@@ -176,24 +179,24 @@ class WiGLEClient:
 # ─── Query Logic ──────────────────────────────────────────────────────────────
 
 def query_oui(client: WiGLEClient, oui: str, country: str = None,
-              bbox: tuple = None, max_results: int = MAX_RESULTS_PER_OUI) -> list:
+              bbox: tuple = None, since_date: str = None) -> list:
     """
-    Query WiGLE for all WiFi networks matching a given OUI prefix.
+    Query WiGLE for ALL WiFi networks matching a given OUI prefix.
+    Paginates through every page until no more results.
 
-    The WiGLE netid search supports partial BSSID matching — passing
-    "70:C9:4E" will match all MACs starting with that prefix.
+    Args:
+        since_date: YYYYMMDD — only fetch records updated after this date
 
     Returns list of network dicts with location data.
     """
     networks = []
     search_after = None
     page = 0
+    rate_limited = False
 
-    # Build the netid search pattern — WiGLE accepts OUI prefix with wildcard
-    # Format: "70:C9:4E" matches "70:C9:4E:*:*:*"
     netid_pattern = oui.upper()
 
-    while len(networks) < max_results:
+    while True:
         page += 1
 
         kwargs = {"netid": netid_pattern}
@@ -206,18 +209,21 @@ def query_oui(client: WiGLEClient, oui: str, country: str = None,
             kwargs["longrange2"] = bbox[3]
         if search_after:
             kwargs["search_after"] = search_after
+        if since_date:
+            kwargs["lastupdt"] = since_date
 
         result = client.search_wifi(**kwargs)
 
         if not result.get("success", False):
             error = result.get("error", "unknown")
             if error == "rate_limited":
-                print(f"    Rate limited after {len(networks)} results — stopping this OUI")
+                print(f"    ⚠ Rate limited after {len(networks)} results — stopping this OUI")
+                rate_limited = True
                 break
             elif error == "unauthorized":
                 break
             # Retry once on transient errors
-            time.sleep(RATE_LIMIT_DELAY * 2)
+            time.sleep(RATE_LIMIT_DELAY * 3)
             result = client.search_wifi(**kwargs)
             if not result.get("success", False):
                 break
@@ -247,38 +253,130 @@ def query_oui(client: WiGLEClient, oui: str, country: str = None,
             })
 
         total_count = result.get("totalResults", result.get("resultCount", 0))
-        print(f"    Page {page}: +{len(results)} results  (total: {len(networks)}, "
-              f"API reports: {total_count})")
+        print(f"    Page {page}: +{len(results)} results  (running: {len(networks)}, "
+              f"API total: {total_count})")
 
-        # Pagination
+        # Pagination — get next page token
         search_after = result.get("searchAfter")
         if not search_after or len(results) < PAGE_SIZE:
-            break
+            break  # No more pages
 
-        # Rate limiting
+        # Rate limiting between pages
         time.sleep(RATE_LIMIT_DELAY)
 
-    return networks
+    return networks, rate_limited
 
 
-def deduplicate_networks(networks: list) -> list:
-    """Remove duplicate entries by netid (BSSID)."""
-    seen = set()
-    unique = []
-    for net in networks:
-        nid = net["netid"].upper()
-        if nid not in seen:
-            seen.add(nid)
-            unique.append(net)
-    return unique
+# ─── Cumulative Data Management ──────────────────────────────────────────────
+
+def load_existing_data(geojson_path: Path) -> dict:
+    """
+    Load existing GeoJSON data from a previous scan.
+    Returns dict keyed by netid (BSSID) for easy merging.
+    """
+    existing = {}
+    if not geojson_path.exists():
+        return existing
+
+    try:
+        with open(geojson_path, "r") as f:
+            data = json.load(f)
+
+        for feature in data.get("features", []):
+            props = feature.get("properties", {})
+            netid = props.get("netid", "").upper()
+            if netid:
+                coords = feature.get("geometry", {}).get("coordinates", [None, None])
+                existing[netid] = {
+                    "netid": props.get("netid", ""),
+                    "ssid": props.get("ssid", ""),
+                    "trilat": coords[1],
+                    "trilong": coords[0],
+                    "channel": props.get("channel"),
+                    "encryption": props.get("encryption", ""),
+                    "firsttime": props.get("firsttime", ""),
+                    "lasttime": props.get("lasttime", ""),
+                    "city": props.get("city", ""),
+                    "region": props.get("region", ""),
+                    "country": props.get("country", ""),
+                    "road": props.get("road", ""),
+                    "postalcode": props.get("postalcode", ""),
+                    "oui_match": props.get("oui", ""),
+                }
+
+        print(f"  [✓] Loaded {len(existing)} existing records from previous scan")
+    except Exception as exc:
+        print(f"  [!] Could not load existing data: {exc}")
+
+    return existing
+
+
+def merge_networks(existing: dict, new_networks: list) -> dict:
+    """
+    Merge new scan results into existing data.
+    For duplicate netids, keep the record with the most recent lasttime.
+    """
+    merged = dict(existing)  # Start with existing data
+
+    updated = 0
+    added = 0
+
+    for net in new_networks:
+        netid = net["netid"].upper()
+        if netid in merged:
+            # Update if new record has a more recent lasttime
+            old_lt = merged[netid].get("lasttime", "")
+            new_lt = net.get("lasttime", "")
+            if new_lt >= old_lt:
+                merged[netid] = net
+                updated += 1
+        else:
+            merged[netid] = net
+            added += 1
+
+    print(f"  Merge: +{added} new, ~{updated} updated, {len(merged)} total")
+    return merged
+
+
+def prune_old_records(records: dict, max_age_days: int = MAX_AGE_DAYS) -> dict:
+    """
+    Remove records with lasttime older than max_age_days.
+    WiGLE lasttime format: "2024-01-15T12:00:00.000"
+    """
+    cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+    cutoff_str = cutoff.strftime("%Y-%m-%d")
+
+    pruned = {}
+    removed = 0
+
+    for netid, net in records.items():
+        lasttime = net.get("lasttime", "")
+        # Parse various date formats
+        if lasttime:
+            date_part = lasttime[:10]  # "YYYY-MM-DD"
+            if date_part >= cutoff_str:
+                pruned[netid] = net
+            else:
+                removed += 1
+        else:
+            # Keep records with no lasttime (can't determine age)
+            pruned[netid] = net
+
+    if removed > 0:
+        print(f"  Pruned {removed} records older than {max_age_days} days "
+              f"(before {cutoff_str})")
+    else:
+        print(f"  No records older than {max_age_days} days to prune")
+
+    return pruned
 
 
 # ─── Output Generators ───────────────────────────────────────────────────────
 
-def write_geojson(networks: list, output_path: Path) -> None:
+def write_geojson(records: dict, output_path: Path) -> None:
     """Write networks as GeoJSON FeatureCollection for the web map."""
     features = []
-    for net in networks:
+    for netid, net in sorted(records.items()):
         lat = net.get("trilat")
         lon = net.get("trilong")
         if lat is None or lon is None:
@@ -291,9 +389,9 @@ def write_geojson(networks: list, output_path: Path) -> None:
                 "coordinates": [lon, lat],
             },
             "properties": {
-                "netid": net["netid"],
+                "netid": net.get("netid", netid),
                 "ssid": net.get("ssid", ""),
-                "oui": net.get("oui_match", net["netid"][:8]),
+                "oui": net.get("oui_match", netid[:8]),
                 "channel": net.get("channel"),
                 "encryption": net.get("encryption", ""),
                 "firsttime": net.get("firsttime", ""),
@@ -327,8 +425,9 @@ def write_geojson(networks: list, output_path: Path) -> None:
     print(f"  [✓] GeoJSON: {output_path}  ({len(features)} features)")
 
 
-def write_csv(networks: list, output_path: Path) -> None:
+def write_csv(records: dict, output_path: Path) -> None:
     """Write networks as CSV for data analysis."""
+    networks = sorted(records.values(), key=lambda n: n.get("netid", ""))
     if not networks:
         print("  [!] No networks to write to CSV")
         return
@@ -349,10 +448,11 @@ def write_csv(networks: list, output_path: Path) -> None:
     print(f"  [✓] CSV: {output_path}  ({len(networks)} rows)")
 
 
-def write_stats(networks: list, ouis_queried: int, api_requests: int,
-                output_path: Path) -> None:
+def write_stats(records: dict, ouis_queried: int, api_requests: int,
+                new_this_scan: int, output_path: Path) -> None:
     """Write scan statistics JSON."""
     now = datetime.now(timezone.utc)
+    networks = list(records.values())
 
     # Count by OUI
     oui_counts = {}
@@ -377,9 +477,11 @@ def write_stats(networks: list, ouis_queried: int, api_requests: int,
     stats = {
         "scan_timestamp": now.isoformat(),
         "total_cameras": len(networks),
+        "new_this_scan": new_this_scan,
         "unique_ouis_found": len(oui_counts),
         "ouis_queried": ouis_queried,
         "api_requests": api_requests,
+        "data_retention_days": MAX_AGE_DAYS,
         "cameras_by_oui": dict(sorted(oui_counts.items(), key=lambda x: -x[1])),
         "cameras_by_region": dict(sorted(region_counts.items(), key=lambda x: -x[1])[:50]),
         "cameras_by_country": dict(sorted(country_counts.items(), key=lambda x: -x[1])),
@@ -408,11 +510,7 @@ def main():
     )
     parser.add_argument(
         "--bbox", type=str, default=None,
-        help="Bounding box as lat1,lon1,lat2,lon2 (e.g., '37,-97,39,-94' for Kansas City area)"
-    )
-    parser.add_argument(
-        "--max-per-oui", type=int, default=MAX_RESULTS_PER_OUI,
-        help=f"Max results per OUI prefix (default: {MAX_RESULTS_PER_OUI})"
+        help="Bounding box as lat1,lon1,lat2,lon2 (e.g., '37,-97,39,-94')"
     )
     parser.add_argument(
         "--output-dir", type=str, default=None,
@@ -422,6 +520,14 @@ def main():
         "--dry-run", action="store_true",
         help="Verify auth and print OUI list without querying"
     )
+    parser.add_argument(
+        "--no-merge", action="store_true",
+        help="Don't merge with existing data — start fresh"
+    )
+    parser.add_argument(
+        "--max-age-days", type=int, default=MAX_AGE_DAYS,
+        help=f"Prune records older than this many days (default: {MAX_AGE_DAYS})"
+    )
     args = parser.parse_args()
 
     # ── Banner ────────────────────────────────────────────────────────────────
@@ -429,10 +535,11 @@ def main():
     print(banner)
     print("  Flock Finder — WiGLE ALPR Camera Mapper")
     print("  OUI research: @NitekryDPaul  |  Inspired by DeFlock")
+    print("  Mode: CUMULATIVE (merge + 2-year retention)")
     print(banner)
 
     # ── Load credentials ──────────────────────────────────────────────────────
-    print("\n[1/5] Loading credentials…")
+    print("\n[1/6] Loading credentials…")
     load_dotenv(ENV_FILE)
 
     api_name = os.getenv("WIGLE_API_NAME")
@@ -449,14 +556,14 @@ def main():
     print(f"  API Name: {api_name[:12]}…")
 
     # ── Authenticate ──────────────────────────────────────────────────────────
-    print("\n[2/5] Authenticating with WiGLE…")
+    print("\n[2/6] Authenticating with WiGLE…")
     client = WiGLEClient(api_name, api_token)
 
     if not client.verify_auth():
         sys.exit(1)
 
     # ── Load OUI list ─────────────────────────────────────────────────────────
-    print("\n[3/5] Loading Flock Safety OUI list…")
+    print("\n[3/6] Loading Flock Safety OUI list…")
 
     if args.oui:
         ouis = [args.oui.upper()]
@@ -479,75 +586,107 @@ def main():
     if args.country:
         print(f"  Country filter: {args.country}")
 
+    # Calculate the 2-year-ago date for the WiGLE lastupdt filter
+    cutoff_date = (datetime.now(timezone.utc) - timedelta(days=args.max_age_days))
+    since_date = cutoff_date.strftime("%Y%m%d")
+    print(f"  Data retention: {args.max_age_days} days (since {cutoff_date.strftime('%Y-%m-%d')})")
+
     if args.dry_run:
         print("\n  [DRY RUN] Would query these OUIs:")
         for oui in ouis:
             print(f"    • {oui}")
         print(f"\n  Total: {len(ouis)} OUI prefixes")
+        print(f"  All pages will be fetched per OUI (full pagination)")
         sys.exit(0)
 
-    # ── Query WiGLE ───────────────────────────────────────────────────────────
-    print(f"\n[4/5] Querying WiGLE for {len(ouis)} OUI prefixes…")
-    print(f"  Rate limit: {RATE_LIMIT_DELAY}s between requests")
-    print(f"  Max results per OUI: {args.max_per_oui}")
-    print()
-
-    all_networks = []
-    ouis_with_results = 0
-
-    for i, oui in enumerate(ouis, 1):
-        print(f"  [{i:2d}/{len(ouis)}] Querying OUI {oui}…")
-
-        networks = query_oui(
-            client, oui,
-            country=args.country,
-            bbox=bbox,
-            max_results=args.max_per_oui,
-        )
-
-        if networks:
-            ouis_with_results += 1
-            all_networks.extend(networks)
-            print(f"         → {len(networks)} cameras found")
-        else:
-            print(f"         → no results")
-
-        # Rate limit between OUI queries
-        if i < len(ouis):
-            time.sleep(RATE_LIMIT_DELAY)
-
-    # Deduplicate
-    print(f"\n  Total raw results: {len(all_networks)}")
-    all_networks = deduplicate_networks(all_networks)
-    print(f"  After dedup:       {len(all_networks)}")
-
-    # ── Write outputs ─────────────────────────────────────────────────────────
-    print(f"\n[5/5] Writing output files…")
-
+    # ── Load existing data for cumulative merge ───────────────────────────────
     output_dir = Path(args.output_dir) if args.output_dir else DATA_DIR
     geojson_out = output_dir / "flock_cameras.geojson"
     csv_out = output_dir / "flock_cameras.csv"
     stats_out = output_dir / "scan_stats.json"
 
-    write_geojson(all_networks, geojson_out)
-    write_csv(all_networks, csv_out)
-    write_stats(all_networks, len(ouis), client.request_count, stats_out)
+    print(f"\n[4/6] Loading existing data for cumulative merge…")
+    if args.no_merge:
+        existing = {}
+        print("  --no-merge: starting with empty dataset")
+    else:
+        existing = load_existing_data(geojson_out)
+
+    # ── Query WiGLE ───────────────────────────────────────────────────────────
+    print(f"\n[5/6] Querying WiGLE for {len(ouis)} OUI prefixes (all pages)…")
+    print(f"  Rate limit: {RATE_LIMIT_DELAY}s between requests")
+    print(f"  WiGLE lastupdt filter: {since_date}")
+    print()
+
+    all_new_networks = []
+    ouis_with_results = 0
+    hit_rate_limit = False
+
+    for i, oui in enumerate(ouis, 1):
+        if hit_rate_limit:
+            print(f"  [{i:2d}/{len(ouis)}] Skipping OUI {oui} — rate limited")
+            continue
+
+        print(f"  [{i:2d}/{len(ouis)}] Querying OUI {oui}…")
+
+        networks, was_limited = query_oui(
+            client, oui,
+            country=args.country,
+            bbox=bbox,
+            since_date=since_date,
+        )
+
+        if networks:
+            ouis_with_results += 1
+            all_new_networks.extend(networks)
+            print(f"         → {len(networks)} cameras found")
+        else:
+            print(f"         → no results")
+
+        if was_limited:
+            hit_rate_limit = True
+            print("  ⚠ Rate limit hit — stopping further OUI queries")
+            print("    Re-run tomorrow to continue from where we left off")
+
+        # Rate limit between OUI queries
+        if i < len(ouis) and not hit_rate_limit:
+            time.sleep(RATE_LIMIT_DELAY)
+
+    # ── Merge + Prune ─────────────────────────────────────────────────────────
+    print(f"\n[6/6] Merging and writing output…")
+    print(f"  New results this scan: {len(all_new_networks)}")
+
+    count_before = len(existing)
+    merged = merge_networks(existing, all_new_networks)
+    new_this_scan = len(merged) - count_before
+
+    # Prune old records
+    merged = prune_old_records(merged, max_age_days=args.max_age_days)
+
+    # Write outputs
+    write_geojson(merged, geojson_out)
+    write_csv(merged, csv_out)
+    write_stats(merged, len(ouis), client.request_count, new_this_scan, stats_out)
 
     # ── Summary ───────────────────────────────────────────────────────────────
     print()
     print(banner)
     print(f"  Scan Complete!")
     print(banner)
-    print(f"  Total cameras found : {len(all_networks)}")
-    print(f"  OUIs with results   : {ouis_with_results}/{len(ouis)}")
-    print(f"  API requests made   : {client.request_count}")
-    print(f"  GeoJSON             : {geojson_out}")
-    print(f"  CSV                 : {csv_out}")
-    print(f"  Stats               : {stats_out}")
+    print(f"  Total cameras (cumulative) : {len(merged)}")
+    print(f"  New this scan              : {new_this_scan}")
+    print(f"  OUIs with results          : {ouis_with_results}/{len(ouis)}")
+    print(f"  API requests made          : {client.request_count}")
+    if hit_rate_limit:
+        print(f"  ⚠ Rate limited             : yes (re-run tomorrow)")
+    print(f"  Data retention             : {args.max_age_days} days")
+    print(f"  GeoJSON                    : {geojson_out}")
+    print(f"  CSV                        : {csv_out}")
+    print(f"  Stats                      : {stats_out}")
     print(banner)
     print()
     print("  Open docs/index.html to view the interactive map.")
-    print("  Or run: python3 -m http.server 8080 --directory docs/")
+    print("  Or: python3 -m http.server 8080")
 
 
 if __name__ == "__main__":
