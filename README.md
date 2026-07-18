@@ -23,6 +23,13 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 
 ---
 
+> [!WARNING]
+> **Take this map with a grain of salt.** WiGLE is a crowdsourced, passively-collected dataset that is updated sporadically on a per-location basis — it is **not** a live feed. Flock cameras **do not broadcast continuously**; they wake briefly only to upload data, meaning WiGLE records depend entirely on someone happening to be wardriving in the right place at the right time. Locations may be stale, incomplete, or reflect cameras that have since been moved or removed.
+>
+> **This dashboard is a general awareness tool, not a source of truth.** For accurate, real-time, local detection use the hardware devices by [STSCollective](https://stscollective.com) described below — they implement @NitekryDPaul's actual detection method directly on an ESP32 and can detect Flock cameras as you drive past them.
+
+---
+
 ## 🔍 How It Works
 
 Flock Safety ALPR cameras have WiFi transceivers that periodically wake to upload captured license plate data. These transmissions use MAC addresses with identifiable **OUI** (Organizationally Unique Identifier) prefixes.
@@ -35,11 +42,15 @@ This project:
 3. Deduplicates and exports results as GeoJSON + CSV
 4. Displays camera locations on a dark-themed interactive Leaflet map
 
+> **Note:** WiGLE is a historical, crowdsourced WiFi survey database — it does **not** use @NitekryDPaul's active detection technique. WiGLE entries are submitted by volunteers wardriving with passive scanners, so coverage is uneven and timestamps may be months or years old. The map is best used as a rough geographic reference, not a definitive or current inventory.
+
 ### Detection Strategy (from @NitekryDPaul's research)
 
 Flock cameras spend most of their duty cycle **asleep**, waking briefly to upload. The key insight is matching on `addr1` (receiver/destination) in addition to `addr2` (transmitter) — revealing devices that a transmitter-only sniff would miss.
 
 Combined with wildcard probe request detection (802.11 management frames type=0 subtype=4 with empty SSID), this yields a very tight signature: **11 of 12 cameras caught with only 2 false positives** in field testing.
+
+> **This is the gold-standard detection method — and it requires dedicated hardware running in the field.** The WiGLE-based map in this repo does *not* implement addr1 matching; it can only see what WiGLE volunteers have already passively logged. For real-time, on-the-ground detection using this exact technique, see the **[STSCollective FlockYou devices](https://stscollective.com)** — ESP32-based detectors that scan for Flock OUI signatures as you drive, with LED and/or audio alerts the moment a camera is detected.
 
 ---
 

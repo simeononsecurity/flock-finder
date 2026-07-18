@@ -455,6 +455,17 @@
             <div class="label">Regions Covered</div>
         </div>
     </div>
+
+    <div style="max-width:720px;margin:0 auto 0.5rem;background:rgba(255,214,0,0.07);border:1px solid rgba(255,214,0,0.3);border-radius:10px;padding:0.85rem 1.1rem;text-align:left;font-size:0.875rem;line-height:1.55;color:#ccc;">
+        <strong style="color:#ffd600;">⚠️ Take this map with a grain of salt.</strong>
+        WiGLE is a crowdsourced, passively-collected dataset updated sporadically per location — it is <strong>not</strong> a live feed.
+        Flock cameras do not broadcast continuously; they wake briefly only to upload data, so WiGLE records depend entirely on a wardiver being nearby at the right moment.
+        Data may be stale, incomplete, or reflect cameras that have since been relocated or removed.<br>
+        <span style="margin-top:0.4rem;display:block;">
+            <strong style="color:#ffd600;">This dashboard is for general awareness only, not a source of truth.</strong>
+            For accurate real-time local detection, see the <a href="#sponsor" style="color:#b388ff;">STSCollective FlockYou hardware detectors</a> below — they run @NitekryDPaul's actual detection method on an ESP32 and alert you as you drive past a camera.
+        </span>
+    </div>
 </section>
 
 <!-- ── Map ─────────────────────────────────────────────────── -->
@@ -553,20 +564,32 @@
         <h3><span class="icon">🔬</span> Detection Method</h3>
         <p>
             Flock cameras spend most of their duty cycle asleep, waking briefly to upload captured
-            plate data. During sleep windows, a passive sniffer can still see them named as the
-            <strong>destination</strong> (addr1) of probe responses and data frames from nearby APs.
+            plate data. During these brief active windows, a <strong>real-time passive sniffer</strong>
+            can detect them by watching for their MAC address appearing as the
+            <strong>destination</strong> (addr1) in probe responses and data frames from nearby APs —
+            even when the camera itself is not actively transmitting.
         </p>
         <p style="margin-top:1rem;">
             The <strong>addr1 technique</strong> — matching on the receiver address in addition to the
             transmitter — is @NitekryDPaul's key discovery. Combined with wildcard probe request detection
-            (management frames type=0 subtype=4 with empty SSID), this yields a very tight signature
+            (802.11 management frames type=0 subtype=4 with empty SSID), this yields a very tight signature
             that field-tested at <strong>11 of 12 cameras caught with only 2 false positives</strong>
             in Joplin, MO.
         </p>
-        <p style="margin-top:1rem;">
-            This web map uses <strong>WiGLE</strong> (wigle.net) crowdsourced WiFi data to find
-            networks matching these OUIs at scale — mapping cameras across the entire country.
-        </p>
+
+        <div style="background:rgba(138,79,255,0.08);border:1px solid rgba(138,79,255,0.25);border-radius:8px;padding:1rem 1.1rem;margin-top:1rem;font-size:0.9rem;line-height:1.6;color:#ccc;">
+            <strong style="color:#b388ff;">🔴 This map does NOT use the addr1 technique.</strong><br>
+            WiGLE is a historical, crowdsourced WiFi survey database collected by volunteers wardriving
+            with passive scanners. It does not perform real-time addr1 matching, and Flock cameras
+            <strong>do not broadcast continuously</strong> — they only wake briefly to upload data.
+            WiGLE entries for a given location may be months or years old, coverage is uneven, and
+            cameras that have been moved or removed may still appear.
+            <br><br>
+            <strong style="color:#b388ff;">Use this map to inform yourself, not as a definitive inventory.</strong>
+            For accurate, real-time, local detection that actually implements @NitekryDPaul's method,
+            see the <a href="#sponsor" style="color:#b388ff;text-decoration:underline;">STSCollective FlockYou ESP32 detectors</a> —
+            they scan live WiFi traffic as you drive and alert you the moment a matching signature is seen.
+        </div>
     </section>
 
     <!-- ── Sponsor: STSCollective ─────────────────────────── -->
