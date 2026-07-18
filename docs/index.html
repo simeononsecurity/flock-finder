@@ -721,6 +721,40 @@ const cameraIcon = L.divIcon({
     iconAnchor: [8, 8],
 });
 
+// ── Load Stats from scan_stats.json ───────────────────────────────────────
+// This is fast (<5 KB) and runs before the heavy GeoJSON load so the hero
+// numbers are visible immediately and survive a GeoJSON fetch failure.
+async function loadStats() {
+    const STAT_PATHS = [
+        'data/scan_stats.json',
+        '../data/scan_stats.json',
+        'https://raw.githubusercontent.com/simeononsecurity/flock-finder/main/data/scan_stats.json',
+    ];
+    for (const url of STAT_PATHS) {
+        try {
+            const resp = await fetch(url);
+            if (!resp.ok) continue;
+            const stats = await resp.json();
+
+            if (stats.total_cameras != null) {
+                document.getElementById('total-cameras').textContent =
+                    Number(stats.total_cameras).toLocaleString();
+            }
+            if (stats.cameras_by_region) {
+                document.getElementById('total-regions').textContent =
+                    Object.keys(stats.cameras_by_region).length;
+            }
+            if (stats.scan_timestamp) {
+                document.getElementById('last-updated').textContent =
+                    new Date(stats.scan_timestamp).toLocaleDateString();
+            }
+            console.log(`Stats loaded from ${url}: ${stats.total_cameras} cameras`);
+            return;
+        } catch { /* try next */ }
+    }
+    console.warn('Could not load scan_stats.json from any path');
+}
+
 // ── Load GeoJSON Data ──────────────────────────────────────────────────────
 let allFeatures = [];
 let ouiCounts = {};
@@ -814,17 +848,23 @@ async function loadData() {
 
     } catch (err) {
         console.warn('Could not load GeoJSON:', err.message);
-        document.getElementById('total-cameras').textContent = '0';
-        document.getElementById('total-regions').textContent = '0';
+        // Do NOT zero out the stat counters here — loadStats() already
+        // populated them from scan_stats.json.  Only reset if they still
+        // show the initial placeholder dash (meaning loadStats also failed).
+        if (document.getElementById('total-cameras').textContent === '—') {
+            document.getElementById('total-cameras').textContent = '0';
+        }
+        if (document.getElementById('total-regions').textContent === '—') {
+            document.getElementById('total-regions').textContent = '0';
+        }
 
         // Show placeholder message on map
         L.popup()
             .setLatLng([39.8283, -98.5795])
             .setContent(`
-                <strong>No data yet!</strong><br>
-                Run the scanner first:<br>
-                <code>python3 scripts/wigle_query.py</code><br>
-                Then reload this page.
+                <strong>Map data unavailable.</strong><br>
+                Stats are loaded from cached data.<br>
+                Try refreshing the page.
             `)
             .openOn(map);
 
@@ -899,7 +939,9 @@ function resetMap() {
 }
 
 // ── Load data on page ready ────────────────────────────────────────────────
-loadData();
+// Load stats first (fast, small JSON) so numbers show immediately,
+// then kick off the heavier GeoJSON download for the map.
+loadStats().then(() => loadData());
 </script>
 
 </body>
