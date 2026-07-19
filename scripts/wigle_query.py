@@ -615,6 +615,109 @@ def write_csv(records: dict, output_path: Path) -> None:
     print(f"  [✓] CSV: {output_path}  ({len(networks)} rows)")
 
 
+def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
+    """
+    Write one GeoJSON file per OUI prefix into <output_dir>/by_oui/.
+
+    Filename pattern: <output_dir>/by_oui/<OUI_SLUG>.geojson
+    where OUI_SLUG is the OUI with colons replaced by underscores,
+    e.g.  74:4C:A1  →  74_4C_A1.geojson
+    """
+    by_oui: dict[str, list] = {}
+    for netid, net in records.items():
+        oui = net.get("oui_match", "").upper()
+        if not oui:
+            oui = netid[:8].upper()
+        by_oui.setdefault(oui, []).append((netid, net))
+
+    out_dir = output_dir / "by_oui"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    generated = datetime.now(timezone.utc).isoformat()
+
+    written = 0
+    for oui, items in sorted(by_oui.items()):
+        slug = oui.replace(":", "_")
+        features = []
+        for netid, net in sorted(items):
+            lat = net.get("trilat")
+            lon = net.get("trilong")
+            if lat is None or lon is None:
+                continue
+            features.append({
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates": [lon, lat]},
+                "properties": {
+                    "netid": net.get("netid", netid),
+                    "ssid": net.get("ssid", ""),
+                    "oui": oui,
+                    "channel": net.get("channel"),
+                    "encryption": net.get("encryption", ""),
+                    "firsttime": net.get("firsttime", ""),
+                    "lasttime": net.get("lasttime", ""),
+                    "city": net.get("city", ""),
+                    "region": net.get("region", ""),
+                    "country": net.get("country", ""),
+                    "road": net.get("road", ""),
+                    "postalcode": net.get("postalcode", ""),
+                },
+            })
+
+        geojson = {
+            "type": "FeatureCollection",
+            "features": features,
+            "properties": {
+                "generated": generated,
+                "oui": oui,
+                "source": "WiGLE (wigle.net)",
+                "project": "flock-finder",
+                "total_cameras": len(features),
+            },
+        }
+        path = out_dir / f"{slug}.geojson"
+        with open(path, "w") as f:
+            json.dump(geojson, f, indent=2)
+        written += 1
+
+    print(f"  [✓] Per-OUI GeoJSON: {out_dir}  ({written} files)")
+
+
+def write_csv_per_oui(records: dict, output_dir: Path) -> None:
+    """
+    Write one CSV file per OUI prefix into <output_dir>/by_oui/.
+
+    Filename pattern: <output_dir>/by_oui/<OUI_SLUG>.csv
+    """
+    by_oui: dict[str, list] = {}
+    for netid, net in records.items():
+        oui = net.get("oui_match", "").upper()
+        if not oui:
+            oui = netid[:8].upper()
+        by_oui.setdefault(oui, []).append(net)
+
+    out_dir = output_dir / "by_oui"
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    fieldnames = [
+        "netid", "ssid", "trilat", "trilong", "oui_match",
+        "channel", "encryption", "firsttime", "lasttime",
+        "city", "region", "country", "road", "postalcode",
+    ]
+
+    written = 0
+    for oui, nets in sorted(by_oui.items()):
+        slug = oui.replace(":", "_")
+        path = out_dir / f"{slug}.csv"
+        nets_sorted = sorted(nets, key=lambda n: n.get("netid", ""))
+        with open(path, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            writer.writeheader()
+            for net in nets_sorted:
+                writer.writerow(net)
+        written += 1
+
+    print(f"  [✓] Per-OUI CSV:     {out_dir}  ({written} files)")
+
+
 def write_stats(records: dict, ouis_queried: int, api_requests: int,
                 new_this_scan: int, output_path: Path) -> None:
     """Write scan statistics JSON."""
@@ -968,10 +1071,14 @@ def main():
     # Final dedup — guarantee no duplicate netids (safety net)
     merged = dedup_by_netid(merged)
 
-    # Write outputs
+    # Write combined outputs
     write_geojson(merged, geojson_out)
     write_csv(merged, csv_out)
     write_stats(merged, len(ouis), client.request_count, new_this_scan, stats_out)
+
+    # Write per-OUI split files (data/by_oui/<OUI_SLUG>.{geojson,csv})
+    write_geojson_per_oui(merged, output_dir)
+    write_csv_per_oui(merged, output_dir)
 
     # Update README with cumulative stats
     update_readme(stats_out)

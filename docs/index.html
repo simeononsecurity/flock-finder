@@ -835,9 +835,15 @@ async function loadData() {
         });
         document.getElementById('total-regions').textContent = regions.size;
 
-        // Add markers
+        // Add markers — guard against null/invalid geometry
+        let markersAdded = 0;
         allFeatures.forEach(feature => {
+            // Skip features with missing or invalid geometry
+            if (!feature.geometry || !Array.isArray(feature.geometry.coordinates)) return;
             const [lon, lat] = feature.geometry.coordinates;
+            if (typeof lat !== 'number' || typeof lon !== 'number' ||
+                isNaN(lat) || isNaN(lon) || (lat === 0 && lon === 0)) return;
+
             const p = feature.properties;
 
             const popup = `
@@ -853,15 +859,28 @@ async function loadData() {
                 <strong>Country:</strong> ${p.country || '—'}
             `;
 
-            const marker = L.marker([lat, lon], { icon: cameraIcon }).bindPopup(popup);
-            markers.addLayer(marker);
+            try {
+                const marker = L.marker([lat, lon], { icon: cameraIcon }).bindPopup(popup);
+                markers.addLayer(marker);
+                markersAdded++;
+            } catch (e) {
+                console.warn('Skipped invalid marker coords:', lat, lon, e.message);
+            }
         });
 
         map.addLayer(markers);
+        console.log(`Markers added to map: ${markersAdded} of ${allFeatures.length} features`);
 
-        // Fit bounds if we have data
-        if (allFeatures.length > 0) {
-            map.fitBounds(markers.getBounds(), { padding: [40, 40] });
+        // Fit bounds if we have valid markers
+        if (markersAdded > 0) {
+            try {
+                const bounds = markers.getBounds();
+                if (bounds && bounds.isValid()) {
+                    map.fitBounds(bounds, { padding: [40, 40] });
+                }
+            } catch (e) {
+                console.warn('fitBounds failed:', e.message);
+            }
         }
 
         // Populate OUI table
