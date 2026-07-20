@@ -1,0 +1,60 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.21026611,
+          42.370224
+        ]
+      },
+      "properties": {
+        "netid": "B8:35:32:08:A5:EB",
+        "ssid": "DQ 97M",
+        "oui": "B8:35:32",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-02-06T21:00:00.000Z",
+        "lasttime": "2026-02-06T23:00:00.000Z",
+        "city": null,
+        "region": "MA",
+        "country": "US",
+        "road": "Woodview Way",
+        "postalcode": "02452-6272"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -102.90743256,
+          30.89575768
+        ]
+      },
+      "properties": {
+        "netid": "B8:35:32:FF:B5:EB",
+        "ssid": null,
+        "oui": "B8:35:32",
+        "channel": 0,
+        "encryption": "unknown",
+        "firsttime": "2024-08-23T10:00:00.000Z",
+        "lasttime": "2024-09-01T04:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "West Dickinson Boulevard",
+        "postalcode": "79735"
+      }
+    }
+  ],
+  "properties": {
+    "generated": "2026-07-20T07:04:00.141036+00:00",
+    "oui": "B8:35:32",
+    "source": "WiGLE (wigle.net)",
+    "project": "flock-finder",
+    "total_cameras": 2
+  }
+}
