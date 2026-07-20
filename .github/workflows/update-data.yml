@@ -30,12 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -47,7 +47,7 @@ jobs:
       # up the most recent state even after key rotation.
       - name: Restore scan state cache
         if: ${{ github.event.inputs.full_rescan != 'true' }}
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: data/scan_state.json
           key: scan-state-${{ hashFiles('data/flock_ouis.csv') }}-${{ github.run_id }}
@@ -92,7 +92,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: main  # Get latest after data commit
 
@@ -106,10 +106,10 @@ jobs:
           cp -r data _site/data
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: '_site'
 
