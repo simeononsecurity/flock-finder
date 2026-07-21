@@ -11,9 +11,9 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 30,441 |
-| 📡 **OUI Prefixes with Data** | 8 / 31 |
-| 🌎 **Countries** | 104 |
+| 📸 **Cameras Mapped** | 40,105 |
+| 📡 **OUI Prefixes with Data** | 9 / 31 |
+| 🌎 **Countries** | 109 |
 | 🗺️ **Regions** | 50 |
 | 🕐 **Last Updated** | 2026-07-21 |
 | 📦 **Data Retention** | 730 days (2 years) |
