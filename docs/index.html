@@ -427,13 +427,14 @@
         <div class="logo-icon">📡</div>
         <h1>Flock <span>Finder</span></h1>
     </div>
-    <nav>
+    <nav aria-label="Primary navigation">
         <a href="#map-container">Map</a>
         <a href="about.html">About ALPRs</a>
         <a href="#oui-data">OUI Data</a>
-        <a href="https://deflock.org" target="_blank">DeFlock</a>
-        <a href="https://github.com/simeononsecurity/flock-finder" target="_blank">GitHub</a>
+        <a href="https://deflock.org" target="_blank" rel="noopener noreferrer">DeFlock</a>
+        <a href="https://github.com/simeononsecurity/flock-finder" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
+
 </header>
 
 <!-- ── Hero ────────────────────────────────────────────────── -->
@@ -471,13 +472,15 @@
 <!-- ── Map ─────────────────────────────────────────────────── -->
 <div id="map-container">
     <div class="map-controls">
-        <input type="text" id="search-input" placeholder="🔍 Search by city, state, or BSSID…">
-        <div>
-            <button class="btn btn-outline" onclick="locateMe()">📍 My Location</button>
-            <button class="btn" onclick="resetMap()">🗺️ Reset View</button>
+        <label for="search-input" class="sr-only" style="position:absolute;left:-9999px;">Search cameras by city, state, or BSSID</label>
+        <input type="text" id="search-input" aria-label="Search cameras by city, state, or BSSID" placeholder="🔍 Search by city, state, or BSSID…">
+        <div role="group" aria-label="Map controls">
+            <button class="btn btn-outline" type="button" onclick="locateMe()" aria-label="Center map on my location">📍 My Location</button>
+            <button class="btn" type="button" onclick="resetMap()" aria-label="Reset map view">🗺️ Reset View</button>
         </div>
     </div>
-    <div id="map"></div>
+    <div id="map" role="application" aria-label="Interactive map of suspected Flock Safety camera locations"></div>
+
     <p style="text-align:right;color:var(--text-muted);font-size:0.75rem;margin-top:0.5rem;">
         Data: <a href="https://wigle.net" target="_blank" style="color:var(--accent)">WiGLE</a> &nbsp;|&nbsp;
         Map: © <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color:var(--accent)">OpenStreetMap</a> contributors &nbsp;|&nbsp;
@@ -668,8 +671,23 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
-// ── Flock OUI list (for table) ────────────────────────────────────────────
-const FLOCK_OUIS = [
+// ── Security: escape untrusted values before inserting into HTML ───────────
+// Every value that originates from WiGLE (SSID, road, city, region, etc.) is
+// user/vendor-controlled and MUST be escaped to prevent HTML/script injection
+// when built into innerHTML / popup strings.
+function escapeHtml(value) {
+    if (value === null || value === undefined) return '';
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+// ── Flock OUI list (fallback; overridden by data/flock_ouis.json at runtime) ─
+let FLOCK_OUIS = [
+
     { oui: "70:C9:4E", source: "@NitekryDPaul" },
     { oui: "3C:91:80", source: "@NitekryDPaul" },
     { oui: "D8:F3:BC", source: "@NitekryDPaul" },
@@ -835,8 +853,10 @@ async function loadData() {
         });
         document.getElementById('total-regions').textContent = regions.size;
 
-        // Add markers — guard against null/invalid geometry
+        // Build markers. Every field is escaped (see escapeHtml) so a crafted
+        // SSID / road / city can't inject HTML or script into the popup.
         let markersAdded = 0;
+        const markerList = [];
         allFeatures.forEach(feature => {
             // Skip features with missing or invalid geometry
             if (!feature.geometry || !Array.isArray(feature.geometry.coordinates)) return;
@@ -844,32 +864,23 @@ async function loadData() {
             if (typeof lat !== 'number' || typeof lon !== 'number' ||
                 isNaN(lat) || isNaN(lon) || (lat === 0 && lon === 0)) return;
 
-            const p = feature.properties;
-
-            const popup = `
-                <strong>📸 Flock Camera</strong><br>
-                <strong>BSSID:</strong> ${p.netid || '—'}<br>
-                <strong>SSID:</strong> ${p.ssid || '(hidden)'}<br>
-                <strong>OUI:</strong> ${p.oui || '—'}<br>
-                <strong>Channel:</strong> ${p.channel || '—'}<br>
-                <strong>Location:</strong> ${p.city || ''}${p.city && p.region ? ', ' : ''}${p.region || ''}<br>
-                <strong>Road:</strong> ${p.road || '—'}<br>
-                <strong>First Seen:</strong> ${p.firsttime || '—'}<br>
-                <strong>Last Seen:</strong> ${p.lasttime || '—'}<br>
-                <strong>Country:</strong> ${p.country || '—'}
-            `;
-
             try {
-                const marker = L.marker([lat, lon], { icon: cameraIcon }).bindPopup(popup);
-                markers.addLayer(marker);
+                const marker = L.marker([lat, lon], { icon: cameraIcon });
+                // Bind lazily so popup HTML is only built when opened.
+                marker.bindPopup(() => buildPopup(feature.properties));
+                markerList.push(marker);
                 markersAdded++;
             } catch (e) {
                 console.warn('Skipped invalid marker coords:', lat, lon, e.message);
             }
         });
 
+        // addLayers() + chunkedLoading:true inserts markers in batches so the
+        // UI thread stays responsive even with tens of thousands of points.
+        markers.addLayers(markerList);
         map.addLayer(markers);
         console.log(`Markers added to map: ${markersAdded} of ${allFeatures.length} features`);
+
 
         // Fit bounds if we have valid markers
         if (markersAdded > 0) {
@@ -914,6 +925,28 @@ async function loadData() {
     }
 }
 
+// ── Popup builder (all fields escaped) ─────────────────────────────────────
+function buildPopup(p) {
+    p = p || {};
+    const row = (label, val) =>
+        `<strong>${label}:</strong> ${escapeHtml(val || '—')}<br>`;
+    const loc = [p.city, p.region].filter(Boolean).map(escapeHtml).join(', ');
+    return `
+        <strong>📸 Suspected Flock Camera</strong><br>
+        <em style="color:var(--yellow)">Unconfirmed — WiFi OUI match only</em><br>
+        ${row('BSSID', p.netid)}
+        ${row('SSID', p.ssid || '(hidden)')}
+        ${row('OUI', p.oui)}
+        <strong>Confidence:</strong> ${escapeHtml(p.match_confidence || 'suspected')}<br>
+        ${row('Channel', p.channel)}
+        <strong>Location:</strong> ${loc || '—'}<br>
+        ${row('Road', p.road)}
+        ${row('First Seen', p.firsttime)}
+        ${row('Last Seen', p.lasttime)}
+        ${row('Country', p.country)}
+    `;
+}
+
 // ── OUI Table ──────────────────────────────────────────────────────────────
 function populateOuiTable() {
     const tbody = document.getElementById('oui-table-body');
@@ -921,16 +954,43 @@ function populateOuiTable() {
 
     FLOCK_OUIS.forEach((entry, i) => {
         const count = ouiCounts[entry.oui] || 0;
+        const oui = escapeHtml(entry.oui);
+        const source = escapeHtml(entry.source);
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${i + 1}</td>
-            <td style="color:${count > 0 ? 'var(--green)' : 'var(--text)'}">${entry.oui}</td>
-            <td>${entry.source}</td>
+            <td style="color:${count > 0 ? 'var(--green)' : 'var(--text)'}">${oui}</td>
+            <td>${source}</td>
             <td style="color:${count > 0 ? 'var(--accent)' : 'var(--text-muted)'};font-weight:${count > 0 ? '700' : '400'}">${count > 0 ? count.toLocaleString() : '—'}</td>
         `;
         tbody.appendChild(tr);
     });
 }
+
+// ── Load centralized OUI metadata (single source of truth) ─────────────────
+// Overrides the inline fallback so the table always matches data/flock_ouis.csv.
+async function loadOuiMetadata() {
+    const PATHS = [
+        'data/flock_ouis.json',
+        '../data/flock_ouis.json',
+        'https://raw.githubusercontent.com/simeononsecurity/flock-finder/main/data/flock_ouis.json',
+    ];
+    for (const url of PATHS) {
+        try {
+            const resp = await fetch(url);
+            if (!resp.ok) continue;
+            const meta = await resp.json();
+            if (Array.isArray(meta.ouis) && meta.ouis.length) {
+                FLOCK_OUIS = meta.ouis.map(e => ({ oui: e.oui, source: e.source }));
+                document.getElementById('total-ouis').textContent = FLOCK_OUIS.length;
+                console.log(`OUI metadata loaded from ${url}: ${FLOCK_OUIS.length} prefixes`);
+            }
+            return;
+        } catch { /* try next */ }
+    }
+    console.warn('Could not load flock_ouis.json — using inline fallback list');
+}
+
 
 // ── Search ─────────────────────────────────────────────────────────────────
 document.getElementById('search-input').addEventListener('keypress', function(e) {
@@ -981,9 +1041,11 @@ function resetMap() {
 }
 
 // ── Load data on page ready ────────────────────────────────────────────────
-// Load stats first (fast, small JSON) so numbers show immediately,
-// then kick off the heavier GeoJSON download for the map.
-loadStats().then(() => loadData());
+// Load the OUI metadata + stats first (fast, small JSON) so the table and
+// hero numbers show immediately, then kick off the heavier GeoJSON download.
+Promise.allSettled([loadOuiMetadata(), loadStats()])
+    .then(() => { populateOuiTable(); return loadData(); });
+
 </script>
 
 </body>
