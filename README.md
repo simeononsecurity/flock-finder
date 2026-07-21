@@ -208,11 +208,12 @@ The included workflow runs daily and auto-commits updated camera data:
 
 ## 📚 Documentation
 
-- **[Data Policy, Provenance & Corrections](docs/DATA_POLICY.md)** — every record is *suspected* (OUI match only), coordinates are truncated to ~110 m, and here's how to request a correction.
+- **[Data Policy, Provenance & Corrections](docs/DATA_POLICY.md)** — every record is *suspected* (OUI match only), coordinates are published at full precision, and here's how to request a correction.
 - **[Data Dictionary](docs/DATA_DICTIONARY.md)** — field-level schema for every file under `data/`.
 - **[Contributing Guide](CONTRIBUTING.md)** — local setup, lint/test/validate commands, and how to add an OUI prefix.
 
-> ⚠️ **These are *suspected* Flock devices, not confirmed.** An OUI match is a heuristic — OUIs can be shared, reassigned, or spoofed. Published coordinates are intentionally reduced to neighborhood-level precision. See the [Data Policy](docs/DATA_POLICY.md).
+> ⚠️ **These are *suspected* Flock devices, not confirmed.** An OUI match is a heuristic — OUIs can be shared, reassigned, or spoofed. Coordinates are published at full precision, exactly as WiGLE reports them. See the [Data Policy](docs/DATA_POLICY.md).
+
 
 ---
 

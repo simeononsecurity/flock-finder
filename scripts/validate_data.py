@@ -2,14 +2,13 @@
 """
 Flock Finder — Data Integrity Validator
 =======================================
-Validates the committed public data artifacts against the project's data
-policy. Intended to run in CI so a bad commit can't publish malformed data
-or leak full-precision coordinates.
+Validates the committed public data artifacts. Intended to run in CI so a bad
+commit can't publish malformed data.
 
 Checks:
   * data/flock_cameras.geojson is valid GeoJSON with Point features
-  * every feature has valid, in-range coordinates
-  * published coordinates do not exceed PUBLIC_COORD_PRECISION decimals
+  * every feature has valid, in-range coordinates (FULL precision is kept —
+    coordinates are never truncated so the map stays accurate)
   * data/flock_ouis.csv contains only well-formed OUIs
   * data/flock_ouis.json (if present) matches the CSV
 
@@ -26,21 +25,12 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from oui_metadata import load_oui_metadata  # noqa: E402
 from validation import (  # noqa: E402
-    PUBLIC_COORD_PRECISION,
     is_valid_latlon,
     is_valid_oui,
 )
 
 PROJECT_DIR = Path(__file__).parent.parent
 DATA_DIR = PROJECT_DIR / "data"
-
-
-def _decimals(value) -> int:
-    """Number of decimal places in a float's string form."""
-    s = repr(float(value))
-    if "e" in s or "E" in s:  # scientific notation → treat as within policy
-        return 0
-    return len(s.split(".")[1]) if "." in s else 0
 
 
 def validate_geojson(path: Path, errors: list) -> None:
@@ -58,26 +48,16 @@ def validate_geojson(path: Path, errors: list) -> None:
 
     features = data.get("features", [])
     bad_coords = 0
-    over_precision = 0
     for feat in features:
         geom = feat.get("geometry") or {}
         coords = geom.get("coordinates") or [None, None]
         lon, lat = coords[0], coords[1]
         if not is_valid_latlon(lat, lon):
             bad_coords += 1
-            continue
-        if _decimals(lat) > PUBLIC_COORD_PRECISION or _decimals(lon) > PUBLIC_COORD_PRECISION:
-            over_precision += 1
 
     if bad_coords:
         errors.append(f"{path.name}: {bad_coords} feature(s) with invalid coordinates")
-    if over_precision:
-        errors.append(
-            f"{path.name}: {over_precision} feature(s) exceed public precision "
-            f"({PUBLIC_COORD_PRECISION} decimals)"
-        )
-    print(f"  [✓] {path.name}: {len(features)} features checked "
-          f"({bad_coords} bad coords, {over_precision} over-precision)")
+    print(f"  [✓] {path.name}: {len(features)} features checked ({bad_coords} bad coords)")
 
 
 def validate_ouis(errors: list) -> None:

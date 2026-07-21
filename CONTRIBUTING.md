@@ -46,10 +46,12 @@ Open a pull request once `ruff`, `pytest`, and `validate_data.py` all pass.
 
 ## Data policy (please read)
 
-All records are **suspected** (OUI match only) and coordinates are truncated to
-~110 m. Any change that could publish more precise coordinates, drop the
-`match_confidence` label, or present matches as "confirmed" will be rejected.
+All records are **suspected** (OUI match only). Coordinates are published at
+**full precision and must never be modified/truncated** — reducing precision
+mislocates points. Any change that rounds coordinates, drops the
+`match_confidence` label, or presents matches as "confirmed" will be rejected.
 See [docs/DATA_POLICY.md](docs/DATA_POLICY.md).
+
 
 ## Coding conventions
 

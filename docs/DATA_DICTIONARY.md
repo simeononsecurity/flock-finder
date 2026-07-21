@@ -2,15 +2,18 @@
 
 Field-level reference for every published data artifact under `data/`.
 
-> **Reminder:** all records are *suspected* Flock devices (OUI match only) and
-> coordinates are truncated to ~110 m. See [DATA_POLICY.md](DATA_POLICY.md).
+> **Reminder:** all records are *suspected* Flock devices (OUI match only).
+> Coordinates are published at full precision and are never modified. See
+> [DATA_POLICY.md](DATA_POLICY.md).
+
 
 ## `data/flock_cameras.geojson`
 
 A GeoJSON `FeatureCollection`. Each `Feature` is a `Point`.
 
 ### `geometry.coordinates`
-`[longitude, latitude]` — truncated to `PUBLIC_COORD_PRECISION` (3) decimals.
+`[longitude, latitude]` — full precision, exactly as reported by WiGLE.
+
 
 ### `properties`
 | Field | Type | Description |
@@ -35,15 +38,15 @@ A GeoJSON `FeatureCollection`. Each `Feature` is a `Point`.
 | `generated` | ISO 8601 timestamp of the scan |
 | `source` | `"WiGLE (wigle.net)"` |
 | `match_confidence` | `"suspected"` |
-| `coordinate_precision_decimals` | Decimal places coordinates were rounded to |
 | `total_cameras` | Number of features |
+
 
 ## `data/flock_cameras.csv`
 
 Same records in flat form. Columns: `netid, ssid, trilat, trilong, oui_match,
 channel, encryption, firsttime, lasttime, city, region, country, road,
-postalcode`. Coordinates (`trilat`, `trilong`) are truncated to public
-precision.
+postalcode`. Coordinates (`trilat`, `trilong`) are full precision.
+
 
 ## `data/scan_stats.json`
 

@@ -9,15 +9,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
 from validation import (  # noqa: E402
     MATCH_CONFIDENCE,
-    PUBLIC_COORD_PRECISION,
     filter_valid_records,
     is_valid_latlon,
     is_valid_mac,
     is_valid_oui,
     normalize_oui,
     oui_from_netid,
-    redact_coordinates,
-    round_coord,
     validate_record,
 )
 
@@ -82,19 +79,9 @@ def test_is_valid_latlon_false(lat, lon):
     assert not is_valid_latlon(lat, lon)
 
 
-def test_round_coord_precision():
-    assert round_coord(39.123456) == round(39.123456, PUBLIC_COORD_PRECISION)
-    assert round_coord("not a number") is None
-
-
-def test_redact_coordinates_reduces_precision():
-    lat, lon = redact_coordinates(39.123456, -94.987654)
-    assert lat == 39.123
-    assert lon == -94.988
-
-
-def test_redact_coordinates_invalid():
-    assert redact_coordinates(None, 10) == (None, None)
+def test_full_precision_coords_are_valid():
+    # Full-precision coordinates must remain valid — we never truncate.
+    assert is_valid_latlon(39.123456789, -94.987654321)
 
 
 # ─── Record validation ────────────────────────────────────────────────────────
@@ -107,6 +94,11 @@ def _rec(**over):
 
 def test_validate_record_ok():
     assert validate_record(_rec())
+
+
+def test_validate_record_preserves_full_precision_input():
+    # validate_record only checks validity; it must accept full-precision coords.
+    assert validate_record(_rec(trilat=39.123456789, trilong=-94.987654321))
 
 
 def test_validate_record_bad_netid():

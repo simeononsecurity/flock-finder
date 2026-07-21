@@ -45,10 +45,9 @@ from oui_metadata import write_oui_json
 # Shared, unit-tested helpers (validation + public-data policy)
 from validation import (
     MATCH_CONFIDENCE,
-    PUBLIC_COORD_PRECISION,
+    is_valid_latlon,
     is_valid_oui,
     normalize_oui,
-    redact_coordinates,
     validate_record,
 )
 
@@ -594,15 +593,19 @@ def write_geojson(records: dict, output_path: Path) -> None:
     """
     Write networks as GeoJSON FeatureCollection for the web map.
 
-    Data policy: coordinates are truncated to PUBLIC_COORD_PRECISION and every
-    feature is explicitly tagged match_confidence="suspected" — an OUI match
-    is a heuristic, not a confirmation.
+    Coordinates are written at FULL precision (never modified) so the map is
+    accurate. Every feature is tagged match_confidence="suspected" — an OUI
+    match is a heuristic, not a confirmation.
     """
     features = []
     for netid, net in sorted(records.items()):
-        lat, lon = redact_coordinates(net.get("trilat"), net.get("trilong"))
-        if lat is None or lon is None:
+        lat = net.get("trilat")
+        lon = net.get("trilong")
+        if not is_valid_latlon(lat, lon):
             continue
+        lat = float(lat)
+        lon = float(lon)
+
 
         feature = {
             "type": "Feature",
@@ -638,8 +641,8 @@ def write_geojson(records: dict, output_path: Path) -> None:
             "description": "SUSPECTED Flock Safety ALPR camera locations via WiFi "
                            "OUI matching. An OUI match is not a confirmation.",
             "match_confidence": MATCH_CONFIDENCE,
-            "coordinate_precision_decimals": PUBLIC_COORD_PRECISION,
             "oui_research": "@NitekryDPaul",
+
             "total_cameras": len(features),
         },
     }
@@ -1128,24 +1131,21 @@ def main():
     # Final dedup — guarantee no duplicate netids (safety net)
     merged = dedup_by_netid(merged)
 
-    # ── Output validation + public-data precision policy ──────────────────────
-    # Do this ONCE, centrally, so every downstream writer (combined GeoJSON/CSV
-    # and per-OUI splits) emits only validated records at the reduced public
-    # coordinate precision. This is the single choke point for the data policy.
+    # ── Output validation ─────────────────────────────────────────────────────
+    # Drop records that fail validation (bad BSSID or invalid/missing coords).
+    # Coordinates are kept at FULL precision — they are never modified so the
+    # map stays accurate.
     public = {}
     dropped = 0
     for netid, net in merged.items():
-        rec = dict(net)
-        rlat, rlon = redact_coordinates(net.get("trilat"), net.get("trilong"))
-        rec["trilat"] = rlat
-        rec["trilong"] = rlon
-        if not validate_record(rec):
+        if not validate_record(net):
             dropped += 1
             continue
-        public[netid] = rec
+        public[netid] = net
     if dropped:
         print(f"  Output validation: dropped {dropped} invalid/incomplete record(s)")
     merged = public
+
 
     # Write combined outputs
 

@@ -42,16 +42,14 @@ The canonical OUI list lives in [`data/flock_ouis.csv`](../data/flock_ouis.csv)
 and is mirrored to `data/flock_ouis.json` for the web frontend by
 `scripts/oui_metadata.py`.
 
-## 3. Coordinate precision (why points are approximate)
+## 3. Coordinate precision
 
-Published coordinates are deliberately **truncated to 3 decimal places
-(~110 m)**. The goal is to communicate a *neighborhood‑level area*, not a
-precise, surveyable point. WiGLE's trilateration is already approximate; we
-reduce precision further on purpose.
+Coordinates are published at **full precision, exactly as WiGLE reports them,
+and are never modified or truncated.** Accuracy matters for mapping — reducing
+precision was found to mislocate points, so the data is passed through
+unchanged. The collector only *validates* coordinates (drops missing / out‑of‑
+range / null‑island values); it never rounds them.
 
-This is enforced centrally in `scripts/wigle_query.py` (see
-`redact_coordinates` / `PUBLIC_COORD_PRECISION`) and verified in CI by
-`scripts/validate_data.py`.
 
 ## 4. Retention
 

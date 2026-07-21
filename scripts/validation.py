@@ -6,15 +6,15 @@ Pure, dependency-free helper functions used by the collector
 (`wigle_query.py`) and the test suite.
 
 Keeping these functions free of any network / filesystem side effects means
-they can be unit-tested quickly and reused for input validation, output
-validation, and the public-data-precision policy.
+they can be unit-tested quickly and reused for input validation and output
+validation.
 
 IMPORTANT — Data policy:
-    Every record produced by this project is a *SUSPECTED* Flock Safety
-    device, inferred purely from a WiFi OUI (MAC prefix) match against
-    crowdsourced WiGLE data. An OUI match is not proof: OUIs can be shared,
-    reassigned, spoofed, or belong to unrelated hardware. Downstream code
-    should always label these as "suspected", never as confirmed.
+    * Every record produced by this project is a *SUSPECTED* Flock Safety
+      device, inferred purely from a WiFi OUI (MAC prefix) match against
+      crowdsourced WiGLE data. An OUI match is not proof.
+    * Coordinates are published at FULL precision and are NEVER modified /
+      truncated — accuracy matters for mapping.
 """
 
 from __future__ import annotations
@@ -26,12 +26,6 @@ import re
 # Confidence label applied to every emitted record. An OUI match is a
 # heuristic, not a confirmation.
 MATCH_CONFIDENCE = "suspected"
-
-# Public coordinate precision. WiGLE trilateration is already approximate;
-# we deliberately truncate published coordinates so the map communicates a
-# neighborhood-level area rather than implying a precise, surveyable point.
-# 3 decimal places ≈ 111 m at the equator.
-PUBLIC_COORD_PRECISION = 3
 
 # OUI prefix: three hex octets separated by colons, e.g. "70:C9:4E".
 OUI_REGEX = re.compile(r"^[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}$")
@@ -81,7 +75,7 @@ def oui_from_netid(netid: str) -> str:
     return prefix if is_valid_oui(prefix) else ""
 
 
-# ─── Coordinate validation & precision policy ─────────────────────────────────
+# ─── Coordinate validation ────────────────────────────────────────────────────
 
 def is_valid_latlon(lat, lon) -> bool:
     """
@@ -89,6 +83,9 @@ def is_valid_latlon(lat, lon) -> bool:
 
     Rejects None, non-numeric, NaN, out-of-range, and the (0, 0) sentinel
     that frequently indicates a missing geocode.
+
+    NOTE: This only *validates* coordinates — it never modifies them. Published
+    coordinates are always kept at full precision.
     """
     try:
         latf = float(lat)
@@ -103,32 +100,6 @@ def is_valid_latlon(lat, lon) -> bool:
     if latf == 0.0 and lonf == 0.0:
         return False
     return True
-
-
-def round_coord(value, precision: int = PUBLIC_COORD_PRECISION):
-    """
-    Round a single coordinate to the public precision.
-
-    Returns None if the value is not numeric so callers can drop the record.
-    """
-    try:
-        return round(float(value), precision)
-    except (TypeError, ValueError):
-        return None
-
-
-def redact_coordinates(lat, lon, precision: int = PUBLIC_COORD_PRECISION):
-    """
-    Reduce coordinate precision for public output.
-
-    Returns (lat, lon) rounded to `precision` decimals, or (None, None)
-    if either value is invalid.
-    """
-    rlat = round_coord(lat, precision)
-    rlon = round_coord(lon, precision)
-    if rlat is None or rlon is None:
-        return None, None
-    return rlat, rlon
 
 
 # ─── Output record validation ─────────────────────────────────────────────────
