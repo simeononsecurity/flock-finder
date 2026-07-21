@@ -206,9 +206,20 @@ The included workflow runs daily and auto-commits updated camera data:
 
 ---
 
+## 📚 Documentation
+
+- **[Data Policy, Provenance & Corrections](docs/DATA_POLICY.md)** — every record is *suspected* (OUI match only), coordinates are truncated to ~110 m, and here's how to request a correction.
+- **[Data Dictionary](docs/DATA_DICTIONARY.md)** — field-level schema for every file under `data/`.
+- **[Contributing Guide](CONTRIBUTING.md)** — local setup, lint/test/validate commands, and how to add an OUI prefix.
+
+> ⚠️ **These are *suspected* Flock devices, not confirmed.** An OUI match is a heuristic — OUIs can be shared, reassigned, or spoofed. Published coordinates are intentionally reduced to neighborhood-level precision. See the [Data Policy](docs/DATA_POLICY.md).
+
+---
+
 ## ⚖️ Legal & Ethics
 
 This project uses only **publicly available data** from the WiGLE database, which aggregates voluntarily contributed WiFi survey data. No hacking, unauthorized access, or proprietary systems are involved.
+
 
 The goal is **transparency** — communities have a right to know where surveillance infrastructure is deployed in their neighborhoods.
 
