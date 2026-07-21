@@ -1,0 +1,4 @@
+# Development / CI dependencies (linting + tests). Pinned for reproducibility.
+-r requirements.txt
+pytest==8.3.3
+ruff==0.6.9

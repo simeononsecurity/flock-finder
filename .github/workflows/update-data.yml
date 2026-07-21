@@ -16,10 +16,9 @@ on:
         type: boolean
         default: false
 
+# Least privilege at the top level; each job requests only what it needs.
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
   group: "pages"
@@ -28,7 +27,11 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # This job commits data back to the repo → needs write to contents only.
+    permissions:
+      contents: write
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v7
 
@@ -78,7 +81,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json data/by_oui/ README.md
+          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json data/flock_ouis.json data/by_oui/ README.md
+
           CAMERAS=$(python3 -c "import json; d=json.load(open('data/scan_stats.json')); print(d.get('total_cameras', 0))")
           NEW=$(python3 -c "import json; d=json.load(open('data/scan_stats.json')); print(d.get('new_this_scan', 0))")
           git commit -m "data: update Flock camera data ($CAMERAS total, +$NEW new) [skip ci]"
@@ -87,10 +91,15 @@ jobs:
   deploy-pages:
     needs: update
     runs-on: ubuntu-latest
+    # Pages deployment needs to write Pages + mint an OIDC token, nothing more.
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v7
         with:

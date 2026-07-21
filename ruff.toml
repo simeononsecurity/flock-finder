@@ -1,0 +1,15 @@
+# Ruff configuration — fast Python linter for the collector scripts.
+line-length = 100
+target-version = "py38"
+
+[lint]
+# A pragmatic default rule set: pyflakes (F), pycodestyle errors (E),
+# import sorting (I), and common bugbear checks (B).
+select = ["E", "F", "I", "B"]
+ignore = [
+    "E501",  # line length is enforced softly; long log strings are fine
+]
+
+[lint.per-file-ignores]
+# Tests may use assert-heavy patterns and re-import fixtures.
+"tests/*" = ["B011"]
