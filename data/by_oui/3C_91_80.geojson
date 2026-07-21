@@ -1566,30 +1566,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.50369263,
-          30.06937218
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:13:A3:71",
-        "ssid": null,
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-07-20T21:00:00.000Z",
-        "lasttime": "2024-07-20T17:00:00.000Z",
-        "city": null,
-        "region": "TX",
-        "country": "US",
-        "road": "Gosling Road",
-        "postalcode": "77389"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -74.50046539,
           40.5163002
         ]
@@ -2375,30 +2351,6 @@
         "country": "FR",
         "road": "Avenue de la Cadenelle",
         "postalcode": "13008"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.22568512,
-          60.1411705
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:15:69:7A",
-        "ssid": "ACm9RvGC",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-05T13:00:00.000Z",
-        "lasttime": "2024-07-20T13:00:00.000Z",
-        "city": null,
-        "region": "Viken",
-        "country": "NO",
-        "road": "Algarheimsvegen",
-        "postalcode": "2052"
       }
     },
     {
@@ -6911,30 +6863,6 @@
         "country": "US",
         "road": "East Kronkosky Street",
         "postalcode": "78006"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -117.9587326,
-          33.81690598
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:79:CC:BF",
-        "ssid": null,
-        "oui": "3C:91:80",
-        "channel": 2,
-        "encryption": "unknown",
-        "firsttime": "2024-07-20T18:00:00.000Z",
-        "lasttime": "2024-07-20T21:00:00.000Z",
-        "city": "Anaheim",
-        "region": "CA",
-        "country": "US",
-        "road": "Brookhurst Street",
-        "postalcode": "92804"
       }
     },
     {
@@ -17667,10 +17595,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-07-20T07:04:00.141036+00:00",
+    "generated": "2026-07-21T00:13:05.047648+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 736
+    "total_cameras": 733
   }
 }
