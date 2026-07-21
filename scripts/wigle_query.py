@@ -29,19 +29,31 @@ Usage:
     python3 scripts/wigle_query.py --full-rescan       # Ignore saved state
 """
 
+import argparse
 import csv
 import json
 import os
 import sys
 import time
-import argparse
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
+from oui_metadata import write_oui_json
+
+# Shared, unit-tested helpers (validation + public-data policy)
+from validation import (
+    MATCH_CONFIDENCE,
+    PUBLIC_COORD_PRECISION,
+    is_valid_oui,
+    normalize_oui,
+    redact_coordinates,
+    validate_record,
+)
 
 # ─── Configuration ────────────────────────────────────────────────────────────
+
 
 SCRIPT_DIR = Path(__file__).parent.absolute()
 PROJECT_DIR = SCRIPT_DIR.parent
@@ -70,20 +82,57 @@ STATS_OUTPUT = DATA_DIR / "scan_stats.json"
 SCAN_STATE_FILE = DATA_DIR / "scan_state.json"
 
 
+# ─── Atomic Writes (scan integrity) ──────────────────────────────────────────
+# Write to a temp file in the same directory, then os.replace() into place.
+# os.replace is atomic on the same filesystem, so a crash / kill / rate-limit
+# mid-write can never leave a truncated or half-valid data file behind.
+
+def atomic_write_text(path: Path, text: str) -> None:
+    """Atomically write text to `path` via a temp file + os.replace."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with open(tmp, "w", newline="") as f:
+        f.write(text)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
+def atomic_write_json(path: Path, obj) -> None:
+    """Atomically write `obj` as indented JSON to `path`."""
+    atomic_write_text(path, json.dumps(obj, indent=2))
+
+
+
 # ─── Flock Safety OUI List ────────────────────────────────────────────────────
 
 def load_ouis(oui_file: Path = None) -> list:
-    """Load Flock Safety OUI prefixes from CSV dataset."""
+    """
+    Load and validate Flock Safety OUI prefixes from the canonical CSV.
+
+    Malformed rows are skipped with a warning, and duplicates are removed,
+    so a bad edit to flock_ouis.csv can never inject a garbage query.
+    """
     if oui_file is None:
         oui_file = DATA_DIR / "flock_ouis.csv"
 
     ouis = []
+    seen = set()
     with open(oui_file, "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            oui = row["oui"].strip().upper()
+            raw = (row.get("oui") or "").strip()
+            if not is_valid_oui(raw):
+                if raw:
+                    print(f"  [!] Skipping malformed OUI in CSV: {raw!r}")
+                continue
+            oui = normalize_oui(raw)
+            if oui in seen:
+                continue
+            seen.add(oui)
             ouis.append(oui)
     return ouis
+
 
 
 # All 31 known Flock Safety OUI prefixes (fallback if CSV missing)
@@ -142,8 +191,8 @@ def save_scan_state(oui_states: dict, state_path: Path = None) -> None:
                        "Delete this file to force a full rescan.",
         "ouis": oui_states,
     }
-    with open(state_path, "w") as f:
-        json.dump(envelope, f, indent=2)
+    atomic_write_json(state_path, envelope)
+
 
 
 def compute_since_date(oui_state: dict, max_age_days: int) -> str:
@@ -542,11 +591,16 @@ def dedup_by_netid(records: dict) -> dict:
 
 
 def write_geojson(records: dict, output_path: Path) -> None:
-    """Write networks as GeoJSON FeatureCollection for the web map."""
+    """
+    Write networks as GeoJSON FeatureCollection for the web map.
+
+    Data policy: coordinates are truncated to PUBLIC_COORD_PRECISION and every
+    feature is explicitly tagged match_confidence="suspected" — an OUI match
+    is a heuristic, not a confirmation.
+    """
     features = []
     for netid, net in sorted(records.items()):
-        lat = net.get("trilat")
-        lon = net.get("trilong")
+        lat, lon = redact_coordinates(net.get("trilat"), net.get("trilong"))
         if lat is None or lon is None:
             continue
 
@@ -560,6 +614,7 @@ def write_geojson(records: dict, output_path: Path) -> None:
                 "netid": net.get("netid", netid),
                 "ssid": net.get("ssid", ""),
                 "oui": net.get("oui_match", netid[:8]),
+                "match_confidence": MATCH_CONFIDENCE,
                 "channel": net.get("channel"),
                 "encryption": net.get("encryption", ""),
                 "firsttime": net.get("firsttime", ""),
@@ -580,17 +635,19 @@ def write_geojson(records: dict, output_path: Path) -> None:
             "generated": datetime.now(timezone.utc).isoformat(),
             "source": "WiGLE (wigle.net)",
             "project": "flock-finder",
-            "description": "Flock Safety ALPR camera locations via WiFi OUI matching",
+            "description": "SUSPECTED Flock Safety ALPR camera locations via WiFi "
+                           "OUI matching. An OUI match is not a confirmation.",
+            "match_confidence": MATCH_CONFIDENCE,
+            "coordinate_precision_decimals": PUBLIC_COORD_PRECISION,
             "oui_research": "@NitekryDPaul",
             "total_cameras": len(features),
         },
     }
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w") as f:
-        json.dump(geojson, f, indent=2)
+    atomic_write_json(output_path, geojson)
 
     print(f"  [✓] GeoJSON: {output_path}  ({len(features)} features)")
+
 
 
 def write_csv(records: dict, output_path: Path) -> None:
@@ -758,11 +815,10 @@ def write_stats(records: dict, ouis_queried: int, api_requests: int,
         "cameras_by_country": dict(sorted(country_counts.items(), key=lambda x: -x[1])),
     }
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w") as f:
-        json.dump(stats, f, indent=2)
+    atomic_write_json(output_path, stats)
 
     print(f"  [✓] Stats: {output_path}")
+
 
 
 def update_readme(stats_path: Path, readme_path: Path = None) -> None:
@@ -782,8 +838,8 @@ def update_readme(stats_path: Path, readme_path: Path = None) -> None:
 
         total = stats.get("total_cameras", 0)
         ouis_found = stats.get("unique_ouis_found", 0)
-        ouis_queried = stats.get("ouis_queried", 0)
         countries = stats.get("cameras_by_country", {})
+
         regions = stats.get("cameras_by_region", {})
         retention = stats.get("data_retention_days", 730)
         timestamp = stats.get("scan_timestamp", "")[:10]
@@ -918,7 +974,7 @@ def main():
     output_dir = Path(args.output_dir) if args.output_dir else DATA_DIR
     state_path = output_dir / "scan_state.json"
 
-    print(f"\n[4/7] Loading scan state for incremental mode…")
+    print("\n[4/7] Loading scan state for incremental mode…")
     if args.full_rescan:
         oui_states = {}
         print("  --full-rescan: ignoring saved state, querying full window")
@@ -957,7 +1013,7 @@ def main():
     csv_out = output_dir / "flock_cameras.csv"
     stats_out = output_dir / "scan_stats.json"
 
-    print(f"\n[5/7] Loading existing data for cumulative merge…")
+    print("\n[5/7] Loading existing data for cumulative merge…")
     if args.no_merge:
         existing = {}
         print("  --no-merge: starting with empty dataset")
@@ -1021,7 +1077,7 @@ def main():
             all_new_networks.extend(networks)
             print(f"         → {len(networks)} cameras found")
         else:
-            print(f"         → no new results")
+            print("         → no new results")
 
         # Update per-OUI state
         now_iso = datetime.now(timezone.utc).isoformat()
@@ -1059,7 +1115,7 @@ def main():
             time.sleep(RATE_LIMIT_DELAY)
 
     # ── Merge + Prune ─────────────────────────────────────────────────────────
-    print(f"\n[7/7] Merging and writing output…")
+    print("\n[7/7] Merging and writing output…")
     print(f"  New results this scan: {len(all_new_networks)}")
 
     count_before = len(existing)
@@ -1072,7 +1128,27 @@ def main():
     # Final dedup — guarantee no duplicate netids (safety net)
     merged = dedup_by_netid(merged)
 
+    # ── Output validation + public-data precision policy ──────────────────────
+    # Do this ONCE, centrally, so every downstream writer (combined GeoJSON/CSV
+    # and per-OUI splits) emits only validated records at the reduced public
+    # coordinate precision. This is the single choke point for the data policy.
+    public = {}
+    dropped = 0
+    for netid, net in merged.items():
+        rec = dict(net)
+        rlat, rlon = redact_coordinates(net.get("trilat"), net.get("trilong"))
+        rec["trilat"] = rlat
+        rec["trilong"] = rlon
+        if not validate_record(rec):
+            dropped += 1
+            continue
+        public[netid] = rec
+    if dropped:
+        print(f"  Output validation: dropped {dropped} invalid/incomplete record(s)")
+    merged = public
+
     # Write combined outputs
+
     write_geojson(merged, geojson_out)
     write_csv(merged, csv_out)
     write_stats(merged, len(ouis), client.request_count, new_this_scan, stats_out)
@@ -1081,8 +1157,17 @@ def main():
     write_geojson_per_oui(merged, output_dir)
     write_csv_per_oui(merged, output_dir)
 
+    # Regenerate centralized OUI metadata JSON for the frontend so the map's
+    # OUI list is never hand-duplicated / out of sync with the canonical CSV.
+    try:
+        oui_json_path = write_oui_json(json_path=output_dir / "flock_ouis.json")
+        print(f"  [✓] OUI metadata: {oui_json_path}")
+    except Exception as exc:
+        print(f"  [!] Could not write OUI metadata JSON: {exc}")
+
     # Update README with cumulative stats
     update_readme(stats_out)
+
 
     # ── Summary ───────────────────────────────────────────────────────────────
     completed = sum(1 for s in oui_states.values() if s.get("status") == "completed")
@@ -1090,7 +1175,7 @@ def main():
 
     print()
     print(banner)
-    print(f"  Scan Complete!")
+    print("  Scan Complete!")
     print(banner)
     print(f"  Total cameras (cumulative) : {len(merged)}")
     print(f"  New this scan              : {new_this_scan}")
@@ -1102,7 +1187,7 @@ def main():
         print(f"  OUIs skipped (rate limit)  : {ouis_skipped_rate_limit}")
     print(f"  API requests made          : {client.request_count}")
     if hit_rate_limit:
-        print(f"  ⚠ Rate limited             : yes (state saved — re-run to continue)")
+        print("  ⚠ Rate limited             : yes (state saved — re-run to continue)")
     print(f"  Data retention             : {args.max_age_days} days")
     print(f"  Scan state                 : {state_path}")
     print(f"  GeoJSON                    : {geojson_out}")
