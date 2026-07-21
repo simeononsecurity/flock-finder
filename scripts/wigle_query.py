@@ -233,9 +233,10 @@ class WiGLEClient:
         try:
             resp = self.session.get(f"{WIGLE_API_BASE}/profile/user", timeout=15)
             if resp.status_code == 200:
-                data = resp.json()
-                user = data.get("userid", "unknown")
-                print(f"  [✓] Authenticated as: {user}")
+                # NOTE: Deliberately do NOT print the WiGLE userid here — this
+                # script runs in public GitHub Actions logs and the username
+                # would otherwise be leaked. Just confirm auth succeeded.
+                print("  [✓] Authenticated successfully")
                 return True
             elif resp.status_code == 401:
                 print("  [✗] Authentication failed — check API credentials in .env")
