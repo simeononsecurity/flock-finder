@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 40,105 |
+| 📸 **Cameras Mapped** | 40,026 |
 | 📡 **OUI Prefixes with Data** | 9 / 31 |
 | 🌎 **Countries** | 109 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-07-21 |
+| 🕐 **Last Updated** | 2026-07-22 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 

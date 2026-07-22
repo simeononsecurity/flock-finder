@@ -222,30 +222,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.95014954,
-          33.8115654
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:0E:48:13",
-        "ssid": null,
-        "oui": "80:30:49",
-        "channel": 4,
-        "encryption": "unknown",
-        "firsttime": "2024-07-21T18:00:00.000Z",
-        "lasttime": "2024-07-21T17:00:00.000Z",
-        "city": "Anaheim",
-        "region": "CA",
-        "country": "US",
-        "road": "South Nutwood Street",
-        "postalcode": "92804"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.23640347,
           48.24442291
         ]
@@ -11142,30 +11118,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.41512299,
-          43.74198914
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:1A:BF:C3",
-        "ssid": "SYN-208-VIA",
-        "oui": "80:30:49",
-        "channel": 4,
-        "encryption": "wpa2",
-        "firsttime": "2021-04-18T16:00:00.000Z",
-        "lasttime": "2024-07-21T21:00:00.000Z",
-        "city": "Toronto",
-        "region": "Ontario",
-        "country": "CA",
-        "road": "Sandringham Drive",
-        "postalcode": "M5M 3S1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           36.57116699,
           50.57105255
         ]
@@ -16827,10 +16779,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-07-21T14:07:10.673211+00:00",
+    "generated": "2026-07-22T06:48:22.076380+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 701
+    "total_cameras": 699
   }
 }
