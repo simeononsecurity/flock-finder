@@ -26,7 +26,7 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 > [!WARNING]
 > **Take this map with a grain of salt.** WiGLE is a crowdsourced, passively-collected dataset that is updated sporadically on a per-location basis — it is **not** a live feed. Flock cameras **do not broadcast continuously**; they wake briefly only to upload data, meaning WiGLE records depend entirely on someone happening to be wardriving in the right place at the right time. Locations may be stale, incomplete, or reflect cameras that have since been moved or removed.
 >
-> **This dashboard is a general awareness tool, not a source of truth.** For accurate, real-time, local detection use the hardware devices by [STSCollective](https://stscollective.com) described below — they implement @NitekryDPaul's actual detection method directly on an ESP32 and can detect Flock cameras as you drive past them.
+> **This dashboard is a general awareness tool, not a source of truth.** For accurate, real-time, local detection use the hardware devices by [STSCollective](https://stscollective.com) described below — they implement @NitekryDPaul's actual detection method directly on an ESP32 and can detect Flock cameras as you drive past them. Use discount code **`FLOCKFINDER`** at checkout for **20% off** your order.
 
 ---
 
@@ -50,7 +50,7 @@ Flock cameras spend most of their duty cycle **asleep**, waking briefly to uploa
 
 Combined with wildcard probe request detection (802.11 management frames type=0 subtype=4 with empty SSID), this yields a very tight signature: **11 of 12 cameras caught with only 2 false positives** in field testing.
 
-> **This is the gold-standard detection method — and it requires dedicated hardware running in the field.** The WiGLE-based map in this repo does *not* implement addr1 matching; it can only see what WiGLE volunteers have already passively logged. For real-time, on-the-ground detection using this exact technique, see the **[STSCollective FlockYou devices](https://stscollective.com)** — ESP32-based detectors that scan for Flock OUI signatures as you drive, with LED and/or audio alerts the moment a camera is detected.
+> **This is the gold-standard detection method — and it requires dedicated hardware running in the field.** The WiGLE-based map in this repo does *not* implement addr1 matching; it can only see what WiGLE volunteers have already passively logged. For real-time, on-the-ground detection using this exact technique, see the **[STSCollective FlockYou devices](https://stscollective.com)** — ESP32-based detectors that scan for Flock OUI signatures as you drive, with LED and/or audio alerts the moment a camera is detected. Use discount code **`FLOCKFINDER`** at checkout for **20% off** your order.
 
 ---
 
