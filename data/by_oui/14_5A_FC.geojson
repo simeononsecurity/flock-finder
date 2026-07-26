@@ -22470,30 +22470,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.21131611,
-          56.15632629
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:60:66:31",
-        "ssid": "ClickShare-Dramatikeren",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-22T09:00:00.000Z",
-        "lasttime": "2024-07-24T01:00:00.000Z",
-        "city": "Aarhus",
-        "region": "Region Midtjylland",
-        "country": "DK",
-        "road": "Teatergaden",
-        "postalcode": "8000"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.55156708,
           47.31840897
         ]
@@ -57366,30 +57342,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.33817887,
-          48.87230682
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:82:54:65",
-        "ssid": "CS-1185",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-11-20T12:00:00.000Z",
-        "lasttime": "2024-07-24T12:00:00.000Z",
-        "city": "Paris",
-        "region": "\u00cele-de-France",
-        "country": "FR",
-        "road": "Boulevard Haussmann",
-        "postalcode": "75009"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.31754494,
           47.04612732
         ]
@@ -65855,30 +65807,6 @@
         "country": "GB",
         "road": "Station Approach",
         "postalcode": "DA1 1BP"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.70857239,
-          45.67951202
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:82:70:7F",
-        "ssid": "JOKER CLICKSHARE",
-        "oui": "14:5A:FC",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-03-08T15:00:00.000Z",
-        "lasttime": "2024-07-25T12:00:00.000Z",
-        "city": null,
-        "region": "Lombardia",
-        "country": "IT",
-        "road": "Via Giuseppe Giusti",
-        "postalcode": "21019"
       }
     },
     {
@@ -76607,54 +76535,6 @@
         "country": "DK",
         "road": "Centralstien",
         "postalcode": "2740"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -6.24651909,
-          53.33368301
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:90:9E:4B",
-        "ssid": "ClickShare-1862455839",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-11-06T19:00:00.000Z",
-        "lasttime": "2024-07-25T12:00:00.000Z",
-        "city": "Dublin",
-        "region": "Leinster",
-        "country": "IE",
-        "road": "Mespil Road",
-        "postalcode": "D04 WN52"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.20722103,
-          56.14936066
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:90:9E:57",
-        "ssid": "ClickShare-1862455847",
-        "oui": "14:5A:FC",
-        "channel": 44,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-22T08:00:00.000Z",
-        "lasttime": "2024-07-24T01:00:00.000Z",
-        "city": "Aarhus",
-        "region": "Region Midtjylland",
-        "country": "DK",
-        "road": "V\u00e6rkmestergade",
-        "postalcode": "8000"
       }
     },
     {
@@ -89283,10 +89163,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-07-24T06:51:01.085792+00:00",
+    "generated": "2026-07-26T06:55:38.414229+00:00",
     "oui": "14:5A:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3720
+    "total_cameras": 3715
   }
 }
