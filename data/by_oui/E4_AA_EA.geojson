@@ -35598,30 +35598,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.15551758,
-          32.70518875
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:4F:F2:F3",
-        "ssid": "HHSA OIS 7205",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2020-10-20T05:00:00.000Z",
-        "lasttime": "2024-07-26T20:00:00.000Z",
-        "city": "San Diego",
-        "region": "CA",
-        "country": "US",
-        "road": "MTS Center Way",
-        "postalcode": "92101"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -71.47186279,
           42.94631958
         ]
@@ -60311,30 +60287,6 @@
         "country": "US",
         "road": "2nd Street",
         "postalcode": "94105"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.53798676,
-          47.37490082
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:57:72:2B",
-        "ssid": "Z\u00fcrich 2. OG Sitzungszimmer",
-        "oui": "E4:AA:EA",
-        "channel": 2,
-        "encryption": "wpa2",
-        "firsttime": "2020-11-07T16:00:00.000Z",
-        "lasttime": "2024-07-26T12:00:00.000Z",
-        "city": "Z\u00fcrich",
-        "region": "Z\u00fcrich",
-        "country": "CH",
-        "road": "Lintheschergasse",
-        "postalcode": "8001"
       }
     },
     {
@@ -96054,30 +96006,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.17126274,
-          48.70999527
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:58:DB:FF",
-        "ssid": "ClickShare-1862342775",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-01-07T15:00:00.000Z",
-        "lasttime": "2024-07-26T10:00:00.000Z",
-        "city": "Stuttgart",
-        "region": "Baden-W\u00fcrttemberg",
-        "country": "DE",
-        "road": "Zettachring",
-        "postalcode": "70567"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -94.24417114,
           46.35039902
         ]
@@ -129462,30 +129390,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.32323742,
-          48.29841995
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:5E:18:EB",
-        "ssid": "Bespr. B113 Neb.2",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-01-13T14:00:00.000Z",
-        "lasttime": "2024-07-26T10:00:00.000Z",
-        "city": "Linz",
-        "region": "Ober\u00f6sterreich",
-        "country": "AT",
-        "road": "Nebingerstra\u00dfe",
-        "postalcode": "4020"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.43814325,
           46.94445801
         ]
@@ -134903,30 +134807,6 @@
         "country": "NO",
         "road": "Lysakerlokket",
         "postalcode": "1366"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -1.54243135,
-          53.9928093
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:5E:28:ED",
-        "ssid": "ClickShare - Group Office",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-26T11:00:00.000Z",
-        "lasttime": "2024-07-26T10:00:00.000Z",
-        "city": "Harrogate",
-        "region": "England",
-        "country": "GB",
-        "road": "Parliament Street",
-        "postalcode": "HG1 2QU"
       }
     },
     {
@@ -161070,30 +160950,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -113.50756073,
-          53.53792191
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:91:D3:91",
-        "ssid": "ClickShare-1873238299",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-06-14T01:00:00.000Z",
-        "lasttime": "2024-07-26T04:00:00.000Z",
-        "city": "Edmonton",
-        "region": "Alberta",
-        "country": "CA",
-        "road": "108 Street NW",
-        "postalcode": "T5K2M4"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -113.50682831,
           53.53769302
         ]
@@ -167931,10 +167787,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-07-26T06:55:38.414229+00:00",
+    "generated": "2026-07-27T07:06:01.021848+00:00",
     "oui": "E4:AA:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 6997
+    "total_cameras": 6991
   }
 }
