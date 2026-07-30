@@ -431,6 +431,7 @@
         <a href="#map-container">Map</a>
         <a href="about.html">About ALPRs</a>
         <a href="#oui-data">OUI Data</a>
+        <a href="#ssid-data">SSIDs</a>
         <a href="https://deflock.org" target="_blank" rel="noopener noreferrer">DeFlock</a>
         <a href="https://github.com/simeononsecurity/flock-finder" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
@@ -560,6 +561,120 @@
                     <!-- Populated by JS -->
                 </tbody>
             </table>
+        </div>
+    </section>
+
+    <section class="info-section" id="ssid-data">
+        <h3><span class="icon">📶</span> Top 10 Observed SSID Name Variants</h3>
+        <p>
+            The table below lists the ten most frequently observed SSID values across all WiGLE records
+            matching a known Flock Safety OUI prefix. Most Flock cameras transmit a <strong>hidden SSID</strong>
+            (empty broadcast), so these entries represent the minority of records where a network name was
+            visible to WiGLE wardrive scanners. Published here as a reference for researchers and detection
+            tool authors.
+        </p>
+        <div style="background:rgba(255,214,0,0.06);border:1px solid rgba(255,214,0,0.25);border-radius:8px;padding:0.75rem 1rem;margin:0.75rem 0;font-size:0.875rem;color:#ccc;line-height:1.55;">
+            <strong style="color:#ffd600;">⚠️ These SSIDs are not exclusive to Flock cameras.</strong>
+            They appear in records whose OUI prefix matches the known Flock Safety list — but names like
+            <code>ClickShare</code> and <code>TEST</code> are generic and may co-occupy the same MAC space.
+            Treat them as correlated observations, not confirmed Flock identifiers.
+        </div>
+        <div style="overflow-x:auto;margin-top:1rem;">
+            <table class="oui-table" id="ssid-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>SSID</th>
+                        <th>Occurrences</th>
+                    </tr>
+                </thead>
+                <tbody>
+<!-- SSID_TOP10_ROWS_START -->
+                    <tr><td>1</td><td><code>Flock</code></td><td style="color:var(--accent);font-weight:700;">1,259</td></tr>
+                    <tr><td>2</td><td><code>TEST</code></td><td style="color:var(--accent);font-weight:700;">277</td></tr>
+                    <tr><td>3</td><td><code>Compudopt Connect</code></td><td style="color:var(--accent);font-weight:700;">238</td></tr>
+                    <tr><td>4</td><td><code>ClickShare-Boardroom</code></td><td style="color:var(--accent);font-weight:700;">196</td></tr>
+                    <tr><td>5</td><td><code>ClickShare</code></td><td style="color:var(--accent);font-weight:700;">181</td></tr>
+                    <tr><td>6</td><td><code>SMARTGATE_123456</code></td><td style="color:var(--accent);font-weight:700;">145</td></tr>
+                    <tr><td>7</td><td><code>ClickShare-Conference Room</code></td><td style="color:var(--accent);font-weight:700;">129</td></tr>
+                    <tr><td>8</td><td><code>Afsol Wifi</code></td><td style="color:var(--accent);font-weight:700;">113</td></tr>
+                    <tr><td>9</td><td><code>Smithway</code></td><td style="color:var(--accent);font-weight:700;">67</td></tr>
+                    <tr><td>10</td><td><code>MAX-PRINTER</code></td><td style="color:var(--accent);font-weight:700;">64</td></tr>
+<!-- SSID_TOP10_ROWS_END -->
+                </tbody>
+            </table>
+        </div>
+<!-- SSID_TOP10_STATS_START -->
+        <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--text-muted);">
+            Computed from 76,002 SSID-bearing records (69,252 unique values) across all 19 OUI files in
+            <code>data/by_oui/</code>. Stats update automatically after each scan.
+        </p>
+<!-- SSID_TOP10_STATS_END -->
+    </section>
+
+    <section class="info-section" id="ssid-patterns">
+        <h3><span class="icon">🔬</span> Flock SSID Pattern Analysis</h3>
+<!-- SSID_PATTERNS_SUMMARY_START -->
+        <p>
+            Filtering the WiGLE dataset to only <code>Flock*</code>-prefixed SSIDs reveals
+            <strong>141 unique variants</strong> across <strong>1,399 total records</strong>,
+            falling into five distinct naming patterns:
+        </p>
+<!-- SSID_PATTERNS_SUMMARY_END -->
+        <div style="overflow-x:auto;margin-top:1rem;">
+            <table class="oui-table">
+                <thead>
+                    <tr>
+                        <th>Pattern</th>
+                        <th>Unique SSIDs</th>
+                        <th>Records</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+<!-- SSID_PATTERNS_ROWS_START -->
+                    <tr>
+                        <td><code>Flock</code></td>
+                        <td style="color:var(--accent);font-weight:700;">1</td>
+                        <td style="color:var(--accent);font-weight:700;">1,259</td>
+                        <td style="color:var(--text-muted);">Bare name — fully configured / deployed cameras</td>
+                    </tr>
+                    <tr>
+                        <td><code>Flock-XXXXXX</code></td>
+                        <td style="color:var(--green);font-weight:700;">132</td>
+                        <td style="color:var(--green);font-weight:700;">132</td>
+                        <td style="color:var(--text-muted);">Mixed-case with 6-char uppercase hex suffix (e.g. <code>Flock-7EBB9D</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>FLOCK-XXXXXX</code></td>
+                        <td style="color:var(--green);font-weight:700;">5</td>
+                        <td style="color:var(--green);font-weight:700;">5</td>
+                        <td style="color:var(--text-muted);">All-caps variant with 6-char hex suffix (e.g. <code>FLOCK-215CB4</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>Flock-XXXX</code></td>
+                        <td style="color:var(--text-muted);font-weight:700;">1</td>
+                        <td style="color:var(--text-muted);font-weight:700;">1</td>
+                        <td style="color:var(--text-muted);">Shorter 4-char hex suffix (<code>Flock-6361</code>)</td>
+                    </tr>
+                    <tr>
+                        <td><code>FlockXXX</code></td>
+                        <td style="color:var(--text-muted);font-weight:700;">2</td>
+                        <td style="color:var(--text-muted);font-weight:700;">2</td>
+                        <td style="color:var(--text-muted);">Numeric suffix, no dash (<code>Flock001</code>, <code>Flock003</code>)</td>
+                    </tr>
+<!-- SSID_PATTERNS_ROWS_END -->
+                </tbody>
+            </table>
+        </div>
+        <div style="background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.25);border-radius:8px;padding:0.85rem 1rem;margin-top:1rem;font-size:0.875rem;color:#ccc;line-height:1.6;">
+            <strong style="color:var(--green);">💡 Provisioning SSID pattern detected.</strong>
+            The <code>Flock-XXXXXX</code> / <code>FLOCK-XXXXXX</code> naming convention is consistent with
+            <strong>factory or pre-deployment SSIDs</strong> — each device appears to broadcast a unique hex
+            identifier (likely derived from its MAC address) before being claimed and configured through the
+            Flock Safety platform. Once provisioned, the SSID collapses to the bare <code>Flock</code> name.
+            Observing a <code>Flock-XXXXXX</code> SSID on a matching OUI prefix is a strong secondary
+            confirmation signal for an unconfigured or recently factory-reset Flock Safety camera.
         </div>
     </section>
 

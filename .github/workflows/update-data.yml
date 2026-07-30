@@ -71,17 +71,20 @@ jobs:
           fi
           python3 scripts/wigle_query.py $ARGS
 
+      - name: Update SSID stats in README and website
+        run: python3 scripts/update_ssid_stats.py
+
       - name: Check for data changes
         id: check
         run: |
-          git diff --quiet data/ README.md || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet data/ README.md docs/index.html || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push updated data
         if: steps.check.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json data/flock_ouis.json data/by_oui/ README.md
+          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json data/flock_ouis.json data/by_oui/ README.md docs/index.html
 
           CAMERAS=$(python3 -c "import json; d=json.load(open('data/scan_stats.json')); print(d.get('total_cameras', 0))")
           NEW=$(python3 -c "import json; d=json.load(open('data/scan_stats.json')); print(d.get('new_this_scan', 0))")

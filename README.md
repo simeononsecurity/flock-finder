@@ -174,6 +174,51 @@ flock-finder/
 
 ---
 
+## 📶 Top 10 Observed SSID Name Variants
+
+The table below lists the ten most frequently observed SSID values across all WiGLE records matching a known Flock Safety OUI prefix. Because most Flock cameras transmit a **hidden SSID** (empty broadcast), the entries below represent the minority of records where a network name was visible to the WiGLE wardrive scanner. They are published here as a community reference for researchers and detection tool authors.
+
+> ⚠️ **These SSIDs are not exclusive to Flock cameras.** They appear in records whose OUI prefix matches the known Flock Safety list — but many of these network names (e.g., `ClickShare`, `TEST`) are generic and may simply co-occupy the same MAC space. Treat them as correlated observations, not confirmed Flock identifiers.
+
+<!-- SSID_TOP10_START -->
+| # | SSID | Occurrences |
+|---|------|-------------|
+| 1 | `Flock` | 1,259 |
+| 2 | `TEST` | 277 |
+| 3 | `Compudopt Connect` | 238 |
+| 4 | `ClickShare-Boardroom` | 196 |
+| 5 | `ClickShare` | 181 |
+| 6 | `SMARTGATE_123456` | 145 |
+| 7 | `ClickShare-Conference Room` | 129 |
+| 8 | `Afsol Wifi` | 113 |
+| 9 | `Smithway` | 67 |
+| 10 | `MAX-PRINTER` | 64 |
+
+*Computed from 76,002 SSID-bearing records (69,252 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+<!-- SSID_TOP10_END -->
+
+---
+
+## 🔬 Flock SSID Pattern Analysis
+
+<!-- SSID_PATTERNS_START -->
+Filtering for only `Flock*`-prefixed SSIDs yields **141 unique variants** across **1,399 total records**. These fall into five distinct patterns:
+
+| Pattern | Unique SSIDs | Records | Description |
+|---------|-------------|---------|-------------|
+| `Flock` | 1 | 1,259 | Bare name — fully configured / deployed cameras |
+| `Flock-XXXXXX` | 132 | 132 | Mixed-case with 6-char uppercase hex suffix |
+| `FLOCK-XXXXXX` | 5 | 5 | All-caps variant with 6-char hex suffix |
+| `Flock-XXXX` | 1 | 1 | Shorter 4-char hex suffix (`Flock-6361`) |
+| `FlockXXX` | 2 | 2 | Numeric suffix, no dash (`Flock001`, `Flock003`) |
+
+**The `Flock-XXXXXX` / `FLOCK-XXXXXX` naming convention is consistent with camera provisioning SSIDs** — each device appears to broadcast a unique hex identifier (likely derived from its MAC address) before being claimed and configured through the Flock Safety platform. Once provisioned, the SSID collapses to the bare `Flock` name.
+
+> This pattern is a strong secondary confirmation signal: observing a `Flock-XXXXXX` SSID on a matching OUI prefix is highly indicative of an unconfigured or recently factory-reset Flock Safety camera.
+<!-- SSID_PATTERNS_END -->
+
+---
+
 ## ⚙️ GitHub Actions (Automated Updates)
 
 The included workflow runs daily and auto-commits updated camera data:
