@@ -51,7 +51,7 @@ from dotenv import load_dotenv
 
 # Shared validation helpers
 sys.path.insert(0, str(Path(__file__).parent))
-from validation import is_valid_latlon, MATCH_CONFIDENCE  # noqa: E402
+from validation import is_valid_latlon  # noqa: E402
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 SCRIPT_DIR   = Path(__file__).parent.absolute()
@@ -118,7 +118,7 @@ def load_known_ouis() -> set:
     known: set = set()
     oui_csv = DATA_DIR / "flock_ouis.csv"
     if not oui_csv.exists():
-        print(f"  [!] flock_ouis.csv not found — all OUIs will be treated as novel")
+        print("  [!] flock_ouis.csv not found — all OUIs will be treated as novel")
         return known
     with open(oui_csv, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
