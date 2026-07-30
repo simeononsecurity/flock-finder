@@ -678,6 +678,65 @@
         </div>
     </section>
 
+    <section class="info-section" id="candidate-ouis">
+        <h3><span class="icon">🔭</span> SSID-Discovery: Candidate OUI Prefixes <span style="font-size:0.8rem;background:rgba(255,214,0,0.12);color:var(--yellow);padding:0.2rem 0.6rem;border-radius:4px;margin-left:0.5rem;vertical-align:middle;">Unconfirmed</span></h3>
+
+        <div style="background:rgba(255,214,0,0.07);border:1px solid rgba(255,214,0,0.3);border-radius:8px;padding:0.85rem 1.1rem;margin-bottom:1rem;font-size:0.875rem;line-height:1.6;color:#ccc;">
+            <strong style="color:#ffd600;">📡 New SSID pattern observed in the wild — <code style="color:#ffd600;">Flock Camera net.</code></strong><br>
+            A community member (<a href="https://github.com/colonelpanichacks/flock-you/issues/43" target="_blank" style="color:#ffd600;">flock-you issue #43</a>)
+            reported a Flock Safety camera broadcasting as <strong>Flock Camera net.</strong> — a format
+            completely invisible to <code>Flock-*</code> pattern searches.
+            The camera broadcast simultaneously on <strong>2.4 GHz (ch. 1)</strong> and <strong>5 GHz (ch. 157)</strong>
+            using <strong>sequential locally administered MACs</strong> (e.g. <code>52:64:CF:9F:A2:DE</code> / <code>:DF</code>).
+            Locally administered addressing is likely a <strong>deliberate anti-fingerprinting measure</strong> —
+            these MACs will never match IEEE OUI lookups, making SSID-pattern detection the only viable
+            passive identification path for cameras using this scheme.
+        </div>
+
+        <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);">
+            This table is populated automatically by querying WiGLE for SSIDs matching
+            <code>Flock%</code> / <code>FLOCK%</code>, then extracting OUI prefixes from results
+            that are <strong>not</strong> in the canonical OUI list. Only OUIs seen
+            <strong>≥5 times</strong> are shown to reduce false positives.
+        </p>
+
+<!-- CANDIDATE_OUIS_SUMMARY_START -->
+        <p>
+            No candidate OUI prefixes have been identified yet via SSID-pattern queries.
+            Any novel OUI seen ≥5 times in
+            Flock-SSID-bearing WiGLE records will appear here automatically.
+        </p>
+<!-- CANDIDATE_OUIS_SUMMARY_END -->
+
+        <div style="overflow-x:auto;margin-top:1rem;">
+            <table class="oui-table">
+                <thead>
+                    <tr>
+                        <th>OUI Prefix</th>
+                        <th>Occurrences</th>
+                        <th>Top SSIDs</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+<!-- CANDIDATE_OUIS_ROWS_START -->
+                    <tr><td colspan="4" style="color:var(--text-muted);text-align:center;">No candidate OUI prefixes yet — queries running incrementally. Prefixes seen ≥5 times will appear here.</td></tr>
+<!-- CANDIDATE_OUIS_ROWS_END -->
+                </tbody>
+            </table>
+        </div>
+
+        <div style="background:rgba(0,230,118,0.06);border:1px solid rgba(0,230,118,0.2);border-radius:8px;padding:0.75rem 1rem;margin-top:1rem;font-size:0.85rem;color:#ccc;line-height:1.55;">
+            <strong style="color:var(--green);">🔔 Community help needed.</strong>
+            If you observe one of these OUI prefixes on a confirmed Flock camera in the field, please
+            <a href="https://github.com/simeononsecurity/flock-finder/issues" target="_blank" style="color:var(--green);">open an issue</a>
+            or PR to promote it to the canonical <code>flock_ouis.csv</code>.
+            Data files: <a href="data/ssid_candidate_cameras.geojson" style="color:var(--green);">ssid_candidate_cameras.geojson</a>
+            &nbsp;·&nbsp;
+            <a href="data/ssid_candidate_cameras.csv" style="color:var(--green);">ssid_candidate_cameras.csv</a>
+        </div>
+    </section>
+
     <section class="info-section">
         <h3><span class="icon">🔬</span> Detection Method</h3>
         <p>

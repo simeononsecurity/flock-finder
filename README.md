@@ -219,6 +219,20 @@ Filtering for only `Flock*`-prefixed SSIDs yields **141 unique variants** across
 
 ---
 
+## 🔭 SSID-Discovery: Candidate OUI Prefixes (Unconfirmed)
+
+> [!NOTE]
+> **New SSID pattern observed in the wild — `Flock Camera net.`**
+> A community member ([flock-you issue #43](https://github.com/colonelpanichacks/flock-you/issues/43)) reported a Flock Safety camera broadcasting as **`Flock Camera net.`** — a naming format completely invisible to `Flock-*` pattern searches. The same camera simultaneously broadcast on both **2.4 GHz (channel 1)** and **5 GHz (channel 157)** using **sequential locally administered MACs** (e.g. `52:64:CF:9F:A2:DE` / `:DF`). The locally administered addressing is likely a **deliberate anti-fingerprinting measure** — these MACs will never match IEEE OUI lookups, making SSID-pattern detection the only viable passive identification path for cameras using this scheme.
+
+This section is populated automatically by querying WiGLE for any SSID matching `Flock%` or `FLOCK%`, then extracting OUI prefixes from the results that are **not** in the canonical `flock_ouis.csv`. Only OUIs observed **≥5 times** are reported here to reduce false positives.
+
+<!-- CANDIDATE_OUIS_START -->
+*No candidate OUI prefixes identified yet — SSID-pattern incremental queries are running. Candidate prefixes will appear here once any novel OUI is observed ≥5 times in Flock-SSID-bearing WiGLE records.*
+<!-- CANDIDATE_OUIS_END -->
+
+---
+
 ## ⚙️ GitHub Actions (Automated Updates)
 
 The included workflow runs daily and auto-commits updated camera data:
