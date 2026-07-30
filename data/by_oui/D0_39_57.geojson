@@ -5142,30 +5142,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1594162,
-          45.47297668
-        ]
-      },
-      "properties": {
-        "netid": "D0:39:57:52:6B:17",
-        "ssid": "ClickShare-1862577571",
-        "oui": "D0:39:57",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-28T03:00:00.000Z",
-        "lasttime": "2024-07-29T13:00:00.000Z",
-        "city": "Milano",
-        "region": "Lombardia",
-        "country": "IT",
-        "road": "6380_54089",
-        "postalcode": "20145"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.77313232,
           35.67745209
         ]
@@ -78047,30 +78023,6 @@
         "country": "US",
         "road": "Elvis Presley Boulevard",
         "postalcode": "89104-2530"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -86.11427307,
-          40.51921844
-        ]
-      },
-      "properties": {
-        "netid": "D0:39:57:66:ED:1B",
-        "ssid": null,
-        "oui": "D0:39:57",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-29T15:00:00.000Z",
-        "lasttime": "2024-07-29T08:00:00.000Z",
-        "city": null,
-        "region": "IN",
-        "country": "US",
-        "road": "East County Road 300 North",
-        "postalcode": "46901"
       }
     },
     {
@@ -262179,10 +262131,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-07-29T06:54:56.271907+00:00",
+    "generated": "2026-07-30T06:52:00.181215+00:00",
     "oui": "D0:39:57",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 10924
+    "total_cameras": 10922
   }
 }
