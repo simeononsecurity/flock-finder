@@ -1662,30 +1662,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.33582926,
-          46.85380936
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:00:48:FD",
-        "ssid": "H2O-e04f430048fd",
-        "oui": "E0:4F:43",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2024-07-30T15:00:00.000Z",
-        "lasttime": "2024-07-30T13:00:00.000Z",
-        "city": null,
-        "region": "Bourgogne-Franche-Comt\u00e9",
-        "country": "FR",
-        "road": "Rue de la Fauconni\u00e8re",
-        "postalcode": "25160"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -98.09942627,
           29.72873878
         ]
@@ -13391,30 +13367,6 @@
         "country": "US",
         "road": "Skelly Bypass",
         "postalcode": "74129"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.77749634,
-          45.56954193
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:12:24:4C",
-        "ssid": "Ring-12244c",
-        "oui": "E0:4F:43",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-04-23T17:00:00.000Z",
-        "lasttime": "2024-07-30T12:00:00.000Z",
-        "city": "Laval (13)",
-        "region": "Qu\u00e9bec",
-        "country": "CA",
-        "road": "Boulevard Saint-Elz\u00e9ar Ouest",
-        "postalcode": "H7P 0G7"
       }
     },
     {
@@ -46422,30 +46374,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.2122097,
-          50.04294205
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:1D:73:01",
-        "ssid": "SmartGate_043619",
-        "oui": "E0:4F:43",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2018-01-15T17:00:00.000Z",
-        "lasttime": "2024-07-30T13:00:00.000Z",
-        "city": "Tellin",
-        "region": "Luxembourg",
-        "country": "BE",
-        "road": "E411",
-        "postalcode": "6927"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.72477913,
           51.03271103
         ]
@@ -60291,10 +60219,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-07-30T15:58:13.386800+00:00",
+    "generated": "2026-07-31T06:55:37.451869+00:00",
     "oui": "E0:4F:43",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 2512
+    "total_cameras": 2509
   }
 }
