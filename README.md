@@ -11,7 +11,7 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 87,521 |
+| 📸 **Cameras Mapped** | 87,747 |
 | 📡 **OUI Prefixes with Data** | 19 / 31 |
 | 🌎 **Countries** | 124 |
 | 🗺️ **Regions** | 50 |
@@ -183,18 +183,18 @@ The table below lists the ten most frequently observed SSID values across all Wi
 <!-- SSID_TOP10_START -->
 | # | SSID | Occurrences |
 |---|------|-------------|
-| 1 | `Flock` | 1,342 |
-| 2 | `TEST` | 276 |
+| 1 | `Flock` | 1,353 |
+| 2 | `TEST` | 279 |
 | 3 | `Compudopt Connect` | 237 |
 | 4 | `ClickShare-Boardroom` | 196 |
 | 5 | `ClickShare` | 182 |
 | 6 | `SMARTGATE_123456` | 145 |
 | 7 | `ClickShare-Conference Room` | 130 |
-| 8 | `Afsol Wifi` | 114 |
+| 8 | `Afsol Wifi` | 115 |
 | 9 | `Smithway` | 67 |
 | 10 | `MAX-PRINTER` | 64 |
 
-*Computed from 76,289 SSID-bearing records (69,410 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 76,490 SSID-bearing records (69,588 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
@@ -202,11 +202,11 @@ The table below lists the ten most frequently observed SSID values across all Wi
 ## 🔬 Flock SSID Pattern Analysis
 
 <!-- SSID_PATTERNS_START -->
-Filtering for only `Flock*`-prefixed SSIDs yields **143 unique variants** across **1,484 total records**. These fall into five distinct patterns:
+Filtering for only `Flock*`-prefixed SSIDs yields **143 unique variants** across **1,495 total records**. These fall into five distinct patterns:
 
 | Pattern | Unique SSIDs | Records | Description |
 |---------|-------------|---------|-------------|
-| `Flock` | 1 | 1,342 | Bare name — fully configured / deployed cameras |
+| `Flock` | 1 | 1,353 | Bare name — fully configured / deployed cameras |
 | `Flock-XXXXXX` | 134 | 134 | Mixed-case with 6-char uppercase hex suffix |
 | `FLOCK-XXXXXX` | 5 | 5 | All-caps variant with 6-char hex suffix |
 | `Flock-XXXX` | 1 | 1 | Shorter 4-char hex suffix (`Flock-6361`) |
