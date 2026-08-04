@@ -1326,30 +1326,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.41954041,
-          33.7681427
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:00:48:0B",
-        "ssid": "H2O-e04f4300480b",
-        "oui": "E0:4F:43",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2023-06-27T13:00:00.000Z",
-        "lasttime": "2024-08-03T08:00:00.000Z",
-        "city": "Torrance",
-        "region": "CA",
-        "country": "US",
-        "road": "Paseo del Mar",
-        "postalcode": "90274"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.63344622,
           53.16318893
         ]
@@ -9462,30 +9438,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.4894104,
-          43.82426834
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:05:D4:6C",
-        "ssid": "CONNEX-e04f4305d46c",
-        "oui": "E0:4F:43",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2024-08-03T23:00:00.000Z",
-        "lasttime": "2024-08-03T18:00:00.000Z",
-        "city": "Vaughan",
-        "region": "Ontario",
-        "country": "CA",
-        "road": "Citation Drive",
-        "postalcode": "L4K 2S4"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -83.13618469,
           42.63010788
         ]
@@ -13055,30 +13007,6 @@
         "country": "US",
         "road": "West 19th Street",
         "postalcode": "90732"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -115.09725952,
-          36.13265228
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:12:07:AB",
-        "ssid": null,
-        "oui": "E0:4F:43",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-07-28T03:00:00.000Z",
-        "lasttime": "2024-08-03T17:00:00.000Z",
-        "city": null,
-        "region": "NV",
-        "country": "US",
-        "road": "Westfield Street",
-        "postalcode": "89121"
       }
     },
     {
@@ -21647,30 +21575,6 @@
         "country": "DE",
         "road": "Sambergerstra\u00dfe",
         "postalcode": "81477"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          22.42744827,
-          62.63140488
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:1D:58:8E",
-        "ssid": "SmartGate_526114",
-        "oui": "E0:4F:43",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2017-05-02T18:00:00.000Z",
-        "lasttime": "2024-08-03T16:00:00.000Z",
-        "city": null,
-        "region": "Manner-Suomi",
-        "country": "FI",
-        "road": "Tuiskulansuora",
-        "postalcode": "61300"
       }
     },
     {
@@ -40374,30 +40278,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.44429016,
-          49.46350098
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:1D:65:A7",
-        "ssid": "SmartGate_164527",
-        "oui": "E0:4F:43",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2021-05-15T14:00:00.000Z",
-        "lasttime": "2024-08-03T11:00:00.000Z",
-        "city": "P\u0159erov",
-        "region": "St\u0159edn\u00ed Morava",
-        "country": "CZ",
-        "road": "Lipnick\u00e1",
-        "postalcode": "75000"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.48716545,
           49.0759697
         ]
@@ -42599,30 +42479,6 @@
         "country": "DE",
         "road": "Wachhausstra\u00dfe",
         "postalcode": "76227"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          24.08830643,
-          60.25531006
-        ]
-      },
-      "properties": {
-        "netid": "E0:4F:43:1D:6E:D5",
-        "ssid": "SmartGate_041155",
-        "oui": "E0:4F:43",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2017-09-25T17:00:00.000Z",
-        "lasttime": "2024-08-03T16:00:00.000Z",
-        "city": "Lohja",
-        "region": "Manner-Suomi",
-        "country": "FI",
-        "road": "Kouvolankatu",
-        "postalcode": "08100"
       }
     },
     {
@@ -60147,10 +60003,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-03T07:05:56.862775+00:00",
+    "generated": "2026-08-04T06:48:32.151730+00:00",
     "oui": "E0:4F:43",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 2506
+    "total_cameras": 2500
   }
 }

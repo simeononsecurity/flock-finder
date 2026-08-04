@@ -198,30 +198,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -115.11146545,
-          36.15224075
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:0F:1C:A9",
-        "ssid": null,
-        "oui": "D8:F3:BC",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-07-28T03:00:00.000Z",
-        "lasttime": "2024-08-03T17:00:00.000Z",
-        "city": "Las Vegas",
-        "region": "NV",
-        "country": "US",
-        "road": "East Oakey Boulevard",
-        "postalcode": "89104"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.54722595,
           45.52028656
         ]
@@ -8958,30 +8934,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.87578106,
-          45.40708923
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:37:16:4D",
-        "ssid": "ClickShare-Comune_di_Padova",
-        "oui": "D8:F3:BC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-03T09:00:00.000Z",
-        "lasttime": "2024-08-03T09:00:00.000Z",
-        "city": "Padova",
-        "region": "Veneto",
-        "country": "IT",
-        "road": "Via del Municipio",
-        "postalcode": "35149"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -117.70677948,
           33.65062332
         ]
@@ -14207,30 +14159,6 @@
         "country": "FR",
         "road": "Boulevard de Vaugirard",
         "postalcode": "75015"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          126.9798584,
-          37.5733223
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:51:60:83",
-        "ssid": "ClickShare-1862376707",
-        "oui": "D8:F3:BC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-03T05:00:00.000Z",
-        "lasttime": "2024-08-03T08:00:00.000Z",
-        "city": "\uc11c\uc6b8",
-        "region": "\uc885\ub85c1\u00b72\u00b73\u00b74\uac00\ub3d9",
-        "country": "KR",
-        "road": "\uc885\ub85c5\uae38",
-        "postalcode": "03152"
       }
     },
     {
@@ -21510,30 +21438,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.14601135,
-          39.76919174
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:51:75:F9",
-        "ssid": "ClickShare-Bryant-Library-North",
-        "oui": "D8:F3:BC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-08-26T18:00:00.000Z",
-        "lasttime": "2024-08-03T11:00:00.000Z",
-        "city": "Indianapolis",
-        "region": "IN",
-        "country": "US",
-        "road": "East Wabash Street",
-        "postalcode": "46204"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -80.24847412,
           36.09958267
         ]
@@ -22487,30 +22391,6 @@
         "country": "JP",
         "road": null,
         "postalcode": "550-0013"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.35390329,
-          48.8694191
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:51:78:85",
-        "ssid": "ClickShare-Salle LC047",
-        "oui": "D8:F3:BC",
-        "channel": 44,
-        "encryption": "wpa2",
-        "firsttime": "2022-03-03T12:00:00.000Z",
-        "lasttime": "2024-08-03T16:00:00.000Z",
-        "city": "Paris",
-        "region": "\u00cele-de-France",
-        "country": "FR",
-        "road": "Boulevard Saint-Denis",
-        "postalcode": "75010"
       }
     },
     {
@@ -56759,30 +56639,6 @@
         "country": "US",
         "road": "Lindau Lane",
         "postalcode": "55425"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.46356297,
-          50.71751785
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:7C:CC:69",
-        "ssid": "A0008",
-        "oui": "D8:F3:BC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-30T10:00:00.000Z",
-        "lasttime": "2024-08-03T09:00:00.000Z",
-        "city": null,
-        "region": "Th\u00fcringen",
-        "country": "DE",
-        "road": "Blechhammer",
-        "postalcode": "98574"
       }
     },
     {
@@ -91155,10 +91011,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-03T07:05:56.862775+00:00",
+    "generated": "2026-08-04T06:48:32.151730+00:00",
     "oui": "D8:F3:BC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3798
+    "total_cameras": 3792
   }
 }

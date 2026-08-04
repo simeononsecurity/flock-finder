@@ -1086,30 +1086,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.8760376,
-          45.40324783
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:0F:B9:A8",
-        "ssid": "ACEPTPYq",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-03T16:00:00.000Z",
-        "lasttime": "2024-08-03T13:00:00.000Z",
-        "city": "Padova",
-        "region": "Veneto",
-        "country": "IT",
-        "road": "Riviera Tito Livio",
-        "postalcode": "35122"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.34118843,
           48.120327
         ]
@@ -1127,54 +1103,6 @@
         "country": "AT",
         "road": "Ortsstra\u00dfe",
         "postalcode": "2331"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.35712385,
-          60.36472321
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:0F:B9:E6",
-        "ssid": "ACctdFwf",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-01T13:00:00.000Z",
-        "lasttime": "2024-08-03T17:00:00.000Z",
-        "city": "Bergen",
-        "region": "Vestland",
-        "country": "NO",
-        "road": "Fridalsveien",
-        "postalcode": "5063"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.87637043,
-          45.40329361
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:0F:B9:F3",
-        "ssid": "ACa7G7NQ",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-03T16:00:00.000Z",
-        "lasttime": "2024-08-03T13:00:00.000Z",
-        "city": "Padova",
-        "region": "Veneto",
-        "country": "IT",
-        "road": "Piazzetta Giovanni Palatucci",
-        "postalcode": "35122"
       }
     },
     {
@@ -1919,30 +1847,6 @@
         "country": "SE",
         "road": "Kilsmov\u00e4gen",
         "postalcode": "715 96"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.81312847,
-          61.6778183
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:15:65:45",
-        "ssid": "ACIPDO4v",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2022-08-16T08:00:00.000Z",
-        "lasttime": "2024-08-03T11:00:00.000Z",
-        "city": null,
-        "region": "Vestland",
-        "country": "NO",
-        "road": "5724",
-        "postalcode": "6792"
       }
     },
     {
@@ -5010,30 +4914,6 @@
         "encryption": "unknown",
         "firsttime": "2022-02-20T17:00:00.000Z",
         "lasttime": "2024-08-24T16:00:00.000Z",
-        "city": "Tallahassee",
-        "region": "FL",
-        "country": "US",
-        "road": "Blair Stone Road",
-        "postalcode": "32308"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -84.24275208,
-          30.46107292
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:2A:E3:F3",
-        "ssid": null,
-        "oui": "3C:91:80",
-        "channel": 2,
-        "encryption": "unknown",
-        "firsttime": "2022-07-09T16:00:00.000Z",
-        "lasttime": "2024-08-03T05:00:00.000Z",
         "city": "Tallahassee",
         "region": "FL",
         "country": "US",
@@ -18243,10 +18123,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-03T07:05:56.862775+00:00",
+    "generated": "2026-08-04T06:48:32.151730+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 760
+    "total_cameras": 755
   }
 }

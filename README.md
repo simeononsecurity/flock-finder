@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 87,820 |
+| 📸 **Cameras Mapped** | 87,711 |
 | 📡 **OUI Prefixes with Data** | 19 / 31 |
 | 🌎 **Countries** | 124 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-08-03 |
+| 🕐 **Last Updated** | 2026-08-04 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -184,17 +184,17 @@ The table below lists the ten most frequently observed SSID values across all Wi
 | # | SSID | Occurrences |
 |---|------|-------------|
 | 1 | `Flock` | 1,368 |
-| 2 | `TEST` | 279 |
+| 2 | `TEST` | 278 |
 | 3 | `Compudopt Connect` | 237 |
 | 4 | `ClickShare-Boardroom` | 197 |
 | 5 | `ClickShare` | 182 |
 | 6 | `SMARTGATE_123456` | 145 |
 | 7 | `ClickShare-Conference Room` | 130 |
 | 8 | `Afsol Wifi` | 115 |
-| 9 | `Smithway` | 67 |
+| 9 | `Smithway` | 66 |
 | 10 | `MAX-PRINTER` | 64 |
 
-*Computed from 76,529 SSID-bearing records (69,602 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 76,456 SSID-bearing records (69,541 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
