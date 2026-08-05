@@ -2550,30 +2550,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.21281433,
-          -33.87027359
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:3C:0A:21",
-        "ssid": null,
-        "oui": "14:5A:FC",
-        "channel": 11,
-        "encryption": "unknown",
-        "firsttime": "2024-02-21T05:00:00.000Z",
-        "lasttime": "2024-08-04T23:00:00.000Z",
-        "city": "Sydney",
-        "region": "New South Wales",
-        "country": "AU",
-        "road": "St. James Road",
-        "postalcode": "2000"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -74.05802155,
           40.71333694
         ]
@@ -8063,30 +8039,6 @@
         "country": "US",
         "road": "Harrisburg Pike",
         "postalcode": "17015"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -86.10009003,
-          39.91799545
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:5D:5C:8B",
-        "ssid": null,
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-11-29T13:00:00.000Z",
-        "lasttime": "2024-08-04T11:00:00.000Z",
-        "city": "Indianapolis",
-        "region": "IN",
-        "country": "US",
-        "road": "I 465",
-        "postalcode": "46240"
       }
     },
     {
@@ -75510,30 +75462,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.88303375,
-          43.51091003
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:90:98:EF",
-        "ssid": "OmaghRoom",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-03-28T13:00:00.000Z",
-        "lasttime": "2024-08-04T16:00:00.000Z",
-        "city": null,
-        "region": "Ontario",
-        "country": "CA",
-        "road": "Hugh Street",
-        "postalcode": "L9T 2G5"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.57505274,
           47.56109619
         ]
@@ -90219,10 +90147,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-04T06:48:32.151730+00:00",
+    "generated": "2026-08-05T06:54:07.059172+00:00",
     "oui": "14:5A:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3759
+    "total_cameras": 3756
   }
 }

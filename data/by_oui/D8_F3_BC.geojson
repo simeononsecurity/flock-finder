@@ -4470,30 +4470,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.99024963,
-          39.7480545
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:37:04:4F",
-        "ssid": "London",
-        "oui": "D8:F3:BC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-03-27T16:00:00.000Z",
-        "lasttime": "2024-08-04T14:00:00.000Z",
-        "city": "Denver",
-        "region": "CO",
-        "country": "US",
-        "road": "Stout Street",
-        "postalcode": "80293"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -122.40286255,
           37.76773834
         ]
@@ -11375,30 +11351,6 @@
         "country": "GB",
         "road": "Congress Road",
         "postalcode": "G51 1DA"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.28847122,
-          51.96292877
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:46:C5:DB",
-        "ssid": "VIA_GastVia..@<cix6aeB<bih6h5",
-        "oui": "D8:F3:BC",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-03T15:00:00.000Z",
-        "lasttime": "2024-08-04T13:00:00.000Z",
-        "city": null,
-        "region": "Gelderland",
-        "country": "NL",
-        "road": "IJsselkade",
-        "postalcode": "7001AN"
       }
     },
     {
@@ -21623,30 +21575,6 @@
         "country": "JP",
         "road": "\u306a\u306b\u308f\u7b4b",
         "postalcode": "550-0013"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          151.21061707,
-          -33.84026718
-        ]
-      },
-      "properties": {
-        "netid": "D8:F3:BC:51:76:4B",
-        "ssid": "ClickShare-L12MeetingRoom5",
-        "oui": "D8:F3:BC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-05-03T23:00:00.000Z",
-        "lasttime": "2024-08-04T23:00:00.000Z",
-        "city": null,
-        "region": "New South Wales",
-        "country": "AU",
-        "road": "Warringah Freeway",
-        "postalcode": "2060"
       }
     },
     {
@@ -91011,10 +90939,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-04T06:48:32.151730+00:00",
+    "generated": "2026-08-05T06:54:07.059172+00:00",
     "oui": "D8:F3:BC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3792
+    "total_cameras": 3789
   }
 }
