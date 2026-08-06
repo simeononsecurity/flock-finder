@@ -22638,30 +22638,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.7890501,
-          52.43470001
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:60:65:97",
-        "ssid": "wpu.1508",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-31T10:00:00.000Z",
-        "lasttime": "2024-08-05T11:00:00.000Z",
-        "city": "Wolfsburg",
-        "region": "Niedersachsen",
-        "country": "DE",
-        "road": "Mittelstra\u00dfe",
-        "postalcode": "38440"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.51381683,
           46.84970474
         ]
@@ -46326,30 +46302,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.98377514,
-          53.54290771
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:7A:F4:8D",
-        "ssid": "ClickShare-Openspace",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-12-28T09:00:00.000Z",
-        "lasttime": "2024-08-05T11:00:00.000Z",
-        "city": "Hamburg",
-        "region": "Quartier Am Sandtorkai/Dalmannkai",
-        "country": "DE",
-        "road": "Am Sandtorkai",
-        "postalcode": "20457"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.5318718,
           47.37439346
         ]
@@ -60054,30 +60006,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.38731956,
-          59.11916733
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:82:5A:7D",
-        "ssid": "ClickShare-1862453083",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-05T10:00:00.000Z",
-        "lasttime": "2024-08-05T03:00:00.000Z",
-        "city": null,
-        "region": "Viken",
-        "country": "NO",
-        "road": "Kongensbrygge",
-        "postalcode": "1767"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -97.87345123,
           22.24716949
         ]
@@ -73247,30 +73175,6 @@
         "country": "FR",
         "road": "Place des Martyrs de la R\u00e9sistance",
         "postalcode": "33000"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.33405852,
-          48.86999512
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:90:93:43",
-        "ssid": "ClickShare-1862459573",
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-09-29T19:00:00.000Z",
-        "lasttime": "2024-08-05T06:00:00.000Z",
-        "city": "Paris",
-        "region": "\u00cele-de-France",
-        "country": "FR",
-        "road": "Rue du Quatre Septembre",
-        "postalcode": "75002"
       }
     },
     {
@@ -87174,30 +87078,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -70.75311279,
-          42.62966919
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:C8:14:F5",
-        "ssid": null,
-        "oui": "14:5A:FC",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-07-29T19:00:00.000Z",
-        "lasttime": "2024-08-05T09:00:00.000Z",
-        "city": null,
-        "region": "MA",
-        "country": "US",
-        "road": "Eastern Avenue",
-        "postalcode": "01929"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -78.60606384,
           42.83979797
         ]
@@ -88535,30 +88415,6 @@
         "country": "LK",
         "road": "Sir Baron Jayathilaka Mawatha",
         "postalcode": "10110"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          127.07462311,
-          37.62092209
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:E4:EB:41",
-        "ssid": "S2060w-62659301",
-        "oui": "14:5A:FC",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-08-06T04:00:00.000Z",
-        "lasttime": "2024-08-05T22:00:00.000Z",
-        "city": "\uc11c\uc6b8",
-        "region": "\uacf5\ub9891\ub3d9",
-        "country": "KR",
-        "road": "\ub3d9\uc77c\ub85c",
-        "postalcode": "01844"
       }
     },
     {
@@ -90147,10 +90003,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-05T06:54:07.059172+00:00",
+    "generated": "2026-08-06T08:16:54.599788+00:00",
     "oui": "14:5A:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3756
+    "total_cameras": 3750
   }
 }
