@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 88,044 |
+| 📸 **Cameras Mapped** | 87,989 |
 | 📡 **OUI Prefixes with Data** | 19 / 31 |
 | 🌎 **Countries** | 124 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-08-06 |
+| 🕐 **Last Updated** | 2026-08-07 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -194,7 +194,7 @@ The table below lists the ten most frequently observed SSID values across all Wi
 | 9 | `Smithway` | 66 |
 | 10 | `MAX-PRINTER` | 65 |
 
-*Computed from 76,668 SSID-bearing records (69,700 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 76,618 SSID-bearing records (69,651 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
