@@ -12126,30 +12126,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -121.91403961,
-          37.36780167
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:5D:79:AD",
-        "ssid": null,
-        "oui": "14:5A:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-09-15T14:00:00.000Z",
-        "lasttime": "2024-08-08T06:00:00.000Z",
-        "city": "San Jose",
-        "region": "CA",
-        "country": "US",
-        "road": "North 1st Street",
-        "postalcode": "95112-5005"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -76.62391663,
           39.28775406
         ]
@@ -21719,30 +21695,6 @@
         "country": "US",
         "road": "York Road",
         "postalcode": "18929"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -112.22058868,
-          33.43149948
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:5D:D9:97",
-        "ssid": "PHSC-Conference",
-        "oui": "14:5A:FC",
-        "channel": 153,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-08T13:00:00.000Z",
-        "lasttime": "2024-08-08T07:00:00.000Z",
-        "city": "Phoenix",
-        "region": "AZ",
-        "country": "US",
-        "road": "South 75th Avenue",
-        "postalcode": "85043"
       }
     },
     {
@@ -85470,30 +85422,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.38980865,
-          30.35016823
-        ]
-      },
-      "properties": {
-        "netid": "14:5A:FC:A6:8F:85",
-        "ssid": null,
-        "oui": "14:5A:FC",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-08-08T11:00:00.000Z",
-        "lasttime": "2024-08-08T15:00:00.000Z",
-        "city": "Elgin",
-        "region": "TX",
-        "country": "US",
-        "road": "West US Highway 290",
-        "postalcode": "78621"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.50769043,
           36.06861496
         ]
@@ -89955,10 +89883,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-08T06:36:35.103899+00:00",
+    "generated": "2026-08-09T06:40:12.116091+00:00",
     "oui": "14:5A:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3748
+    "total_cameras": 3745
   }
 }
