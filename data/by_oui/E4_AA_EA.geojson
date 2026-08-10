@@ -103854,30 +103854,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.49133205,
-          51.44166565
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:5D:C9:A1",
-        "ssid": "Vergaderzaal Beneden",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-03-23T13:00:00.000Z",
-        "lasttime": "2024-08-09T16:00:00.000Z",
-        "city": "Eindhoven",
-        "region": "Noord-Brabant",
-        "country": "NL",
-        "road": "Parklaan",
-        "postalcode": "5613BG"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.57005978,
           55.66820145
         ]
@@ -104183,30 +104159,6 @@
         "country": "FR",
         "road": "Boulevard Michelet",
         "postalcode": "13008"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.68134308,
-          45.51984787
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:5D:CA:FD",
-        "ssid": null,
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-15T08:00:00.000Z",
-        "lasttime": "2024-08-09T16:00:00.000Z",
-        "city": "Portland",
-        "region": "OR",
-        "country": "US",
-        "road": "Southwest Morrison Street",
-        "postalcode": "97204"
       }
     },
     {
@@ -110975,30 +110927,6 @@
         "country": "BE",
         "road": "Boulevard du Jardin Botanique - Kruidtuinlaan",
         "postalcode": "1210"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.49137926,
-          51.44166183
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:5D:E0:0D",
-        "ssid": null,
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-09T22:00:00.000Z",
-        "lasttime": "2024-08-09T16:00:00.000Z",
-        "city": "Eindhoven",
-        "region": "Noord-Brabant",
-        "country": "NL",
-        "road": "Parklaan",
-        "postalcode": "5613BG"
       }
     },
     {
@@ -168675,10 +168603,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-09T06:40:12.116091+00:00",
+    "generated": "2026-08-10T07:11:38.842227+00:00",
     "oui": "E4:AA:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 7028
+    "total_cameras": 7025
   }
 }
