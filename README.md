@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 91,264 |
+| 📸 **Cameras Mapped** | 100,336 |
 | 📡 **OUI Prefixes with Data** | 19 / 31 |
 | 🌎 **Countries** | 124 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-08-11 |
+| 🕐 **Last Updated** | 2026-08-12 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -184,17 +184,17 @@ The table below lists the ten most frequently observed SSID values across all Wi
 | # | SSID | Occurrences |
 |---|------|-------------|
 | 1 | `Flock` | 1,499 |
-| 2 | `SMARTGATE_123456` | 415 |
-| 3 | `TEST` | 277 |
+| 2 | `SMARTGATE_123456` | 841 |
+| 3 | `TEST` | 278 |
 | 4 | `Compudopt Connect` | 236 |
 | 5 | `ClickShare-Boardroom` | 198 |
 | 6 | `ClickShare` | 186 |
 | 7 | `ClickShare-Conference Room` | 130 |
 | 8 | `Audi HUD` | 128 |
 | 9 | `Afsol Wifi` | 115 |
-| 10 | `Smithway` | 66 |
+| 10 | `Smithway` | 92 |
 
-*Computed from 79,703 SSID-bearing records (72,191 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 88,591 SSID-bearing records (80,483 unique values) across all 19 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
