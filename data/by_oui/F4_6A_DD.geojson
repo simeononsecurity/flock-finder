@@ -24414,30 +24414,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.40036058,
-          52.07206345
-        ]
-      },
-      "properties": {
-        "netid": "F4:6A:DD:2A:F8:9D",
-        "ssid": "ClickShare-1862508678",
-        "oui": "F4:6A:DD",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-15T07:00:00.000Z",
-        "lasttime": "2024-08-12T05:00:00.000Z",
-        "city": "Den Haag",
-        "region": "Zuid-Holland",
-        "country": "NL",
-        "road": "Oude Middenweg",
-        "postalcode": "2491AA"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.47059059,
           49.47966385
         ]
@@ -142110,30 +142086,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.3339456,
-          51.75328064
-        ]
-      },
-      "properties": {
-        "netid": "F4:6A:DD:3A:75:B5",
-        "ssid": "ClickShare-Callee",
-        "oui": "F4:6A:DD",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-10-24T08:00:00.000Z",
-        "lasttime": "2024-08-12T12:00:00.000Z",
-        "city": "St Albans",
-        "region": "England",
-        "country": "GB",
-        "road": "Upper Marlborough Road",
-        "postalcode": "AL1 3UR"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.13113809,
           41.38882065
         ]
@@ -142247,30 +142199,6 @@
         "country": "ZA",
         "road": "Wessel Close",
         "postalcode": "2157"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.33396071,
-          51.75327301
-        ]
-      },
-      "properties": {
-        "netid": "F4:6A:DD:3A:76:21",
-        "ssid": "ClickShare-Acoose",
-        "oui": "F4:6A:DD",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-10-24T08:00:00.000Z",
-        "lasttime": "2024-08-12T12:00:00.000Z",
-        "city": "St Albans",
-        "region": "England",
-        "country": "GB",
-        "road": "Upper Marlborough Road",
-        "postalcode": "AL1 3UR"
       }
     },
     {
@@ -194063,30 +193991,6 @@
         "country": "FR",
         "road": "Rue Traversi\u00e8re",
         "postalcode": "75012"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.43707466,
-          47.38995743
-        ]
-      },
-      "properties": {
-        "netid": "F4:6A:DD:4B:8E:1F",
-        "ssid": "ClickShare-B\u00fcro WL",
-        "oui": "F4:6A:DD",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-04T10:00:00.000Z",
-        "lasttime": "2024-08-12T07:00:00.000Z",
-        "city": "Breitenau am Hochlantsch",
-        "region": "Steiermark",
-        "country": "AT",
-        "road": "Breitenauer Stra\u00dfe",
-        "postalcode": "8614"
       }
     },
     {
@@ -250110,30 +250014,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.09067535,
-          40.82994461
-        ]
-      },
-      "properties": {
-        "netid": "F4:6A:DD:62:45:ED",
-        "ssid": "(no SSID)",
-        "oui": "F4:6A:DD",
-        "channel": 36,
-        "encryption": "none",
-        "firsttime": "2024-08-01T17:00:00.000Z",
-        "lasttime": "2024-08-12T19:00:00.000Z",
-        "city": "East Rutherford",
-        "region": "NJ",
-        "country": "US",
-        "road": "NJ 17",
-        "postalcode": "07072"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -121.80412292,
           37.24789429
         ]
@@ -250895,30 +250775,6 @@
         "country": "US",
         "road": "East 63rd Street South",
         "postalcode": "67037"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.09455109,
-          40.72180176
-        ]
-      },
-      "properties": {
-        "netid": "F4:6A:DD:62:50:1B",
-        "ssid": "(no SSID)",
-        "oui": "F4:6A:DD",
-        "channel": 144,
-        "encryption": "none",
-        "firsttime": "2024-08-06T18:00:00.000Z",
-        "lasttime": "2024-08-12T19:00:00.000Z",
-        "city": "Jersey City",
-        "region": "NJ",
-        "country": "US",
-        "road": "NJ 440",
-        "postalcode": "07304:07306"
       }
     },
     {
@@ -275091,10 +274947,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-12T07:10:17.380085+00:00",
+    "generated": "2026-08-13T07:13:18.699993+00:00",
     "oui": "F4:6A:DD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 11462
+    "total_cameras": 11456
   }
 }
