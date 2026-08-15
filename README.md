@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 119,435 |
+| 📸 **Cameras Mapped** | 119,364 |
 | 📡 **OUI Prefixes with Data** | 25 / 31 |
 | 🌎 **Countries** | 125 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-08-14 |
+| 🕐 **Last Updated** | 2026-08-15 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -194,7 +194,7 @@ The table below lists the ten most frequently observed SSID values across all Wi
 | 9 | `Afsol Wifi` | 115 |
 | 10 | `MAX-PRINTER` | 102 |
 
-*Computed from 104,456 SSID-bearing records (95,829 unique values) across all 25 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 104,388 SSID-bearing records (95,764 unique values) across all 25 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
