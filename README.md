@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 119,364 |
-| 📡 **OUI Prefixes with Data** | 25 / 31 |
-| 🌎 **Countries** | 125 |
+| 📸 **Cameras Mapped** | 128,554 |
+| 📡 **OUI Prefixes with Data** | 28 / 31 |
+| 🌎 **Countries** | 130 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-08-15 |
+| 🕐 **Last Updated** | 2026-08-16 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -183,18 +183,18 @@ The table below lists the ten most frequently observed SSID values across all Wi
 <!-- SSID_TOP10_START -->
 | # | SSID | Occurrences |
 |---|------|-------------|
-| 1 | `Flock` | 1,516 |
+| 1 | `Flock` | 1,519 |
 | 2 | `SMARTGATE_123456` | 841 |
 | 3 | `TEST` | 278 |
 | 4 | `Compudopt Connect` | 236 |
-| 5 | `ClickShare-Boardroom` | 207 |
+| 5 | `ClickShare-Boardroom` | 206 |
 | 6 | `ClickShare` | 199 |
-| 7 | `ClickShare-Conference Room` | 136 |
-| 8 | `Audi HUD` | 128 |
-| 9 | `Afsol Wifi` | 115 |
-| 10 | `MAX-PRINTER` | 102 |
+| 7 | `                      ` | 136 |
+| 8 | `ClickShare-Conference Room` | 135 |
+| 9 | `Audi HUD` | 128 |
+| 10 | `Afsol Wifi` | 115 |
 
-*Computed from 104,388 SSID-bearing records (95,764 unique values) across all 25 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 109,786 SSID-bearing records (101,015 unique values) across all 28 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
@@ -202,12 +202,12 @@ The table below lists the ten most frequently observed SSID values across all Wi
 ## 🔬 Flock SSID Pattern Analysis
 
 <!-- SSID_PATTERNS_START -->
-Filtering for only `Flock*`-prefixed SSIDs yields **151 unique variants** across **1,666 total records**. These fall into five distinct patterns:
+Filtering for only `Flock*`-prefixed SSIDs yields **150 unique variants** across **1,668 total records**. These fall into five distinct patterns:
 
 | Pattern | Unique SSIDs | Records | Description |
 |---------|-------------|---------|-------------|
-| `Flock` | 1 | 1,516 | Bare name — fully configured / deployed cameras |
-| `Flock-XXXXXX` | 142 | 142 | Mixed-case with 6-char uppercase hex suffix |
+| `Flock` | 1 | 1,519 | Bare name — fully configured / deployed cameras |
+| `Flock-XXXXXX` | 141 | 141 | Mixed-case with 6-char uppercase hex suffix |
 | `FLOCK-XXXXXX` | 5 | 5 | All-caps variant with 6-char hex suffix |
 | `Flock-XXXX` | 1 | 1 | Shorter 4-char hex suffix (`Flock-6361`) |
 | `FlockXXX` | 2 | 2 | Numeric suffix, no dash (`Flock001`, `Flock003`) |
