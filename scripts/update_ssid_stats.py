@@ -28,6 +28,20 @@ DATA_DIR = REPO_ROOT / "data" / "by_oui"
 README = REPO_ROOT / "README.md"
 INDEX_HTML = REPO_ROOT / "docs" / "index.html"
 
+# WiGLE occasionally returns SSID values that are entirely (or partially)
+# made up of control/null bytes (e.g. a run of "\x00" representing a hidden
+# SSID that WiGLE couldn't decode cleanly). Python's str.strip() only trims
+# *whitespace*, so these control characters survive and get counted as a
+# bogus "SSID" — which is what produced the garbled blank-looking row in the
+# Top 10 SSID table. Strip them out here so hidden/garbled SSIDs are treated
+# the same as genuinely empty ones (i.e. skipped).
+_CONTROL_CHARS_RE = re.compile(r"[\x00-\x1f\x7f]")
+
+
+def clean_ssid(raw: str) -> str:
+    """Remove control/null bytes and surrounding whitespace from a raw SSID value."""
+    return _CONTROL_CHARS_RE.sub("", raw).strip()
+
 
 # ── Data collection ───────────────────────────────────────────────────────────
 def collect_ssid_data():
@@ -46,7 +60,7 @@ def collect_ssid_data():
         with open(fpath, newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
-                ssid = row.get("ssid", "").strip()
+                ssid = clean_ssid(row.get("ssid", ""))
                 if not ssid:
                     continue
                 all_ssids[ssid] += 1

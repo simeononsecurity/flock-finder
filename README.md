@@ -189,12 +189,12 @@ The table below lists the ten most frequently observed SSID values across all Wi
 | 4 | `Compudopt Connect` | 236 |
 | 5 | `ClickShare-Boardroom` | 206 |
 | 6 | `ClickShare` | 199 |
-| 7 | `                      ` | 136 |
-| 8 | `ClickShare-Conference Room` | 135 |
-| 9 | `Audi HUD` | 128 |
-| 10 | `Afsol Wifi` | 115 |
+| 7 | `ClickShare-Conference Room` | 135 |
+| 8 | `Audi HUD` | 128 |
+| 9 | `Afsol Wifi` | 115 |
+| 10 | `MAX-PRINTER` | 102 |
 
-*Computed from 109,786 SSID-bearing records (101,015 unique values) across all 28 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 109,650 SSID-bearing records (101,014 unique values) across all 28 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
