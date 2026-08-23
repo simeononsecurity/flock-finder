@@ -294,30 +294,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.37138367,
-          27.70532608
-        ]
-      },
-      "properties": {
-        "netid": "B8:1E:A4:00:5F:31",
-        "ssid": "B81EA4005F31",
-        "oui": "B8:1E:A4",
-        "channel": 11,
-        "encryption": "unknown",
-        "firsttime": "2024-08-21T01:00:00.000Z",
-        "lasttime": "2024-08-20T18:00:00.000Z",
-        "city": "Corpus Christi",
-        "region": "TX",
-        "country": "US",
-        "road": "South Staples Street",
-        "postalcode": "78411"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -76.99497223,
           38.88167953
         ]
@@ -911,30 +887,6 @@
         "country": "US",
         "road": "AZ 89",
         "postalcode": "86301"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.70339584,
-          51.04333496
-        ]
-      },
-      "properties": {
-        "netid": "B8:1E:A4:03:DA:AA",
-        "ssid": "Till",
-        "oui": "B8:1E:A4",
-        "channel": 13,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-21T19:00:00.000Z",
-        "lasttime": "2024-08-21T13:00:00.000Z",
-        "city": "Dresden",
-        "region": "Sachsen",
-        "country": "DE",
-        "road": "Kesselsdorfer Stra\u00dfe",
-        "postalcode": "01159"
       }
     },
     {
@@ -56430,30 +56382,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.98680878,
-          30.2019577
-        ]
-      },
-      "properties": {
-        "netid": "B8:1E:A4:68:98:73",
-        "ssid": null,
-        "oui": "B8:1E:A4",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-08-19T09:00:00.000Z",
-        "lasttime": "2024-08-20T10:00:00.000Z",
-        "city": null,
-        "region": "TX",
-        "country": "US",
-        "road": "West US Highway 290",
-        "postalcode": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.59879303,
           45.61344147
         ]
@@ -77499,10 +77427,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-16T06:24:38.375338+00:00",
+    "generated": "2026-08-23T06:21:48.294262+00:00",
     "oui": "B8:1E:A4",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3229
+    "total_cameras": 3226
   }
 }

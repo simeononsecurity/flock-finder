@@ -1710,30 +1710,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          152.99156189,
-          -27.30877304
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:2C:A1:2B",
-        "ssid": "FVDec1bbd2ca12b",
-        "oui": "EC:1B:BD",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-03-17T23:00:00.000Z",
-        "lasttime": "2024-08-18T17:00:00.000Z",
-        "city": null,
-        "region": "Queensland",
-        "country": "AU",
-        "road": "Learmonth Street",
-        "postalcode": "4500"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           153.10292053,
           -27.50007248
         ]
@@ -2735,30 +2711,6 @@
         "country": "DK",
         "road": "Teglholmsgade",
         "postalcode": "2450"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.35689545,
-          55.39307022
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:2C:A4:52",
-        "ssid": "20146325",
-        "oui": "EC:1B:BD",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-21T10:00:00.000Z",
-        "lasttime": "2024-08-21T04:00:00.000Z",
-        "city": "Odense",
-        "region": "Region Syddanmark",
-        "country": "DK",
-        "road": "Middelfartvej",
-        "postalcode": "5200"
       }
     },
     {
@@ -3798,30 +3750,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.07983398,
-          41.66634369
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:61:02:7B",
-        "ssid": null,
-        "oui": "EC:1B:BD",
-        "channel": 0,
-        "encryption": "none",
-        "firsttime": "2024-08-17T21:00:00.000Z",
-        "lasttime": "2024-08-17T15:00:00.000Z",
-        "city": null,
-        "region": "CT",
-        "country": "US",
-        "road": "South Main Street",
-        "postalcode": "06787"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.28006363,
           50.29036331
         ]
@@ -3863,30 +3791,6 @@
         "country": "US",
         "road": "East Broad Street",
         "postalcode": "23219"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.07879639,
-          41.66805649
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:61:3E:9B",
-        "ssid": null,
-        "oui": "EC:1B:BD",
-        "channel": 0,
-        "encryption": "none",
-        "firsttime": "2024-08-17T21:00:00.000Z",
-        "lasttime": "2024-08-17T15:00:00.000Z",
-        "city": null,
-        "region": "CT",
-        "country": "US",
-        "road": "South Main Street",
-        "postalcode": "06787"
       }
     },
     {
@@ -4415,30 +4319,6 @@
         "country": "DE",
         "road": "Langgasse",
         "postalcode": "63607"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.8266201,
-          48.03209686
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:62:E7:A4",
-        "ssid": "AiM-MYC5-061437-DOSTAL JAN",
-        "oui": "EC:1B:BD",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2023-08-18T14:00:00.000Z",
-        "lasttime": "2024-08-18T13:00:00.000Z",
-        "city": null,
-        "region": "Nieder\u00f6sterreich",
-        "country": "AT",
-        "road": "Ostautobahn",
-        "postalcode": "2471"
       }
     },
     {
@@ -10371,10 +10251,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-16T06:24:38.375338+00:00",
+    "generated": "2026-08-23T06:21:48.294262+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 432
+    "total_cameras": 427
   }
 }
