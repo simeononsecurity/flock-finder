@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 127,918 |
-| 📡 **OUI Prefixes with Data** | 28 / 31 |
-| 🌎 **Countries** | 129 |
+| 📸 **Cameras Mapped** | 136,124 |
+| 📡 **OUI Prefixes with Data** | 31 / 31 |
+| 🌎 **Countries** | 138 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-08-23 |
+| 🕐 **Last Updated** | 2026-08-24 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -183,18 +183,18 @@ The table below lists the ten most frequently observed SSID values across all Wi
 <!-- SSID_TOP10_START -->
 | # | SSID | Occurrences |
 |---|------|-------------|
-| 1 | `Flock` | 1,519 |
+| 1 | `Flock` | 1,651 |
 | 2 | `SMARTGATE_123456` | 833 |
-| 3 | `TEST` | 278 |
-| 4 | `Compudopt Connect` | 235 |
-| 5 | `ClickShare-Boardroom` | 206 |
-| 6 | `ClickShare` | 198 |
-| 7 | `ClickShare-Conference Room` | 135 |
-| 8 | `Audi HUD` | 126 |
-| 9 | `Afsol Wifi` | 113 |
-| 10 | `MAX-PRINTER` | 102 |
+| 3 | `AndroidAP` | 333 |
+| 4 | `TEST` | 277 |
+| 5 | `Compudopt Connect` | 235 |
+| 6 | `ClickShare-Boardroom` | 206 |
+| 7 | `ClickShare` | 199 |
+| 8 | `ClickShare-Conference Room` | 135 |
+| 9 | `Audi HUD` | 126 |
+| 10 | `Afsol Wifi` | 113 |
 
-*Computed from 109,097 SSID-bearing records (100,510 unique values) across all 28 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 114,762 SSID-bearing records (105,450 unique values) across all 31 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
@@ -202,11 +202,11 @@ The table below lists the ten most frequently observed SSID values across all Wi
 ## 🔬 Flock SSID Pattern Analysis
 
 <!-- SSID_PATTERNS_START -->
-Filtering for only `Flock*`-prefixed SSIDs yields **150 unique variants** across **1,668 total records**. These fall into five distinct patterns:
+Filtering for only `Flock*`-prefixed SSIDs yields **150 unique variants** across **1,800 total records**. These fall into five distinct patterns:
 
 | Pattern | Unique SSIDs | Records | Description |
 |---------|-------------|---------|-------------|
-| `Flock` | 1 | 1,519 | Bare name — fully configured / deployed cameras |
+| `Flock` | 1 | 1,651 | Bare name — fully configured / deployed cameras |
 | `Flock-XXXXXX` | 141 | 141 | Mixed-case with 6-char uppercase hex suffix |
 | `FLOCK-XXXXXX` | 5 | 5 | All-caps variant with 6-char hex suffix |
 | `Flock-XXXX` | 1 | 1 | Shorter 4-char hex suffix (`Flock-6361`) |

@@ -9606,30 +9606,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.12202549,
-          59.12420654
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:1D:36:09",
-        "ssid": "ACNUtO9v",
-        "oui": "E4:AA:EA",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-20T14:00:00.000Z",
-        "lasttime": "2024-08-23T06:00:00.000Z",
-        "city": null,
-        "region": "\u00d6rebro l\u00e4n",
-        "country": "SE",
-        "road": "Stenev\u00e4gen",
-        "postalcode": "692 35"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.50084782,
           40.91596603
         ]
@@ -18575,30 +18551,6 @@
         "country": "SE",
         "road": "Fristadstorget",
         "postalcode": "63218"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.54552746,
-          48.84078979
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:35:09:D5",
-        "ssid": "ClickShare-NYLG-C2-N\u00b02",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-23T15:00:00.000Z",
-        "lasttime": "2024-08-23T09:00:00.000Z",
-        "city": null,
-        "region": "\u00cele-de-France",
-        "country": "FR",
-        "road": "Rue des Arcades",
-        "postalcode": "93160"
       }
     },
     {
@@ -86406,30 +86358,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.56890392,
-          50.052845
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:58:C3:B3",
-        "ssid": "ClickShare-SpeakUp",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-08-14T09:00:00.000Z",
-        "lasttime": "2024-08-23T11:00:00.000Z",
-        "city": "Frankfurt am Main",
-        "region": "Hessen",
-        "country": "DE",
-        "road": "Am Flughafen",
-        "postalcode": "60549"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.21913385,
           52.05966568
         ]
@@ -96911,30 +96839,6 @@
         "country": "FR",
         "road": "Rue de Bercy",
         "postalcode": "75012"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.04944611,
-          38.85597992
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:5D:B8:2B",
-        "ssid": "ClickShare-Collab",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2021-07-27T08:00:00.000Z",
-        "lasttime": "2024-08-23T17:00:00.000Z",
-        "city": "Arlington",
-        "region": "VA",
-        "country": "US",
-        "road": "Crystal Drive",
-        "postalcode": "22202"
       }
     },
     {
@@ -109103,30 +109007,6 @@
         "country": "BE",
         "road": "Chauss\u00e9e d'Anvers - Antwerpsesteenweg",
         "postalcode": "1000"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -87.6271286,
-          41.88171005
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:5D:DD:D1",
-        "ssid": "CH-CR13-CS20 (1862359923)",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-02-29T23:00:00.000Z",
-        "lasttime": "2024-08-23T03:00:00.000Z",
-        "city": "Chicago",
-        "region": "IL",
-        "country": "US",
-        "road": "South State Street",
-        "postalcode": "60603"
       }
     },
     {
@@ -158334,30 +158214,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.23085403,
-          53.52205658
-        ]
-      },
-      "properties": {
-        "netid": "E4:AA:EA:91:CD:29",
-        "ssid": "CS_Besprechungsraum",
-        "oui": "E4:AA:EA",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-23T11:00:00.000Z",
-        "lasttime": "2024-08-23T05:00:00.000Z",
-        "city": null,
-        "region": "Schleswig-Holstein",
-        "country": "DE",
-        "road": "Gutenbergstra\u00dfe",
-        "postalcode": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.39208412,
           49.05803299
         ]
@@ -167163,10 +167019,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-23T06:21:48.294262+00:00",
+    "generated": "2026-08-24T06:38:28.929863+00:00",
     "oui": "E4:AA:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 6965
+    "total_cameras": 6959
   }
 }
