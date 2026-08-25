@@ -1110,30 +1110,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.13970947,
-          40.39510727
-        ]
-      },
-      "properties": {
-        "netid": "A4:CF:12:08:11:A5",
-        "ssid": "Traeger-11A5",
-        "oui": "A4:CF:12",
-        "channel": 5,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-25T01:00:00.000Z",
-        "lasttime": "2024-08-24T18:00:00.000Z",
-        "city": null,
-        "region": "CO",
-        "country": "US",
-        "road": "Glacier View Place",
-        "postalcode": "80537-3147"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -103.40621948,
           46.17722702
         ]
@@ -61086,30 +61062,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.37164545,
-          43.80760193
-        ]
-      },
-      "properties": {
-        "netid": "A4:CF:12:7D:7D:E5",
-        "ssid": "ESP_7D7DE5",
-        "oui": "A4:CF:12",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2020-11-04T14:00:00.000Z",
-        "lasttime": "2024-08-24T01:00:00.000Z",
-        "city": "N\u00eemes",
-        "region": "Occitanie",
-        "country": "FR",
-        "road": "T1",
-        "postalcode": "30035"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.23971224,
           43.44758606
         ]
@@ -82878,30 +82830,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.8066864,
-          45.23299789
-        ]
-      },
-      "properties": {
-        "netid": "A4:CF:12:94:50:1D",
-        "ssid": "Traeger-501D",
-        "oui": "A4:CF:12",
-        "channel": 5,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-24T05:00:00.000Z",
-        "lasttime": "2024-08-24T17:00:00.000Z",
-        "city": null,
-        "region": "OR",
-        "country": "US",
-        "road": "Robert Hugh Baldock Freeway",
-        "postalcode": "97020"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -123.19510651,
           42.97466278
         ]
@@ -84023,30 +83951,6 @@
         "country": "US",
         "road": "Wharf Road",
         "postalcode": "21219"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.21182156,
-          51.86793518
-        ]
-      },
-      "properties": {
-        "netid": "A4:CF:12:94:A1:71",
-        "ssid": "Suhat",
-        "oui": "A4:CF:12",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-23T05:00:00.000Z",
-        "lasttime": "2024-08-24T08:00:00.000Z",
-        "city": null,
-        "region": "Nordrhein-Westfalen",
-        "country": "DE",
-        "road": "A 3",
-        "postalcode": "46446"
       }
     },
     {
@@ -91230,30 +91134,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.10205078,
-          -33.71474838
-        ]
-      },
-      "properties": {
-        "netid": "A4:CF:12:AF:C6:EB",
-        "ssid": null,
-        "oui": "A4:CF:12",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-08-24T05:00:00.000Z",
-        "lasttime": "2024-08-24T00:00:00.000Z",
-        "city": "Sydney",
-        "region": "New South Wales",
-        "country": "AU",
-        "road": "Yardley Avenue",
-        "postalcode": "2077"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -86.03646088,
           39.9046402
         ]
@@ -97683,10 +97563,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-24T06:38:28.929863+00:00",
+    "generated": "2026-08-25T06:29:10.501594+00:00",
     "oui": "A4:CF:12",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 4070
+    "total_cameras": 4065
   }
 }
