@@ -918,8 +918,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -110.90688324,
-          32.22158813
+          -110.9068985,
+          32.22158432
         ]
       },
       "properties": {
@@ -929,7 +929,7 @@
         "channel": 13,
         "encryption": "none",
         "firsttime": "2022-12-29T13:00:00.000Z",
-        "lasttime": "2026-08-15T16:00:00.000Z",
+        "lasttime": "2026-08-23T23:00:00.000Z",
         "city": "Tucson",
         "region": "AZ",
         "country": "US",
@@ -1295,30 +1295,6 @@
         "country": "NO",
         "road": "Nordjorda",
         "postalcode": "9409"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1831255,
-          61.4598999
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:0F:B8:0C",
-        "ssid": "ACcEQ8iL",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2022-02-27T16:00:00.000Z",
-        "lasttime": "2024-08-25T12:00:00.000Z",
-        "city": null,
-        "region": "Innlandet",
-        "country": "NO",
-        "road": "Gudbrandsdalsvegen",
-        "postalcode": "2634"
       }
     },
     {
@@ -2111,6 +2087,30 @@
         "country": "US",
         "road": "Danny Way",
         "postalcode": "95315"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.95615387,
+          47.71972275
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:13:C9:00",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-08-24T18:00:00.000Z",
+        "lasttime": "2026-08-24T20:00:00.000Z",
+        "city": null,
+        "region": "ID",
+        "country": "US",
+        "road": "West 12th Avenue",
+        "postalcode": "83877-0010"
       }
     },
     {
@@ -2934,8 +2934,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.79753685,
-          68.68109131
+          16.79755211,
+          68.68110657
         ]
       },
       "properties": {
@@ -2945,7 +2945,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-02-09T16:00:00.000Z",
-        "lasttime": "2026-05-10T10:00:00.000Z",
+        "lasttime": "2026-08-24T08:00:00.000Z",
         "city": null,
         "region": "Troms og Finnmark",
         "country": "NO",
@@ -4206,22 +4206,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.80047894,
-          43.82543945
+          7.80095911,
+          43.82545471
         ]
       },
       "properties": {
         "netid": "3C:91:80:19:7B:9D",
         "ssid": "ACxteUiB",
         "oui": "3C:91:80",
-        "channel": 10,
-        "encryption": "none",
+        "channel": 6,
+        "encryption": "wpa2",
         "firsttime": "2025-02-14T14:00:00.000Z",
-        "lasttime": "2026-08-23T22:00:00.000Z",
+        "lasttime": "2026-08-24T04:00:00.000Z",
         "city": "Sanremo",
         "region": "Liguria",
         "country": "IT",
-        "road": "Via Val d'Olivi",
+        "road": "Via Ginestre",
         "postalcode": "18038"
       }
     },
@@ -5622,6 +5622,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -71.09355927,
+          42.82971573
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:2A:D5:A3",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T15:00:00.000Z",
+        "lasttime": "2026-08-25T23:00:00.000Z",
+        "city": null,
+        "region": "NH",
+        "country": "US",
+        "road": "Main Street",
+        "postalcode": "03865"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.75184631,
           45.49998474
         ]
@@ -5951,6 +5975,30 @@
         "country": "US",
         "road": "New Durham Road",
         "postalcode": "08854"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.35295105,
+          33.85044479
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:38:11:07",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T16:00:00.000Z",
+        "lasttime": "2026-08-25T17:00:00.000Z",
+        "city": "Torrance",
+        "region": "CA",
+        "country": "US",
+        "road": "Hawthorne Boulevard",
+        "postalcode": "90503"
       }
     },
     {
@@ -7014,6 +7062,54 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -118.35296631,
+          33.85044479
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:52:99:BF",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T17:00:00.000Z",
+        "lasttime": "2026-08-25T17:00:00.000Z",
+        "city": "Torrance",
+        "region": "CA",
+        "country": "US",
+        "road": "Hawthorne Boulevard",
+        "postalcode": "90503"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.35296631,
+          33.85044098
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:52:9E:8D",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T16:00:00.000Z",
+        "lasttime": "2026-08-25T17:00:00.000Z",
+        "city": "Torrance",
+        "region": "CA",
+        "country": "US",
+        "road": "Hawthorne Boulevard",
+        "postalcode": "90503"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -121.49487305,
           38.57285309
         ]
@@ -7031,6 +7127,30 @@
         "country": "US",
         "road": "P Street Q Street Alley",
         "postalcode": "95811"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.35295868,
+          33.85044479
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:52:A1:37",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T16:00:00.000Z",
+        "lasttime": "2026-08-25T17:00:00.000Z",
+        "city": "Torrance",
+        "region": "CA",
+        "country": "US",
+        "road": "Hawthorne Boulevard",
+        "postalcode": "90503"
       }
     },
     {
@@ -7199,6 +7319,30 @@
         "country": "US",
         "road": "Narcoossee Road",
         "postalcode": "32827"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.35295105,
+          33.85044861
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:52:BF:83",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T16:00:00.000Z",
+        "lasttime": "2026-08-25T17:00:00.000Z",
+        "city": "Torrance",
+        "region": "CA",
+        "country": "US",
+        "road": "Hawthorne Boulevard",
+        "postalcode": "90503"
       }
     },
     {
@@ -8430,23 +8574,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.75267792,
-          38.25249481
+          -85.75235748,
+          38.25273132
         ]
       },
       "properties": {
         "netid": "3C:91:80:77:13:CD",
-        "ssid": null,
+        "ssid": "Flock",
         "oui": "3C:91:80",
-        "channel": 0,
+        "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-07-22T22:00:00.000Z",
-        "lasttime": "2026-01-30T18:00:00.000Z",
+        "lasttime": "2026-08-24T14:00:00.000Z",
         "city": "Louisville",
         "region": "KY",
         "country": "US",
         "road": "South 1st Street",
-        "postalcode": "40202"
+        "postalcode": "40208"
       }
     },
     {
@@ -8574,8 +8718,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.40446472,
-          36.94648743
+          -76.40451813,
+          36.94659805
         ]
       },
       "properties": {
@@ -8585,7 +8729,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-17T15:00:00.000Z",
-        "lasttime": "2026-08-21T00:00:00.000Z",
+        "lasttime": "2026-08-25T13:00:00.000Z",
         "city": "Newport News",
         "region": "VA",
         "country": "US",
@@ -8982,8 +9126,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.15074921,
-          39.76329422
+          -86.15074158,
+          39.76328659
         ]
       },
       "properties": {
@@ -8993,7 +9137,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-04-21T12:00:00.000Z",
-        "lasttime": "2026-07-22T10:00:00.000Z",
+        "lasttime": "2026-08-25T16:00:00.000Z",
         "city": "Indianapolis",
         "region": "IN",
         "country": "US",
@@ -10543,7 +10687,7 @@
         "type": "Point",
         "coordinates": [
           -86.15050507,
-          39.76247025
+          39.76247406
         ]
       },
       "properties": {
@@ -10553,7 +10697,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-19T16:00:00.000Z",
-        "lasttime": "2026-08-16T15:00:00.000Z",
+        "lasttime": "2026-08-25T16:00:00.000Z",
         "city": "Indianapolis",
         "region": "IN",
         "country": "US",
@@ -10649,7 +10793,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-19T16:00:00.000Z",
-        "lasttime": "2026-08-16T15:00:00.000Z",
+        "lasttime": "2026-08-25T16:00:00.000Z",
         "city": "Indianapolis",
         "region": "IN",
         "country": "US",
@@ -10679,30 +10823,6 @@
         "country": "US",
         "road": "North Racine Avenue",
         "postalcode": "60622"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -63.58627701,
-          44.6456871
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:84:9F:A9",
-        "ssid": "ClickShare-1873212074",
-        "oui": "3C:91:80",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-18T17:00:00.000Z",
-        "lasttime": "2024-08-25T20:00:00.000Z",
-        "city": "Halifax",
-        "region": "Nova Scotia",
-        "country": "CA",
-        "road": "Trollope Street",
-        "postalcode": "B3H 3A6"
       }
     },
     {
@@ -10902,8 +11022,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.47579765,
-          51.2784729
+          4.47609377,
+          51.27873611
         ]
       },
       "properties": {
@@ -10913,7 +11033,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-05-24T14:00:00.000Z",
-        "lasttime": "2026-08-23T07:00:00.000Z",
+        "lasttime": "2026-08-25T06:00:00.000Z",
         "city": null,
         "region": "Antwerpen",
         "country": "BE",
@@ -15078,6 +15198,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -116.97140503,
+          47.7387085
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:CC:BD:DB",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 10,
+        "encryption": "none",
+        "firsttime": "2026-08-24T19:00:00.000Z",
+        "lasttime": "2026-08-24T21:00:00.000Z",
+        "city": null,
+        "region": "ID",
+        "country": "US",
+        "road": "West Grange Avenue",
+        "postalcode": "83877-0010"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -85.79872894,
           38.17840576
         ]
@@ -17838,6 +17982,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -86.28899384,
+          39.81261063
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:EE:01:E7",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T15:00:00.000Z",
+        "lasttime": "2026-08-25T15:00:00.000Z",
+        "city": "Indianapolis",
+        "region": "IN",
+        "country": "US",
+        "road": "I 74",
+        "postalcode": "46214"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.79094696,
           45.48648453
         ]
@@ -18071,6 +18239,30 @@
         "country": "US",
         "road": "East Lincoln Avenue",
         "postalcode": "08854"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.27155304,
+          44.28431702
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:F6:71:41",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-08-25T12:00:00.000Z",
+        "lasttime": "2026-08-25T11:00:00.000Z",
+        "city": null,
+        "region": "ME",
+        "country": "US",
+        "road": "Auburn Road",
+        "postalcode": "04282"
       }
     },
     {
@@ -19278,8 +19470,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.5381012,
-          68.68464661
+          16.53811455,
+          68.68468475
         ]
       },
       "properties": {
@@ -19289,7 +19481,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-02-09T10:00:00.000Z",
-        "lasttime": "2026-08-10T03:00:00.000Z",
+        "lasttime": "2026-08-24T08:00:00.000Z",
         "city": null,
         "region": "Troms og Finnmark",
         "country": "NO",
@@ -20067,10 +20259,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-25T06:29:10.501594+00:00",
+    "generated": "2026-08-26T06:30:55.794008+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 836
+    "total_cameras": 844
   }
 }
