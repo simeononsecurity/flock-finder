@@ -414,6 +414,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -70.55876923,
+          41.45883179
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:2C:70:B4",
+        "ssid": "Sea Logic Todd",
+        "oui": "EC:1B:BD",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-24T16:00:00.000Z",
+        "lasttime": "2026-08-26T19:00:00.000Z",
+        "city": null,
+        "region": "MA",
+        "country": "US",
+        "road": "Circuit Avenue Extension",
+        "postalcode": "02557"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -90.02742004,
           35.15174484
         ]
@@ -2454,8 +2478,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.62029266,
-          42.21137238
+          -83.61979675,
+          42.21165848
         ]
       },
       "properties": {
@@ -2465,7 +2489,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2026-08-06T13:00:00.000Z",
-        "lasttime": "2026-08-06T07:00:00.000Z",
+        "lasttime": "2026-08-26T21:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -2646,8 +2670,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.78404284,
-          53.64591599
+          -1.78411591,
+          53.64587402
         ]
       },
       "properties": {
@@ -2657,7 +2681,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-06-05T13:00:00.000Z",
-        "lasttime": "2026-01-30T05:00:00.000Z",
+        "lasttime": "2026-08-26T09:00:00.000Z",
         "city": "Kirklees",
         "region": "England",
         "country": "GB",
@@ -3089,7 +3113,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-06-08T14:00:00.000Z",
-        "lasttime": "2026-08-14T07:00:00.000Z",
+        "lasttime": "2026-08-26T07:00:00.000Z",
         "city": "Helsinki",
         "region": "Manner-Suomi",
         "country": "FI",
@@ -9630,8 +9654,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.77259922,
-          53.97753143
+          10.77260876,
+          53.97754669
         ]
       },
       "properties": {
@@ -9641,7 +9665,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2025-06-08T13:00:00.000Z",
-        "lasttime": "2026-08-08T23:00:00.000Z",
+        "lasttime": "2026-08-27T08:00:00.000Z",
         "city": "Timmendorfer Strand",
         "region": "Schleswig-Holstein",
         "country": "DE",
@@ -10299,10 +10323,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-26T06:30:55.794008+00:00",
+    "generated": "2026-08-27T17:03:54.703085+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 429
+    "total_cameras": 430
   }
 }

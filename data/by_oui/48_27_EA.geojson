@@ -5382,6 +5382,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          51.4523735,
+          35.75400925
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:56:81:D4",
+        "ssid": "AndroidAP",
+        "oui": "48:27:EA",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-26T15:00:00.000Z",
+        "lasttime": "2026-08-26T08:00:00.000Z",
+        "city": "\u0634\u0647\u0631 \u062a\u0647\u0631\u0627\u0646",
+        "region": "\u0634\u0647\u0631\u0633\u062a\u0627\u0646 \u062a\u0647\u0631\u0627\u0646",
+        "country": "IR",
+        "road": "\u0628\u0632\u0631\u06af\u0631\u0627\u0647 \u0634\u0647\u06cc\u062f \u0647\u0645\u062a",
+        "postalcode": "1661918681"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.40852547,
           52.66307068
         ]
@@ -5999,30 +6023,6 @@
         "country": "IR",
         "road": "\u0645\u06cc\u062f\u0627\u0646 \u0627\u0645\u0627\u0645 \u062d\u0633\u06cc\u0646",
         "postalcode": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.88861561,
-          51.21177673
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:5E:24:95",
-        "ssid": "HTML.ERROR.EXE",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2023-08-13T12:00:00.000Z",
-        "lasttime": "2024-08-26T09:00:00.000Z",
-        "city": null,
-        "region": "Sachsen-Anhalt",
-        "country": "DE",
-        "road": "L 206",
-        "postalcode": "06667"
       }
     },
     {
@@ -7854,8 +7854,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.06731176,
-          52.06731796
+          13.731884,
+          48.17726517
         ]
       },
       "properties": {
@@ -7865,12 +7865,12 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-08-02T16:00:00.000Z",
-        "lasttime": "2024-11-29T08:00:00.000Z",
-        "city": "Utrecht",
-        "region": "Utrecht",
-        "country": "NL",
-        "road": "A12",
-        "postalcode": "3528AG"
+        "lasttime": "2026-08-26T06:00:00.000Z",
+        "city": null,
+        "region": "Ober\u00f6sterreich",
+        "country": "AT",
+        "road": "Innkreis Autobahn",
+        "postalcode": "4676"
       }
     },
     {
@@ -8351,30 +8351,6 @@
         "country": "RU",
         "road": "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u041f\u043e\u0447\u0442\u043e\u0432\u0430\u044f \u0443\u043b\u0438\u0446\u0430",
         "postalcode": "105082"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -61.04698944,
-          14.53722477
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:6B:83:82",
-        "ssid": "J330",
-        "oui": "48:27:EA",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-04-29T21:00:00.000Z",
-        "lasttime": "2024-08-26T12:00:00.000Z",
-        "city": "Les Trois-\u00celets",
-        "region": "Martinique",
-        "country": "FR",
-        "road": "All\u00e9e de l'\u00c9meraude",
-        "postalcode": "97229"
       }
     },
     {
@@ -8975,6 +8951,30 @@
         "country": "IT",
         "road": "Via della Cisa",
         "postalcode": "00141"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.20905972,
+          48.84160995
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:70:52:BB",
+        "ssid": "AndroidAP52BB",
+        "oui": "48:27:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2023-08-29T16:00:00.000Z",
+        "lasttime": "2026-08-26T02:00:00.000Z",
+        "city": null,
+        "region": "Baden-W\u00fcrttemberg",
+        "country": "DE",
+        "road": "Hurstweg",
+        "postalcode": "76437"
       }
     },
     {
@@ -13518,8 +13518,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9919529,
-          52.38853836
+          15.40210819,
+          44.69297791
         ]
       },
       "properties": {
@@ -13529,12 +13529,12 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2022-12-14T14:00:00.000Z",
-        "lasttime": "2026-07-26T02:00:00.000Z",
+        "lasttime": "2026-08-26T10:00:00.000Z",
         "city": null,
-        "region": "Niedersachsen",
-        "country": "DE",
-        "road": "A 2",
-        "postalcode": "31275"
+        "region": "Li\u010dko-senjska \u017eupanija",
+        "country": "HR",
+        "road": "A1",
+        "postalcode": "53202"
       }
     },
     {
@@ -14519,30 +14519,6 @@
         "country": "NL",
         "road": "Lobattostraat",
         "postalcode": "2521BJ"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -6.28677225,
-          53.35607147
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:A6:3C:4B",
-        "ssid": "Narnia",
-        "oui": "48:27:EA",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-23T18:00:00.000Z",
-        "lasttime": "2024-08-26T10:00:00.000Z",
-        "city": "Dublin",
-        "region": "Leinster",
-        "country": "IE",
-        "road": "Prussia Street",
-        "postalcode": "D07 E1RD"
       }
     },
     {
@@ -15839,6 +15815,30 @@
         "country": "DK",
         "road": "Kalkbr\u00e6nderihavnsgade",
         "postalcode": "2150"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.0805397,
+          51.66273499
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:B2:1B:37",
+        "ssid": "Galaxy J51B37",
+        "oui": "48:27:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-26T14:00:00.000Z",
+        "lasttime": "2026-08-26T11:00:00.000Z",
+        "city": null,
+        "region": "wojew\u00f3dztwo dolno\u015bl\u0105skie",
+        "country": "PL",
+        "road": "S\u0142owia\u0144ska",
+        "postalcode": "67-200"
       }
     },
     {
@@ -19655,6 +19655,30 @@
         "country": "BA",
         "road": "D\u017eemala Bijedi\u0107a",
         "postalcode": "71210"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.56005287,
+          43.20779419
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:CD:B0:B3",
+        "ssid": "Samsung",
+        "oui": "48:27:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-24T17:00:00.000Z",
+        "lasttime": "2026-08-26T06:00:00.000Z",
+        "city": "\u0412\u0440\u0430\u0446\u0430",
+        "region": "\u0412\u0440\u0430\u0446\u0430",
+        "country": "BG",
+        "road": "\u0431\u0443\u043b. \u0412\u0430\u0441\u0438\u043b \u041a\u044a\u043d\u0447\u043e\u0432",
+        "postalcode": "3000"
       }
     },
     {
@@ -26283,10 +26307,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-26T06:30:55.794008+00:00",
+    "generated": "2026-08-27T17:03:54.703085+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1095
+    "total_cameras": 1096
   }
 }
