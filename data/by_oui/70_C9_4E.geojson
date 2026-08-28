@@ -438,6 +438,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -75.52391815,
+          42.53147507
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:0B:80:A7",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-28T11:00:00.000Z",
+        "lasttime": "2026-08-28T04:00:00.000Z",
+        "city": null,
+        "region": "NY",
+        "country": "US",
+        "road": "North Broad Street",
+        "postalcode": "13815"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.90202332,
           40.64012527
         ]
@@ -894,8 +918,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.27576602,
-          52.62290573
+          1.27514935,
+          52.6226387
         ]
       },
       "properties": {
@@ -905,12 +929,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-24T16:00:00.000Z",
-        "lasttime": "2026-08-24T10:00:00.000Z",
+        "lasttime": "2026-08-27T10:00:00.000Z",
         "city": "Norwich",
         "region": "England",
         "country": "GB",
         "road": "Unthank Road",
-        "postalcode": "NR2 2AB"
+        "postalcode": "NR2 2PG"
       }
     },
     {
@@ -2502,6 +2526,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -38.51579666,
+          -12.98835945
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:36:F2:61",
+        "ssid": "S2060w-62637454",
+        "oui": "70:C9:4E",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-08-27T20:00:00.000Z",
+        "lasttime": "2026-08-27T15:00:00.000Z",
+        "city": "Salvador",
+        "region": "Bahia",
+        "country": "BR",
+        "road": "Ladeira da Fonte",
+        "postalcode": "40070-055"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           23.72232819,
           37.98510742
         ]
@@ -3215,6 +3263,30 @@
         "country": "US",
         "road": "Military Road",
         "postalcode": "14304"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.26450348,
+          36.68658447
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3F:1A:67",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-27T23:00:00.000Z",
+        "lasttime": "2026-08-27T18:00:00.000Z",
+        "city": "Chesapeake",
+        "region": "VA",
+        "country": "US",
+        "road": "Fairhaven Road",
+        "postalcode": "23322"
       }
     },
     {
@@ -10059,10 +10131,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-27T17:03:54.703085+00:00",
+    "generated": "2026-08-28T17:52:28.035578+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 419
+    "total_cameras": 422
   }
 }

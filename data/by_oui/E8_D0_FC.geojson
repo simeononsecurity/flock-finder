@@ -1255,7 +1255,7 @@
         "type": "Point",
         "coordinates": [
           -121.79795837,
-          36.68690872
+          36.68691254
         ]
       },
       "properties": {
@@ -1265,7 +1265,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2024-09-25T14:00:00.000Z",
-        "lasttime": "2026-08-26T18:00:00.000Z",
+        "lasttime": "2026-08-27T14:00:00.000Z",
         "city": "Marina",
         "region": "CA",
         "country": "US",
@@ -6161,7 +6161,7 @@
         "channel": 13,
         "encryption": "wpa2",
         "firsttime": "2001-01-01T09:00:00.000Z",
-        "lasttime": "2026-07-16T05:00:00.000Z",
+        "lasttime": "2026-08-27T23:00:00.000Z",
         "city": "\u6e2f\u533a",
         "region": "\u767d\u91d1\u4e00\u4e01\u76ee",
         "country": "JP",
@@ -10014,6 +10014,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -118.74375916,
+          34.28383636
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:A3:AE:E7",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 36,
+        "encryption": "none",
+        "firsttime": "2026-08-27T19:00:00.000Z",
+        "lasttime": "2026-08-27T21:00:00.000Z",
+        "city": "Simi Valley",
+        "region": "CA",
+        "country": "US",
+        "road": "Sycamore Drive",
+        "postalcode": "93063-2364"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -95.71012115,
           41.74375153
         ]
@@ -10758,8 +10782,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -119.77690125,
-          39.45690536
+          -119.77671814,
+          39.45698547
         ]
       },
       "properties": {
@@ -10769,7 +10793,7 @@
         "channel": 161,
         "encryption": "wep",
         "firsttime": "2026-08-21T23:00:00.000Z",
-        "lasttime": "2026-08-21T23:00:00.000Z",
+        "lasttime": "2026-08-27T23:00:00.000Z",
         "city": "Reno",
         "region": "NV",
         "country": "US",
@@ -11370,30 +11394,6 @@
         "encryption": "wpa2",
         "firsttime": "2022-05-01T15:00:00.000Z",
         "lasttime": "2025-12-02T13:00:00.000Z",
-        "city": "Hannover",
-        "region": "Niedersachsen",
-        "country": "DE",
-        "road": "Friedrichswall",
-        "postalcode": "30159"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.7343502,
-          52.36907959
-        ]
-      },
-      "properties": {
-        "netid": "E8:D0:FC:BF:14:5B",
-        "ssid": "ClickShare-1873216495",
-        "oui": "E8:D0:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-12-06T19:00:00.000Z",
-        "lasttime": "2024-08-27T11:00:00.000Z",
         "city": "Hannover",
         "region": "Niedersachsen",
         "country": "DE",
@@ -15246,8 +15246,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.63770914,
-          52.25422668
+          4.63769484,
+          52.2542038
         ]
       },
       "properties": {
@@ -15257,7 +15257,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-06-12T15:00:00.000Z",
-        "lasttime": "2026-05-01T07:00:00.000Z",
+        "lasttime": "2026-08-28T06:00:00.000Z",
         "city": null,
         "region": "Noord-Holland",
         "country": "NL",
@@ -19495,6 +19495,30 @@
         "type": "Point",
         "coordinates": [
           -88.71174622,
+          43.18287277
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:DA:39:9F",
+        "ssid": "MetalTek Secure-WiFi",
+        "oui": "E8:D0:FC",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-08-27T10:00:00.000Z",
+        "lasttime": "2026-08-27T10:00:00.000Z",
+        "city": null,
+        "region": "WI",
+        "country": "US",
+        "road": "Sherman Street",
+        "postalcode": "53094"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.71174622,
           43.18288422
         ]
       },
@@ -19534,6 +19558,30 @@
         "region": "WI",
         "country": "US",
         "road": "Sunset Avenue",
+        "postalcode": "53094"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.71174622,
+          43.18287659
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:DA:40:79",
+        "ssid": "MetalTek Secure-WiFi",
+        "oui": "E8:D0:FC",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-08-27T09:00:00.000Z",
+        "lasttime": "2026-08-27T10:00:00.000Z",
+        "city": null,
+        "region": "WI",
+        "country": "US",
+        "road": "Sherman Street",
         "postalcode": "53094"
       }
     },
@@ -19919,6 +19967,30 @@
         "country": "US",
         "road": "East Lumsden Road",
         "postalcode": "33511"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.16329956,
+          39.9640274
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:ED:DA:31",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 52,
+        "encryption": "none",
+        "firsttime": "2026-08-27T12:00:00.000Z",
+        "lasttime": "2026-08-28T03:00:00.000Z",
+        "city": null,
+        "region": "CO",
+        "country": "US",
+        "road": "McCaslin Boulevard",
+        "postalcode": "80027"
       }
     },
     {
@@ -21075,10 +21147,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-27T17:03:54.703085+00:00",
+    "generated": "2026-08-28T17:52:28.035578+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 878
+    "total_cameras": 881
   }
 }

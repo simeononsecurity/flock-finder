@@ -1758,6 +1758,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          174.30323792,
+          -35.73426437
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:2C:A1:2E",
+        "ssid": "FVDec1bbd2ca12e",
+        "oui": "EC:1B:BD",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-28T01:00:00.000Z",
+        "lasttime": "2026-08-27T21:00:00.000Z",
+        "city": "Whang\u0101rei",
+        "region": "Northland",
+        "country": "NZ",
+        "road": "Maunu Road",
+        "postalcode": "0101"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           152.99090576,
           -27.40803909
         ]
@@ -2406,8 +2430,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          153.02897644,
-          -27.44638824
+          153.02896118,
+          -27.44638443
         ]
       },
       "properties": {
@@ -2417,7 +2441,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-01-09T11:00:00.000Z",
-        "lasttime": "2026-08-23T20:00:00.000Z",
+        "lasttime": "2026-08-28T07:00:00.000Z",
         "city": null,
         "region": "Queensland",
         "country": "AU",
@@ -3294,8 +3318,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          150.31297302,
-          -33.71143723
+          150.31285095,
+          -33.71140289
         ]
       },
       "properties": {
@@ -3305,7 +3329,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2022-01-04T11:00:00.000Z",
-        "lasttime": "2026-07-10T02:00:00.000Z",
+        "lasttime": "2026-08-28T08:00:00.000Z",
         "city": null,
         "region": "New South Wales",
         "country": "AU",
@@ -3575,6 +3599,30 @@
         "country": "US",
         "road": "Yankee Doodle Road",
         "postalcode": "55121"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.40019989,
+          37.78508759
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:60:CA:54",
+        "ssid": "CineShooter",
+        "oui": "EC:1B:BD",
+        "channel": 11,
+        "encryption": "unknown",
+        "firsttime": "2023-03-24T08:00:00.000Z",
+        "lasttime": "2026-08-27T23:00:00.000Z",
+        "city": "San Francisco",
+        "region": "CA",
+        "country": "US",
+        "road": "3rd Street",
+        "postalcode": "94103"
       }
     },
     {
@@ -5838,8 +5886,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          25.17773247,
-          35.32735825
+          25.17765617,
+          35.3274498
         ]
       },
       "properties": {
@@ -5849,7 +5897,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-09-16T16:00:00.000Z",
-        "lasttime": "2026-08-17T14:00:00.000Z",
+        "lasttime": "2026-08-28T00:00:00.000Z",
         "city": "\u0394\u03b7\u03bc\u03bf\u03c4\u03b9\u03ba\u03ae \u0395\u03bd\u03cc\u03c4\u03b7\u03c4\u03b1 \u039d\u03ad\u03b1\u03c2 \u0391\u03bb\u03b9\u03ba\u03b1\u03c1\u03bd\u03b1\u03c3\u03c3\u03bf\u03cd",
         "region": "\u0391\u03c0\u03bf\u03ba\u03b5\u03bd\u03c4\u03c1\u03c9\u03bc\u03ad\u03bd\u03b7 \u0394\u03b9\u03bf\u03af\u03ba\u03b7\u03c3\u03b7 \u039a\u03c1\u03ae\u03c4\u03b7\u03c2",
         "country": "GR",
@@ -10323,10 +10371,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-27T17:03:54.703085+00:00",
+    "generated": "2026-08-28T17:52:28.035578+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 430
+    "total_cameras": 432
   }
 }

@@ -222,8 +222,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.10377502,
-          9.92945099
+          -84.1037674,
+          9.92944527
         ]
       },
       "properties": {
@@ -233,7 +233,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-07-06T08:00:00.000Z",
+        "lasttime": "2026-08-27T22:00:00.000Z",
         "city": null,
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
@@ -822,7 +822,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.60985565,
+          -83.60974884,
           42.3192482
         ]
       },
@@ -830,10 +830,10 @@
         "netid": "90:35:EA:0D:5F:9B",
         "ssid": "MLG62246",
         "oui": "90:35:EA",
-        "channel": 1,
+        "channel": 7,
         "encryption": "none",
         "firsttime": "2025-10-22T16:00:00.000Z",
-        "lasttime": "2026-07-27T11:00:00.000Z",
+        "lasttime": "2026-08-28T08:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -1422,8 +1422,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.350914,
-          42.39434433
+          -76.35144806,
+          42.39427567
         ]
       },
       "properties": {
@@ -1433,11 +1433,11 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2024-04-08T20:00:00.000Z",
-        "lasttime": "2026-08-15T15:00:00.000Z",
+        "lasttime": "2026-08-27T16:00:00.000Z",
         "city": null,
         "region": "NY",
         "country": "US",
-        "road": "Midline Road",
+        "road": "Slaterville Road",
         "postalcode": "14881"
       }
     },
@@ -1758,18 +1758,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.34482574,
-          39.18664932
+          -84.34483337,
+          39.18666077
         ]
       },
       "properties": {
         "netid": "90:35:EA:0D:68:11",
         "ssid": "MLG53620",
         "oui": "90:35:EA",
-        "channel": 11,
+        "channel": 1,
         "encryption": "unknown",
         "firsttime": "2025-03-20T20:00:00.000Z",
-        "lasttime": "2026-08-18T22:00:00.000Z",
+        "lasttime": "2026-08-27T13:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -2190,8 +2190,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.74085236,
-          40.01901627
+          -80.74080658,
+          40.01922226
         ]
       },
       "properties": {
@@ -2201,11 +2201,11 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2026-06-24T18:00:00.000Z",
-        "lasttime": "2026-08-27T06:00:00.000Z",
+        "lasttime": "2026-08-27T15:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
-        "road": "Belmont Street",
+        "road": "37th Street",
         "postalcode": "43906"
       }
     },
@@ -5735,30 +5735,6 @@
         "country": "FR",
         "road": "Route de la Valloire",
         "postalcode": "26140"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.70367479,
-          45.26116943
-        ]
-      },
-      "properties": {
-        "netid": "90:35:EA:2B:01:24",
-        "ssid": "24109885",
-        "oui": "90:35:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2023-10-04T15:00:00.000Z",
-        "lasttime": "2024-08-27T11:00:00.000Z",
-        "city": null,
-        "region": "Auvergne-Rh\u00f4ne-Alpes",
-        "country": "FR",
-        "road": "Route de Lyon",
-        "postalcode": "07430"
       }
     },
     {
@@ -14907,10 +14883,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-27T17:03:54.703085+00:00",
+    "generated": "2026-08-28T17:52:28.035578+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 621
+    "total_cameras": 620
   }
 }

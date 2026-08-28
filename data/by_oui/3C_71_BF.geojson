@@ -3726,8 +3726,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.69187164,
-          35.60932541
+          -97.69187927,
+          35.60932922
         ]
       },
       "properties": {
@@ -3737,7 +3737,7 @@
         "channel": 5,
         "encryption": "wpa2",
         "firsttime": "2025-02-19T11:00:00.000Z",
-        "lasttime": "2026-06-30T03:00:00.000Z",
+        "lasttime": "2026-08-28T07:00:00.000Z",
         "city": "Oklahoma City",
         "region": "OK",
         "country": "US",
@@ -4127,6 +4127,30 @@
         "country": "US",
         "road": "West Timpanogos Highway",
         "postalcode": "84004"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.79708099,
+          36.69857407
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:07:94:81",
+        "ssid": "Traeger-9481",
+        "oui": "3C:71:BF",
+        "channel": 5,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-28T08:00:00.000Z",
+        "lasttime": "2026-08-28T09:00:00.000Z",
+        "city": "Marina",
+        "region": "CA",
+        "country": "US",
+        "road": "Abdy Way",
+        "postalcode": "93933"
       }
     },
     {
@@ -4998,18 +5022,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.81198883,
-          37.51581573
+          -120.81199646,
+          37.51581192
         ]
       },
       "properties": {
         "netid": "3C:71:BF:08:02:19",
         "ssid": "Traeger-0219",
         "oui": "3C:71:BF",
-        "channel": 4,
+        "channel": 5,
         "encryption": "wep",
         "firsttime": "2026-04-06T21:00:00.000Z",
-        "lasttime": "2026-08-26T15:00:00.000Z",
+        "lasttime": "2026-08-27T14:00:00.000Z",
         "city": "Turlock",
         "region": "CA",
         "country": "US",
@@ -7374,8 +7398,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -88.03240967,
-          32.79868317
+          -86.71459198,
+          36.34333038
         ]
       },
       "properties": {
@@ -7383,14 +7407,14 @@
         "ssid": "ESP_11F90D",
         "oui": "3C:71:BF",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2020-01-27T20:00:00.000Z",
-        "lasttime": "2025-08-01T22:00:00.000Z",
-        "city": null,
-        "region": "AL",
+        "lasttime": "2026-08-28T06:00:00.000Z",
+        "city": "Goodlettsville",
+        "region": "TN",
         "country": "US",
-        "road": "Boligee Park Road",
-        "postalcode": null
+        "road": "I 65",
+        "postalcode": "37072"
       }
     },
     {
@@ -9174,23 +9198,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.83682251,
-          37.47527695
+          -81.22344208,
+          33.88838577
         ]
       },
       "properties": {
-        "netid": "3C:71:BF:20:9F:9B",
+        "netid": "3C:71:BF:20:4E:AD",
         "ssid": null,
         "oui": "3C:71:BF",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2024-08-27T08:00:00.000Z",
-        "lasttime": "2024-08-27T14:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-08-27T17:00:00.000Z",
+        "lasttime": "2026-08-27T17:00:00.000Z",
+        "city": null,
+        "region": "SC",
         "country": "US",
-        "road": "Alexander Court",
-        "postalcode": "95381"
+        "road": "Aldergate Drive",
+        "postalcode": "29072:29073"
       }
     },
     {
@@ -10662,18 +10686,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          37.6925621,
-          55.77595139
+          37.69415283,
+          55.77572632
         ]
       },
       "properties": {
         "netid": "3C:71:BF:2E:E9:79",
         "ssid": null,
         "oui": "3C:71:BF",
-        "channel": 11,
+        "channel": 6,
         "encryption": "unknown",
         "firsttime": "2026-05-07T22:00:00.000Z",
-        "lasttime": "2026-05-07T17:00:00.000Z",
+        "lasttime": "2026-08-28T01:00:00.000Z",
         "city": "\u041c\u043e\u0441\u043a\u0432\u0430",
         "region": "\u041c\u043e\u0441\u043a\u0432\u0430",
         "country": "RU",
@@ -17718,6 +17742,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -149.2048645,
+          61.58987808
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:48:FD:3D",
+        "ssid": "Sentry_FD3D",
+        "oui": "3C:71:BF",
+        "channel": 4,
+        "encryption": "none",
+        "firsttime": "2026-08-27T18:00:00.000Z",
+        "lasttime": "2026-08-27T22:00:00.000Z",
+        "city": null,
+        "region": "AK",
+        "country": "US",
+        "road": "East Lee Ann Drive",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -86.31864929,
           36.18263626
         ]
@@ -20286,6 +20334,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -90.25215912,
+          38.6427803
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:4C:11:8C",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-27T18:00:00.000Z",
+        "lasttime": "2026-08-27T12:00:00.000Z",
+        "city": "Saint Louis",
+        "region": "MO",
+        "country": "US",
+        "road": "Maryland Avenue",
+        "postalcode": "63108"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -47.07269287,
           -22.90658188
         ]
@@ -21503,30 +21575,6 @@
         "country": "US",
         "road": "East 116th Street",
         "postalcode": "46038"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -118.65681458,
-          34.19549942
-        ]
-      },
-      "properties": {
-        "netid": "3C:71:BF:50:1D:09",
-        "ssid": "ESP_501D09",
-        "oui": "3C:71:BF",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2023-11-06T23:00:00.000Z",
-        "lasttime": "2024-08-27T19:00:00.000Z",
-        "city": "Los Angeles",
-        "region": "CA",
-        "country": "US",
-        "road": "Valley Circle Boulevard",
-        "postalcode": "91307"
       }
     },
     {
@@ -26430,8 +26478,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -71.15882874,
-          42.30817795
+          -71.15885925,
+          42.30819321
         ]
       },
       "properties": {
@@ -26441,7 +26489,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2024-12-03T23:00:00.000Z",
-        "lasttime": "2026-06-26T16:00:00.000Z",
+        "lasttime": "2026-08-27T17:00:00.000Z",
         "city": null,
         "region": "MA",
         "country": "US",
@@ -29447,6 +29495,30 @@
         "country": "US",
         "road": "North 16th Street",
         "postalcode": "78501"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.8666153,
+          34.09798431
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:7E:21:FD",
+        "ssid": "Atom_70008221",
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-08-28T05:00:00.000Z",
+        "lasttime": "2026-08-28T01:00:00.000Z",
+        "city": null,
+        "region": "SC",
+        "country": "US",
+        "road": "Trentwood Drive",
+        "postalcode": "29223"
       }
     },
     {
@@ -40686,7 +40758,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -88.42654419,
+          -88.42655182,
           44.29885864
         ]
       },
@@ -40697,7 +40769,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-07-14T17:00:00.000Z",
-        "lasttime": "2026-08-26T17:00:00.000Z",
+        "lasttime": "2026-08-27T11:00:00.000Z",
         "city": null,
         "region": "WI",
         "country": "US",
@@ -41166,8 +41238,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -89.71414948,
-          43.00988388
+          -89.71391296,
+          43.0100975
         ]
       },
       "properties": {
@@ -41177,11 +41249,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-12-05T19:00:00.000Z",
-        "lasttime": "2024-12-29T09:00:00.000Z",
+        "lasttime": "2026-08-27T22:00:00.000Z",
         "city": null,
         "region": "WI",
         "country": "US",
-        "road": "US 18/151 Business",
+        "road": "Brookwood Drive",
         "postalcode": null
       }
     },
@@ -41711,30 +41783,6 @@
         "country": "CH",
         "road": "5",
         "postalcode": "5200"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.93238068,
-          45.98196793
-        ]
-      },
-      "properties": {
-        "netid": "3C:71:BF:87:51:95",
-        "ssid": "wunderkiste-5194",
-        "oui": "3C:71:BF",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-27T08:00:00.000Z",
-        "lasttime": "2024-08-27T02:00:00.000Z",
-        "city": "Lugano",
-        "region": "Ticino",
-        "country": "CH",
-        "road": "A2",
-        "postalcode": "6915"
       }
     },
     {
@@ -42486,18 +42534,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.21015167,
-          47.48186874
+          8.21014786,
+          47.48192978
         ]
       },
       "properties": {
         "netid": "3C:71:BF:88:54:91",
         "ssid": "wunderkiste-5490",
         "oui": "3C:71:BF",
-        "channel": 11,
+        "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-06-10T11:00:00.000Z",
-        "lasttime": "2026-07-03T05:00:00.000Z",
+        "lasttime": "2026-08-27T12:00:00.000Z",
         "city": null,
         "region": "Aargau",
         "country": "CH",
@@ -52230,6 +52278,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -104.84069061,
+          41.1792984
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:AD:0E:2D",
+        "ssid": "Traeger-0E2D",
+        "oui": "3C:71:BF",
+        "channel": 5,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-27T22:00:00.000Z",
+        "lasttime": "2026-08-27T18:00:00.000Z",
+        "city": "Cheyenne",
+        "region": "WY",
+        "country": "US",
+        "road": "Creighton Street",
+        "postalcode": "82005"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -84.73970032,
           42.95062637
         ]
@@ -52446,8 +52518,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.15843201,
-          43.21245193
+          -86.15856171,
+          43.21246338
         ]
       },
       "properties": {
@@ -52457,7 +52529,7 @@
         "channel": 5,
         "encryption": "wpa2",
         "firsttime": "2025-07-11T13:00:00.000Z",
-        "lasttime": "2025-08-22T14:00:00.000Z",
+        "lasttime": "2026-08-28T09:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -53855,30 +53927,6 @@
         "country": "US",
         "road": "North 500 West",
         "postalcode": "84414"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -101.16217041,
-          33.97920609
-        ]
-      },
-      "properties": {
-        "netid": "3C:71:BF:AD:63:25",
-        "ssid": "Traeger-6325",
-        "oui": "3C:71:BF",
-        "channel": 5,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-27T15:00:00.000Z",
-        "lasttime": "2024-08-27T10:00:00.000Z",
-        "city": null,
-        "region": "TX",
-        "country": "US",
-        "road": "US 70;US 62",
-        "postalcode": null
       }
     },
     {
@@ -55926,8 +55974,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.43175507,
-          6.40044594
+          -75.43177795,
+          6.40044928
         ]
       },
       "properties": {
@@ -55937,7 +55985,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-10-13T11:00:00.000Z",
-        "lasttime": "2026-08-10T12:00:00.000Z",
+        "lasttime": "2026-08-27T21:00:00.000Z",
         "city": null,
         "region": "Antioquia",
         "country": "CO",
@@ -65959,7 +66007,7 @@
         "type": "Point",
         "coordinates": [
           -93.12731934,
-          45.12582779
+          45.12580109
         ]
       },
       "properties": {
@@ -65969,7 +66017,7 @@
         "channel": 5,
         "encryption": "wpa2",
         "firsttime": "2026-05-19T15:00:00.000Z",
-        "lasttime": "2026-08-16T19:00:00.000Z",
+        "lasttime": "2026-08-27T13:00:00.000Z",
         "city": "Lino Lakes",
         "region": "MN",
         "country": "US",
@@ -67302,8 +67350,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.53152001,
-          47.2315979
+          -1.53154469,
+          47.23152542
         ]
       },
       "properties": {
@@ -67313,12 +67361,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-06-19T15:00:00.000Z",
-        "lasttime": "2026-06-19T09:00:00.000Z",
+        "lasttime": "2026-08-27T11:00:00.000Z",
         "city": "Nantes",
         "region": "Pays de la Loire",
         "country": "FR",
-        "road": "Rue de l'Ouchette",
-        "postalcode": "44000"
+        "road": "Rue des Chambelles",
+        "postalcode": "44300"
       }
     },
     {
@@ -68022,8 +68070,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.30445862,
-          29.04292488
+          -81.30438232,
+          29.04294014
         ]
       },
       "properties": {
@@ -68033,7 +68081,7 @@
         "channel": 5,
         "encryption": "wpa2",
         "firsttime": "2024-01-11T15:00:00.000Z",
-        "lasttime": "2026-06-28T17:00:00.000Z",
+        "lasttime": "2026-08-27T18:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -69966,7 +70014,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.57099771,
+          2.57099485,
           48.89529037
         ]
       },
@@ -69977,7 +70025,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-04-10T10:00:00.000Z",
-        "lasttime": "2026-08-27T07:00:00.000Z",
+        "lasttime": "2026-08-28T07:00:00.000Z",
         "city": null,
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -73446,8 +73494,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5768733,
-          47.23175049
+          -1.57688868,
+          47.23176193
         ]
       },
       "properties": {
@@ -73457,11 +73505,11 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-07-08T11:00:00.000Z",
-        "lasttime": "2026-08-24T11:00:00.000Z",
+        "lasttime": "2026-08-28T10:00:00.000Z",
         "city": "Nantes",
         "region": "Pays de la Loire",
         "country": "FR",
-        "road": "Boulevard Boulay Paty",
+        "road": "Rue de la M\u00e9thode",
         "postalcode": "44100"
       }
     },
@@ -74334,8 +74382,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.57609177,
-          47.23289108
+          -1.57620716,
+          47.23283005
         ]
       },
       "properties": {
@@ -74345,36 +74393,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-05-12T16:00:00.000Z",
-        "lasttime": "2026-08-10T11:00:00.000Z",
+        "lasttime": "2026-08-28T10:00:00.000Z",
         "city": "Nantes",
         "region": "Pays de la Loire",
         "country": "FR",
         "road": "Boulevard des Am\u00e9ricains",
         "postalcode": "44036"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.63026589,
-          44.76901627
-        ]
-      },
-      "properties": {
-        "netid": "3C:71:BF:DE:93:75",
-        "ssid": null,
-        "oui": "3C:71:BF",
-        "channel": 9,
-        "encryption": "wpa2",
-        "firsttime": "2024-03-07T15:00:00.000Z",
-        "lasttime": "2024-08-27T08:00:00.000Z",
-        "city": null,
-        "region": "Nouvelle-Aquitaine",
-        "country": "FR",
-        "road": "Route de Can\u00e9jan",
-        "postalcode": "33170"
       }
     },
     {
@@ -75246,7 +75270,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.57109165,
+          2.57109523,
           48.89529419
         ]
       },
@@ -75257,7 +75281,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-11-18T15:00:00.000Z",
-        "lasttime": "2026-08-27T07:00:00.000Z",
+        "lasttime": "2026-08-28T07:00:00.000Z",
         "city": null,
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -75647,30 +75671,6 @@
         "country": "FR",
         "road": "Chemin de Lapujade",
         "postalcode": "31200"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.62692565,
-          44.82947922
-        ]
-      },
-      "properties": {
-        "netid": "3C:71:BF:DF:CD:3D",
-        "ssid": null,
-        "oui": "3C:71:BF",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-27T13:00:00.000Z",
-        "lasttime": "2024-08-27T12:00:00.000Z",
-        "city": null,
-        "region": "Nouvelle-Aquitaine",
-        "country": "FR",
-        "road": "Rue de la Paix",
-        "postalcode": "33700"
       }
     },
     {
@@ -88059,7 +88059,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-27T17:03:54.703085+00:00",
+    "generated": "2026-08-28T17:52:28.035578+00:00",
     "oui": "3C:71:BF",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
