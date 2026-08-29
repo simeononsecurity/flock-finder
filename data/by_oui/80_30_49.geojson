@@ -15558,8 +15558,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.29717255,
-          47.19976425
+          -122.29709625,
+          47.19981003
         ]
       },
       "properties": {
@@ -15569,7 +15569,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-07-18T19:00:00.000Z",
-        "lasttime": "2026-08-27T21:00:00.000Z",
+        "lasttime": "2026-08-28T17:00:00.000Z",
         "city": null,
         "region": "WA",
         "country": "US",
@@ -16598,10 +16598,10 @@
         "netid": "80:30:49:95:44:49",
         "ssid": "MetalTek Secure-WiFi",
         "oui": "80:30:49",
-        "channel": 6,
+        "channel": 11,
         "encryption": "none",
         "firsttime": "2026-08-27T04:00:00.000Z",
-        "lasttime": "2026-08-27T02:00:00.000Z",
+        "lasttime": "2026-08-28T21:00:00.000Z",
         "city": null,
         "region": "WI",
         "country": "US",
@@ -16919,30 +16919,6 @@
         "country": "CA",
         "road": "Rue Saint-Hubert",
         "postalcode": "H2R 2P4"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.14794922,
-          40.83372116
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:A4:C8:FD",
-        "ssid": "(no SSID)",
-        "oui": "80:30:49",
-        "channel": 0,
-        "encryption": "none",
-        "firsttime": "2024-08-20T17:00:00.000Z",
-        "lasttime": "2024-08-28T12:00:00.000Z",
-        "city": null,
-        "region": "NJ",
-        "country": "US",
-        "road": "Kensington Avenue",
-        "postalcode": "07014"
       }
     },
     {
@@ -18627,10 +18603,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-28T17:52:28.035578+00:00",
+    "generated": "2026-08-29T11:56:49.143182+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 776
+    "total_cameras": 775
   }
 }

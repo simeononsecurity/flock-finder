@@ -366,8 +366,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.0791626,
-          46.39872742
+          -117.07923889,
+          46.39873886
         ]
       },
       "properties": {
@@ -377,7 +377,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-27T01:00:00.000Z",
-        "lasttime": "2026-08-26T23:00:00.000Z",
+        "lasttime": "2026-08-28T22:00:00.000Z",
         "city": null,
         "region": "WA",
         "country": "US",
@@ -5670,8 +5670,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.25720215,
-          27.19788551
+          -80.25718689,
+          27.19775009
         ]
       },
       "properties": {
@@ -5681,7 +5681,7 @@
         "channel": 11,
         "encryption": "unknown",
         "firsttime": "2021-06-30T12:00:00.000Z",
-        "lasttime": "2026-07-30T11:00:00.000Z",
+        "lasttime": "2026-08-29T00:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -16350,6 +16350,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.07722473,
+          59.32983017
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:C0:3F:09",
+        "ssid": "ClickShare-Konferensrum",
+        "oui": "E8:D0:FC",
+        "channel": 48,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-28T17:00:00.000Z",
+        "lasttime": "2026-08-29T01:00:00.000Z",
+        "city": null,
+        "region": "Stockholms l\u00e4n",
+        "country": "SE",
+        "road": "Blasieholmsgatan",
+        "postalcode": "111 48"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -75.63007355,
           45.41162872
         ]
@@ -17015,6 +17039,30 @@
         "country": "SE",
         "road": "E 18;243",
         "postalcode": "69132"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.07481194,
+          59.33081818
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:C0:40:E1",
+        "ssid": "ClickShare-1862336039",
+        "oui": "E8:D0:FC",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-28T17:00:00.000Z",
+        "lasttime": "2026-08-29T01:00:00.000Z",
+        "city": "Stockholm",
+        "region": "Stockholms l\u00e4n",
+        "country": "SE",
+        "road": "Blasieholmstorg",
+        "postalcode": "103 27"
       }
     },
     {
@@ -19519,17 +19567,17 @@
         "type": "Point",
         "coordinates": [
           -88.71174622,
-          43.18288422
+          43.1828804
         ]
       },
       "properties": {
         "netid": "E8:D0:FC:DA:3B:9B",
-        "ssid": "MetalTek Wireless",
+        "ssid": "MetalTek Secure-WiFi",
         "oui": "E8:D0:FC",
-        "channel": 11,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2026-08-27T04:00:00.000Z",
-        "lasttime": "2026-08-27T02:00:00.000Z",
+        "lasttime": "2026-08-28T21:00:00.000Z",
         "city": null,
         "region": "WI",
         "country": "US",
@@ -21147,10 +21195,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-28T17:52:28.035578+00:00",
+    "generated": "2026-08-29T11:56:49.143182+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 881
+    "total_cameras": 883
   }
 }

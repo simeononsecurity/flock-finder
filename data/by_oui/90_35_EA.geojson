@@ -822,8 +822,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.60974884,
-          42.3192482
+          -83.60970306,
+          42.31923676
         ]
       },
       "properties": {
@@ -833,7 +833,7 @@
         "channel": 7,
         "encryption": "none",
         "firsttime": "2025-10-22T16:00:00.000Z",
-        "lasttime": "2026-08-28T08:00:00.000Z",
+        "lasttime": "2026-08-28T11:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -3822,30 +3822,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.84812832,
-          46.70201874
-        ]
-      },
-      "properties": {
-        "netid": "90:35:EA:2A:FB:D6",
-        "ssid": "24109833",
-        "oui": "90:35:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-28T09:00:00.000Z",
-        "lasttime": "2024-08-28T13:00:00.000Z",
-        "city": null,
-        "region": "Graub\u00fcnden/Grischun/Grigioni",
-        "country": "CH",
-        "road": "Via Alpsu",
-        "postalcode": "7180"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.55537891,
           50.98983383
         ]
@@ -4230,8 +4206,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.91902447,
-          53.57534409
+          9.91901398,
+          53.57528305
         ]
       },
       "properties": {
@@ -4241,7 +4217,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-06-24T14:00:00.000Z",
-        "lasttime": "2026-08-16T09:00:00.000Z",
+        "lasttime": "2026-08-28T18:00:00.000Z",
         "city": "Hamburg",
         "region": "Bahrenfeld",
         "country": "DE",
@@ -14883,10 +14859,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-28T17:52:28.035578+00:00",
+    "generated": "2026-08-29T11:56:49.143182+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 620
+    "total_cameras": 619
   }
 }

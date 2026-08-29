@@ -6942,30 +6942,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.08176231,
-          48.36351395
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:62:DE:62",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-28T22:00:00.000Z",
-        "lasttime": "2024-08-28T23:00:00.000Z",
-        "city": null,
-        "region": "Bayern",
-        "country": "DE",
-        "road": "A 7",
-        "postalcode": "89233"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.81717348,
           51.4917717
         ]
@@ -10782,30 +10758,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          49.70696259,
-          34.08249283
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:7C:FC:24",
-        "ssid": "AndroidAPFC24",
-        "oui": "48:27:EA",
-        "channel": 8,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-28T16:00:00.000Z",
-        "lasttime": "2024-08-28T10:00:00.000Z",
-        "city": "\u0634\u0647\u0631 \u0627\u0631\u0627\u06a9",
-        "region": "\u0627\u0633\u062a\u0627\u0646 \u0645\u0631\u06a9\u0632\u06cc",
-        "country": "IR",
-        "road": "\u062c\u0647\u0627\u0646 \u067e\u0646\u0627\u0647",
-        "postalcode": "38148"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           28.12510681,
           -26.15153122
         ]
@@ -12743,6 +12695,30 @@
         "country": "IR",
         "road": "\u0635\u0627\u062d\u0628 \u0627\u0644\u0632\u0645\u0627\u0646",
         "postalcode": "3713744003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.45189667,
+          35.75359726
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:95:02:15",
+        "ssid": "AndroidAP0215",
+        "oui": "48:27:EA",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-28T18:00:00.000Z",
+        "lasttime": "2026-08-28T16:00:00.000Z",
+        "city": "\u0634\u0647\u0631 \u062a\u0647\u0631\u0627\u0646",
+        "region": "\u0634\u0647\u0631\u0633\u062a\u0627\u0646 \u062a\u0647\u0631\u0627\u0646",
+        "country": "IR",
+        "road": "\u0628\u0632\u0631\u06af\u0631\u0627\u0647 \u0634\u0647\u06cc\u062f \u0647\u0645\u062a",
+        "postalcode": "1661918681"
       }
     },
     {
@@ -24462,30 +24438,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.31215191,
-          45.33517838
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:F2:17:44",
-        "ssid": "AndroidAP1744",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-27T09:00:00.000Z",
-        "lasttime": "2024-08-28T04:00:00.000Z",
-        "city": null,
-        "region": "Auvergne-Rh\u00f4ne-Alpes",
-        "country": "FR",
-        "road": "Autoroute de la Maurienne",
-        "postalcode": "73130"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.58757973,
           52.05998611
         ]
@@ -26259,10 +26211,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-28T17:52:28.035578+00:00",
+    "generated": "2026-08-29T11:56:49.143182+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1094
+    "total_cameras": 1092
   }
 }

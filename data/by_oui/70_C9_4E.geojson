@@ -3030,6 +3030,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -80.99271393,
+          29.14632034
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3C:89:AF",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T21:00:00.000Z",
+        "lasttime": "2026-08-28T21:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Charles Street",
+        "postalcode": "32129"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.06144714,
           46.3985672
         ]
@@ -3047,6 +3071,30 @@
         "country": "US",
         "road": "13th Street",
         "postalcode": "99403"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.73505402,
+          28.31440353
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3C:8C:7F",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-08-28T20:00:00.000Z",
+        "lasttime": "2026-08-28T21:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Bartlett Lane",
+        "postalcode": "32955"
       }
     },
     {
@@ -8766,7 +8814,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          24.9006424,
+          24.90064049,
           60.20762253
         ]
       },
@@ -8777,7 +8825,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2021-01-06T00:00:00.000Z",
-        "lasttime": "2026-07-06T05:00:00.000Z",
+        "lasttime": "2026-08-28T17:00:00.000Z",
         "city": "Helsinki",
         "region": "Manner-Suomi",
         "country": "FI",
@@ -10128,13 +10176,37 @@
         "road": "Ellwood Avenue",
         "postalcode": "23221"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -110.9535675,
+          32.22152328
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:FF:9A:83",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-08-28T14:00:00.000Z",
+        "lasttime": "2026-08-28T21:00:00.000Z",
+        "city": "Tucson",
+        "region": "AZ",
+        "country": "US",
+        "road": "East Broadway Boulevard",
+        "postalcode": "85721-0078"
+      }
     }
   ],
   "properties": {
-    "generated": "2026-08-28T17:52:28.035578+00:00",
+    "generated": "2026-08-29T11:56:49.143182+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 422
+    "total_cameras": 425
   }
 }

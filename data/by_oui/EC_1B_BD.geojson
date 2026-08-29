@@ -534,6 +534,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          151.32023621,
+          -33.65571213
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:2C:7F:52",
+        "ssid": "Flock",
+        "oui": "EC:1B:BD",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-29T05:00:00.000Z",
+        "lasttime": "2026-08-29T01:00:00.000Z",
+        "city": "Sydney",
+        "region": "New South Wales",
+        "country": "AU",
+        "road": "Barrenjoey Road",
+        "postalcode": "2106"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.18388176,
           55.47543716
         ]
@@ -1614,6 +1638,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          15.90921974,
+          50.55995941
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:2C:A0:F7",
+        "ssid": "FVDec1bbd2ca0f7",
+        "oui": "EC:1B:BD",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-25T06:00:00.000Z",
+        "lasttime": "2026-08-28T16:00:00.000Z",
+        "city": null,
+        "region": "Severov\u00fdchod",
+        "country": "CZ",
+        "road": "Palack\u00e9ho",
+        "postalcode": "54101"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           144.97572327,
           -37.80864334
         ]
@@ -2142,8 +2190,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          145.77220154,
-          -16.92483521
+          145.77227783,
+          -16.92485619
         ]
       },
       "properties": {
@@ -2153,7 +2201,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-09-25T12:00:00.000Z",
-        "lasttime": "2026-01-28T18:00:00.000Z",
+        "lasttime": "2026-08-28T22:00:00.000Z",
         "city": "Cairns",
         "region": "Queensland",
         "country": "AU",
@@ -5615,30 +5663,6 @@
         "country": "SA",
         "road": null,
         "postalcode": "11263"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.89220905,
-          48.20288086
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:BD:53:68",
-        "ssid": "17648254",
-        "oui": "EC:1B:BD",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-18T05:00:00.000Z",
-        "lasttime": "2024-08-28T00:00:00.000Z",
-        "city": "Gemeinde Neulengbach",
-        "region": "Nieder\u00f6sterreich",
-        "country": "AT",
-        "road": "Umseer Stra\u00dfe",
-        "postalcode": "3040"
       }
     },
     {
@@ -10371,10 +10395,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-28T17:52:28.035578+00:00",
+    "generated": "2026-08-29T11:56:49.143182+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 432
+    "total_cameras": 433
   }
 }
