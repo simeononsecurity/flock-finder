@@ -2742,8 +2742,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.39803314,
-          44.92557907
+          -93.39802551,
+          44.9255867
         ]
       },
       "properties": {
@@ -2753,7 +2753,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-08-05T12:00:00.000Z",
-        "lasttime": "2026-08-27T08:00:00.000Z",
+        "lasttime": "2026-08-29T13:00:00.000Z",
         "city": null,
         "region": "MN",
         "country": "US",
@@ -4241,7 +4241,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-08-01T20:00:00.000Z",
-        "lasttime": "2026-08-26T18:00:00.000Z",
+        "lasttime": "2026-08-30T02:00:00.000Z",
         "city": "Portland",
         "region": "OR",
         "country": "US",
@@ -8166,8 +8166,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.41675568,
-          34.06214142
+          -118.41677094,
+          34.06214905
         ]
       },
       "properties": {
@@ -8177,7 +8177,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-11-19T19:00:00.000Z",
-        "lasttime": "2025-12-12T19:00:00.000Z",
+        "lasttime": "2026-08-29T17:00:00.000Z",
         "city": "Los Angeles",
         "region": "CA",
         "country": "US",
@@ -8430,8 +8430,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.41672516,
-          34.06238174
+          -118.41673279,
+          34.06236649
         ]
       },
       "properties": {
@@ -8441,7 +8441,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-07-17T21:00:00.000Z",
-        "lasttime": "2025-12-12T19:00:00.000Z",
+        "lasttime": "2026-08-29T17:00:00.000Z",
         "city": "Los Angeles",
         "region": "CA",
         "country": "US",
@@ -10673,7 +10673,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-05-26T18:00:00.000Z",
-        "lasttime": "2026-08-24T18:00:00.000Z",
+        "lasttime": "2026-08-29T07:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -11238,6 +11238,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.45014477,
+          43.93388748
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:14:ED:29",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-20T12:00:00.000Z",
+        "lasttime": "2026-08-29T13:00:00.000Z",
+        "city": "Citt\u00e0 di San Marino",
+        "region": "Cava",
+        "country": "SM",
+        "road": "Passo delle Streghe",
+        "postalcode": "47890"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -121.92900085,
           37.24637985
         ]
@@ -11513,7 +11537,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-03-24T23:00:00.000Z",
-        "lasttime": "2026-08-15T00:00:00.000Z",
+        "lasttime": "2026-08-30T00:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -15462,6 +15486,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.01967144,
+          47.79664612
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:69:DB:57",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 100,
+        "encryption": "none",
+        "firsttime": "2026-08-29T13:00:00.000Z",
+        "lasttime": "2026-08-29T13:00:00.000Z",
+        "city": "Salzburg",
+        "region": "Salzburg",
+        "country": "AT",
+        "road": "Glangasse",
+        "postalcode": "5020"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -102.88372803,
           30.89908409
         ]
@@ -15623,6 +15671,30 @@
         "country": "US",
         "road": "New Street",
         "postalcode": "08901"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.70241547,
+          40.32463074
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:72:96:15",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-29T15:00:00.000Z",
+        "lasttime": "2026-08-29T20:00:00.000Z",
+        "city": null,
+        "region": "PA",
+        "country": "US",
+        "road": "Lincoln Highway",
+        "postalcode": "15642:15644"
       }
     },
     {
@@ -16415,30 +16487,6 @@
         "country": "MX",
         "road": "Calle Lucerna",
         "postalcode": "06600"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -73.60102081,
-          45.52162552
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:8E:C1:2B",
-        "ssid": null,
-        "oui": "80:30:49",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-08-07T16:00:00.000Z",
-        "lasttime": "2024-08-29T15:00:00.000Z",
-        "city": "Montr\u00e9al",
-        "region": "Qu\u00e9bec",
-        "country": "CA",
-        "road": "Avenue du Parc",
-        "postalcode": "H2V 4G9"
       }
     },
     {
@@ -18534,6 +18582,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.74839306,
+          52.6497345
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:FB:A3:6B",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-29T11:00:00.000Z",
+        "lasttime": "2026-08-29T05:00:00.000Z",
+        "city": "Alkmaar",
+        "region": "Noord-Holland",
+        "country": "NL",
+        "road": "Leidekkerstraat",
+        "postalcode": "1825BL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -121.50963593,
           38.67037201
         ]
@@ -18603,10 +18675,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-29T11:56:49.143182+00:00",
+    "generated": "2026-08-30T10:53:43.467273+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 775
+    "total_cameras": 778
   }
 }

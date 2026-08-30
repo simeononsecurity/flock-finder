@@ -3750,30 +3750,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          49.42573929,
-          33.91110992
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:43:6D:10",
-        "ssid": "AndroidAP6D10",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-29T19:00:00.000Z",
-        "lasttime": "2024-08-29T13:00:00.000Z",
-        "city": null,
-        "region": "\u0627\u0633\u062a\u0627\u0646 \u0645\u0631\u06a9\u0632\u06cc",
-        "country": "IR",
-        "road": "\u0634\u0647\u062f\u0627",
-        "postalcode": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           49.67833328,
           34.07743835
         ]
@@ -9486,30 +9462,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.85102844,
-          47.28892517
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:73:26:A1",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-08-29T13:00:00.000Z",
-        "lasttime": "2024-08-29T06:00:00.000Z",
-        "city": null,
-        "region": "\u0420\u043e\u0441\u0442\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c",
-        "country": "RU",
-        "road": "\u0410\u043a\u0441\u0430\u0439\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f\u0435\u043a\u0442",
-        "postalcode": "346720"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.08936119,
           47.47026825
         ]
@@ -10038,8 +9990,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20.48974609,
-          38.18113327
+          20.48955917,
+          38.18106842
         ]
       },
       "properties": {
@@ -10049,7 +10001,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-28T08:00:00.000Z",
-        "lasttime": "2026-08-28T08:00:00.000Z",
+        "lasttime": "2026-08-29T06:00:00.000Z",
         "city": null,
         "region": "\u0391\u03c0\u03bf\u03ba\u03b5\u03bd\u03c4\u03c1\u03c9\u03bc\u03ad\u03bd\u03b7 \u0394\u03b9\u03bf\u03af\u03ba\u03b7\u03c3\u03b7 \u03a0\u03b5\u03bb\u03bf\u03c0\u03bf\u03bd\u03bd\u03ae\u03c3\u03bf\u03c5, \u0394\u03c5\u03c4\u03b9\u03ba\u03ae\u03c2 \u0395\u03bb\u03bb\u03ac\u03b4\u03b1\u03c2 \u03ba\u03b1\u03b9 \u0399\u03bf\u03bd\u03af\u03bf\u03c5",
         "country": "GR",
@@ -20022,30 +19974,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.47033644,
-          47.29120636
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:D1:33:FD",
-        "ssid": "AndroidAP8773",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-29T14:00:00.000Z",
-        "lasttime": "2024-08-29T08:00:00.000Z",
-        "city": null,
-        "region": "Pays de la Loire",
-        "country": "FR",
-        "road": "L\u2019Oc\u00e9ane",
-        "postalcode": "44470"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.01454353,
           50.2641983
         ]
@@ -26211,10 +26139,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-29T11:56:49.143182+00:00",
+    "generated": "2026-08-30T10:53:43.467273+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1092
+    "total_cameras": 1089
   }
 }

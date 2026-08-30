@@ -1326,6 +1326,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.7892046,
+          48.0972023
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:1F:AA:0B",
+        "ssid": "bizhub C251i",
+        "oui": "E8:D0:FC",
+        "channel": 13,
+        "encryption": "none",
+        "firsttime": "2026-08-29T13:00:00.000Z",
+        "lasttime": "2026-08-29T07:00:00.000Z",
+        "city": null,
+        "region": "Baden-W\u00fcrttemberg",
+        "country": "DE",
+        "road": "Karpfengasse",
+        "postalcode": "88400"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           130.15431213,
           33.2203331
         ]
@@ -4182,8 +4206,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.94503784,
-          39.6837616
+          -104.9450531,
+          39.68376541
         ]
       },
       "properties": {
@@ -4193,7 +4217,7 @@
         "channel": 6,
         "encryption": "none",
         "firsttime": "2022-02-22T17:00:00.000Z",
-        "lasttime": "2026-08-27T08:00:00.000Z",
+        "lasttime": "2026-08-30T02:00:00.000Z",
         "city": "Denver",
         "region": "CO",
         "country": "US",
@@ -9054,6 +9078,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -92.62104034,
+          37.66159058
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:90:2E:E1",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 44,
+        "encryption": "wep",
+        "firsttime": "2026-08-29T11:00:00.000Z",
+        "lasttime": "2026-08-29T11:00:00.000Z",
+        "city": null,
+        "region": "MO",
+        "country": "US",
+        "road": "Pleasant Drive",
+        "postalcode": "65536"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           2.28386593,
           48.85108566
         ]
@@ -9719,6 +9767,30 @@
         "country": "US",
         "road": "Oak Crest Drive",
         "postalcode": "95382"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.23474121,
+          38.63310623
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:A1:08:AF",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 153,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-29T15:00:00.000Z",
+        "lasttime": "2026-08-29T11:00:00.000Z",
+        "city": "Saint Louis",
+        "region": "MO",
+        "country": "US",
+        "road": "North Grand Boulevard",
+        "postalcode": "63103"
       }
     },
     {
@@ -13974,8 +14046,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.37962437,
-          43.29048538
+          5.37969065,
+          43.29049683
         ]
       },
       "properties": {
@@ -13985,7 +14057,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2021-10-23T14:00:00.000Z",
-        "lasttime": "2026-07-03T07:00:00.000Z",
+        "lasttime": "2026-08-29T16:00:00.000Z",
         "city": "Marseille",
         "region": "Provence-Alpes-C\u00f4te d'Azur",
         "country": "FR",
@@ -15599,6 +15671,30 @@
         "country": "US",
         "road": "Northwest Freeway HOV",
         "postalcode": "77092"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.42180634,
+          40.62005234
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:C0:3C:A3",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 157,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-29T19:00:00.000Z",
+        "lasttime": "2026-08-29T14:00:00.000Z",
+        "city": null,
+        "region": "NJ",
+        "country": "US",
+        "road": "Watchung Avenue",
+        "postalcode": "07060"
       }
     },
     {
@@ -18606,8 +18702,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.67301941,
-          45.51651764
+          -122.67298889,
+          45.51649475
         ]
       },
       "properties": {
@@ -18617,7 +18713,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-06-29T15:00:00.000Z",
-        "lasttime": "2026-08-26T02:00:00.000Z",
+        "lasttime": "2026-08-30T02:00:00.000Z",
         "city": "Portland",
         "region": "OR",
         "country": "US",
@@ -21195,10 +21291,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-29T11:56:49.143182+00:00",
+    "generated": "2026-08-30T10:53:43.467273+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 883
+    "total_cameras": 887
   }
 }
