@@ -102,6 +102,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -88.11484528,
+          30.2634182
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:2C:6B:57",
+        "ssid": null,
+        "oui": "EC:1B:BD",
+        "channel": 1,
+        "encryption": "unknown",
+        "firsttime": "2026-08-30T17:00:00.000Z",
+        "lasttime": "2026-08-30T16:00:00.000Z",
+        "city": null,
+        "region": "AL",
+        "country": "US",
+        "road": "Le Moyne Drive",
+        "postalcode": "36528"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -97.78395081,
           30.2403965
         ]
@@ -1782,7 +1806,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          153.10292053,
+          153.10290527,
           -27.50007057
         ]
       },
@@ -1793,7 +1817,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-06-05T11:00:00.000Z",
-        "lasttime": "2026-08-18T04:00:00.000Z",
+        "lasttime": "2026-08-31T04:00:00.000Z",
         "city": "Brisbane City",
         "region": "Queensland",
         "country": "AU",
@@ -3007,7 +3031,7 @@
         "type": "Point",
         "coordinates": [
           153.10351562,
-          -27.50041962
+          -27.50041199
         ]
       },
       "properties": {
@@ -3017,7 +3041,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2022-12-15T10:00:00.000Z",
-        "lasttime": "2025-09-16T03:00:00.000Z",
+        "lasttime": "2026-08-30T23:00:00.000Z",
         "city": "Brisbane City",
         "region": "Queensland",
         "country": "AU",
@@ -3102,8 +3126,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.5547061,
-          51.9485054
+          4.55471706,
+          51.94849777
         ]
       },
       "properties": {
@@ -3113,7 +3137,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-12-30T14:00:00.000Z",
-        "lasttime": "2026-04-12T09:00:00.000Z",
+        "lasttime": "2026-08-30T09:00:00.000Z",
         "city": "Rotterdam",
         "region": "Zuid-Holland",
         "country": "NL",
@@ -4799,30 +4823,6 @@
         "country": "AU",
         "road": "Chenery Street",
         "postalcode": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -119.22467041,
-          34.17580032
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:BD:13:C9",
-        "ssid": "IRIDIUM-45209",
-        "oui": "EC:1B:BD",
-        "channel": 5,
-        "encryption": "unknown",
-        "firsttime": "2024-08-31T00:00:00.000Z",
-        "lasttime": "2024-08-30T19:00:00.000Z",
-        "city": "Oxnard",
-        "region": "CA",
-        "country": "US",
-        "road": "West Channel Islands Boulevard",
-        "postalcode": "93035"
       }
     },
     {
@@ -8190,8 +8190,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.42541695,
-          51.80286026
+          19.42541504,
+          51.80284882
         ]
       },
       "properties": {
@@ -8201,7 +8201,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-07-25T16:00:00.000Z",
-        "lasttime": "2026-08-13T11:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo \u0142\u00f3dzkie",
         "country": "PL",
@@ -10395,7 +10395,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-30T10:53:43.467273+00:00",
+    "generated": "2026-08-31T12:05:24.330414+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

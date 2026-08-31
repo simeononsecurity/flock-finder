@@ -1014,8 +1014,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -69.80731964,
-          44.34408188
+          -69.80741882,
+          44.34397125
         ]
       },
       "properties": {
@@ -1025,7 +1025,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-07-31T21:00:00.000Z",
-        "lasttime": "2026-08-03T12:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Augusta",
         "region": "ME",
         "country": "US",
@@ -2886,8 +2886,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.55712128,
-          68.72753906
+          16.55834007,
+          68.7285614
         ]
       },
       "properties": {
@@ -2897,7 +2897,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2023-07-29T19:00:00.000Z",
-        "lasttime": "2026-05-25T08:00:00.000Z",
+        "lasttime": "2026-08-30T05:00:00.000Z",
         "city": null,
         "region": "Troms og Finnmark",
         "country": "NO",
@@ -3990,6 +3990,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.49960327,
+          39.31049728
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:1B:BB:C9",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 0,
+        "encryption": "unknown",
+        "firsttime": "2026-08-27T23:00:00.000Z",
+        "lasttime": "2026-08-30T20:00:00.000Z",
+        "city": null,
+        "region": "MD",
+        "country": "US",
+        "road": "Patapsco Avenue",
+        "postalcode": "21237"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -1.75046957,
           48.02757645
         ]
@@ -4782,18 +4806,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.50054932,
-          39.33070374
+          -76.50048065,
+          39.33073425
         ]
       },
       "properties": {
         "netid": "00:F4:8D:23:CD:2F",
         "ssid": null,
         "oui": "00:F4:8D",
-        "channel": 6,
+        "channel": 11,
         "encryption": "unknown",
         "firsttime": "2026-06-13T01:00:00.000Z",
-        "lasttime": "2026-08-07T22:00:00.000Z",
+        "lasttime": "2026-08-30T20:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
@@ -4847,6 +4871,30 @@
         "country": "US",
         "road": "L Street",
         "postalcode": "95814"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.74471283,
+          41.19167328
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:24:BF:F8",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 161,
+        "encryption": "none",
+        "firsttime": "2026-08-30T13:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "Hartzell Avenue",
+        "postalcode": "44446"
       }
     },
     {
@@ -13107,10 +13155,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-30T10:53:43.467273+00:00",
+    "generated": "2026-08-31T12:05:24.330414+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 546
+    "total_cameras": 548
   }
 }

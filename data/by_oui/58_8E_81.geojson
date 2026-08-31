@@ -1806,6 +1806,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -81.57767487,
+          41.2452774
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:26:C9:31",
+        "ssid": "MLG00140",
+        "oui": "58:8E:81",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-08-30T18:00:00.000Z",
+        "lasttime": "2026-08-30T18:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "Main Street",
+        "postalcode": "44264"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -85.05664825,
           41.3669014
         ]
@@ -4967,6 +4991,30 @@
         "country": "DE",
         "road": "Am Kreuzberg",
         "postalcode": "46397"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.88857841,
+          47.56124878
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:42:DA:69",
+        "ssid": "20482347",
+        "oui": "58:8E:81",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2020-06-24T15:00:00.000Z",
+        "lasttime": "2026-08-30T08:00:00.000Z",
+        "city": null,
+        "region": "Thurgau",
+        "country": "CH",
+        "road": "Schaffhauserstrasse",
+        "postalcode": "8503"
       }
     },
     {
@@ -11934,7 +11982,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.35366058,
+          -75.35361481,
           39.99844742
         ]
       },
@@ -11942,10 +11990,10 @@
         "netid": "58:8E:81:61:78:11",
         "ssid": "MLG15716",
         "oui": "58:8E:81",
-        "channel": 11,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2023-10-02T06:00:00.000Z",
-        "lasttime": "2026-08-29T18:00:00.000Z",
+        "lasttime": "2026-08-30T16:00:00.000Z",
         "city": "Haverford Township",
         "region": "PA",
         "country": "US",
@@ -12966,8 +13014,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.09729004,
-          33.2747345
+          -97.09703827,
+          33.27508926
         ]
       },
       "properties": {
@@ -12975,9 +13023,9 @@
         "ssid": "MLG17215",
         "oui": "58:8E:81",
         "channel": 6,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2024-11-02T15:00:00.000Z",
-        "lasttime": "2024-11-02T17:00:00.000Z",
+        "lasttime": "2026-08-30T10:00:00.000Z",
         "city": "Denton",
         "region": "TX",
         "country": "US",
@@ -13062,8 +13110,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.51507568,
-          25.95699692
+          -97.51506042,
+          25.95726395
         ]
       },
       "properties": {
@@ -13071,9 +13119,9 @@
         "ssid": "MLG17140",
         "oui": "58:8E:81",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2024-10-08T15:00:00.000Z",
-        "lasttime": "2024-10-08T09:00:00.000Z",
+        "lasttime": "2026-08-30T18:00:00.000Z",
         "city": "Brownsville",
         "region": "TX",
         "country": "US",
@@ -18510,8 +18558,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -87.81806183,
-          42.03849411
+          -87.81832123,
+          42.03845978
         ]
       },
       "properties": {
@@ -18521,7 +18569,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2025-06-29T16:00:00.000Z",
-        "lasttime": "2026-08-23T13:00:00.000Z",
+        "lasttime": "2026-08-30T14:00:00.000Z",
         "city": null,
         "region": "IL",
         "country": "US",
@@ -20838,8 +20886,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -87.88755035,
-          30.54084206
+          -87.8875885,
+          30.5409317
         ]
       },
       "properties": {
@@ -20849,7 +20897,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-08-20T19:00:00.000Z",
-        "lasttime": "2026-08-09T14:00:00.000Z",
+        "lasttime": "2026-08-30T21:00:00.000Z",
         "city": null,
         "region": "AL",
         "country": "US",
@@ -21191,30 +21239,6 @@
         "country": "FR",
         "road": null,
         "postalcode": "27100"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.89033699,
-          45.27095795
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:BC:B2:F8",
-        "ssid": "20640093",
-        "oui": "58:8E:81",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2021-12-28T18:00:00.000Z",
-        "lasttime": "2024-08-30T12:00:00.000Z",
-        "city": null,
-        "region": "Auvergne-Rh\u00f4ne-Alpes",
-        "country": "FR",
-        "road": "Avenue Ambroise Croizat",
-        "postalcode": "38920"
       }
     },
     {
@@ -22350,8 +22374,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.41904449,
-          34.00718689
+          -120.55600739,
+          37.32689667
         ]
       },
       "properties": {
@@ -22361,12 +22385,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-09-25T22:00:00.000Z",
-        "lasttime": "2026-08-25T21:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
         "city": null,
         "region": "CA",
         "country": "US",
-        "road": "Pomona Freeway",
-        "postalcode": "92509"
+        "road": "Ashby Road",
+        "postalcode": "95348"
       }
     },
     {
@@ -22446,8 +22470,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.57568359,
-          31.18043327
+          -83.57711792,
+          31.27641296
         ]
       },
       "properties": {
@@ -22457,12 +22481,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-05-20T16:00:00.000Z",
-        "lasttime": "2026-05-17T14:00:00.000Z",
-        "city": "Ellenton",
+        "lasttime": "2026-08-30T15:00:00.000Z",
+        "city": null,
         "region": "GA",
         "country": "US",
-        "road": null,
-        "postalcode": "31747"
+        "road": "J W Powell Road",
+        "postalcode": null
       }
     },
     {
@@ -22494,8 +22518,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.95882416,
-          32.83330917
+          -83.97416687,
+          32.87701416
         ]
       },
       "properties": {
@@ -22505,12 +22529,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-05-10T11:00:00.000Z",
-        "lasttime": "2026-08-21T02:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
         "city": null,
         "region": "GA",
         "country": "US",
-        "road": "Allen Road",
-        "postalcode": "31066"
+        "road": "GA 74",
+        "postalcode": "31029"
       }
     },
     {
@@ -23118,8 +23142,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.69533539,
-          32.87930679
+          -83.7078476,
+          32.88869095
         ]
       },
       "properties": {
@@ -23129,11 +23153,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-11-30T07:00:00.000Z",
-        "lasttime": "2026-06-06T14:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
         "city": "Macon",
         "region": "GA",
         "country": "US",
-        "road": "Forest Hill Terrace",
+        "road": "Lattimore Drive",
         "postalcode": "31210"
       }
     },
@@ -23574,8 +23598,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.75946808,
-          32.31282425
+          -83.72629547,
+          32.20372009
         ]
       },
       "properties": {
@@ -23585,12 +23609,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-03-06T08:00:00.000Z",
-        "lasttime": "2025-09-11T06:00:00.000Z",
+        "lasttime": "2026-08-30T15:00:00.000Z",
         "city": null,
         "region": "GA",
         "country": "US",
-        "road": "I 75",
-        "postalcode": "31025"
+        "road": "Langford Road",
+        "postalcode": "31070"
       }
     },
     {
@@ -24822,8 +24846,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.45587158,
-          30.20362473
+          -122.69884491,
+          45.84391403
         ]
       },
       "properties": {
@@ -24833,12 +24857,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-09-19T18:00:00.000Z",
-        "lasttime": "2024-09-22T12:00:00.000Z",
+        "lasttime": "2026-08-30T19:00:00.000Z",
         "city": null,
-        "region": "TX",
+        "region": "WA",
         "country": "US",
-        "road": "Interstate 45 South",
-        "postalcode": "77384-5317"
+        "road": "I 5",
+        "postalcode": null
       }
     },
     {
@@ -28587,10 +28611,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-30T10:53:43.467273+00:00",
+    "generated": "2026-08-31T12:05:24.330414+00:00",
     "oui": "58:8E:81",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1191
+    "total_cameras": 1192
   }
 }

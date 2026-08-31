@@ -2982,8 +2982,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.37176514,
-          48.21216202
+          16.37177086,
+          48.21213913
         ]
       },
       "properties": {
@@ -2993,7 +2993,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-08-29T07:00:00.000Z",
-        "lasttime": "2025-09-06T06:00:00.000Z",
+        "lasttime": "2026-08-30T09:00:00.000Z",
         "city": "Wien",
         "region": "Textilviertel",
         "country": "AT",
@@ -14550,30 +14550,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.08733114,
-          51.51944733
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:33:F0:A1",
-        "ssid": "ClickShare-1862477101",
-        "oui": "80:30:49",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-30T22:00:00.000Z",
-        "lasttime": "2024-08-30T19:00:00.000Z",
-        "city": "London",
-        "region": "England",
-        "country": "GB",
-        "road": "South Place",
-        "postalcode": "N1"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.33059287,
           48.85081482
         ]
@@ -15023,6 +14999,30 @@
         "country": "US",
         "road": "US 301",
         "postalcode": "33610:33619"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.81235218,
+          52.16182327
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:42:BF:73",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T15:00:00.000Z",
+        "lasttime": "2026-08-30T12:00:00.000Z",
+        "city": null,
+        "region": "Zuid-Holland",
+        "country": "NL",
+        "road": "Simon van Capelweg",
+        "postalcode": "2431AB"
       }
     },
     {
@@ -18675,7 +18675,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-30T10:53:43.467273+00:00",
+    "generated": "2026-08-31T12:05:24.330414+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

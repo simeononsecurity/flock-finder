@@ -8502,30 +8502,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.6868515,
-          33.31275558
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:03:A8:EC",
-        "ssid": "DIRECT-roku-807-1A57FD",
-        "oui": "58:00:E3",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2017-05-06T13:00:00.000Z",
-        "lasttime": "2024-08-30T19:00:00.000Z",
-        "city": null,
-        "region": "AZ",
-        "country": "US",
-        "road": "South Power Road",
-        "postalcode": "85236-4500"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -72.96809387,
           41.27830887
         ]
@@ -16494,6 +16470,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -87.81189728,
+          42.08044434
+        ]
+      },
+      "properties": {
+        "netid": "58:00:E3:03:E7:B7",
+        "ssid": "DIRECT-roku-901-337BD1",
+        "oui": "58:00:E3",
+        "channel": 157,
+        "encryption": "wpa2",
+        "firsttime": "2021-11-06T21:00:00.000Z",
+        "lasttime": "2026-08-30T19:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "Rugen Lane",
+        "postalcode": "60025"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -71.06147766,
           42.4132843
         ]
@@ -16782,8 +16782,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.57580566,
-          34.17045593
+          -118.57579803,
+          34.17044449
         ]
       },
       "properties": {
@@ -16793,7 +16793,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-02-03T13:00:00.000Z",
-        "lasttime": "2026-08-29T22:00:00.000Z",
+        "lasttime": "2026-08-30T04:00:00.000Z",
         "city": "Los Angeles",
         "region": "CA",
         "country": "US",
@@ -19535,30 +19535,6 @@
         "country": "US",
         "road": "Sherman Drive",
         "postalcode": "46107"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -76.9621582,
-          38.2507782
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:07:E4:A8",
-        "ssid": null,
-        "oui": "58:00:E3",
-        "channel": 40,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-30T22:00:00.000Z",
-        "lasttime": "2024-08-30T15:00:00.000Z",
-        "city": null,
-        "region": "VA",
-        "country": "US",
-        "road": "North Irving Avenue",
-        "postalcode": "22443"
       }
     },
     {
@@ -29286,30 +29262,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.17126465,
-          44.98112488
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:0A:24:10",
-        "ssid": "DIRECT-roku-046-708BDB",
-        "oui": "58:00:E3",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-08-28T14:00:00.000Z",
-        "lasttime": "2024-08-30T15:00:00.000Z",
-        "city": null,
-        "region": "MN",
-        "country": "US",
-        "road": "Como Avenue",
-        "postalcode": "55108"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -117.33869171,
           47.65174866
         ]
@@ -34823,6 +34775,54 @@
         "country": "US",
         "road": "Broadway",
         "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.75020599,
+          41.17969513
+        ]
+      },
+      "properties": {
+        "netid": "58:00:E3:0E:52:FD",
+        "ssid": null,
+        "oui": "58:00:E3",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-08-30T14:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "Fulton Street",
+        "postalcode": "44446"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.75020599,
+          41.17956161
+        ]
+      },
+      "properties": {
+        "netid": "58:00:E3:0E:52:FF",
+        "ssid": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "oui": "58:00:E3",
+        "channel": 36,
+        "encryption": "none",
+        "firsttime": "2026-08-30T14:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "Fulton Street",
+        "postalcode": "44446"
       }
     },
     {
@@ -43038,6 +43038,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -121.22833252,
+          38.67848969
+        ]
+      },
+      "properties": {
+        "netid": "58:00:E3:0E:84:E0",
+        "ssid": null,
+        "oui": "58:00:E3",
+        "channel": 48,
+        "encryption": "wpa2",
+        "firsttime": "2020-03-17T23:00:00.000Z",
+        "lasttime": "2026-08-30T16:00:00.000Z",
+        "city": null,
+        "region": "CA",
+        "country": "US",
+        "road": "Greenback Lane",
+        "postalcode": "95662"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.15749359,
           37.46455765
         ]
@@ -47838,30 +47862,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.25096893,
-          42.20678711
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:0E:A0:80",
-        "ssid": null,
-        "oui": "58:00:E3",
-        "channel": 44,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-22T13:00:00.000Z",
-        "lasttime": "2024-08-30T17:00:00.000Z",
-        "city": null,
-        "region": "MI",
-        "country": "US",
-        "road": "North Watervliet Road",
-        "postalcode": "49098"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -86.1480484,
           32.70885849
         ]
@@ -51119,30 +51119,6 @@
         "country": "US",
         "road": "Mountain Road Northeast",
         "postalcode": "87112-5614"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -83.38420105,
-          41.9066391
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:0E:BE:59",
-        "ssid": null,
-        "oui": "58:00:E3",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-30T13:00:00.000Z",
-        "lasttime": "2024-08-30T07:00:00.000Z",
-        "city": null,
-        "region": "MI",
-        "country": "US",
-        "road": "East 3rd Street",
-        "postalcode": "48161"
       }
     },
     {
@@ -58254,18 +58230,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.46460724,
-          34.04531097
+          -118.46459961,
+          34.04530334
         ]
       },
       "properties": {
         "netid": "58:00:E3:13:90:2C",
-        "ssid": "DIRECT-roku-480-0504BC",
+        "ssid": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
         "oui": "58:00:E3",
-        "channel": 44,
-        "encryption": "wpa2",
+        "channel": 48,
+        "encryption": "none",
         "firsttime": "2024-11-19T19:00:00.000Z",
-        "lasttime": "2025-08-16T01:00:00.000Z",
+        "lasttime": "2026-08-30T15:00:00.000Z",
         "city": "Los Angeles",
         "region": "CA",
         "country": "US",
@@ -64710,8 +64686,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.13517761,
-          40.22262573
+          -74.13520813,
+          40.22265625
         ]
       },
       "properties": {
@@ -64721,7 +64697,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2024-06-15T16:00:00.000Z",
-        "lasttime": "2026-08-23T10:00:00.000Z",
+        "lasttime": "2026-08-30T18:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -79590,6 +79566,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -97.51119995,
+          31.10406685
+        ]
+      },
+      "properties": {
+        "netid": "58:00:E3:22:A1:FA",
+        "ssid": null,
+        "oui": "58:00:E3",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-08-31T04:00:00.000Z",
+        "lasttime": "2026-08-31T03:00:00.000Z",
+        "city": "Belton",
+        "region": "TX",
+        "country": "US",
+        "road": "FM 439",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -97.51133728,
           31.10412788
         ]
@@ -80142,8 +80142,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.11724091,
-          33.8890152
+          -118.11724854,
+          33.88898849
         ]
       },
       "properties": {
@@ -80153,7 +80153,7 @@
         "channel": 161,
         "encryption": "wpa2",
         "firsttime": "2021-04-11T17:00:00.000Z",
-        "lasttime": "2025-09-17T22:00:00.000Z",
+        "lasttime": "2026-08-30T19:00:00.000Z",
         "city": null,
         "region": "CA",
         "country": "US",
@@ -87679,7 +87679,7 @@
         "type": "Point",
         "coordinates": [
           -77.01885986,
-          38.90558624
+          38.90559769
         ]
       },
       "properties": {
@@ -87689,7 +87689,7 @@
         "channel": 157,
         "encryption": "wpa2",
         "firsttime": "2017-11-10T11:00:00.000Z",
-        "lasttime": "2026-04-11T15:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
         "city": "Washington",
         "region": "DC",
         "country": "US",
@@ -89815,17 +89815,17 @@
         "type": "Point",
         "coordinates": [
           -80.25200653,
-          26.05699539
+          26.05698967
         ]
       },
       "properties": {
         "netid": "58:00:E3:2D:8D:21",
         "ssid": "DIRECT-roku-842-E65183",
         "oui": "58:00:E3",
-        "channel": 36,
+        "channel": 149,
         "encryption": "wpa2",
         "firsttime": "2018-04-07T10:00:00.000Z",
-        "lasttime": "2026-08-04T19:00:00.000Z",
+        "lasttime": "2026-08-30T22:00:00.000Z",
         "city": "Pembroke Pines",
         "region": "FL",
         "country": "US",
@@ -90150,18 +90150,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.79558563,
-          38.92544174
+          -104.79581451,
+          38.92530441
         ]
       },
       "properties": {
         "netid": "58:00:E3:2D:8E:EF",
         "ssid": "DIRECT-roku-041-C127D9",
         "oui": "58:00:E3",
-        "channel": 1,
+        "channel": 2,
         "encryption": "wpa2",
         "firsttime": "2018-09-29T10:00:00.000Z",
-        "lasttime": "2025-02-25T11:00:00.000Z",
+        "lasttime": "2026-08-30T21:00:00.000Z",
         "city": "Colorado Springs",
         "region": "CO",
         "country": "US",
@@ -90511,7 +90511,7 @@
         "type": "Point",
         "coordinates": [
           -80.25201416,
-          26.05710793
+          26.05709267
         ]
       },
       "properties": {
@@ -90521,7 +90521,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2001-12-31T19:00:00.000Z",
-        "lasttime": "2026-08-25T17:00:00.000Z",
+        "lasttime": "2026-08-30T22:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -94951,7 +94951,7 @@
         "type": "Point",
         "coordinates": [
           -80.2519989,
-          26.05703926
+          26.05703354
         ]
       },
       "properties": {
@@ -94961,7 +94961,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2001-12-31T19:00:00.000Z",
-        "lasttime": "2026-08-04T19:00:00.000Z",
+        "lasttime": "2026-08-30T22:00:00.000Z",
         "city": "Pembroke Pines",
         "region": "FL",
         "country": "US",
@@ -95358,18 +95358,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.43592072,
-          34.11105347
+          -117.43595123,
+          34.11105728
         ]
       },
       "properties": {
         "netid": "58:00:E3:2D:AE:FC",
-        "ssid": null,
+        "ssid": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
         "oui": "58:00:E3",
         "channel": 161,
         "encryption": "wpa2",
         "firsttime": "2026-08-09T20:00:00.000Z",
-        "lasttime": "2026-08-10T06:00:00.000Z",
+        "lasttime": "2026-08-30T16:00:00.000Z",
         "city": "Fontana",
         "region": "CA",
         "country": "US",
@@ -98118,23 +98118,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.90851593,
-          39.7545166
+          -104.82130432,
+          39.76223373
         ]
       },
       "properties": {
         "netid": "58:00:E3:33:21:D3",
         "ssid": null,
         "oui": "58:00:E3",
-        "channel": 1,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-11-07T20:00:00.000Z",
-        "lasttime": "2026-06-15T21:00:00.000Z",
-        "city": "Denver",
+        "lasttime": "2026-08-30T21:00:00.000Z",
+        "city": "Aurora",
         "region": "CO",
         "country": "US",
-        "road": "East 26th Avenue",
-        "postalcode": "80207"
+        "road": "East Smith Road",
+        "postalcode": "80010-1425"
       }
     },
     {
@@ -98399,30 +98399,6 @@
         "country": "US",
         "road": "East 19th Street",
         "postalcode": "10003"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -71.27900696,
-          42.66762161
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:33:5B:A5",
-        "ssid": null,
-        "oui": "58:00:E3",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-30T18:00:00.000Z",
-        "lasttime": "2024-08-30T12:00:00.000Z",
-        "city": null,
-        "region": "MA",
-        "country": "US",
-        "road": "Lexington Road",
-        "postalcode": "01826"
       }
     },
     {
@@ -99497,7 +99473,7 @@
         "channel": 44,
         "encryption": "wpa2",
         "firsttime": "2018-09-27T19:00:00.000Z",
-        "lasttime": "2026-08-29T16:00:00.000Z",
+        "lasttime": "2026-08-30T15:00:00.000Z",
         "city": "Lincoln",
         "region": "NE",
         "country": "US",
@@ -100775,30 +100751,6 @@
         "country": "US",
         "road": "Gilbert Street",
         "postalcode": "92841"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -115.14762878,
-          36.28227234
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:3C:C1:FB",
-        "ssid": null,
-        "oui": "58:00:E3",
-        "channel": 157,
-        "encryption": "wpa2",
-        "firsttime": "2023-12-21T01:00:00.000Z",
-        "lasttime": "2024-08-30T13:00:00.000Z",
-        "city": "North Las Vegas",
-        "region": "NV",
-        "country": "US",
-        "road": "North Commerce Street",
-        "postalcode": "89084"
       }
     },
     {
@@ -106422,30 +106374,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.42723846,
-          41.90985489
-        ]
-      },
-      "properties": {
-        "netid": "58:00:E3:3F:45:80",
-        "ssid": null,
-        "oui": "58:00:E3",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-30T13:00:00.000Z",
-        "lasttime": "2024-08-30T07:00:00.000Z",
-        "city": null,
-        "region": "MI",
-        "country": "US",
-        "road": "Strandwyck Drive",
-        "postalcode": "48161"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -85.67752838,
           42.98843765
         ]
@@ -108510,7 +108438,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -103.63009644,
+          -103.63010406,
           48.15423584
         ]
       },
@@ -108521,7 +108449,7 @@
         "channel": 44,
         "encryption": "wpa2",
         "firsttime": "2023-01-27T10:00:00.000Z",
-        "lasttime": "2026-08-26T22:00:00.000Z",
+        "lasttime": "2026-08-30T18:00:00.000Z",
         "city": "Williston",
         "region": "ND",
         "country": "US",
@@ -111390,6 +111318,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -80.74240112,
+          41.17676544
+        ]
+      },
+      "properties": {
+        "netid": "58:00:E3:82:73:01",
+        "ssid": null,
+        "oui": "58:00:E3",
+        "channel": 157,
+        "encryption": "none",
+        "firsttime": "2026-08-30T15:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "Henry Street Southeast",
+        "postalcode": "44446"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.37220001,
           49.10558319
         ]
@@ -113571,10 +113523,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-30T10:53:43.467273+00:00",
+    "generated": "2026-08-31T12:05:24.330414+00:00",
     "oui": "58:00:E3",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 4732
+    "total_cameras": 4730
   }
 }

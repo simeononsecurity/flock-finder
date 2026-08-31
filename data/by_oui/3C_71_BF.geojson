@@ -366,8 +366,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.02520084,
-          43.88328171
+          8.02459145,
+          43.88300705
         ]
       },
       "properties": {
@@ -377,7 +377,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2025-03-24T08:00:00.000Z",
-        "lasttime": "2025-12-23T03:00:00.000Z",
+        "lasttime": "2026-08-31T00:00:00.000Z",
         "city": "Imperia",
         "region": "Liguria",
         "country": "IT",
@@ -2430,6 +2430,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -85.24790955,
+          39.30349731
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:06:B0:3D",
+        "ssid": "Traeger-B03D",
+        "oui": "3C:71:BF",
+        "channel": 5,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-31T03:00:00.000Z",
+        "lasttime": "2026-08-31T00:00:00.000Z",
+        "city": null,
+        "region": "IN",
+        "country": "US",
+        "road": "Lakeshore Drive",
+        "postalcode": "47006"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -104.46207428,
           39.34658813
         ]
@@ -3575,30 +3599,6 @@
         "country": "US",
         "road": "Keystone Avenue",
         "postalcode": "89503"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.0161972,
-          47.20410919
-        ]
-      },
-      "properties": {
-        "netid": "3C:71:BF:07:67:E1",
-        "ssid": "Traeger-67E1",
-        "oui": "3C:71:BF",
-        "channel": 5,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-30T20:00:00.000Z",
-        "lasttime": "2024-08-30T14:00:00.000Z",
-        "city": null,
-        "region": "WA",
-        "country": "US",
-        "road": "244th Avenue Southeast",
-        "postalcode": "98022"
       }
     },
     {
@@ -8118,8 +8118,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -158.02754211,
-          21.48706627
+          -158.02783203,
+          21.48751068
         ]
       },
       "properties": {
@@ -8129,11 +8129,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-02-17T06:00:00.000Z",
-        "lasttime": "2026-08-29T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Mililani",
         "region": "HI",
         "country": "US",
-        "road": "Higgins Road",
+        "road": "Kamehameha Highway",
         "postalcode": "96786"
       }
     },
@@ -8646,8 +8646,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.96686745,
-          47.84303284
+          12.96675301,
+          47.84302139
         ]
       },
       "properties": {
@@ -8657,7 +8657,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-02-23T19:00:00.000Z",
-        "lasttime": "2026-08-14T06:00:00.000Z",
+        "lasttime": "2026-08-30T08:00:00.000Z",
         "city": null,
         "region": "Bayern",
         "country": "DE",
@@ -8862,6 +8862,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -158.02613831,
+          21.47705078
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:1C:9B:2D",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Mililani",
+        "region": "HI",
+        "country": "US",
+        "road": "Kamehameha Highway",
+        "postalcode": "96789"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -158.06190491,
           21.49426842
         ]
@@ -8934,8 +8958,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -158.02606201,
-          21.47712135
+          -158.02610779,
+          21.47687531
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:1C:A6:B1",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Mililani",
+        "region": "HI",
+        "country": "US",
+        "road": "Kamehameha Highway",
+        "postalcode": "96789"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.02604675,
+          21.47681999
         ]
       },
       "properties": {
@@ -8945,12 +8993,60 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-10-27T22:00:00.000Z",
-        "lasttime": "2025-11-08T18:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Mililani",
         "region": "HI",
         "country": "US",
         "road": "Kamehameha Highway",
         "postalcode": "96789"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.02580261,
+          21.4752636
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:1C:AF:2D",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Mililani",
+        "region": "HI",
+        "country": "US",
+        "road": "Kamehameha Highway",
+        "postalcode": "96789"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.02984619,
+          21.48980141
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:1C:AF:41",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Mililani",
+        "region": "HI",
+        "country": "US",
+        "road": "Steindam Court",
+        "postalcode": "96786"
       }
     },
     {
@@ -9150,8 +9246,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -158.02644348,
-          21.47989464
+          -158.02656555,
+          21.48023796
         ]
       },
       "properties": {
@@ -9161,11 +9257,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-09-28T01:00:00.000Z",
-        "lasttime": "2026-06-25T16:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Mililani",
         "region": "HI",
         "country": "US",
-        "road": "Leilehua Road",
+        "road": "Kamehameha Highway",
         "postalcode": "96786"
       }
     },
@@ -9174,8 +9270,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -158.02622986,
-          21.47803879
+          -158.02630615,
+          21.47812843
         ]
       },
       "properties": {
@@ -9185,7 +9281,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-11-02T20:00:00.000Z",
-        "lasttime": "2026-08-29T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Mililani",
         "region": "HI",
         "country": "US",
@@ -9263,6 +9359,30 @@
         "country": "US",
         "road": "D 3/4 Road",
         "postalcode": "81520"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.79038239,
+          36.67832565
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:22:32:0C",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-08-30T12:00:00.000Z",
+        "lasttime": "2026-08-30T14:00:00.000Z",
+        "city": "Marina",
+        "region": "CA",
+        "country": "US",
+        "road": "Carmel Avenue",
+        "postalcode": "93933"
       }
     },
     {
@@ -10326,6 +10446,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -90.3069458,
+          38.62788773
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:28:8E:7E",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T11:00:00.000Z",
+        "lasttime": "2026-08-30T06:00:00.000Z",
+        "city": "Saint Louis",
+        "region": "MO",
+        "country": "US",
+        "road": "McCausland Avenue",
+        "postalcode": "63143"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -116.8732605,
           47.69612122
         ]
@@ -10926,6 +11070,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          19.93601227,
+          50.07326126
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:30:70:2D",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
+        "city": null,
+        "region": "wojew\u00f3dztwo ma\u0142opolskie",
+        "country": "PL",
+        "road": "Aleja Juliusza S\u0142owackiego",
+        "postalcode": "31-148"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -77.47782135,
           43.16510391
         ]
@@ -10943,6 +11111,30 @@
         "country": "US",
         "road": "Alberta Drive",
         "postalcode": "14526"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.93580055,
+          50.07338715
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:30:94:14",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
+        "city": "Krak\u00f3w",
+        "region": "wojew\u00f3dztwo ma\u0142opolskie",
+        "country": "PL",
+        "road": "D\u0142uga",
+        "postalcode": "30-004"
       }
     },
     {
@@ -11783,6 +11975,30 @@
         "country": "US",
         "road": "New England Thruway",
         "postalcode": "10538"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.22406769,
+          33.889431
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:34:80:FF",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T16:00:00.000Z",
+        "city": null,
+        "region": "SC",
+        "country": "US",
+        "road": "Tanreall Drive",
+        "postalcode": "29072:29073"
       }
     },
     {
@@ -14814,6 +15030,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          19.92895317,
+          50.06441116
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:39:E7:6E",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
+        "city": null,
+        "region": "wojew\u00f3dztwo ma\u0142opolskie",
+        "country": "PL",
+        "road": "J\u00f3zefa Szujskiego",
+        "postalcode": "31-123"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.97826385,
           40.7859993
         ]
@@ -15559,7 +15799,7 @@
         "type": "Point",
         "coordinates": [
           -158.02561951,
-          21.4745121
+          21.4744854
         ]
       },
       "properties": {
@@ -15569,7 +15809,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-06-12T03:00:00.000Z",
-        "lasttime": "2025-11-08T18:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Mililani",
         "region": "HI",
         "country": "US",
@@ -19926,8 +20166,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -158.02574158,
-          21.47544098
+          -158.02586365,
+          21.47562027
         ]
       },
       "properties": {
@@ -19937,7 +20177,31 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-11-09T00:00:00.000Z",
-        "lasttime": "2025-11-08T18:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Mililani",
+        "region": "HI",
+        "country": "US",
+        "road": "Kamehameha Highway",
+        "postalcode": "96789"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.02644348,
+          21.4785881
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:4B:94:61",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Mililani",
         "region": "HI",
         "country": "US",
@@ -20166,6 +20430,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -158.02644348,
+          21.4785614
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:4B:A7:A5",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T19:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Mililani",
+        "region": "HI",
+        "country": "US",
+        "road": "Kamehameha Highway",
+        "postalcode": "96789"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -158.06063843,
           21.49292564
         ]
@@ -20183,6 +20471,30 @@
         "country": "US",
         "road": "Cadet Sheridan Road",
         "postalcode": "96857"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.04370117,
+          21.48513603
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:4B:A7:FD",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2024-08-03T06:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Mililani",
+        "region": "HI",
+        "country": "US",
+        "road": "Kunia Road",
+        "postalcode": "96786"
       }
     },
     {
@@ -20231,6 +20543,30 @@
         "country": "US",
         "road": "Logan Avenue",
         "postalcode": "55044"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.17863464,
+          40.79239273
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:4B:B7:81",
+        "ssid": "Mysa-4bb780",
+        "oui": "3C:71:BF",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-08-30T12:00:00.000Z",
+        "lasttime": "2026-08-30T08:00:00.000Z",
+        "city": null,
+        "region": "NJ",
+        "country": "US",
+        "road": "Mill Street",
+        "postalcode": "07109"
       }
     },
     {
@@ -20951,6 +21287,30 @@
         "country": "US",
         "road": "North 300 West",
         "postalcode": "84003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.94826508,
+          33.40972137
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:4E:F1:8D",
+        "ssid": "Traeger-F18D",
+        "oui": "3C:71:BF",
+        "channel": 5,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T17:00:00.000Z",
+        "lasttime": "2026-08-30T10:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "North Washington Street",
+        "postalcode": "76258"
       }
     },
     {
@@ -28086,18 +28446,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.36980629,
-          56.6636467
+          16.36977196,
+          56.66362
         ]
       },
       "properties": {
         "netid": "3C:71:BF:78:C4:BD",
         "ssid": "CFMTDU_71T80150",
         "oui": "3C:71:BF",
-        "channel": 5,
+        "channel": 2,
         "encryption": "wpa2",
         "firsttime": "2021-07-07T13:00:00.000Z",
-        "lasttime": "2026-06-16T05:00:00.000Z",
+        "lasttime": "2026-08-30T08:00:00.000Z",
         "city": "Kalmar",
         "region": "Kalmar l\u00e4n",
         "country": "SE",
@@ -42918,8 +43278,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -158.02641296,
-          21.47852707
+          -158.02642822,
+          21.47860527
         ]
       },
       "properties": {
@@ -42929,7 +43289,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-02-09T00:00:00.000Z",
-        "lasttime": "2025-10-14T13:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Mililani",
         "region": "HI",
         "country": "US",
@@ -43782,6 +44142,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -97.4406662,
+          31.18386459
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:92:07:48",
+        "ssid": null,
+        "oui": "3C:71:BF",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-08-30T14:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Moffat Road",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -81.39230347,
           41.43173599
         ]
@@ -44286,8 +44670,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          37.69181442,
-          55.81612015
+          37.69194031,
+          55.81615067
         ]
       },
       "properties": {
@@ -44297,7 +44681,7 @@
         "channel": 10,
         "encryption": "unknown",
         "firsttime": "2024-10-05T10:00:00.000Z",
-        "lasttime": "2024-10-05T03:00:00.000Z",
+        "lasttime": "2026-08-30T03:00:00.000Z",
         "city": "\u041c\u043e\u0441\u043a\u0432\u0430",
         "region": "\u041c\u043e\u0441\u043a\u0432\u0430",
         "country": "RU",
@@ -51318,6 +51702,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -117.17935944,
+          47.66360474
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:AC:DC:1D",
+        "ssid": "Traeger-DC1D",
+        "oui": "3C:71:BF",
+        "channel": 5,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T20:00:00.000Z",
+        "lasttime": "2026-08-30T15:00:00.000Z",
+        "city": null,
+        "region": "WA",
+        "country": "US",
+        "road": "East Broadway Avenue",
+        "postalcode": "99016"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -88.03622437,
           41.8325386
         ]
@@ -54311,6 +54719,30 @@
         "country": "US",
         "road": "US 12",
         "postalcode": "60071"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.03713989,
+          51.28891373
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:AD:9C:BD",
+        "ssid": "Traeger-9CBD",
+        "oui": "3C:71:BF",
+        "channel": 5,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T12:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
+        "city": "Airdrie",
+        "region": "Alberta",
+        "country": "CA",
+        "road": "Sagewood Drive SW",
+        "postalcode": "T4B 3B3"
       }
     },
     {
@@ -57726,8 +58158,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -78.89968109,
-          33.75911713
+          -78.89997101,
+          33.75920868
         ]
       },
       "properties": {
@@ -57737,11 +58169,11 @@
         "channel": 5,
         "encryption": "wpa2",
         "firsttime": "2026-05-30T23:00:00.000Z",
-        "lasttime": "2026-05-30T17:00:00.000Z",
+        "lasttime": "2026-08-30T16:00:00.000Z",
         "city": null,
         "region": "SC",
         "country": "US",
-        "road": "Revolutionary War Way",
+        "road": null,
         "postalcode": "29579"
       }
     },
@@ -59166,30 +59598,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.69519043,
-          40.24640274
-        ]
-      },
-      "properties": {
-        "netid": "3C:71:BF:D9:36:C5",
-        "ssid": "Traeger-36C5",
-        "oui": "3C:71:BF",
-        "channel": 5,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-30T19:00:00.000Z",
-        "lasttime": "2024-08-30T14:00:00.000Z",
-        "city": "Provo",
-        "region": "UT",
-        "country": "US",
-        "road": "I 15",
-        "postalcode": "84601"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -120.96121216,
           37.66530609
         ]
@@ -60359,6 +60767,30 @@
         "country": "US",
         "road": "Ponderosa Drive",
         "postalcode": "81521"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.95925903,
+          32.18351364
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:D9:A4:39",
+        "ssid": "Traeger-A439",
+        "oui": "3C:71:BF",
+        "channel": 5,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T20:00:00.000Z",
+        "lasttime": "2026-08-30T15:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "State Highway 31 West",
+        "postalcode": "75148"
       }
     },
     {
@@ -70422,8 +70854,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.33625317,
-          48.51192474
+          2.33608818,
+          48.51194382
         ]
       },
       "properties": {
@@ -70433,7 +70865,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-05-18T20:00:00.000Z",
-        "lasttime": "2026-07-13T07:00:00.000Z",
+        "lasttime": "2026-08-30T07:00:00.000Z",
         "city": "Itteville",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -75750,8 +76182,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.31147909,
-          48.76996994
+          2.31149983,
+          48.76999283
         ]
       },
       "properties": {
@@ -75761,7 +76193,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-06-18T18:00:00.000Z",
-        "lasttime": "2026-08-02T13:00:00.000Z",
+        "lasttime": "2026-08-30T14:00:00.000Z",
         "city": null,
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -80057,7 +80489,7 @@
         "channel": 5,
         "encryption": "wpa2",
         "firsttime": "2023-07-30T09:00:00.000Z",
-        "lasttime": "2026-08-25T18:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -85950,6 +86382,78 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.06311226,
+          59.44471359
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:F6:C5:5D",
+        "ssid": "WiBo-CMC-Box",
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-31T09:00:00.000Z",
+        "lasttime": "2026-08-31T03:00:00.000Z",
+        "city": null,
+        "region": "Stockholms l\u00e4n",
+        "country": "SE",
+        "road": "Attundav\u00e4gen",
+        "postalcode": "18336"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.06241417,
+          59.44478607
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:F6:C7:F5",
+        "ssid": "WiBo-CMC-Box",
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-31T09:00:00.000Z",
+        "lasttime": "2026-08-31T03:00:00.000Z",
+        "city": null,
+        "region": "Stockholms l\u00e4n",
+        "country": "SE",
+        "road": "Attundav\u00e4gen",
+        "postalcode": "18336"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.06311226,
+          59.44471359
+        ]
+      },
+      "properties": {
+        "netid": "3C:71:BF:F6:C9:69",
+        "ssid": "WiBo-CMC-Box",
+        "oui": "3C:71:BF",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-31T09:00:00.000Z",
+        "lasttime": "2026-08-31T03:00:00.000Z",
+        "city": null,
+        "region": "Stockholms l\u00e4n",
+        "country": "SE",
+        "road": "Attundav\u00e4gen",
+        "postalcode": "18336"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -2.12248826,
           51.90418625
         ]
@@ -88155,10 +88659,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-30T10:53:43.467273+00:00",
+    "generated": "2026-08-31T12:05:24.330414+00:00",
     "oui": "3C:71:BF",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3673
+    "total_cameras": 3694
   }
 }

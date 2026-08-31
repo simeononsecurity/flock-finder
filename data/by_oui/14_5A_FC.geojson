@@ -1782,6 +1782,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          138.52308655,
+          -35.0182724
+        ]
+      },
+      "properties": {
+        "netid": "14:5A:FC:1A:1F:E9",
+        "ssid": "Flock",
+        "oui": "14:5A:FC",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-08-31T17:00:00.000Z",
+        "lasttime": "2026-08-31T01:00:00.000Z",
+        "city": "Adelaide",
+        "region": "South Australia",
+        "country": "AU",
+        "road": "Brighton Road",
+        "postalcode": "5048"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.56402588,
           45.51003265
         ]
@@ -2567,6 +2591,30 @@
         "country": "AT",
         "road": "Stephansplatz",
         "postalcode": "1010"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.04484558,
+          46.4210701
+        ]
+      },
+      "properties": {
+        "netid": "14:5A:FC:31:FC:5A",
+        "ssid": "Flock",
+        "oui": "14:5A:FC",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-29T02:00:00.000Z",
+        "lasttime": "2026-08-30T18:00:00.000Z",
+        "city": "Clarkston",
+        "region": "WA",
+        "country": "US",
+        "road": "5th Street",
+        "postalcode": "99403"
       }
     },
     {
@@ -3743,6 +3791,30 @@
         "country": "US",
         "road": "Stockbridge Drive",
         "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.46160889,
+          39.07693863
+        ]
+      },
+      "properties": {
+        "netid": "14:5A:FC:40:71:35",
+        "ssid": "Flock",
+        "oui": "14:5A:FC",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-08-30T16:00:00.000Z",
+        "lasttime": "2026-08-30T16:00:00.000Z",
+        "city": "Grand Junction",
+        "region": "CO",
+        "country": "US",
+        "road": "Prairie Way",
+        "postalcode": "81504"
       }
     },
     {
@@ -5958,8 +6030,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.61471558,
-          39.32835007
+          -76.61468506,
+          39.32830429
         ]
       },
       "properties": {
@@ -5969,11 +6041,11 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-06-21T15:00:00.000Z",
-        "lasttime": "2026-06-23T03:00:00.000Z",
+        "lasttime": "2026-08-30T08:00:00.000Z",
         "city": "Baltimore",
         "region": "MD",
         "country": "US",
-        "road": "East University Parkway",
+        "road": "East 33rd Street",
         "postalcode": "21218"
       }
     },
@@ -6006,7 +6078,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.37146759,
+          -117.37147522,
           33.9991684
         ]
       },
@@ -6017,7 +6089,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-12-14T06:00:00.000Z",
-        "lasttime": "2026-08-25T21:00:00.000Z",
+        "lasttime": "2026-08-30T18:00:00.000Z",
         "city": "Riverside",
         "region": "CA",
         "country": "US",
@@ -9798,8 +9870,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -72.81922913,
-          41.47171021
+          -72.81923676,
+          41.47169495
         ]
       },
       "properties": {
@@ -9809,7 +9881,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-05-11T19:00:00.000Z",
-        "lasttime": "2026-08-29T11:00:00.000Z",
+        "lasttime": "2026-08-30T11:00:00.000Z",
         "city": null,
         "region": "CT",
         "country": "US",
@@ -19854,8 +19926,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -92.66420746,
-          37.68198776
+          -92.66421509,
+          37.68198395
         ]
       },
       "properties": {
@@ -19865,7 +19937,7 @@
         "channel": 1,
         "encryption": "wep",
         "firsttime": "2022-12-10T15:00:00.000Z",
-        "lasttime": "2026-08-29T11:00:00.000Z",
+        "lasttime": "2026-08-31T03:00:00.000Z",
         "city": null,
         "region": "MO",
         "country": "US",
@@ -21102,7 +21174,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9826355,
+          -73.98262787,
           40.76399231
         ]
       },
@@ -21113,7 +21185,7 @@
         "channel": 165,
         "encryption": "wpa2",
         "firsttime": "2023-06-09T16:00:00.000Z",
-        "lasttime": "2026-08-24T20:00:00.000Z",
+        "lasttime": "2026-08-30T18:00:00.000Z",
         "city": "City of New York",
         "region": "NY",
         "country": "US",
@@ -28350,7 +28422,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.54283142,
+          8.54282951,
           47.37321091
         ]
       },
@@ -28361,11 +28433,11 @@
         "channel": 48,
         "encryption": "wpa2",
         "firsttime": "2023-12-10T16:00:00.000Z",
-        "lasttime": "2026-08-22T20:00:00.000Z",
+        "lasttime": "2026-08-30T05:00:00.000Z",
         "city": "Z\u00fcrich",
         "region": "Z\u00fcrich",
         "country": "CH",
-        "road": null,
+        "road": "Limmatquai",
         "postalcode": "8001"
       }
     },
@@ -35311,7 +35383,7 @@
         "type": "Point",
         "coordinates": [
           144.98608398,
-          -37.81653595
+          -37.81653976
         ]
       },
       "properties": {
@@ -35321,7 +35393,7 @@
         "channel": 165,
         "encryption": "wpa2",
         "firsttime": "2024-06-07T00:00:00.000Z",
-        "lasttime": "2026-08-28T07:00:00.000Z",
+        "lasttime": "2026-08-30T07:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -40385,7 +40457,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2022-07-24T06:00:00.000Z",
-        "lasttime": "2026-08-24T02:00:00.000Z",
+        "lasttime": "2026-08-31T02:00:00.000Z",
         "city": "Sydney",
         "region": "New South Wales",
         "country": "AU",
@@ -40902,8 +40974,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.36984253,
-          48.21389771
+          16.36986923,
+          48.21387863
         ]
       },
       "properties": {
@@ -40913,7 +40985,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2025-05-14T20:00:00.000Z",
-        "lasttime": "2025-10-27T02:00:00.000Z",
+        "lasttime": "2026-08-30T09:00:00.000Z",
         "city": "Wien",
         "region": "Textilviertel",
         "country": "AT",
@@ -54894,8 +54966,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.65817261,
-          52.1450882
+          4.65817499,
+          52.14509583
         ]
       },
       "properties": {
@@ -54905,7 +54977,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-02-28T11:00:00.000Z",
-        "lasttime": "2026-08-26T13:00:00.000Z",
+        "lasttime": "2026-08-30T10:00:00.000Z",
         "city": null,
         "region": "Zuid-Holland",
         "country": "NL",
@@ -55535,6 +55607,30 @@
         "country": "FI",
         "road": "Kansakoulukatu",
         "postalcode": "00100"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.65992999,
+          51.79478836
+        ]
+      },
+      "properties": {
+        "netid": "14:5A:FC:82:41:E3",
+        "ssid": null,
+        "oui": "14:5A:FC",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-24T14:00:00.000Z",
+        "lasttime": "2026-08-30T04:00:00.000Z",
+        "city": "Dacorum",
+        "region": "England",
+        "country": "GB",
+        "road": "Market Place",
+        "postalcode": "HP23 5ED"
       }
     },
     {
@@ -56886,8 +56982,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.2489996,
-          48.81784058
+          2.24894142,
+          48.81782532
         ]
       },
       "properties": {
@@ -56897,7 +56993,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-06-01T16:00:00.000Z",
-        "lasttime": "2026-06-08T02:00:00.000Z",
+        "lasttime": "2026-08-30T14:00:00.000Z",
         "city": "Meudon",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -61566,8 +61662,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.66220856,
-          45.40076065
+          -75.66223907,
+          45.40074158
         ]
       },
       "properties": {
@@ -61577,7 +61673,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-12-07T14:00:00.000Z",
-        "lasttime": "2025-10-19T18:00:00.000Z",
+        "lasttime": "2026-08-30T14:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -62646,7 +62742,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.53437424,
+          8.53437233,
           47.34816742
         ]
       },
@@ -62657,7 +62753,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-11-19T13:00:00.000Z",
-        "lasttime": "2026-08-29T05:00:00.000Z",
+        "lasttime": "2026-08-30T04:00:00.000Z",
         "city": "Z\u00fcrich",
         "region": "Z\u00fcrich",
         "country": "CH",
@@ -63823,7 +63919,7 @@
         "type": "Point",
         "coordinates": [
           174.76789856,
-          -36.84448242
+          -36.84447479
         ]
       },
       "properties": {
@@ -63833,7 +63929,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-01-08T11:00:00.000Z",
-        "lasttime": "2026-08-10T23:00:00.000Z",
+        "lasttime": "2026-08-30T23:00:00.000Z",
         "city": "Auckland",
         "region": "Auckland",
         "country": "NZ",
@@ -63870,8 +63966,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.66220093,
-          45.4007225
+          -75.6622467,
+          45.40069962
         ]
       },
       "properties": {
@@ -63881,7 +63977,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-12-07T21:00:00.000Z",
-        "lasttime": "2025-10-19T18:00:00.000Z",
+        "lasttime": "2026-08-30T14:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -65694,8 +65790,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.29098177,
-          51.68669128
+          5.2910409,
+          51.68679047
         ]
       },
       "properties": {
@@ -65705,12 +65801,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-14T20:00:00.000Z",
-        "lasttime": "2026-08-14T18:00:00.000Z",
+        "lasttime": "2026-08-30T23:00:00.000Z",
         "city": "'s-Hertogenbosch",
         "region": "Noord-Brabant",
         "country": "NL",
         "road": "Magistratenlaan",
-        "postalcode": "5223MA"
+        "postalcode": "5223MB"
       }
     },
     {
@@ -69079,7 +69175,7 @@
         "type": "Point",
         "coordinates": [
           -73.56033325,
-          45.51625824
+          45.51625443
         ]
       },
       "properties": {
@@ -69089,7 +69185,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-12-05T16:00:00.000Z",
-        "lasttime": "2026-07-20T16:00:00.000Z",
+        "lasttime": "2026-08-30T13:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -82038,8 +82134,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.1545639,
-          39.95117188
+          -75.15454102,
+          39.95116806
         ]
       },
       "properties": {
@@ -82049,7 +82145,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-02-23T07:00:00.000Z",
-        "lasttime": "2026-07-11T10:00:00.000Z",
+        "lasttime": "2026-08-30T15:00:00.000Z",
         "city": "Philadelphia",
         "region": "PA",
         "country": "US",
@@ -90294,8 +90390,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.06964874,
-          46.42098236
+          -117.06963348,
+          46.42106247
         ]
       },
       "properties": {
@@ -90305,11 +90401,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-07-18T23:00:00.000Z",
-        "lasttime": "2026-07-26T23:00:00.000Z",
-        "city": null,
+        "lasttime": "2026-08-30T18:00:00.000Z",
+        "city": "Clarkston",
         "region": "WA",
         "country": "US",
-        "road": "WA 128",
+        "road": "Port Drive",
         "postalcode": "99403"
       }
     },
@@ -92238,6 +92334,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -108.39769745,
+          45.81412888
+        ]
+      },
+      "properties": {
+        "netid": "14:5A:FC:EB:64:54",
+        "ssid": "Flock",
+        "oui": "14:5A:FC",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T17:00:00.000Z",
+        "lasttime": "2026-08-30T20:00:00.000Z",
+        "city": null,
+        "region": "MT",
+        "country": "US",
+        "road": "Mitzi Drive",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.6825943,
           27.78276825
         ]
@@ -93891,10 +94011,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-30T10:53:43.467273+00:00",
+    "generated": "2026-08-31T12:05:24.330414+00:00",
     "oui": "14:5A:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 3912
+    "total_cameras": 3917
   }
 }
