@@ -174,8 +174,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.51789474,
-          55.68226624
+          12.51790333,
+          55.6823082
         ]
       },
       "properties": {
@@ -185,7 +185,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-18T00:00:00.000Z",
-        "lasttime": "2026-08-27T06:00:00.000Z",
+        "lasttime": "2026-09-01T01:00:00.000Z",
         "city": null,
         "region": "Region Hovedstaden",
         "country": "DK",
@@ -1590,7 +1590,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.95161915,
+          8.95162487,
           46.00826645
         ]
       },
@@ -1601,7 +1601,7 @@
         "channel": 48,
         "encryption": "wpa2",
         "firsttime": "2022-05-26T16:00:00.000Z",
-        "lasttime": "2026-06-29T08:00:00.000Z",
+        "lasttime": "2026-08-31T08:00:00.000Z",
         "city": "Lugano",
         "region": "Ticino",
         "country": "CH",
@@ -4231,7 +4231,7 @@
         "type": "Point",
         "coordinates": [
           -122.6754303,
-          45.52249527
+          45.52249908
         ]
       },
       "properties": {
@@ -4241,7 +4241,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-08-01T20:00:00.000Z",
-        "lasttime": "2026-08-30T02:00:00.000Z",
+        "lasttime": "2026-08-31T22:00:00.000Z",
         "city": "Portland",
         "region": "OR",
         "country": "US",
@@ -10543,7 +10543,7 @@
         "type": "Point",
         "coordinates": [
           -73.63837433,
-          45.54592514
+          45.54592896
         ]
       },
       "properties": {
@@ -10553,7 +10553,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-04-24T12:00:00.000Z",
-        "lasttime": "2026-08-22T14:00:00.000Z",
+        "lasttime": "2026-08-31T07:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -10673,7 +10673,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-05-26T18:00:00.000Z",
-        "lasttime": "2026-08-29T07:00:00.000Z",
+        "lasttime": "2026-08-31T15:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -15270,6 +15270,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -70.51069641,
+          44.22282791
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:4F:FC:75",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-08-31T11:00:00.000Z",
+        "lasttime": "2026-08-31T12:00:00.000Z",
+        "city": null,
+        "region": "ME",
+        "country": "US",
+        "road": "East Main Street",
+        "postalcode": "04281"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -70.33622742,
           44.11907959
         ]
@@ -18675,10 +18699,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-31T12:05:24.330414+00:00",
+    "generated": "2026-09-01T10:44:00.823227+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 778
+    "total_cameras": 779
   }
 }

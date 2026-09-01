@@ -10494,6 +10494,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          79.91213226,
+          6.92261839
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:7B:6F:55",
+        "ssid": "Pradeep",
+        "oui": "48:27:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-31T13:00:00.000Z",
+        "lasttime": "2026-08-31T06:00:00.000Z",
+        "city": "\u0d9a\u0ddc\u0dc5\u0db9",
+        "region": "\u0db6\u0dc3\u0dca\u0db1\u0dcf\u0dc4\u0dd2\u0dbb \u0db4\u0dc5\u0dcf\u0dad",
+        "country": "LK",
+        "road": "Buthgamuwa Road",
+        "postalcode": "10620"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -0.05569696,
           51.38595581
         ]
@@ -22974,30 +22998,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.48252869,
-          50.09635544
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:E8:A1:18",
-        "ssid": "Galaxy  J5A118",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2005-01-14T10:00:00.000Z",
-        "lasttime": "2024-08-31T03:00:00.000Z",
-        "city": "Hlavn\u00ed m\u011bsto Praha",
-        "region": "Praha",
-        "country": "CZ",
-        "road": null,
-        "postalcode": "19093"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           104.48809052,
           15.48494434
         ]
@@ -24383,6 +24383,30 @@
         "country": "IT",
         "road": "Via Gozzano",
         "postalcode": "10042"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.20015335,
+          33.46241379
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:F2:B7:5E",
+        "ssid": "AndroidAPB75E",
+        "oui": "48:27:EA",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-31T14:00:00.000Z",
+        "lasttime": "2026-08-31T14:00:00.000Z",
+        "city": null,
+        "region": "\u0645\u062d\u0627\u0641\u0638\u0629 \u0631\u064a\u0641 \u062f\u0645\u0634\u0642",
+        "country": "SY",
+        "road": null,
+        "postalcode": null
       }
     },
     {
@@ -26115,10 +26139,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-31T12:05:24.330414+00:00",
+    "generated": "2026-09-01T10:44:00.823227+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1088
+    "total_cameras": 1089
   }
 }

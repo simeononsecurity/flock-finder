@@ -1913,7 +1913,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2025-12-08T22:00:00.000Z",
-        "lasttime": "2026-08-12T11:00:00.000Z",
+        "lasttime": "2026-08-31T22:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -2502,18 +2502,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -91.15467072,
-          30.3900032
+          -91.15467834,
+          30.39000702
         ]
       },
       "properties": {
         "netid": "90:35:EA:14:58:43",
         "ssid": "MLG53985",
         "oui": "90:35:EA",
-        "channel": 1,
+        "channel": 11,
         "encryption": "none",
         "firsttime": "2024-12-01T18:00:00.000Z",
-        "lasttime": "2026-07-21T17:00:00.000Z",
+        "lasttime": "2026-08-31T10:00:00.000Z",
         "city": "Baton Rouge",
         "region": "LA",
         "country": "US",
@@ -10782,6 +10782,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.80779266,
+          39.28409195
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:39:2A:80",
+        "ssid": "W40;Pdo008>K0&4;*9-/@F552&_))%P7",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-31T14:00:00.000Z",
+        "lasttime": "2026-08-31T08:00:00.000Z",
+        "city": null,
+        "region": "MD",
+        "country": "US",
+        "road": "Baltimore National Pike",
+        "postalcode": "21043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -76.63799286,
           39.3171463
         ]
@@ -14859,10 +14883,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-31T12:05:24.330414+00:00",
+    "generated": "2026-09-01T10:44:00.823227+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 619
+    "total_cameras": 620
   }
 }

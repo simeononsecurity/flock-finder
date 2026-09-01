@@ -390,8 +390,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.07923889,
-          46.39873886
+          -83.39027405,
+          35.11479187
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:14:54:9C",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-08-31T21:00:00.000Z",
+        "lasttime": "2026-08-31T23:00:00.000Z",
+        "city": null,
+        "region": "NC",
+        "country": "US",
+        "road": "Georgia Road",
+        "postalcode": "28734-9285"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.07920074,
+          46.39910507
         ]
       },
       "properties": {
@@ -401,7 +425,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-27T01:00:00.000Z",
-        "lasttime": "2026-08-28T22:00:00.000Z",
+        "lasttime": "2026-08-31T22:00:00.000Z",
         "city": null,
         "region": "WA",
         "country": "US",
@@ -510,8 +534,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.770401,
-          43.82822037
+          -111.77088928,
+          43.82771301
         ]
       },
       "properties": {
@@ -521,11 +545,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-19T23:00:00.000Z",
-        "lasttime": "2026-08-20T03:00:00.000Z",
+        "lasttime": "2026-08-31T22:00:00.000Z",
         "city": null,
         "region": "ID",
         "country": "US",
-        "road": "East 1st North",
+        "road": "Reed Street",
         "postalcode": "83440"
       }
     },
@@ -1278,8 +1302,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -121.79795837,
-          36.68691254
+          -121.797966,
+          36.68691635
         ]
       },
       "properties": {
@@ -1289,7 +1313,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2024-09-25T14:00:00.000Z",
-        "lasttime": "2026-08-27T14:00:00.000Z",
+        "lasttime": "2026-08-31T10:00:00.000Z",
         "city": "Marina",
         "region": "CA",
         "country": "US",
@@ -4254,7 +4278,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.9450531,
+          -104.94504547,
           39.68376541
         ]
       },
@@ -4265,7 +4289,7 @@
         "channel": 6,
         "encryption": "none",
         "firsttime": "2022-02-22T17:00:00.000Z",
-        "lasttime": "2026-08-30T02:00:00.000Z",
+        "lasttime": "2026-08-31T07:00:00.000Z",
         "city": "Denver",
         "region": "CO",
         "country": "US",
@@ -6702,6 +6726,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -98.76789856,
+          38.37634277
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:52:24:66",
+        "ssid": "SETUP-354A",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-08-31T20:00:00.000Z",
+        "lasttime": "2026-08-31T20:00:00.000Z",
+        "city": null,
+        "region": "KS",
+        "country": "US",
+        "road": "24th Street",
+        "postalcode": "67530"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -86.39949036,
           39.70399857
         ]
@@ -8615,6 +8663,30 @@
         "country": "CL",
         "road": "Avenida Jos\u00e9 Joaqu\u00edn Prieto Vial",
         "postalcode": "8460300"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.81278992,
+          36.64411926
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:80:4F:C3",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-08-31T14:00:00.000Z",
+        "lasttime": "2026-08-31T22:00:00.000Z",
+        "city": "Seaside",
+        "region": "CA",
+        "country": "US",
+        "road": "Gigling Road",
+        "postalcode": "93955"
       }
     },
     {
@@ -10991,6 +11063,30 @@
         "country": "US",
         "road": "South Dwight Avenue",
         "postalcode": "90220"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.19033813,
+          40.77229691
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:B5:A8:6D",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 44,
+        "encryption": "wep",
+        "firsttime": "2026-08-31T15:00:00.000Z",
+        "lasttime": "2026-08-31T14:00:00.000Z",
+        "city": null,
+        "region": "NJ",
+        "country": "US",
+        "road": "North 17th Street",
+        "postalcode": "07003"
       }
     },
     {
@@ -15727,7 +15823,7 @@
         "type": "Point",
         "coordinates": [
           -95.49388885,
-          29.84241486
+          29.84241295
         ]
       },
       "properties": {
@@ -15737,7 +15833,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-03-25T23:00:00.000Z",
-        "lasttime": "2026-08-17T13:00:00.000Z",
+        "lasttime": "2026-08-31T14:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -16782,8 +16878,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -112.0730896,
-          33.45667648
+          -112.07312012,
+          33.4567337
         ]
       },
       "properties": {
@@ -16793,7 +16889,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2025-02-22T20:00:00.000Z",
-        "lasttime": "2026-03-17T13:00:00.000Z",
+        "lasttime": "2026-09-01T01:00:00.000Z",
         "city": "Phoenix",
         "region": "AZ",
         "country": "US",
@@ -19926,6 +20022,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -117.47035217,
+          47.63841248
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:DA:7C:6F",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-08-31T10:00:00.000Z",
+        "lasttime": "2026-08-31T13:00:00.000Z",
+        "city": "Spokane",
+        "region": "WA",
+        "country": "US",
+        "road": "I 90;US 2;US 395",
+        "postalcode": "99201-1404"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.42616272,
           28.07073784
         ]
@@ -21363,10 +21483,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-08-31T12:05:24.330414+00:00",
+    "generated": "2026-09-01T10:44:00.823227+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 890
+    "total_cameras": 895
   }
 }
