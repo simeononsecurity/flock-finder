@@ -11,11 +11,11 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 141,954 |
+| 📸 **Cameras Mapped** | 142,192 |
 | 📡 **OUI Prefixes with Data** | 31 / 31 |
 | 🌎 **Countries** | 138 |
 | 🗺️ **Regions** | 50 |
-| 🕐 **Last Updated** | 2026-09-01 |
+| 🕐 **Last Updated** | 2026-09-02 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -183,9 +183,9 @@ The table below lists the ten most frequently observed SSID values across all Wi
 <!-- SSID_TOP10_START -->
 | # | SSID | Occurrences |
 |---|------|-------------|
-| 1 | `Flock` | 2,317 |
-| 2 | `SMARTGATE_123456` | 855 |
-| 3 | `AndroidAP` | 328 |
+| 1 | `Flock` | 2,373 |
+| 2 | `SMARTGATE_123456` | 856 |
+| 3 | `AndroidAP` | 326 |
 | 4 | `TEST` | 292 |
 | 5 | `Compudopt Connect` | 221 |
 | 6 | `ClickShare` | 211 |
@@ -194,7 +194,7 @@ The table below lists the ten most frequently observed SSID values across all Wi
 | 9 | `Audi HUD` | 129 |
 | 10 | `Afsol Wifi` | 126 |
 
-*Computed from 118,440 SSID-bearing records (108,201 unique values) across all 31 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 118,599 SSID-bearing records (108,294 unique values) across all 31 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
@@ -202,12 +202,12 @@ The table below lists the ten most frequently observed SSID values across all Wi
 ## 🔬 Flock SSID Pattern Analysis
 
 <!-- SSID_PATTERNS_START -->
-Filtering for only `Flock*`-prefixed SSIDs yields **157 unique variants** across **2,474 total records**. These fall into five distinct patterns:
+Filtering for only `Flock*`-prefixed SSIDs yields **158 unique variants** across **2,531 total records**. These fall into five distinct patterns:
 
 | Pattern | Unique SSIDs | Records | Description |
 |---------|-------------|---------|-------------|
-| `Flock` | 1 | 2,317 | Bare name — fully configured / deployed cameras |
-| `Flock-XXXXXX` | 146 | 146 | Mixed-case with 6-char uppercase hex suffix |
+| `Flock` | 1 | 2,373 | Bare name — fully configured / deployed cameras |
+| `Flock-XXXXXX` | 147 | 147 | Mixed-case with 6-char uppercase hex suffix |
 | `FLOCK-XXXXXX` | 5 | 5 | All-caps variant with 6-char hex suffix |
 | `Flock-XXXX` | 1 | 1 | Shorter 4-char hex suffix (`Flock-6361`) |
 | `FlockXXX` | 2 | 2 | Numeric suffix, no dash (`Flock001`, `Flock003`) |

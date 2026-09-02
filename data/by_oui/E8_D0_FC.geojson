@@ -126,6 +126,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -93.74345398,
+          44.9017868
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:02:E2:54",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-01T20:00:00.000Z",
+        "lasttime": "2026-09-01T20:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "The Theodore Christianson Memorial Drive",
+        "postalcode": "55375"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.78455067,
           59.91096497
         ]
@@ -5790,8 +5814,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.25718689,
-          27.19775009
+          -80.25713348,
+          27.19737816
         ]
       },
       "properties": {
@@ -5801,7 +5825,7 @@
         "channel": 11,
         "encryption": "unknown",
         "firsttime": "2021-06-30T12:00:00.000Z",
-        "lasttime": "2026-08-29T00:00:00.000Z",
+        "lasttime": "2026-09-01T21:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -18078,8 +18102,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.15209389,
-          52.09225082
+          5.15181828,
+          52.09239578
         ]
       },
       "properties": {
@@ -18089,12 +18113,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-12-26T02:00:00.000Z",
-        "lasttime": "2026-08-30T10:00:00.000Z",
+        "lasttime": "2026-09-01T08:00:00.000Z",
         "city": "Utrecht",
         "region": "Utrecht",
         "country": "NL",
-        "road": "Archimedeslaan",
-        "postalcode": "3584BW"
+        "road": "Pythagoraslaan",
+        "postalcode": "3584BT"
       }
     },
     {
@@ -18871,7 +18895,7 @@
         "type": "Point",
         "coordinates": [
           -122.67298889,
-          45.51649475
+          45.51649094
         ]
       },
       "properties": {
@@ -18881,7 +18905,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-06-29T15:00:00.000Z",
-        "lasttime": "2026-08-30T02:00:00.000Z",
+        "lasttime": "2026-09-01T17:00:00.000Z",
         "city": "Portland",
         "region": "OR",
         "country": "US",
@@ -21483,10 +21507,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-01T10:44:00.823227+00:00",
+    "generated": "2026-09-02T10:09:07.909816+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 895
+    "total_cameras": 896
   }
 }

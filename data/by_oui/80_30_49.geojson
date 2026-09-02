@@ -5334,6 +5334,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -121.09053802,
+          38.87201691
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:14:B6:51",
+        "ssid": "ClickShare-1864702986",
+        "oui": "80:30:49",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-13T00:00:00.000Z",
+        "lasttime": "2026-09-01T07:00:00.000Z",
+        "city": null,
+        "region": "CA",
+        "country": "US",
+        "road": "Auburn Folsom Road",
+        "postalcode": "95603"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -93.26389313,
           44.97468567
         ]
@@ -14550,8 +14574,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.33059287,
-          48.85081482
+          2.33058095,
+          48.85079575
         ]
       },
       "properties": {
@@ -14561,7 +14585,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-09-19T07:00:00.000Z",
-        "lasttime": "2026-08-21T11:00:00.000Z",
+        "lasttime": "2026-09-01T23:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -18699,10 +18723,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-01T10:44:00.823227+00:00",
+    "generated": "2026-09-02T10:09:07.909816+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 779
+    "total_cameras": 780
   }
 }

@@ -558,30 +558,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.06424713,
-          51.11280441
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:0D:D7:93",
-        "ssid": "UE06",
-        "oui": "70:C9:4E",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-01T11:00:00.000Z",
-        "lasttime": "2024-09-01T05:00:00.000Z",
-        "city": "Wroc\u0142aw",
-        "region": "wojew\u00f3dztwo dolno\u015bl\u0105skie",
-        "country": "PL",
-        "road": "Plac Grunwaldzki",
-        "postalcode": "50-363"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -118.7043457,
           34.28747559
         ]
@@ -2255,6 +2231,30 @@
         "country": "CA",
         "road": "Front Street West",
         "postalcode": "M5J 1T1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.10426331,
+          30.09612274
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:31:2D:C5",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-01T11:00:00.000Z",
+        "lasttime": "2026-09-01T10:00:00.000Z",
+        "city": "Beaumont",
+        "region": "TX",
+        "country": "US",
+        "road": "I 10",
+        "postalcode": "77701"
       }
     },
     {
@@ -7254,8 +7254,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          69.12592316,
-          54.87677383
+          69.12577057,
+          54.8768425
         ]
       },
       "properties": {
@@ -7265,7 +7265,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2026-08-18T09:00:00.000Z",
-        "lasttime": "2026-08-18T02:00:00.000Z",
+        "lasttime": "2026-09-01T04:00:00.000Z",
         "city": "\u041f\u0435\u0442\u0440\u043e\u043f\u0430\u0432\u043b",
         "region": "\u0421\u043e\u043b\u0442\u04af\u0441\u0442\u0456\u043a \u049a\u0430\u0437\u0430\u049b\u0441\u0442\u0430\u043d \u043e\u0431\u043b\u044b\u0441\u044b",
         "country": "KZ",
@@ -8945,7 +8945,7 @@
         "channel": 149,
         "encryption": "wpa2",
         "firsttime": "2024-04-18T23:00:00.000Z",
-        "lasttime": "2026-08-30T00:00:00.000Z",
+        "lasttime": "2026-09-01T23:00:00.000Z",
         "city": null,
         "region": "NV",
         "country": "US",
@@ -10707,7 +10707,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-01T10:44:00.823227+00:00",
+    "generated": "2026-09-02T10:09:07.909816+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
