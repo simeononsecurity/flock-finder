@@ -174,8 +174,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.51790333,
-          55.6823082
+          12.51790714,
+          55.68229675
         ]
       },
       "properties": {
@@ -185,7 +185,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-18T00:00:00.000Z",
-        "lasttime": "2026-09-01T01:00:00.000Z",
+        "lasttime": "2026-09-02T09:00:00.000Z",
         "city": null,
         "region": "Region Hovedstaden",
         "country": "DK",
@@ -13086,6 +13086,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -53.80502319,
+          -29.68826485
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:31:E2:C3",
+        "ssid": "VIVOFIBRA-5230",
+        "oui": "80:30:49",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-08-24T16:00:00.000Z",
+        "lasttime": "2026-09-02T19:00:00.000Z",
+        "city": "Santa Maria",
+        "region": "Rio Grande do Sul",
+        "country": "BR",
+        "road": "Rua Tuiuti",
+        "postalcode": "97050-420"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.11313725,
           52.53681183
         ]
@@ -15678,6 +15702,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -122.31864166,
+          47.28964615
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:71:F4:2B",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-02T19:00:00.000Z",
+        "lasttime": "2026-09-02T20:00:00.000Z",
+        "city": "Federal Way",
+        "region": "WA",
+        "country": "US",
+        "road": "South 348th Street",
+        "postalcode": "98003-8308"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.17505646,
           40.83468246
         ]
@@ -15767,6 +15815,30 @@
         "country": "US",
         "road": "McMullen Booth Road",
         "postalcode": "34695"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.31834412,
+          47.28977203
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:74:B5:0B",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-02T19:00:00.000Z",
+        "lasttime": "2026-09-02T20:00:00.000Z",
+        "city": "Federal Way",
+        "region": "WA",
+        "country": "US",
+        "road": "South 348th Street",
+        "postalcode": "98003-8308"
       }
     },
     {
@@ -16127,6 +16199,30 @@
         "country": "US",
         "road": "U.S. Route 5",
         "postalcode": "05158"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.13431549,
+          34.06571579
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:7C:A8:05",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-02T14:00:00.000Z",
+        "lasttime": "2026-09-02T20:00:00.000Z",
+        "city": null,
+        "region": "CA",
+        "country": "US",
+        "road": "N Atlantic Boulevard",
+        "postalcode": "91803"
       }
     },
     {
@@ -17550,6 +17646,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.97999573,
+          38.91711807
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:C1:CA:9F",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-02T08:00:00.000Z",
+        "lasttime": "2026-09-02T17:00:00.000Z",
+        "city": "Washington",
+        "region": "DC",
+        "country": "US",
+        "road": "New York Avenue Northeast",
+        "postalcode": "20002"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -71.11563873,
           42.30862045
         ]
@@ -18723,10 +18843,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-02T10:09:07.909816+00:00",
+    "generated": "2026-09-03T10:20:00.465855+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 780
+    "total_cameras": 785
   }
 }

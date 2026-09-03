@@ -222,6 +222,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.35124207,
+          34.78264999
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:03:E8:20",
+        "ssid": null,
+        "oui": "94:08:53",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-02T14:00:00.000Z",
+        "lasttime": "2026-09-02T11:00:00.000Z",
+        "city": "Greenville",
+        "region": "SC",
+        "country": "US",
+        "road": "Mauldin Road",
+        "postalcode": "29607"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -97.48068237,
           37.70119858
         ]
@@ -2190,30 +2214,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.1183995,
-          51.26352692
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:45:81:DD",
-        "ssid": null,
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-06-27T14:00:00.000Z",
-        "lasttime": "2024-09-02T05:00:00.000Z",
-        "city": null,
-        "region": "England",
-        "country": "GB",
-        "road": "West Ham Roundabout",
-        "postalcode": "RG22 6PE"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -110.17572021,
           38.99647141
         ]
@@ -3606,8 +3606,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.56223488,
-          55.66071701
+          12.56231022,
+          55.66072083
         ]
       },
       "properties": {
@@ -3617,7 +3617,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2025-06-25T06:00:00.000Z",
-        "lasttime": "2026-03-28T00:00:00.000Z",
+        "lasttime": "2026-09-02T19:00:00.000Z",
         "city": "K\u00f8benhavn",
         "region": "Region Hovedstaden",
         "country": "DK",
@@ -22278,8 +22278,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.14255571,
-          46.20951462
+          6.14256144,
+          46.2095108
         ]
       },
       "properties": {
@@ -22289,7 +22289,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-03-23T18:00:00.000Z",
-        "lasttime": "2026-09-02T02:00:00.000Z",
+        "lasttime": "2026-09-02T12:00:00.000Z",
         "city": "Gen\u00e8ve",
         "region": "Gen\u00e8ve",
         "country": "CH",
@@ -24815,30 +24815,6 @@
         "country": "FI",
         "road": "Teollisuuskatu",
         "postalcode": "67100"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.35675514,
-          49.21395874
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:85:BC:BF",
-        "ssid": "Salle de R\u00e9union 2\u00e8me \u00e9tage",
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-01-28T11:00:00.000Z",
-        "lasttime": "2024-09-02T00:00:00.000Z",
-        "city": null,
-        "region": "Normandie",
-        "country": "FR",
-        "road": null,
-        "postalcode": "14200"
       }
     },
     {
@@ -35262,6 +35238,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -93.971138,
+          44.90467453
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:D3:45:8F",
+        "ssid": "Flock",
+        "oui": "94:08:53",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-02T20:00:00.000Z",
+        "lasttime": "2026-09-02T20:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "County Road 33",
+        "postalcode": "55367"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -95.39245605,
           29.76721954
         ]
@@ -35931,7 +35931,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-02T10:09:07.909816+00:00",
+    "generated": "2026-09-03T10:20:00.465855+00:00",
     "oui": "94:08:53",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

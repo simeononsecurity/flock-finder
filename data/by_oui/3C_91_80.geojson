@@ -3606,8 +3606,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -106.57527161,
-          35.10226059
+          -106.57524872,
+          35.10224915
         ]
       },
       "properties": {
@@ -3617,7 +3617,7 @@
         "channel": 13,
         "encryption": "none",
         "firsttime": "2026-01-31T00:00:00.000Z",
-        "lasttime": "2026-08-27T19:00:00.000Z",
+        "lasttime": "2026-09-02T22:00:00.000Z",
         "city": "Albuquerque",
         "region": "NM",
         "country": "US",
@@ -8622,6 +8622,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -85.40768433,
+          32.61987686
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:76:FF:23",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-02T09:00:00.000Z",
+        "lasttime": "2026-09-02T07:00:00.000Z",
+        "city": null,
+        "region": "AL",
+        "country": "US",
+        "road": "Tiger Town Parkway",
+        "postalcode": "36801"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -106.27317047,
           31.75686455
         ]
@@ -9078,8 +9102,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.40461731,
-          36.94680023
+          -76.40470886,
+          36.94697571
         ]
       },
       "properties": {
@@ -9089,7 +9113,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-17T15:00:00.000Z",
-        "lasttime": "2026-09-02T02:00:00.000Z",
+        "lasttime": "2026-09-03T02:00:00.000Z",
         "city": "Newport News",
         "region": "VA",
         "country": "US",
@@ -20454,6 +20478,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -113.61624908,
+          37.09393692
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:FA:34:CF",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-02T17:00:00.000Z",
+        "lasttime": "2026-09-02T19:00:00.000Z",
+        "city": "St. George",
+        "region": "UT",
+        "country": "US",
+        "road": "South Dixie Drive",
+        "postalcode": "84770-1858"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.64639282,
           27.78941917
         ]
@@ -20790,6 +20838,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -116.83588409,
+          47.744133
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:FF:36:5F",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-02T14:00:00.000Z",
+        "lasttime": "2026-09-02T17:00:00.000Z",
+        "city": "Coeur d'Alene",
+        "region": "ID",
+        "country": "US",
+        "road": "West Lennox Loop",
+        "postalcode": "83815"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -77.27308655,
           38.84844589
         ]
@@ -20811,10 +20883,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-02T10:09:07.909816+00:00",
+    "generated": "2026-09-03T10:20:00.465855+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 867
+    "total_cameras": 870
   }
 }

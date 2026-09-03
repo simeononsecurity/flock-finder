@@ -3246,8 +3246,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.66112232,
-          49.99720383
+          14.66102695,
+          49.99719238
         ]
       },
       "properties": {
@@ -3257,7 +3257,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2019-09-04T09:00:00.000Z",
-        "lasttime": "2026-09-01T22:00:00.000Z",
+        "lasttime": "2026-09-02T11:00:00.000Z",
         "city": null,
         "region": "St\u0159edn\u00ed \u010cechy",
         "country": "CZ",
@@ -3335,6 +3335,30 @@
         "country": "NZ",
         "road": "Gloucester Street",
         "postalcode": "7040"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.66057491,
+          49.99718857
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:17:BF:8F",
+        "ssid": "ACknrN0d",
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2019-09-04T09:00:00.000Z",
+        "lasttime": "2026-09-02T11:00:00.000Z",
+        "city": null,
+        "region": "St\u0159edn\u00ed \u010cechy",
+        "country": "CZ",
+        "road": "Politick\u00fdch v\u011bz\u0148\u016f",
+        "postalcode": "25101"
       }
     },
     {
@@ -5598,18 +5622,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.54336548,
-          29.90600395
+          -95.54338074,
+          29.90600014
         ]
       },
       "properties": {
         "netid": "00:F4:8D:2A:FD:FD",
         "ssid": "Flock",
         "oui": "00:F4:8D",
-        "channel": 2,
-        "encryption": "none",
+        "channel": 1,
+        "encryption": "wpa2",
         "firsttime": "2026-05-01T20:00:00.000Z",
-        "lasttime": "2026-08-26T20:00:00.000Z",
+        "lasttime": "2026-09-02T21:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -13371,10 +13395,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-02T10:09:07.909816+00:00",
+    "generated": "2026-09-03T10:20:00.465855+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 557
+    "total_cameras": 558
   }
 }

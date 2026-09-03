@@ -126,6 +126,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.25350189,
+          36.7029953
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:02:E0:EE",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-02T15:00:00.000Z",
+        "lasttime": "2026-09-02T09:00:00.000Z",
+        "city": "Chesapeake",
+        "region": "VA",
+        "country": "US",
+        "road": "Butterfly Drive",
+        "postalcode": "23322"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -93.74345398,
           44.9017868
         ]
@@ -438,8 +462,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.07920074,
-          46.39910507
+          -117.07917023,
+          46.39933014
         ]
       },
       "properties": {
@@ -449,7 +473,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-27T01:00:00.000Z",
-        "lasttime": "2026-08-31T22:00:00.000Z",
+        "lasttime": "2026-09-02T22:00:00.000Z",
         "city": null,
         "region": "WA",
         "country": "US",
@@ -1518,30 +1542,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.84078217,
-          37.48231125
-        ]
-      },
-      "properties": {
-        "netid": "E8:D0:FC:20:4D:8C",
-        "ssid": null,
-        "oui": "E8:D0:FC",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-09-02T02:00:00.000Z",
-        "lasttime": "2024-09-02T16:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
-        "country": "US",
-        "road": "Birchwood Way",
-        "postalcode": "95381"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -74.75097656,
           41.79935837
         ]
@@ -1895,6 +1895,30 @@
         "country": "US",
         "road": "Middle River Road",
         "postalcode": "21220"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.67962646,
+          44.97435379
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:25:4F:B6",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 4,
+        "encryption": "none",
+        "firsttime": "2026-09-02T18:00:00.000Z",
+        "lasttime": "2026-09-02T20:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "County Road 26",
+        "postalcode": "55359"
       }
     },
     {
@@ -5814,8 +5838,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.25713348,
-          27.19737816
+          -80.2571106,
+          27.19731712
         ]
       },
       "properties": {
@@ -5823,9 +5847,9 @@
         "ssid": "E8D0FC4E6DDF",
         "oui": "E8:D0:FC",
         "channel": 11,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2021-06-30T12:00:00.000Z",
-        "lasttime": "2026-09-01T21:00:00.000Z",
+        "lasttime": "2026-09-02T08:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -8742,6 +8766,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          0.58133066,
+          51.5241394
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:81:58:45",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 149,
+        "encryption": "wep",
+        "firsttime": "2026-09-02T17:00:00.000Z",
+        "lasttime": "2026-09-02T11:00:00.000Z",
+        "city": "Castle Point",
+        "region": "England",
+        "country": "GB",
+        "road": "Surig Road",
+        "postalcode": "SS8 0JE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -76.79199982,
           40.34312057
         ]
@@ -9311,6 +9359,30 @@
         "country": "US",
         "road": "Ridgeway Drive",
         "postalcode": "64083"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61546326,
+          39.3895607
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:91:D4:9D",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-02T18:00:00.000Z",
+        "lasttime": "2026-09-02T13:00:00.000Z",
+        "city": "Towson",
+        "region": "MD",
+        "country": "US",
+        "road": "Auburn Drive",
+        "postalcode": "21204"
       }
     },
     {
@@ -9966,23 +10038,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.09976959,
-          34.10727692
+          -118.10035706,
+          34.10661316
         ]
       },
       "properties": {
         "netid": "E8:D0:FC:A1:0C:7D",
         "ssid": null,
         "oui": "E8:D0:FC",
-        "channel": 10,
+        "channel": 2,
         "encryption": "none",
         "firsttime": "2026-08-20T11:00:00.000Z",
-        "lasttime": "2026-08-20T19:00:00.000Z",
+        "lasttime": "2026-09-02T20:00:00.000Z",
         "city": "San Gabriel",
         "region": "CA",
         "country": "US",
-        "road": "Del Mar Avenue",
-        "postalcode": "91778"
+        "road": "Hermosa Drive",
+        "postalcode": "91775:91776"
       }
     },
     {
@@ -14454,8 +14526,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.1044178,
-          47.45547104
+          19.10442352,
+          47.45547485
         ]
       },
       "properties": {
@@ -14465,7 +14537,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-09-16T05:00:00.000Z",
-        "lasttime": "2024-11-08T07:00:00.000Z",
+        "lasttime": "2026-09-02T09:00:00.000Z",
         "city": null,
         "region": "Budapest",
         "country": "HU",
@@ -21507,10 +21579,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-02T10:09:07.909816+00:00",
+    "generated": "2026-09-03T10:20:00.465855+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 896
+    "total_cameras": 899
   }
 }
