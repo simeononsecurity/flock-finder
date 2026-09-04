@@ -654,6 +654,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -70.20261383,
+          44.26639557
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:0F:50:C4",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 149,
+        "encryption": "none",
+        "firsttime": "2026-09-03T11:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": null,
+        "region": "ME",
+        "country": "US",
+        "road": "Center Bridge Road",
+        "postalcode": "04282"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -79.94570923,
           40.49517822
         ]
@@ -2430,6 +2454,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          153.02871704,
+          -27.45896339
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:34:BD:C1",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 5,
+        "encryption": "none",
+        "firsttime": "2026-09-04T10:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
+        "city": null,
+        "region": "Queensland",
+        "country": "AU",
+        "road": "Saint Pauls Terrace",
+        "postalcode": "4001"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           151.21130371,
           -33.91508102
         ]
@@ -3990,6 +4038,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -95.65962219,
+          30.03343201
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:44:C8:36",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T10:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Telge Road",
+        "postalcode": "77377"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           151.10391235,
           -33.87610245
         ]
@@ -4631,6 +4703,30 @@
         "country": "US",
         "road": "Summit Avenue",
         "postalcode": "07302:07306"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.05151367,
+          35.27040863
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:4C:7E:3E",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T09:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
+        "city": null,
+        "region": "NC",
+        "country": "US",
+        "road": "Belmont Avenue",
+        "postalcode": "28012"
       }
     },
     {
@@ -10542,30 +10638,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.79844666,
-          37.53216934
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:ED:C5:1F",
-        "ssid": null,
-        "oui": "70:C9:4E",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T09:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": null,
-        "region": "CA",
-        "country": "US",
-        "road": "North Sperry Road",
-        "postalcode": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.98881531,
           40.75028229
         ]
@@ -10875,10 +10947,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 453
+    "total_cameras": 456
   }
 }

@@ -246,30 +246,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.79275513,
-          37.52905273
-        ]
-      },
-      "properties": {
-        "netid": "E8:D0:FC:06:6E:2C",
-        "ssid": null,
-        "oui": "E8:D0:FC",
-        "channel": 7,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T08:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": null,
-        "region": "CA",
-        "country": "US",
-        "road": "East Zeering Road",
-        "postalcode": "95382"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -121.79777527,
           36.67703247
         ]
@@ -10470,6 +10446,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.98527527,
+          38.9229393
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:A6:5B:4D",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 149,
+        "encryption": "none",
+        "firsttime": "2026-09-03T14:00:00.000Z",
+        "lasttime": "2026-09-03T07:00:00.000Z",
+        "city": "Washington",
+        "region": "DC",
+        "country": "US",
+        "road": "Saratoga Avenue Northeast",
+        "postalcode": "20018"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -71.10689545,
           42.38189697
         ]
@@ -10919,6 +10919,30 @@
         "country": "US",
         "road": "Silver Mist Way",
         "postalcode": "78254"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.84339905,
+          30.11441231
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:B0:CC:C3",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 36,
+        "encryption": "none",
+        "firsttime": "2026-09-03T16:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Old Jennings Road",
+        "postalcode": "32068"
       }
     },
     {
@@ -15606,7 +15630,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.72292709,
+          10.72294712,
           59.91082382
         ]
       },
@@ -15617,7 +15641,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-07-06T17:00:00.000Z",
-        "lasttime": "2026-08-27T09:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
         "city": "Oslo",
         "region": "Aker brygge",
         "country": "NO",
@@ -15919,7 +15943,7 @@
         "type": "Point",
         "coordinates": [
           -95.49388885,
-          29.84241295
+          29.84240723
         ]
       },
       "properties": {
@@ -15929,7 +15953,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-03-25T23:00:00.000Z",
-        "lasttime": "2026-08-31T14:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -19182,8 +19206,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.80059338,
-          59.91611862
+          10.80058861,
+          59.91612625
         ]
       },
       "properties": {
@@ -19193,7 +19217,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-01-18T09:00:00.000Z",
-        "lasttime": "2026-08-27T09:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
         "city": "Oslo",
         "region": "Gr\u00f8nvoll",
         "country": "NO",
@@ -19655,6 +19679,30 @@
         "country": "NZ",
         "road": "Waihi Road",
         "postalcode": "4610"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.03790283,
+          -27.45484352
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:C7:5B:F1",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 8,
+        "encryption": "none",
+        "firsttime": "2026-09-04T06:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
+        "city": "Brisbane City",
+        "region": "Queensland",
+        "country": "AU",
+        "road": "Church Street",
+        "postalcode": "4006"
       }
     },
     {
@@ -21579,10 +21627,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 899
+    "total_cameras": 901
   }
 }

@@ -1950,30 +1950,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.36455536,
-          34.16942978
-        ]
-      },
-      "properties": {
-        "netid": "F8:A2:D6:06:E0:FB",
-        "ssid": "ELUX_f8:a2:d6:06:e0:fb",
-        "oui": "F8:A2:D6",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T20:00:00.000Z",
-        "lasttime": "2024-09-03T13:00:00.000Z",
-        "city": "Los Angeles",
-        "region": "CA",
-        "country": "US",
-        "road": "Denny Avenue",
-        "postalcode": "91601"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.8588028,
           40.85618591
         ]
@@ -2831,6 +2807,30 @@
         "country": "US",
         "road": "Alameda Avenue",
         "postalcode": "79927"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1945343,
+          40.90760422
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:0C:FE:F8",
+        "ssid": "Flock",
+        "oui": "F8:A2:D6",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T11:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
+        "city": "Paterson",
+        "region": "NJ",
+        "country": "US",
+        "road": "McBride Avenue",
+        "postalcode": "07501"
       }
     },
     {
@@ -9030,7 +9030,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.19932938,
+          11.19933033,
           60.14080048
         ]
       },
@@ -9041,7 +9041,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-05-20T19:00:00.000Z",
-        "lasttime": "2026-08-19T15:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
         "city": null,
         "region": "Viken",
         "country": "NO",
@@ -14310,6 +14310,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          153.03791809,
+          -27.4548378
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:4A:E3:05",
+        "ssid": "Flock",
+        "oui": "F8:A2:D6",
+        "channel": 48,
+        "encryption": "none",
+        "firsttime": "2026-09-04T04:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Brisbane City",
+        "region": "Queensland",
+        "country": "AU",
+        "road": "Church Street",
+        "postalcode": "4006"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.274086,
           32.84970856
         ]
@@ -18761,7 +18785,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2020-04-07T08:00:00.000Z",
-        "lasttime": "2026-08-31T11:00:00.000Z",
+        "lasttime": "2026-09-03T10:00:00.000Z",
         "city": "Helsinki",
         "region": "Manner-Suomi",
         "country": "FI",
@@ -19087,7 +19111,7 @@
         "type": "Point",
         "coordinates": [
           -82.44582367,
-          27.95002747
+          27.950037
         ]
       },
       "properties": {
@@ -19097,7 +19121,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-15T18:00:00.000Z",
-        "lasttime": "2026-08-25T18:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Tampa",
         "region": "FL",
         "country": "US",
@@ -22206,8 +22230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.53218842,
-          29.86287117
+          -95.53222656,
+          29.8628788
         ]
       },
       "properties": {
@@ -22217,7 +22241,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2025-11-22T07:00:00.000Z",
-        "lasttime": "2026-09-01T20:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -22247,30 +22271,6 @@
         "country": "US",
         "road": "Canal Street",
         "postalcode": "45764"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -77.45349121,
-          38.90926361
-        ]
-      },
-      "properties": {
-        "netid": "F8:A2:D6:4F:A3:FF",
-        "ssid": "ClickShare Conference Room",
-        "oui": "F8:A2:D6",
-        "channel": 165,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-03T11:00:00.000Z",
-        "lasttime": "2024-09-03T04:00:00.000Z",
-        "city": null,
-        "region": "VA",
-        "country": "US",
-        "road": "Stonecroft Boulevard",
-        "postalcode": "20151"
       }
     },
     {
@@ -23039,6 +23039,30 @@
         "country": "CA",
         "road": "Avenue Charland",
         "postalcode": "H1Z 1A1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.60639191,
+          6.27854252
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:65:26:57",
+        "ssid": "DIRECT-ERIECMCAMV035msiE",
+        "oui": "F8:A2:D6",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-01T21:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
+        "city": null,
+        "region": "Antioquia",
+        "country": "CO",
+        "road": "Carrera 95A",
+        "postalcode": "0500"
       }
     },
     {
@@ -26142,6 +26166,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          2.49195147,
+          48.85115051
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:6D:FF:F1",
+        "ssid": "ClickShare-E3092",
+        "oui": "F8:A2:D6",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2022-03-05T18:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
+        "city": "Fontenay-sous-Bois",
+        "region": "\u00cele-de-France",
+        "country": "FR",
+        "road": "A 86",
+        "postalcode": "94120"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.86741781,
           52.33803177
         ]
@@ -28278,6 +28326,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          2.49191236,
+          48.85125351
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:6E:0A:87",
+        "ssid": "ClickShare-I3074",
+        "oui": "F8:A2:D6",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T15:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
+        "city": "Fontenay-sous-Bois",
+        "region": "\u00cele-de-France",
+        "country": "FR",
+        "road": "A 86",
+        "postalcode": "94120"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           2.34040546,
           48.87298203
         ]
@@ -28638,8 +28710,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.32132053,
-          52.45721054
+          13.32132626,
+          52.45721436
         ]
       },
       "properties": {
@@ -28649,7 +28721,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-05-06T21:00:00.000Z",
-        "lasttime": "2026-08-28T08:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
         "city": "Berlin",
         "region": "Nachbarschaftsladen Mittelhof",
         "country": "DE",
@@ -29238,8 +29310,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3036499,
-          47.04244232
+          8.30362225,
+          47.04245758
         ]
       },
       "properties": {
@@ -29249,7 +29321,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-09-02T13:00:00.000Z",
-        "lasttime": "2026-06-20T00:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
         "city": "Luzern",
         "region": "Luzern",
         "country": "CH",
@@ -33935,6 +34007,30 @@
         "country": "US",
         "road": "McCormick Avenue",
         "postalcode": "21206"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.171994,
+          39.01269531
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:9D:BF:99",
+        "ssid": "Flock",
+        "oui": "F8:A2:D6",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T15:00:00.000Z",
+        "lasttime": "2026-09-03T10:00:00.000Z",
+        "city": "Gandia",
+        "region": "Comunitat Valenciana",
+        "country": "ES",
+        "road": "Carrer d'Arag\u00f3",
+        "postalcode": "46730"
       }
     },
     {
@@ -42102,8 +42198,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.32948303,
-          44.98781967
+          -93.32946014,
+          44.98784256
         ]
       },
       "properties": {
@@ -42113,7 +42209,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-08-10T17:00:00.000Z",
-        "lasttime": "2026-08-18T15:00:00.000Z",
+        "lasttime": "2026-09-03T05:00:00.000Z",
         "city": null,
         "region": "MN",
         "country": "US",
@@ -42569,7 +42665,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-07-09T12:00:00.000Z",
-        "lasttime": "2026-08-30T07:00:00.000Z",
+        "lasttime": "2026-09-03T10:00:00.000Z",
         "city": null,
         "region": "Baden-W\u00fcrttemberg",
         "country": "DE",
@@ -43638,30 +43734,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.58391762,
-          55.7268486
-        ]
-      },
-      "properties": {
-        "netid": "F8:A2:D6:AD:DB:CD",
-        "ssid": "ClickShare-Auditorium",
-        "oui": "F8:A2:D6",
-        "channel": 40,
-        "encryption": "wpa2",
-        "firsttime": "2024-06-24T10:00:00.000Z",
-        "lasttime": "2024-09-03T05:00:00.000Z",
-        "city": null,
-        "region": "Region Hovedstaden",
-        "country": "DK",
-        "road": "Tuborglinien",
-        "postalcode": "2150"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -93.25816345,
           45.10606003
         ]
@@ -43871,6 +43943,30 @@
         "country": "US",
         "road": "Gaylord Parkway",
         "postalcode": "75024"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.26667786,
+          44.97580719
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:AD:DC:63",
+        "ssid": "HCAO Trial Cart 04",
+        "oui": "F8:A2:D6",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-01T19:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
+        "city": "Minneapolis",
+        "region": "MN",
+        "country": "US",
+        "road": "South 6th Street",
+        "postalcode": "55415"
       }
     },
     {
@@ -44886,8 +44982,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.26643372,
-          44.97545624
+          -93.26647949,
+          44.97551727
         ]
       },
       "properties": {
@@ -44897,7 +44993,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2019-12-19T17:00:00.000Z",
-        "lasttime": "2026-03-21T14:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": "Minneapolis",
         "region": "MN",
         "country": "US",
@@ -44951,6 +45047,30 @@
         "country": "GB",
         "road": "Ducie Street",
         "postalcode": "M1 2JQ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.01211548,
+          37.59698486
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:AF:A8:69",
+        "ssid": null,
+        "oui": "F8:A2:D6",
+        "channel": 165,
+        "encryption": "unknown",
+        "firsttime": "2026-09-03T16:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
+        "city": "Modesto",
+        "region": "CA",
+        "country": "US",
+        "road": "Ustick Road",
+        "postalcode": "95358"
       }
     },
     {
@@ -46275,10 +46395,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "F8:A2:D6",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1928
+    "total_cameras": 1933
   }
 }

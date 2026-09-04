@@ -54,8 +54,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.94194794,
-          40.85037994
+          -111.94049072,
+          40.8501091
         ]
       },
       "properties": {
@@ -63,9 +63,9 @@
         "ssid": "Ring-0002f9",
         "oui": "08:3A:88",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2025-09-04T16:00:00.000Z",
-        "lasttime": "2025-09-04T09:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": null,
         "region": "UT",
         "country": "US",
@@ -367,7 +367,7 @@
         "type": "Point",
         "coordinates": [
           -77.63885498,
-          37.47491074
+          37.47485352
         ]
       },
       "properties": {
@@ -377,7 +377,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2026-08-31T19:00:00.000Z",
-        "lasttime": "2026-09-01T15:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
         "city": null,
         "region": "VA",
         "country": "US",
@@ -11310,23 +11310,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.42575073,
-          47.19183731
+          -122.41558838,
+          47.19177628
         ]
       },
       "properties": {
         "netid": "08:3A:88:02:C4:A9",
         "ssid": null,
         "oui": "08:3A:88",
-        "channel": 1,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-08-26T01:00:00.000Z",
-        "lasttime": "2026-08-26T21:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": null,
         "region": "WA",
         "country": "US",
         "road": "72nd Street East",
-        "postalcode": "98408"
+        "postalcode": "98443"
       }
     },
     {
@@ -11807,6 +11807,30 @@
         "country": "US",
         "road": "Diamond Drive",
         "postalcode": "46516"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.65773773,
+          28.18505669
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:02:EA:F6",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Pink Guara Court",
+        "postalcode": "35655"
       }
     },
     {
@@ -12863,6 +12887,30 @@
         "country": "US",
         "road": null,
         "postalcode": "53167"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.66227722,
+          28.18496323
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:03:38:8C",
+        "ssid": "Flock",
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Regal Mist Loop",
+        "postalcode": "34655"
       }
     },
     {
@@ -19230,8 +19278,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.67881775,
-          41.65474319
+          -74.67891693,
+          41.65475845
         ]
       },
       "properties": {
@@ -19241,7 +19289,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-07-10T20:00:00.000Z",
-        "lasttime": "2026-08-31T18:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
         "city": null,
         "region": "NY",
         "country": "US",
@@ -19601,7 +19649,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2023-11-12T15:00:00.000Z",
-        "lasttime": "2026-09-02T20:00:00.000Z",
+        "lasttime": "2026-09-03T08:00:00.000Z",
         "city": "Poway",
         "region": "CA",
         "country": "US",
@@ -22878,8 +22926,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -114.97058868,
-          36.07110214
+          -114.9708252,
+          36.0711174
         ]
       },
       "properties": {
@@ -22889,7 +22937,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2026-05-12T19:00:00.000Z",
-        "lasttime": "2026-06-29T14:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": "Henderson",
         "region": "NV",
         "country": "US",
@@ -23335,7 +23383,7 @@
         "type": "Point",
         "coordinates": [
           -81.01741028,
-          33.99871445
+          33.99870682
         ]
       },
       "properties": {
@@ -23345,7 +23393,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2024-01-27T21:00:00.000Z",
-        "lasttime": "2026-08-19T17:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Columbia",
         "region": "SC",
         "country": "US",
@@ -23382,22 +23430,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -78.69641113,
-          42.95639038
+          -78.6964798,
+          42.95617294
         ]
       },
       "properties": {
         "netid": "08:3A:88:05:B0:9B",
         "ssid": null,
         "oui": "08:3A:88",
-        "channel": 3,
-        "encryption": "wpa2",
+        "channel": 11,
+        "encryption": "none",
         "firsttime": "2026-07-05T16:00:00.000Z",
-        "lasttime": "2026-07-05T15:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Buffalo",
         "region": "NY",
         "country": "US",
-        "road": "Wehrle Drive",
+        "road": "Transit Road",
         "postalcode": "14221"
       }
     },
@@ -25782,8 +25830,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.20087433,
-          32.93208313
+          -117.20097351,
+          32.93210983
         ]
       },
       "properties": {
@@ -25793,7 +25841,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-07-29T23:00:00.000Z",
-        "lasttime": "2026-09-01T23:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "San Diego",
         "region": "CA",
         "country": "US",
@@ -26910,6 +26958,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -93.32897949,
+          44.90791702
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:06:78:5E",
+        "ssid": "Ring-06785e",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-07-28T22:00:00.000Z",
+        "lasttime": "2026-09-03T20:00:00.000Z",
+        "city": "Minneapolis",
+        "region": "MN",
+        "country": "US",
+        "road": "France Avenue South",
+        "postalcode": "55410"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -87.62042236,
           41.67514038
         ]
@@ -27510,6 +27582,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.66020966,
+          28.1793499
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:06:A5:CC",
+        "ssid": "Flock",
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T05:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Kaffir Lily Court",
+        "postalcode": "35655"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -77.06898499,
           38.90616608
         ]
@@ -28086,8 +28182,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.26436615,
-          32.96952438
+          -117.26428223,
+          32.96963501
         ]
       },
       "properties": {
@@ -28095,9 +28191,9 @@
         "ssid": "Ring Setup 85",
         "oui": "08:3A:88",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2023-10-04T16:00:00.000Z",
-        "lasttime": "2026-01-09T10:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Del Mar",
         "region": "CA",
         "country": "US",
@@ -29118,8 +29214,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -103.13410187,
-          32.69665146
+          -103.13407898,
+          32.69664764
         ]
       },
       "properties": {
@@ -29129,7 +29225,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2022-06-24T11:00:00.000Z",
-        "lasttime": "2026-08-04T20:00:00.000Z",
+        "lasttime": "2026-09-04T00:00:00.000Z",
         "city": "Hobbs",
         "region": "NM",
         "country": "US",
@@ -31422,8 +31518,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.80982971,
-          39.26210785
+          -76.80986023,
+          39.26208878
         ]
       },
       "properties": {
@@ -31433,7 +31529,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-07-28T16:00:00.000Z",
-        "lasttime": "2026-08-25T08:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
@@ -36630,8 +36726,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.83516693,
-          38.10413361
+          -85.8351593,
+          38.10414124
         ]
       },
       "properties": {
@@ -36641,7 +36737,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2022-11-23T15:00:00.000Z",
-        "lasttime": "2026-09-02T09:00:00.000Z",
+        "lasttime": "2026-09-03T10:00:00.000Z",
         "city": "Louisville",
         "region": "KY",
         "country": "US",
@@ -39199,7 +39295,7 @@
         "type": "Point",
         "coordinates": [
           -98.66230774,
-          29.51345825
+          29.51333427
         ]
       },
       "properties": {
@@ -39209,7 +39305,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-05-10T20:00:00.000Z",
-        "lasttime": "2026-08-31T16:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
         "city": "San Antonio",
         "region": "TX",
         "country": "US",
@@ -41406,6 +41502,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -85.46989441,
+          32.58103943
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:09:FE:7E",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 36,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": "Auburn",
+        "region": "AL",
+        "country": "US",
+        "road": "East University Drive",
+        "postalcode": "36830"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -96.75260925,
           33.0338707
         ]
@@ -43038,8 +43158,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.75272369,
-          40.71086884
+          -73.75271606,
+          40.71085358
         ]
       },
       "properties": {
@@ -43049,7 +43169,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2023-12-10T02:00:00.000Z",
-        "lasttime": "2024-09-17T14:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
         "city": "City of New York",
         "region": "NY",
         "country": "US",
@@ -43151,6 +43271,30 @@
         "country": "US",
         "road": "17th Street",
         "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.65667725,
+          28.1862545
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:0A:4D:04",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Pink Guara Court",
+        "postalcode": "35655"
       }
     },
     {
@@ -44958,8 +45102,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.24860382,
-          26.25615692
+          -98.24865723,
+          26.25614929
         ]
       },
       "properties": {
@@ -44967,9 +45111,9 @@
         "ssid": "Ring-0ab3a1",
         "oui": "08:3A:88",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2025-05-09T17:00:00.000Z",
-        "lasttime": "2025-05-09T11:00:00.000Z",
+        "lasttime": "2026-09-03T10:00:00.000Z",
         "city": "McAllen",
         "region": "TX",
         "country": "US",
@@ -50046,6 +50190,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -97.43048096,
+          31.28060913
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:0B:ED:C5",
+        "ssid": "Ring-0bedc5",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-03T15:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Dove Road",
+        "postalcode": "76557"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -113.57855225,
           37.10962677
         ]
@@ -54846,7 +55014,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.84629297,
+          4.84630489,
           52.39115906
         ]
       },
@@ -54857,7 +55025,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-01-12T10:00:00.000Z",
-        "lasttime": "2026-05-12T07:00:00.000Z",
+        "lasttime": "2026-09-03T08:00:00.000Z",
         "city": "Amsterdam",
         "region": "Noord-Holland",
         "country": "NL",
@@ -55494,8 +55662,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.23232269,
-          28.40768242
+          -80.96437073,
+          28.29576302
         ]
       },
       "properties": {
@@ -55505,12 +55673,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-03-31T20:00:00.000Z",
-        "lasttime": "2024-11-23T15:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
-        "road": "Central Florida GreeneWay",
-        "postalcode": "32832"
+        "road": "Taylorwoods Road",
+        "postalcode": null
       }
     },
     {
@@ -68118,30 +68286,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.71637726,
-          41.86235046
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:21:74:7E",
-        "ssid": "Sra051216Mdm",
-        "oui": "08:3A:88",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-03T12:00:00.000Z",
-        "lasttime": "2024-09-03T05:00:00.000Z",
-        "city": null,
-        "region": "NY",
-        "country": "US",
-        "road": "State Highway 82",
-        "postalcode": "12581"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -93.39995575,
           45.03741837
         ]
@@ -68862,8 +69006,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.08529663,
-          31.75242043
+          -93.07066345,
+          31.74679565
         ]
       },
       "properties": {
@@ -68873,11 +69017,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-10-29T13:00:00.000Z",
-        "lasttime": "2026-06-30T15:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": null,
         "region": "LA",
         "country": "US",
-        "road": "South Williams Avenue",
+        "road": "Parkway Drive",
         "postalcode": "71457"
       }
     },
@@ -68886,8 +69030,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.08571625,
-          31.75197411
+          -93.07073212,
+          31.74770355
         ]
       },
       "properties": {
@@ -68897,11 +69041,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-03-17T10:00:00.000Z",
-        "lasttime": "2026-06-30T15:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": null,
         "region": "LA",
         "country": "US",
-        "road": "South Williams Avenue",
+        "road": "Jeston Drive",
         "postalcode": "71457"
       }
     },
@@ -73351,7 +73495,7 @@
         "type": "Point",
         "coordinates": [
           -76.58621216,
-          39.34531784
+          39.34527969
         ]
       },
       "properties": {
@@ -73361,12 +73505,12 @@
         "channel": 1,
         "encryption": "wpa",
         "firsttime": "2025-09-17T12:00:00.000Z",
-        "lasttime": "2026-07-06T15:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
         "city": "Baltimore",
         "region": "MD",
         "country": "US",
         "road": "Hillen Road",
-        "postalcode": "21239"
+        "postalcode": "21251"
       }
     },
     {
@@ -73638,8 +73782,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.12193298,
-          41.80334854
+          -73.12150574,
+          41.80347443
         ]
       },
       "properties": {
@@ -73649,7 +73793,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-12-04T14:00:00.000Z",
-        "lasttime": "2026-03-24T13:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
         "city": "Torrington",
         "region": "CT",
         "country": "US",
@@ -74430,8 +74574,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.46324921,
-          -33.94898605
+          18.46250725,
+          -33.95049286
         ]
       },
       "properties": {
@@ -74445,7 +74589,7 @@
         "city": "Cape Town",
         "region": "Western Cape",
         "country": "ZA",
-        "road": "Rhodes Drive",
+        "road": "North Entrance Road",
         "postalcode": "7700"
       }
     },
@@ -76398,6 +76542,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -87.80677795,
+          41.59553528
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:23:52:41",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T17:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "162nd Place",
+        "postalcode": "60477"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.3456955,
           47.21561432
         ]
@@ -76679,30 +76847,6 @@
         "country": "US",
         "road": "I 75",
         "postalcode": "40324"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -120.79492188,
-          37.53220367
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:23:5F:8E",
-        "ssid": null,
-        "oui": "08:3A:88",
-        "channel": 149,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T09:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": null,
-        "region": "CA",
-        "country": "US",
-        "road": "Jimbo Court",
-        "postalcode": null
       }
     },
     {
@@ -78335,6 +78479,30 @@
         "country": "US",
         "road": "Germantown Avenue",
         "postalcode": "19144"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.24111938,
+          38.66360474
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:23:BE:DB",
+        "ssid": "Flock",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-04T02:00:00.000Z",
+        "lasttime": "2026-09-04T02:00:00.000Z",
+        "city": null,
+        "region": "CA",
+        "country": "US",
+        "road": "Cozby Court",
+        "postalcode": "95628"
       }
     },
     {
@@ -82830,30 +82998,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.19010162,
-          32.79895401
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:24:B2:7A",
-        "ssid": "Ring-24b27a",
-        "oui": "08:3A:88",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T22:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": "Fort Worth",
-        "region": "TX",
-        "country": "US",
-        "road": "Elbe Trail",
-        "postalcode": "76118"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.91532135,
           40.63508606
         ]
@@ -83142,8 +83286,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.01329041,
-          46.38214493
+          -117.01359558,
+          46.38202667
         ]
       },
       "properties": {
@@ -83153,11 +83297,11 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2024-10-06T22:00:00.000Z",
-        "lasttime": "2026-08-26T23:00:00.000Z",
+        "lasttime": "2026-09-03T06:00:00.000Z",
         "city": "Lewiston",
         "region": "ID",
         "country": "US",
-        "road": "4th Street",
+        "road": "Bryden Canyon Road",
         "postalcode": "83501"
       }
     },
@@ -85806,6 +85950,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.65837097,
+          28.18185425
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:25:8D:79",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 149,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Amaryllis Court",
+        "postalcode": "35655"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -86.15258789,
           39.74685287
         ]
@@ -87215,30 +87383,6 @@
         "country": "US",
         "road": "Aurora Drive",
         "postalcode": "89012"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -120.81690216,
-          37.49757767
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:25:FC:43",
-        "ssid": null,
-        "oui": "08:3A:88",
-        "channel": 157,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T09:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
-        "country": "US",
-        "road": "North Daubenberger Road",
-        "postalcode": "95381"
       }
     },
     {
@@ -89910,8 +90054,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -70.39958191,
-          43.79526138
+          -70.39956665,
+          43.79534531
         ]
       },
       "properties": {
@@ -89921,7 +90065,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-07-15T16:00:00.000Z",
-        "lasttime": "2026-08-31T10:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
         "city": null,
         "region": "ME",
         "country": "US",
@@ -93462,7 +93606,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.6651001,
+          -122.66510773,
           45.64990234
         ]
       },
@@ -93473,7 +93617,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2023-08-10T08:00:00.000Z",
-        "lasttime": "2026-09-02T20:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
         "city": "Vancouver",
         "region": "WA",
         "country": "US",
@@ -96702,6 +96846,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -93.16690826,
+          44.95886612
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:27:FF:56",
+        "ssid": "Ring Setup 56",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-07-18T22:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
+        "city": "Saint Paul",
+        "region": "MN",
+        "country": "US",
+        "road": "Snelling Avenue",
+        "postalcode": "55104"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -118.41632843,
           33.89408112
         ]
@@ -98838,8 +99006,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -92.92008209,
-          44.92998123
+          -92.92008972,
+          44.92996216
         ]
       },
       "properties": {
@@ -98849,7 +99017,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-08-11T22:00:00.000Z",
-        "lasttime": "2026-09-02T17:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": null,
         "region": "MN",
         "country": "US",
@@ -101550,6 +101718,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.90642548,
+          38.95670319
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:29:35:1C",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T18:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
+        "city": null,
+        "region": "MD",
+        "country": "US",
+        "road": "Baltimore-Washington Parkway",
+        "postalcode": "20737"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -78.62330627,
           33.87857437
         ]
@@ -102887,6 +103079,30 @@
         "country": "US",
         "road": "Wasatch Boulevard",
         "postalcode": "84121"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.16691589,
+          44.95892715
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:29:74:87",
+        "ssid": "Ring Setup 87",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-07-18T22:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
+        "city": "Saint Paul",
+        "region": "MN",
+        "country": "US",
+        "road": "Snelling Avenue",
+        "postalcode": "55104"
       }
     },
     {
@@ -104934,6 +105150,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -78.69702911,
+          42.93499756
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:29:E3:CB",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T17:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
+        "city": "Town of Cheektowaga",
+        "region": "NY",
+        "country": "US",
+        "road": "Transit Road",
+        "postalcode": "14225"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -72.12042236,
           44.00014877
         ]
@@ -105623,6 +105863,30 @@
         "country": "US",
         "road": "Bridle Path",
         "postalcode": "78703"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.63957977,
+          48.28457642
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:2A:0D:16",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": null,
+        "region": "ND",
+        "country": "US",
+        "road": "60th Street Northwest",
+        "postalcode": null
       }
     },
     {
@@ -107399,6 +107663,30 @@
         "country": "US",
         "road": "Walnut Street",
         "postalcode": "27511"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.16690826,
+          44.95886612
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:2A:6F:A6",
+        "ssid": "Ring Setup a6",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-07-18T22:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
+        "city": "Saint Paul",
+        "region": "MN",
+        "country": "US",
+        "road": "Snelling Avenue",
+        "postalcode": "55104"
       }
     },
     {
@@ -112254,7 +112542,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -115.22911835,
+          -115.22911072,
           36.08635712
         ]
       },
@@ -112265,7 +112553,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2024-06-04T20:00:00.000Z",
-        "lasttime": "2026-09-01T16:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
         "city": null,
         "region": "NV",
         "country": "US",
@@ -122214,8 +122502,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3.45950365,
-          55.92375183
+          -3.46009779,
+          55.92354965
         ]
       },
       "properties": {
@@ -122223,9 +122511,9 @@
         "ssid": "Ring Setup 12",
         "oui": "08:3A:88",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2026-07-24T20:00:00.000Z",
-        "lasttime": "2026-07-25T09:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": null,
         "region": "Alba / Scotland",
         "country": "GB",
@@ -125166,8 +125454,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -72.94154358,
-          41.31069183
+          -72.94152069,
+          41.3106842
         ]
       },
       "properties": {
@@ -125177,7 +125465,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2022-03-13T13:00:00.000Z",
-        "lasttime": "2026-09-02T06:00:00.000Z",
+        "lasttime": "2026-09-03T06:00:00.000Z",
         "city": "New Haven",
         "region": "CT",
         "country": "US",
@@ -130926,8 +131214,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.22157288,
-          33.93732834
+          -84.22160339,
+          33.93722916
         ]
       },
       "properties": {
@@ -130935,13 +131223,13 @@
         "ssid": "Ring-2f16c7",
         "oui": "08:3A:88",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2025-12-07T20:00:00.000Z",
-        "lasttime": "2025-12-07T15:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": null,
         "region": "GA",
         "country": "US",
-        "road": "Hunter Street Northwest",
+        "road": "West Peachtree Street Northwest",
         "postalcode": "30071"
       }
     },
@@ -131279,6 +131567,30 @@
         "country": "SK",
         "road": "Kme\u0165ova",
         "postalcode": "900 28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.66238403,
+          28.17990303
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:2F:23:47",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Gallberry Court",
+        "postalcode": "35655"
       }
     },
     {
@@ -132671,6 +132983,30 @@
         "country": "US",
         "road": "Santa Fe Avenue",
         "postalcode": "95382"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.48717499,
+          32.55472946
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:2F:47:5B",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": "Auburn",
+        "region": "AL",
+        "country": "US",
+        "road": "Shell Toomer Parkway",
+        "postalcode": "36832-6942"
       }
     },
     {
@@ -134551,7 +134887,7 @@
         "type": "Point",
         "coordinates": [
           -71.08293152,
-          42.38185501
+          42.3818512
         ]
       },
       "properties": {
@@ -134561,7 +134897,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2022-06-08T22:00:00.000Z",
-        "lasttime": "2026-07-05T16:00:00.000Z",
+        "lasttime": "2026-09-03T12:00:00.000Z",
         "city": "Somerville",
         "region": "MA",
         "country": "US",
@@ -139518,6 +139854,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -84.22034454,
+          33.93573761
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:2F:F3:66",
+        "ssid": "Ring-2ff366",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-03T22:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
+        "city": null,
+        "region": "GA",
+        "country": "US",
+        "road": "Thrasher Street Northwest",
+        "postalcode": "30071"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -111.92401886,
           40.46806717
         ]
@@ -142169,7 +142529,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-05-07T12:00:00.000Z",
-        "lasttime": "2026-09-02T13:00:00.000Z",
+        "lasttime": "2026-09-03T10:00:00.000Z",
         "city": null,
         "region": "PA",
         "country": "US",
@@ -142710,8 +143070,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.34993744,
-          47.65644836
+          -122.3498764,
+          47.6562767
         ]
       },
       "properties": {
@@ -142721,7 +143081,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2026-02-04T16:00:00.000Z",
-        "lasttime": "2026-02-04T09:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
         "city": "Seattle",
         "region": "WA",
         "country": "US",
@@ -142817,7 +143177,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2022-10-01T12:00:00.000Z",
-        "lasttime": "2026-04-18T14:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": "Henderson",
         "region": "NV",
         "country": "US",
@@ -145639,7 +145999,7 @@
         "type": "Point",
         "coordinates": [
           -114.97353363,
-          36.07102585
+          36.07102966
         ]
       },
       "properties": {
@@ -145649,7 +146009,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2022-10-01T12:00:00.000Z",
-        "lasttime": "2026-06-29T14:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": "Henderson",
         "region": "NV",
         "country": "US",
@@ -148663,7 +149023,7 @@
         "type": "Point",
         "coordinates": [
           -114.97499084,
-          36.0711441
+          36.07114029
         ]
       },
       "properties": {
@@ -148673,7 +149033,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2022-12-22T12:00:00.000Z",
-        "lasttime": "2026-08-27T11:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": "Henderson",
         "region": "NV",
         "country": "US",
@@ -151254,30 +151614,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.5980835,
-          35.6217041
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:31:5F:45",
-        "ssid": "Ring-315f45",
-        "oui": "08:3A:88",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-01-29T17:00:00.000Z",
-        "lasttime": "2024-09-03T04:00:00.000Z",
-        "city": "Oklahoma City",
-        "region": "OK",
-        "country": "US",
-        "road": "Remington Way",
-        "postalcode": "73134"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -115.23846436,
           36.18858337
         ]
@@ -153823,7 +154159,7 @@
         "type": "Point",
         "coordinates": [
           -98.59182739,
-          29.51350975
+          29.51350021
         ]
       },
       "properties": {
@@ -153833,7 +154169,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-12-10T04:00:00.000Z",
-        "lasttime": "2026-07-29T10:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "San Antonio",
         "region": "TX",
         "country": "US",
@@ -156127,7 +156463,7 @@
         "type": "Point",
         "coordinates": [
           -93.33200836,
-          44.85165024
+          44.85166931
         ]
       },
       "properties": {
@@ -156137,7 +156473,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-03-14T14:00:00.000Z",
-        "lasttime": "2026-07-05T13:00:00.000Z",
+        "lasttime": "2026-09-03T20:00:00.000Z",
         "city": null,
         "region": "MN",
         "country": "US",
@@ -157199,6 +157535,30 @@
         "country": "US",
         "road": "Bellegrave Avenue",
         "postalcode": "91752"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.11299896,
+          32.72946167
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:32:21:32",
+        "ssid": "Ring-322132",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "unknown",
+        "firsttime": "2026-09-03T05:00:00.000Z",
+        "lasttime": "2026-09-03T05:00:00.000Z",
+        "city": "Hobbs",
+        "region": "NM",
+        "country": "US",
+        "road": "East Highland Drive",
+        "postalcode": "88240"
       }
     },
     {
@@ -159678,6 +160038,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -87.45902252,
+          41.48968887
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:32:55:4D",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T19:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": null,
+        "region": "IN",
+        "country": "US",
+        "road": "West Lincoln Highway",
+        "postalcode": "46307"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -119.71027374,
           39.65890503
         ]
@@ -160902,8 +161286,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -115.15093231,
-          35.980896
+          -115.15096283,
+          35.98086548
         ]
       },
       "properties": {
@@ -160913,7 +161297,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2025-04-23T20:00:00.000Z",
-        "lasttime": "2025-11-30T15:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
         "city": "Henderson",
         "region": "NV",
         "country": "US",
@@ -164142,6 +164526,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.65751648,
+          28.18582726
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:32:E7:2D",
+        "ssid": "Flock",
+        "oui": "08:3A:88",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Pink Guara Court",
+        "postalcode": "35655"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -119.70600128,
           39.61597061
         ]
@@ -165318,8 +165726,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.91252899,
-          40.45200348
+          -104.91254425,
+          40.45215988
         ]
       },
       "properties": {
@@ -165329,7 +165737,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-08-14T14:00:00.000Z",
-        "lasttime": "2026-08-30T12:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": null,
         "region": "CO",
         "country": "US",
@@ -169326,6 +169734,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.20489502,
+          36.6803627
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:33:65:D3",
+        "ssid": "Ring-3365d3",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "unknown",
+        "firsttime": "2026-09-03T22:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
+        "city": "Chesapeake",
+        "region": "VA",
+        "country": "US",
+        "road": "Sydenham Boulevard",
+        "postalcode": "23322"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -80.44060516,
           25.65789795
         ]
@@ -171390,6 +171822,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -93.38806152,
+          44.83056641
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:33:AB:F8",
+        "ssid": "Ring-33abf8",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-06-27T01:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "Wyoming Avenue South",
+        "postalcode": "55438"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -112.19628143,
           33.41504669
         ]
@@ -172182,8 +172638,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.45050812,
-          34.04718781
+          -118.45048523,
+          34.0471611
         ]
       },
       "properties": {
@@ -172193,7 +172649,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2022-03-18T19:00:00.000Z",
-        "lasttime": "2026-08-25T23:00:00.000Z",
+        "lasttime": "2026-09-03T10:00:00.000Z",
         "city": "Los Angeles",
         "region": "CA",
         "country": "US",
@@ -175961,7 +176417,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2024-07-17T22:00:00.000Z",
-        "lasttime": "2026-08-02T19:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": null,
         "region": "MN",
         "country": "US",
@@ -179262,6 +179718,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -97.10913849,
+          32.84695816
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:34:E8:D3",
+        "ssid": "Ring-34e8d3",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2023-11-04T14:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Cherry Blossom Lane",
+        "postalcode": "76021"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -88.27642822,
           41.82284546
         ]
@@ -180846,8 +181326,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.36619568,
-          29.7400074
+          -95.36618805,
+          29.74001312
         ]
       },
       "properties": {
@@ -180857,7 +181337,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2023-05-14T17:00:00.000Z",
-        "lasttime": "2026-09-01T12:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -183119,6 +183599,30 @@
         "country": "US",
         "road": "Spruce Street",
         "postalcode": "02767"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.08518982,
+          44.84762955
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:35:4F:FA",
+        "ssid": "Ring-354ffa",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-08-16T21:00:00.000Z",
+        "lasttime": "2026-09-03T20:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "South Robert Trail",
+        "postalcode": "55077"
       }
     },
     {
@@ -187086,30 +187590,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.2322998,
-          -33.82195663
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:47:27:4F",
-        "ssid": "aeris-DCzC",
-        "oui": "08:3A:88",
-        "channel": 11,
-        "encryption": "unknown",
-        "firsttime": "2024-01-03T08:00:00.000Z",
-        "lasttime": "2024-09-03T03:00:00.000Z",
-        "city": null,
-        "region": "New South Wales",
-        "country": "AU",
-        "road": "Bariston Avenue",
-        "postalcode": "2088"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.28060722,
           52.50999069
         ]
@@ -188262,8 +188742,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.03726196,
-          34.00903702
+          -81.03727722,
+          34.00909805
         ]
       },
       "properties": {
@@ -188273,7 +188753,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2026-05-08T16:00:00.000Z",
-        "lasttime": "2026-08-24T22:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Columbia",
         "region": "SC",
         "country": "US",
@@ -189174,8 +189654,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.60281372,
-          39.39519501
+          -76.60289001,
+          39.39519119
         ]
       },
       "properties": {
@@ -189185,7 +189665,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2026-08-09T16:00:00.000Z",
-        "lasttime": "2026-08-09T17:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Towson",
         "region": "MD",
         "country": "US",
@@ -189222,8 +189702,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.03723907,
-          34.00946808
+          -81.03726196,
+          34.00936508
         ]
       },
       "properties": {
@@ -189233,7 +189713,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2026-08-07T14:00:00.000Z",
-        "lasttime": "2026-08-07T10:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Columbia",
         "region": "SC",
         "country": "US",
@@ -189750,8 +190230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.03723907,
-          34.00947189
+          -81.03726196,
+          34.00936508
         ]
       },
       "properties": {
@@ -189761,7 +190241,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2026-08-07T14:00:00.000Z",
-        "lasttime": "2026-08-07T10:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Columbia",
         "region": "SC",
         "country": "US",
@@ -193422,30 +193902,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.41364574,
-          52.51158905
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:4B:23:A8",
-        "ssid": "aeris-yg6n",
-        "oui": "08:3A:88",
-        "channel": 11,
-        "encryption": "unknown",
-        "firsttime": "2021-09-11T03:00:00.000Z",
-        "lasttime": "2024-09-03T09:00:00.000Z",
-        "city": "Berlin",
-        "region": "Luisenstadt",
-        "country": "DE",
-        "road": "K\u00f6penicker Stra\u00dfe",
-        "postalcode": "10179"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -93.44036865,
           44.85811996
         ]
@@ -193974,8 +194430,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.03713989,
-          34.00939941
+          -81.03715515,
+          34.00938797
         ]
       },
       "properties": {
@@ -193985,7 +194441,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2022-10-23T11:00:00.000Z",
-        "lasttime": "2026-08-07T10:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Columbia",
         "region": "SC",
         "country": "US",
@@ -196014,6 +196470,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -119.16593933,
+          34.22712708
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:4F:57:70",
+        "ssid": "GE_MODULE_AFFB",
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T13:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
+        "city": "Oxnard",
+        "region": "CA",
+        "country": "US",
+        "road": "Ventura Freeway",
+        "postalcode": "93036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -115.12815094,
           35.93614578
         ]
@@ -197862,6 +198342,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.38968658,
+          27.66163635
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:63:B8:30",
+        "ssid": "TEST",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2024-02-10T23:00:00.000Z",
+        "lasttime": "2025-09-12T09:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Sundance Trail",
+        "postalcode": "33598"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -83.70879364,
           41.53675461
         ]
@@ -198390,8 +198894,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.59165764,
-          -33.95244598
+          18.58183098,
+          -33.95328903
         ]
       },
       "properties": {
@@ -198401,11 +198905,11 @@
         "channel": 1,
         "encryption": "wpa",
         "firsttime": "2023-08-30T14:00:00.000Z",
-        "lasttime": "2025-07-01T08:00:00.000Z",
+        "lasttime": "2026-09-04T00:00:00.000Z",
         "city": null,
         "region": "Western Cape",
         "country": "ZA",
-        "road": "Bird Street",
+        "road": "Leeuberg Road",
         "postalcode": "7490"
       }
     },
@@ -199038,8 +199542,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.39847279,
-          49.57361603
+          8.39788628,
+          49.57030106
         ]
       },
       "properties": {
@@ -199049,12 +199553,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-18T10:00:00.000Z",
-        "lasttime": "2026-08-28T05:00:00.000Z",
+        "lasttime": "2026-09-03T06:00:00.000Z",
         "city": null,
         "region": "Rheinland-Pfalz",
         "country": "DE",
         "road": "B 9",
-        "postalcode": "67240"
+        "postalcode": "67227"
       }
     },
     {
@@ -202175,6 +202679,30 @@
         "country": "ZA",
         "road": "N2",
         "postalcode": "7784"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.47416115,
+          -34.00260925
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:64:45:3E",
+        "ssid": "Afsol Wifi",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "wpa",
+        "firsttime": "2021-09-10T08:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
+        "city": "Cape Town",
+        "region": "Western Cape",
+        "country": "ZA",
+        "road": "Wetton Road",
+        "postalcode": "7708"
       }
     },
     {
@@ -205326,8 +205854,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.34324646,
-          27.37443733
+          -80.34326935,
+          27.37443542
         ]
       },
       "properties": {
@@ -205337,7 +205865,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-07-31T02:00:00.000Z",
-        "lasttime": "2026-09-02T05:00:00.000Z",
+        "lasttime": "2026-09-03T05:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -206334,8 +206862,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.20131683,
-          29.63900757
+          -98.18177032,
+          29.65728569
         ]
       },
       "properties": {
@@ -206345,11 +206873,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-12-22T03:00:00.000Z",
-        "lasttime": "2026-08-27T19:00:00.000Z",
-        "city": null,
+        "lasttime": "2026-09-03T17:00:00.000Z",
+        "city": "New Braunfels",
         "region": "TX",
         "country": "US",
-        "road": "Eckhardt Road",
+        "road": "Interstate 35 South",
         "postalcode": null
       }
     },
@@ -210246,8 +210774,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.40607452,
-          -33.91292572
+          18.40764236,
+          -33.91477585
         ]
       },
       "properties": {
@@ -210261,7 +210789,7 @@
         "city": "Cape Town",
         "region": "Western Cape",
         "country": "ZA",
-        "road": "Springbok Road",
+        "road": "Merriman Road",
         "postalcode": "8005"
       }
     },
@@ -210918,8 +211446,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.59899902,
-          -33.94884491
+          18.54694939,
+          -33.96495056
         ]
       },
       "properties": {
@@ -210933,8 +211461,8 @@
         "city": null,
         "region": "Western Cape",
         "country": "ZA",
-        "road": null,
-        "postalcode": "7493"
+        "road": "4th Street",
+        "postalcode": "7766"
       }
     },
     {
@@ -216911,30 +217439,6 @@
         "country": "US",
         "road": "I 80",
         "postalcode": "69130"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.42012882,
-          54.85544586
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:7A:BC:10",
-        "ssid": "2R1394016601B121",
-        "oui": "08:3A:88",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-03T12:00:00.000Z",
-        "lasttime": "2024-09-03T11:00:00.000Z",
-        "city": null,
-        "region": "Region Sj\u00e6lland",
-        "country": "DK",
-        "road": "Birketvej",
-        "postalcode": "4941"
       }
     },
     {
@@ -225150,6 +225654,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -117.30167389,
+          47.75203705
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:7C:04:BC",
+        "ssid": "TEST",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-03T12:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
+        "city": null,
+        "region": "WA",
+        "country": "US",
+        "road": "North Argonne Road",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.1475296,
           40.8339386
         ]
@@ -225335,6 +225863,30 @@
         "country": "US",
         "road": "Foothill Road",
         "postalcode": "93004-1535"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0949173,
+          42.83454132
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:7C:05:74",
+        "ssid": "TEST",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
+        "city": null,
+        "region": "NH",
+        "country": "US",
+        "road": "Main Street",
+        "postalcode": "03865"
       }
     },
     {
@@ -227862,8 +228414,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.51893616,
-          33.94758987
+          -84.7273407,
+          34.21202087
         ]
       },
       "properties": {
@@ -227873,12 +228425,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-05-01T06:00:00.000Z",
-        "lasttime": "2025-05-01T07:00:00.000Z",
-        "city": "Marietta",
+        "lasttime": "2026-09-03T12:00:00.000Z",
+        "city": null,
         "region": "GA",
         "country": "US",
-        "road": "Cobb Parkway South",
-        "postalcode": "30060"
+        "road": "Vulcan Quarry Road",
+        "postalcode": "30184"
       }
     },
     {
@@ -235590,6 +236142,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.25539398,
+          43.15654373
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:84:67:A2",
+        "ssid": "aeris-2h93",
+        "oui": "08:3A:88",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T20:00:00.000Z",
+        "lasttime": "2026-09-03T20:00:00.000Z",
+        "city": "St. Catharines",
+        "region": "Ontario",
+        "country": "CA",
+        "road": "Highway 406",
+        "postalcode": "L2R 7C3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -77.36412048,
           37.54051971
         ]
@@ -235807,7 +236383,7 @@
         "type": "Point",
         "coordinates": [
           -82.41652679,
-          27.33414459
+          27.33408737
         ]
       },
       "properties": {
@@ -235817,7 +236393,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2026-08-10T21:00:00.000Z",
-        "lasttime": "2026-09-02T14:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -238782,30 +239358,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.79787445,
-          37.52540207
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:8A:AE:94",
-        "ssid": null,
-        "oui": "08:3A:88",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T09:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": null,
-        "region": "CA",
-        "country": "US",
-        "road": "Main Street",
-        "postalcode": "95381"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -82.43332672,
           27.33860779
         ]
@@ -240191,6 +240743,30 @@
         "country": "CA",
         "road": "41 Avenue SW",
         "postalcode": "T6W 2M4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.37060547,
+          44.9275322
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:8D:FB:C2",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T19:00:00.000Z",
+        "lasttime": "2026-09-03T20:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "Excelsior Boulevard",
+        "postalcode": "55426"
       }
     },
     {
@@ -241998,30 +242574,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.45294952,
-          47.07128143
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:94:8C:B7",
-        "ssid": "H2O-083a88948cb7",
-        "oui": "08:3A:88",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T17:00:00.000Z",
-        "lasttime": "2024-09-03T10:00:00.000Z",
-        "city": "Graz",
-        "region": "Steiermark",
-        "country": "AT",
-        "road": "Schillerstra\u00dfe",
-        "postalcode": "8010"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -111.96044159,
           33.61754227
         ]
@@ -242358,8 +242910,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -121.48094177,
-          38.41810226
+          -121.48093414,
+          38.41806412
         ]
       },
       "properties": {
@@ -242369,7 +242921,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2023-03-01T17:00:00.000Z",
-        "lasttime": "2025-05-08T07:00:00.000Z",
+        "lasttime": "2026-09-03T12:00:00.000Z",
         "city": "Elk Grove",
         "region": "CA",
         "country": "US",
@@ -245766,8 +246318,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -78.21879578,
-          39.25769424
+          -78.21881104,
+          39.25772476
         ]
       },
       "properties": {
@@ -245777,7 +246329,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2022-07-30T15:00:00.000Z",
-        "lasttime": "2026-02-07T12:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
         "city": null,
         "region": "VA",
         "country": "US",
@@ -245895,7 +246447,7 @@
         "ssid": "H2O-083a88949699",
         "oui": "08:3A:88",
         "channel": 3,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2021-12-08T18:00:00.000Z",
         "lasttime": "2026-04-14T15:00:00.000Z",
         "city": null,
@@ -248382,6 +248934,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -78.37685394,
+          39.39006042
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:95:2D:E0",
+        "ssid": "H2O-083a88952de0",
+        "oui": "08:3A:88",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-03T14:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
+        "city": null,
+        "region": "VA",
+        "country": "US",
+        "road": "Bloomery Pike",
+        "postalcode": "26817"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -85.30871582,
           35.05357361
         ]
@@ -248591,6 +249167,30 @@
         "country": "US",
         "road": "Oak Road",
         "postalcode": "30078"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.13972473,
+          36.0338707
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:95:2E:76",
+        "ssid": "H2O-083a88952e76",
+        "oui": "08:3A:88",
+        "channel": 3,
+        "encryption": "unknown",
+        "firsttime": "2026-09-03T20:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
+        "city": null,
+        "region": "NV",
+        "country": "US",
+        "road": "Little Rock Way",
+        "postalcode": "89123"
       }
     },
     {
@@ -254726,10 +255326,10 @@
         "netid": "08:3A:88:96:7F:18",
         "ssid": "H2O-083a88967f18",
         "oui": "08:3A:88",
-        "channel": 4,
+        "channel": 3,
         "encryption": "none",
         "firsttime": "2023-05-19T01:00:00.000Z",
-        "lasttime": "2026-08-26T15:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Turlock",
         "region": "CA",
         "country": "US",
@@ -258078,8 +258678,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -87.6484375,
-          41.91620255
+          -87.64844513,
+          41.91615295
         ]
       },
       "properties": {
@@ -258089,7 +258689,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2023-12-13T15:00:00.000Z",
-        "lasttime": "2026-05-31T19:00:00.000Z",
+        "lasttime": "2026-09-04T01:00:00.000Z",
         "city": "Chicago",
         "region": "IL",
         "country": "US",
@@ -267161,7 +267761,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2023-05-31T09:00:00.000Z",
-        "lasttime": "2026-09-03T00:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
         "city": null,
         "region": "NV",
         "country": "US",
@@ -271446,8 +272046,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -117.73375702,
-          48.29082108
+          -117.73376465,
+          48.29081726
         ]
       },
       "properties": {
@@ -271457,7 +272057,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2026-04-08T12:00:00.000Z",
-        "lasttime": "2026-04-14T15:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": null,
         "region": "WA",
         "country": "US",
@@ -272094,18 +272694,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.83426666,
-          37.53470612
+          -120.8342514,
+          37.53469849
         ]
       },
       "properties": {
         "netid": "08:3A:88:97:C6:FB",
         "ssid": "H2O-083a8897c6fb",
         "oui": "08:3A:88",
-        "channel": 2,
+        "channel": 3,
         "encryption": "unknown",
         "firsttime": "2023-05-15T03:00:00.000Z",
-        "lasttime": "2026-08-03T11:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Turlock",
         "region": "CA",
         "country": "US",
@@ -275142,6 +275742,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -119.06059265,
+          35.28910446
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:97:CC:0C",
+        "ssid": "H2O-083a8897cc0c",
+        "oui": "08:3A:88",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2024-03-28T03:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Bakersfield",
+        "region": "CA",
+        "country": "US",
+        "road": "Perla Way",
+        "postalcode": "93313"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -115.1687088,
           36.29218292
         ]
@@ -275238,7 +275862,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.82675934,
+          -120.82675171,
           37.49268723
         ]
       },
@@ -275246,10 +275870,10 @@
         "netid": "08:3A:88:97:CC:26",
         "ssid": "H2O-083a8897cc26",
         "oui": "08:3A:88",
-        "channel": 3,
+        "channel": 2,
         "encryption": "none",
         "firsttime": "2023-05-15T00:00:00.000Z",
-        "lasttime": "2026-08-31T16:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Turlock",
         "region": "CA",
         "country": "US",
@@ -285366,8 +285990,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.6280365,
-          40.35486221
+          -75.62806702,
+          40.35460281
         ]
       },
       "properties": {
@@ -285377,7 +286001,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2024-01-13T21:00:00.000Z",
-        "lasttime": "2026-08-02T11:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": "Colebrookdale Township",
         "region": "PA",
         "country": "US",
@@ -287273,7 +287897,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2025-08-22T19:00:00.000Z",
-        "lasttime": "2026-09-02T11:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
         "city": null,
         "region": "Baden-W\u00fcrttemberg",
         "country": "DE",
@@ -290766,8 +291390,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.32880402,
-          45.30103302
+          -75.32879639,
+          45.30102539
         ]
       },
       "properties": {
@@ -290777,7 +291401,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2024-07-20T13:00:00.000Z",
-        "lasttime": "2026-08-20T21:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
         "city": null,
         "region": "Ontario",
         "country": "CA",
@@ -291222,8 +291846,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.30822754,
-          29.52036095
+          -82.30821991,
+          29.52035332
         ]
       },
       "properties": {
@@ -291233,7 +291857,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2024-01-07T04:00:00.000Z",
-        "lasttime": "2026-09-02T16:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -292470,8 +293094,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.86629486,
-          30.55432892
+          -97.86631012,
+          30.5543251
         ]
       },
       "properties": {
@@ -292481,7 +293105,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2026-01-13T12:00:00.000Z",
-        "lasttime": "2026-09-02T10:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -294678,8 +295302,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.15287423,
-          51.90373993
+          -1.15284872,
+          51.90377426
         ]
       },
       "properties": {
@@ -294689,7 +295313,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2025-10-17T17:00:00.000Z",
-        "lasttime": "2025-12-08T11:00:00.000Z",
+        "lasttime": "2026-09-04T00:00:00.000Z",
         "city": "Cherwell",
         "region": "England",
         "country": "GB",
@@ -295566,8 +296190,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -96.55797577,
-          33.29876328
+          -96.5579834,
+          33.29876709
         ]
       },
       "properties": {
@@ -295575,9 +296199,9 @@
         "ssid": "H2O-083a8898bdac",
         "oui": "08:3A:88",
         "channel": 3,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2025-01-11T22:00:00.000Z",
-        "lasttime": "2026-08-30T09:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
         "city": "Melissa",
         "region": "TX",
         "country": "US",
@@ -296287,17 +296911,17 @@
         "type": "Point",
         "coordinates": [
           -120.85168457,
-          37.53291321
+          37.53290939
         ]
       },
       "properties": {
         "netid": "08:3A:88:98:BE:8B",
         "ssid": "H2O-083a8898be8b",
         "oui": "08:3A:88",
-        "channel": 3,
+        "channel": 2,
         "encryption": "unknown",
         "firsttime": "2023-05-15T03:00:00.000Z",
-        "lasttime": "2026-08-21T17:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Turlock",
         "region": "CA",
         "country": "US",
@@ -304049,7 +304673,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2023-12-09T17:00:00.000Z",
-        "lasttime": "2026-08-26T09:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": "Oklahoma City",
         "region": "OK",
         "country": "US",
@@ -306719,6 +307343,30 @@
         "country": "US",
         "road": "East Drexel Road",
         "postalcode": "85756"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.55794525,
+          33.29689407
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:98:D6:0C",
+        "ssid": "H2O-083a8898d60c",
+        "oui": "08:3A:88",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-03T17:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
+        "city": "Melissa",
+        "region": "TX",
+        "country": "US",
+        "road": "Delta Drive",
+        "postalcode": "75454"
       }
     },
     {
@@ -310025,7 +310673,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2026-03-09T10:00:00.000Z",
-        "lasttime": "2026-09-02T04:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": null,
         "region": "ME",
         "country": "US",
@@ -311382,8 +312030,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.94048309,
-          40.85280991
+          -111.94035339,
+          40.85283279
         ]
       },
       "properties": {
@@ -311393,7 +312041,7 @@
         "channel": 3,
         "encryption": "none",
         "firsttime": "2023-11-16T01:00:00.000Z",
-        "lasttime": "2025-09-06T08:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": null,
         "region": "UT",
         "country": "US",
@@ -312534,6 +313182,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.90549946,
+          54.10207367
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:98:E3:A5",
+        "ssid": "H2O-083a8898e3a5",
+        "oui": "08:3A:88",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-03T13:00:00.000Z",
+        "lasttime": "2026-09-03T07:00:00.000Z",
+        "city": null,
+        "region": "Mecklenburg-Vorpommern",
+        "country": "DE",
+        "road": "Friedrich-Franz-Stra\u00dfe",
+        "postalcode": "18209"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -124.05471039,
           46.34812546
         ]
@@ -312702,8 +313374,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -121.86477661,
-          37.66765976
+          -121.8647995,
+          37.66762924
         ]
       },
       "properties": {
@@ -312713,7 +313385,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2024-11-07T01:00:00.000Z",
-        "lasttime": "2026-09-02T13:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
         "city": null,
         "region": "CA",
         "country": "US",
@@ -313230,8 +313902,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -114.97599792,
-          36.06209564
+          -114.97601318,
+          36.06207657
         ]
       },
       "properties": {
@@ -313241,7 +313913,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2024-03-27T15:00:00.000Z",
-        "lasttime": "2026-06-29T14:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": "Henderson",
         "region": "NV",
         "country": "US",
@@ -313254,8 +313926,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.83833313,
-          37.53414154
+          -120.83836365,
+          37.53415298
         ]
       },
       "properties": {
@@ -313265,7 +313937,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2023-06-16T14:00:00.000Z",
-        "lasttime": "2026-06-18T11:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Turlock",
         "region": "CA",
         "country": "US",
@@ -313974,8 +314646,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.08434296,
-          32.9370842
+          -97.11428833,
+          32.76881409
         ]
       },
       "properties": {
@@ -313983,14 +314655,14 @@
         "ssid": "H2O-083a8898ea20",
         "oui": "08:3A:88",
         "channel": 3,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2025-07-05T13:00:00.000Z",
-        "lasttime": "2025-07-05T17:00:00.000Z",
-        "city": null,
+        "lasttime": "2026-09-03T13:00:00.000Z",
+        "city": "Arlington",
         "region": "TX",
         "country": "US",
-        "road": "Ball Street",
-        "postalcode": "76051"
+        "road": "North Cooper Street",
+        "postalcode": "76012"
       }
     },
     {
@@ -318774,8 +319446,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -115.02780914,
-          36.08839798
+          -115.02785492,
+          36.08846283
         ]
       },
       "properties": {
@@ -318785,11 +319457,11 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2023-10-05T13:00:00.000Z",
-        "lasttime": "2026-05-04T23:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": null,
         "region": "NV",
         "country": "US",
-        "road": "South Glitter Rock Street",
+        "road": "East Silent Vista Drive",
         "postalcode": "89122-7432"
       }
     },
@@ -319913,7 +320585,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2023-12-07T23:00:00.000Z",
-        "lasttime": "2026-08-31T16:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
         "city": "The Nation",
         "region": "Ontario",
         "country": "CA",
@@ -321462,8 +322134,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.28065491,
-          37.73301315
+          -97.28064728,
+          37.73295593
         ]
       },
       "properties": {
@@ -321471,9 +322143,9 @@
         "ssid": "H2O-083a8899022c",
         "oui": "08:3A:88",
         "channel": 3,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2026-04-28T08:00:00.000Z",
-        "lasttime": "2026-08-29T03:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
         "city": "Wichita",
         "region": "KS",
         "country": "US",
@@ -323310,8 +323982,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.35644197,
-          52.37225723
+          6.35676146,
+          52.37219238
         ]
       },
       "properties": {
@@ -323321,7 +323993,7 @@
         "channel": 3,
         "encryption": "unknown",
         "firsttime": "2025-07-20T09:00:00.000Z",
-        "lasttime": "2025-07-20T02:00:00.000Z",
+        "lasttime": "2026-09-04T02:00:00.000Z",
         "city": null,
         "region": "Overijssel",
         "country": "NL",
@@ -324887,6 +325559,30 @@
         "country": "DE",
         "road": "Meisebacher Stra\u00dfe",
         "postalcode": "36251"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.11214447,
+          49.28448868
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:9A:53:28",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T19:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Vancouver",
+        "region": "British Columbia",
+        "country": "CA",
+        "road": "West Hastings Street",
+        "postalcode": "V6B 4N6"
       }
     },
     {
@@ -331422,8 +332118,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.93151093,
-          29.59939766
+          -98.83733368,
+          29.18863869
         ]
       },
       "properties": {
@@ -331433,12 +332129,12 @@
         "channel": 2,
         "encryption": "wpa2",
         "firsttime": "2023-03-21T11:00:00.000Z",
-        "lasttime": "2026-08-14T18:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
-        "road": "I 10;TX 130",
-        "postalcode": "78156"
+        "road": "I 35",
+        "postalcode": "78059"
       }
     },
     {
@@ -331446,8 +332142,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.37399292,
-          30.2160244
+          -82.37397003,
+          30.21603394
         ]
       },
       "properties": {
@@ -331457,7 +332153,7 @@
         "channel": 1,
         "encryption": "wpa",
         "firsttime": "2025-09-27T01:00:00.000Z",
-        "lasttime": "2026-08-31T08:00:00.000Z",
+        "lasttime": "2026-09-03T20:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -335879,30 +336575,6 @@
         "country": "GB",
         "road": "Lynch Wood",
         "postalcode": "PE2 6FZ"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          114.14259338,
-          22.28870201
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:B0:0B:CF",
-        "ssid": "aeris-4m6V",
-        "oui": "08:3A:88",
-        "channel": 11,
-        "encryption": "unknown",
-        "firsttime": "2023-06-21T18:00:00.000Z",
-        "lasttime": "2024-09-03T00:00:00.000Z",
-        "city": "\u9999\u6e2f\u5cf6 Hong Kong Island",
-        "region": "\u9999\u6e2f Hong Kong",
-        "country": "CN",
-        "road": "\u5e72\u8afe\u9053\u897f Connaught Road West",
-        "postalcode": null
       }
     },
     {
@@ -340542,8 +341214,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -119.05893707,
-          34.2199707
+          -119.05892944,
+          34.21995544
         ]
       },
       "properties": {
@@ -340553,7 +341225,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2023-08-09T12:00:00.000Z",
-        "lasttime": "2026-03-14T21:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": "Camarillo",
         "region": "CA",
         "country": "US",
@@ -342078,8 +342750,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.1434021,
-          40.15716934
+          -75.14334869,
+          40.15717316
         ]
       },
       "properties": {
@@ -342089,7 +342761,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2024-07-18T23:00:00.000Z",
-        "lasttime": "2026-09-01T20:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
         "city": "Horsham Township",
         "region": "PA",
         "country": "US",
@@ -344838,8 +345510,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -112.10639954,
-          33.58195877
+          -112.10643768,
+          33.58200836
         ]
       },
       "properties": {
@@ -344849,7 +345521,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2026-08-29T13:00:00.000Z",
-        "lasttime": "2026-08-29T07:00:00.000Z",
+        "lasttime": "2026-09-03T12:00:00.000Z",
         "city": "Phoenix",
         "region": "AZ",
         "country": "US",
@@ -348631,7 +349303,7 @@
         "type": "Point",
         "coordinates": [
           -124.08764648,
-          40.87976837
+          40.87976456
         ]
       },
       "properties": {
@@ -348641,7 +349313,7 @@
         "channel": 11,
         "encryption": "unknown",
         "firsttime": "2026-07-05T21:00:00.000Z",
-        "lasttime": "2026-08-21T18:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
         "city": null,
         "region": "CA",
         "country": "US",
@@ -354174,8 +354846,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.77625275,
-          38.80321121
+          -90.80206299,
+          38.81549454
         ]
       },
       "properties": {
@@ -354185,12 +354857,12 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-11-21T00:00:00.000Z",
-        "lasttime": "2025-04-28T09:00:00.000Z",
-        "city": "Lake Saint Louis",
+        "lasttime": "2026-09-03T14:00:00.000Z",
+        "city": null,
         "region": "MO",
         "country": "US",
-        "road": "Medical Plaza",
-        "postalcode": "63367"
+        "road": "Mexico Road",
+        "postalcode": "63366"
       }
     },
     {
@@ -355374,8 +356046,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.32272243,
-          48.87051773
+          2.32270932,
+          48.87051392
         ]
       },
       "properties": {
@@ -355385,7 +356057,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-09-21T17:00:00.000Z",
-        "lasttime": "2026-05-06T04:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -355415,30 +356087,6 @@
         "country": "FR",
         "road": "D 922",
         "postalcode": "60520"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.36608127,
-          49.18800735
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:B6:06:88",
-        "ssid": "NMD1",
-        "oui": "08:3A:88",
-        "channel": 44,
-        "encryption": "wpa2",
-        "firsttime": "2024-07-19T19:00:00.000Z",
-        "lasttime": "2024-09-03T09:00:00.000Z",
-        "city": "Caen",
-        "region": "Normandie",
-        "country": "FR",
-        "road": "Rue du Gaillon",
-        "postalcode": "14000"
       }
     },
     {
@@ -361518,8 +362166,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.22267914,
-          43.21360016
+          -86.22215271,
+          43.21418381
         ]
       },
       "properties": {
@@ -361529,7 +362177,7 @@
         "channel": 2,
         "encryption": "wpa2",
         "firsttime": "2023-05-30T10:00:00.000Z",
-        "lasttime": "2026-07-12T11:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -366791,6 +367439,30 @@
         "country": "US",
         "road": "Sassari Street",
         "postalcode": "92592"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.65057373,
+          28.19038391
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:CC:A5:94",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 9,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Tri-County Trail",
+        "postalcode": "34688"
       }
     },
     {
@@ -372918,8 +373590,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -123.14142609,
-          49.26806641
+          -123.14154816,
+          49.26795578
         ]
       },
       "properties": {
@@ -372929,12 +373601,12 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-09-06T22:00:00.000Z",
-        "lasttime": "2026-09-01T16:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": "Vancouver",
         "region": "British Columbia",
         "country": "CA",
         "road": "West 4th Avenue",
-        "postalcode": "V6J 1L8"
+        "postalcode": "V6J"
       }
     },
     {
@@ -373110,7 +373782,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -123.14167786,
+          -123.14168549,
           49.26796341
         ]
       },
@@ -373121,7 +373793,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-09-06T22:00:00.000Z",
-        "lasttime": "2026-08-21T14:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": "Vancouver",
         "region": "British Columbia",
         "country": "CA",
@@ -373134,8 +373806,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -123.14151001,
-          49.26797104
+          -123.14125824,
+          49.26815033
         ]
       },
       "properties": {
@@ -373145,7 +373817,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-09-06T22:00:00.000Z",
-        "lasttime": "2026-08-21T14:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": "Vancouver",
         "region": "British Columbia",
         "country": "CA",
@@ -373854,7 +374526,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -123.14167786,
+          -123.14169312,
           49.26795578
         ]
       },
@@ -373865,7 +374537,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-09-06T22:00:00.000Z",
-        "lasttime": "2026-09-01T16:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": "Vancouver",
         "region": "British Columbia",
         "country": "CA",
@@ -376350,30 +377022,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.87583876,
-          52.31990814
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:CE:F3:5A",
-        "ssid": "MatchX_MX190x_6PMJ",
-        "oui": "08:3A:88",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2022-11-07T14:00:00.000Z",
-        "lasttime": "2024-09-03T00:00:00.000Z",
-        "city": null,
-        "region": "Noord-Holland",
-        "country": "NL",
-        "road": "Uilenstede",
-        "postalcode": "1183AR"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.25017595,
           50.86407852
         ]
@@ -378414,8 +379062,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -91.39173126,
-          39.71339417
+          -91.39393616,
+          39.7190361
         ]
       },
       "properties": {
@@ -378429,7 +379077,7 @@
         "city": "Hannibal",
         "region": "MO",
         "country": "US",
-        "road": "McMasters Avenue",
+        "road": "Commanche",
         "postalcode": "63401"
       }
     },
@@ -384246,6 +384894,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -124.16714478,
+          41.78852463
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:D4:17:DF",
+        "ssid": "Flock",
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T23:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
+        "city": null,
+        "region": "CA",
+        "country": "US",
+        "road": "Redwood Highway",
+        "postalcode": "95531"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -90.44351959,
           38.7010994
         ]
@@ -384863,30 +385535,6 @@
         "country": "US",
         "road": "West 120th Avenue",
         "postalcode": "80020-3329"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -120.8128891,
-          37.51492691
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:D5:72:E4",
-        "ssid": null,
-        "oui": "08:3A:88",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T09:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
-        "country": "US",
-        "road": "East Tuolumne Road",
-        "postalcode": "95382"
       }
     },
     {
@@ -387102,8 +387750,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -89.59397125,
-          44.90909958
+          -89.59395599,
+          44.90909576
         ]
       },
       "properties": {
@@ -387113,11 +387761,11 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2024-03-02T19:00:00.000Z",
-        "lasttime": "2026-01-16T11:00:00.000Z",
+        "lasttime": "2026-09-04T01:00:00.000Z",
         "city": null,
         "region": "WI",
         "country": "US",
-        "road": "Cutoff Road",
+        "road": "Schofield Avenue",
         "postalcode": "54476"
       }
     },
@@ -389214,7 +389862,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.29934216,
+          5.29934168,
           52.4041214
         ]
       },
@@ -389225,7 +389873,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-10-28T17:00:00.000Z",
-        "lasttime": "2026-08-26T16:00:00.000Z",
+        "lasttime": "2026-09-03T08:00:00.000Z",
         "city": null,
         "region": "Flevoland",
         "country": "NL",
@@ -394375,7 +395023,7 @@
         "type": "Point",
         "coordinates": [
           -111.72644806,
-          40.31983948
+          40.31984329
         ]
       },
       "properties": {
@@ -394385,7 +395033,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-10-10T19:00:00.000Z",
-        "lasttime": "2026-09-02T12:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
         "city": null,
         "region": "UT",
         "country": "US",
@@ -394663,7 +395311,7 @@
         "type": "Point",
         "coordinates": [
           -122.16798401,
-          37.71146011
+          37.7114563
         ]
       },
       "properties": {
@@ -394673,7 +395321,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-12-26T06:00:00.000Z",
-        "lasttime": "2026-09-02T12:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": null,
         "region": "CA",
         "country": "US",
@@ -395142,8 +395790,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.7264328,
-          40.31998444
+          -111.72644043,
+          40.32000351
         ]
       },
       "properties": {
@@ -395153,7 +395801,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-09-25T14:00:00.000Z",
-        "lasttime": "2026-08-31T13:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
         "city": null,
         "region": "UT",
         "country": "US",
@@ -396270,8 +396918,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.97878981,
-          53.65152359
+          -2.97879124,
+          53.6515274
         ]
       },
       "properties": {
@@ -396281,7 +396929,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2024-01-04T19:00:00.000Z",
-        "lasttime": "2026-05-13T07:00:00.000Z",
+        "lasttime": "2026-09-03T03:00:00.000Z",
         "city": null,
         "region": "England",
         "country": "GB",
@@ -402534,6 +403182,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -103.62443542,
+          48.1538353
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:DF:D0:AF",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 40,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Williston",
+        "region": "ND",
+        "country": "US",
+        "road": "1st Avenue West",
+        "postalcode": "58801"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -83.13868713,
           42.38685989
         ]
@@ -402887,6 +403559,30 @@
         "country": "US",
         "road": "California Avenue",
         "postalcode": "63118"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.47497559,
+          32.59201813
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:E0:48:99",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": "Auburn",
+        "region": "AL",
+        "country": "US",
+        "road": "Wrights Mill Road",
+        "postalcode": "36830"
       }
     },
     {
@@ -405294,6 +405990,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -103.61930847,
+          48.15419769
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:E2:5A:44",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Williston",
+        "region": "ND",
+        "country": "US",
+        "road": "11th Street East",
+        "postalcode": "58801"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.40060425,
           47.19897079
         ]
@@ -405311,6 +406031,30 @@
         "country": "US",
         "road": "East 64th Street",
         "postalcode": "98443"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.97403717,
+          39.05009842
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:E2:6C:CA",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T14:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
+        "city": null,
+        "region": "MO",
+        "country": "US",
+        "road": "Avenue of the Saints",
+        "postalcode": "63379"
       }
     },
     {
@@ -405846,6 +406590,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -103.6162796,
+          48.19176865
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:E2:AF:D4",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Williston",
+        "region": "ND",
+        "country": "US",
+        "road": "University Avenue",
+        "postalcode": "58801"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.13225555,
           40.82016754
         ]
@@ -405911,6 +406679,30 @@
         "country": "US",
         "road": "Pinnacle Way",
         "postalcode": "91701"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.64841461,
+          48.25915909
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:E2:BC:66",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-03T22:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": null,
+        "region": "ND",
+        "country": "US",
+        "road": "137th Avenue Northwest",
+        "postalcode": null
       }
     },
     {
@@ -406470,6 +407262,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -103.62434387,
+          48.15242767
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:E3:15:0E",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T21:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Williston",
+        "region": "ND",
+        "country": "US",
+        "road": "1st Avenue West",
+        "postalcode": "58801"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.87593842,
           33.72723389
         ]
@@ -406991,6 +407807,30 @@
         "country": "US",
         "road": "Hawthorn Loop Northwest",
         "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.65074158,
+          41.53872299
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:E3:5A:C6",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T18:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "Holbrook Road",
+        "postalcode": "60422"
       }
     },
     {
@@ -417150,30 +417990,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.38657379,
-          30.3507309
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:E6:B8:6A",
-        "ssid": null,
-        "oui": "08:3A:88",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-08-26T15:00:00.000Z",
-        "lasttime": "2024-09-03T13:00:00.000Z",
-        "city": "Elgin",
-        "region": "TX",
-        "country": "US",
-        "road": "West US Highway 290",
-        "postalcode": "78621"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -120.32282257,
           47.47824097
         ]
@@ -419838,7 +420654,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.70089912,
+          5.70089865,
           50.97761536
         ]
       },
@@ -419849,7 +420665,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-12-27T15:00:00.000Z",
-        "lasttime": "2026-08-31T13:00:00.000Z",
+        "lasttime": "2026-09-03T07:00:00.000Z",
         "city": null,
         "region": "Limburg",
         "country": "BE",
@@ -420534,8 +421350,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.34028864,
-          48.85577393
+          2.34028816,
+          48.85577774
         ]
       },
       "properties": {
@@ -420545,7 +421361,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2023-02-13T19:00:00.000Z",
-        "lasttime": "2026-09-01T23:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -423534,8 +424350,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -121.97908783,
-          37.28564835
+          -121.97924805,
+          37.28558731
         ]
       },
       "properties": {
@@ -423545,7 +424361,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-10-17T08:00:00.000Z",
-        "lasttime": "2024-09-28T20:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": null,
         "region": "CA",
         "country": "US",
@@ -424926,30 +425742,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -89.77392578,
-          35.09837723
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:E9:A5:92",
-        "ssid": "MatchX_MX190x_724K",
-        "oui": "08:3A:88",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-03-28T15:00:00.000Z",
-        "lasttime": "2024-09-03T20:00:00.000Z",
-        "city": null,
-        "region": "TN",
-        "country": "US",
-        "road": "Farmington Boulevard",
-        "postalcode": "38139"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -74.13608551,
           40.88708115
         ]
@@ -426270,8 +427062,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.36833954,
-          29.77490616
+          -95.36833191,
+          29.77489853
         ]
       },
       "properties": {
@@ -426281,7 +427073,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-11-22T03:00:00.000Z",
-        "lasttime": "2026-08-27T12:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -428815,7 +429607,7 @@
         "type": "Point",
         "coordinates": [
           -121.47310638,
-          38.56116867
+          38.56117249
         ]
       },
       "properties": {
@@ -428825,7 +429617,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-06-19T15:00:00.000Z",
-        "lasttime": "2026-07-19T19:00:00.000Z",
+        "lasttime": "2026-09-03T12:00:00.000Z",
         "city": "Sacramento",
         "region": "CA",
         "country": "US",
@@ -428911,7 +429703,7 @@
         "type": "Point",
         "coordinates": [
           -121.47317505,
-          38.56108856
+          38.56109619
         ]
       },
       "properties": {
@@ -428921,7 +429713,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-06-19T15:00:00.000Z",
-        "lasttime": "2026-08-16T19:00:00.000Z",
+        "lasttime": "2026-09-03T12:00:00.000Z",
         "city": "Sacramento",
         "region": "CA",
         "country": "US",
@@ -432366,30 +433158,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.66133881,
-          34.20208359
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:ED:0C:AC",
-        "ssid": "Smithway",
-        "oui": "08:3A:88",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-03T08:00:00.000Z",
-        "lasttime": "2024-09-03T23:00:00.000Z",
-        "city": null,
-        "region": "SC",
-        "country": "US",
-        "road": "I 20",
-        "postalcode": "29078"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.03971481,
           46.86855316
         ]
@@ -433830,7 +434598,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.40840912,
+          -95.40840149,
           29.73094749
         ]
       },
@@ -433841,7 +434609,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2023-09-24T22:00:00.000Z",
-        "lasttime": "2026-09-01T09:00:00.000Z",
+        "lasttime": "2026-09-03T19:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -434118,8 +434886,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.0488739,
-          39.90988159
+          -105.04885101,
+          39.90988922
         ]
       },
       "properties": {
@@ -434129,7 +434897,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-06-15T19:00:00.000Z",
-        "lasttime": "2026-07-26T23:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
         "city": "Westminster",
         "region": "CO",
         "country": "US",
@@ -434862,30 +435630,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.87557077,
-          52.31990051
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:EE:59:90",
-        "ssid": "MatchX_MX190x_KN4Y",
-        "oui": "08:3A:88",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2022-11-07T14:00:00.000Z",
-        "lasttime": "2024-09-03T00:00:00.000Z",
-        "city": null,
-        "region": "Noord-Holland",
-        "country": "NL",
-        "road": "Uilenstede",
-        "postalcode": "1183AG"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.63053536,
           39.56776428
         ]
@@ -434927,30 +435671,6 @@
         "country": "DE",
         "road": "Nickelstra\u00dfe",
         "postalcode": "63594"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.87612915,
-          52.31991959
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:EE:59:CC",
-        "ssid": "MatchX_MX190x_INQJ",
-        "oui": "08:3A:88",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-05-05T11:00:00.000Z",
-        "lasttime": "2024-09-03T00:00:00.000Z",
-        "city": null,
-        "region": "Noord-Holland",
-        "country": "NL",
-        "road": "Uilenstede",
-        "postalcode": "1183DE"
       }
     },
     {
@@ -435617,7 +436337,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-05-07T16:00:00.000Z",
-        "lasttime": "2026-08-30T23:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": null,
         "region": "Limburg",
         "country": "BE",
@@ -436367,30 +437087,6 @@
         "country": "BE",
         "road": "Grote Baan",
         "postalcode": "9920"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.76572418,
-          52.95035172
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:EE:5C:EF",
-        "ssid": "MatchX_MX190x_6R3Q",
-        "oui": "08:3A:88",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-04-18T06:00:00.000Z",
-        "lasttime": "2024-09-03T07:00:00.000Z",
-        "city": null,
-        "region": "Noord-Holland",
-        "country": "NL",
-        "road": "Patrijzenstraat",
-        "postalcode": "1781ZN"
       }
     },
     {
@@ -437910,8 +438606,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.37564731,
-          48.84453583
+          2.37566566,
+          48.8445282
         ]
       },
       "properties": {
@@ -437921,7 +438617,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-06-16T16:00:00.000Z",
-        "lasttime": "2026-07-23T04:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -442158,8 +442854,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.46679688,
-          47.2747879
+          -122.46678925,
+          47.27478409
         ]
       },
       "properties": {
@@ -442169,7 +442865,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-10-23T00:00:00.000Z",
-        "lasttime": "2026-08-03T11:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": "Tacoma",
         "region": "WA",
         "country": "US",
@@ -443287,7 +443983,7 @@
         "type": "Point",
         "coordinates": [
           -104.74491882,
-          39.59524155
+          39.59527588
         ]
       },
       "properties": {
@@ -443297,7 +443993,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2024-02-11T01:00:00.000Z",
-        "lasttime": "2026-07-25T15:00:00.000Z",
+        "lasttime": "2026-09-04T00:00:00.000Z",
         "city": "Aurora",
         "region": "CO",
         "country": "US",
@@ -445830,8 +446526,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.95207977,
-          33.97078705
+          -80.95215607,
+          33.9706955
         ]
       },
       "properties": {
@@ -445841,7 +446537,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-02-18T19:00:00.000Z",
-        "lasttime": "2026-09-02T20:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
         "city": "Columbia",
         "region": "SC",
         "country": "US",
@@ -449119,7 +449815,7 @@
         "type": "Point",
         "coordinates": [
           -104.86656952,
-          39.67160797
+          39.67159271
         ]
       },
       "properties": {
@@ -449129,7 +449825,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-11-24T04:00:00.000Z",
-        "lasttime": "2026-08-26T14:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
         "city": "Denver",
         "region": "CO",
         "country": "US",
@@ -449142,7 +449838,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.79957581,
+          -104.79956055,
           39.59492111
         ]
       },
@@ -449153,7 +449849,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-06-23T22:00:00.000Z",
-        "lasttime": "2026-08-30T22:00:00.000Z",
+        "lasttime": "2026-09-04T00:00:00.000Z",
         "city": null,
         "region": "CO",
         "country": "US",
@@ -456006,6 +456702,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -85.50019836,
+          32.57912827
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:F2:F0:16",
+        "ssid": "Flock",
+        "oui": "08:3A:88",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-03T06:00:00.000Z",
+        "lasttime": "2026-09-03T04:00:00.000Z",
+        "city": "Auburn",
+        "region": "AL",
+        "country": "US",
+        "road": "Shug Jordan Parkway",
+        "postalcode": "36849"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -89.40911865,
           43.034832
         ]
@@ -456990,8 +457710,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.22345734,
-          29.63476372
+          -98.21980286,
+          29.63672638
         ]
       },
       "properties": {
@@ -457001,7 +457721,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-07-31T00:00:00.000Z",
-        "lasttime": "2026-09-02T16:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -457494,8 +458214,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.85422516,
-          39.66203308
+          -104.8497467,
+          39.65632629
         ]
       },
       "properties": {
@@ -457506,10 +458226,10 @@
         "encryption": "wpa2",
         "firsttime": "2023-03-18T15:00:00.000Z",
         "lasttime": "2026-08-28T05:00:00.000Z",
-        "city": "Aurora",
+        "city": null,
         "region": "CO",
         "country": "US",
-        "road": "South Macon Circle",
+        "road": "I 225",
         "postalcode": "80014"
       }
     },
@@ -457902,8 +458622,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.78511047,
-          35.35953903
+          -79.61936188,
+          35.28000259
         ]
       },
       "properties": {
@@ -457913,12 +458633,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-12-17T19:00:00.000Z",
-        "lasttime": "2025-12-17T11:00:00.000Z",
+        "lasttime": "2026-09-03T09:00:00.000Z",
         "city": null,
         "region": "NC",
         "country": "US",
-        "road": "West Main Street",
-        "postalcode": "27209"
+        "road": "NC 211",
+        "postalcode": "27242"
       }
     },
     {
@@ -466206,6 +466926,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -86.49675751,
+          41.3695488
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:F5:CC:2C",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-03T20:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": null,
+        "region": "IN",
+        "country": "US",
+        "road": "US 30",
+        "postalcode": "46531"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.8477478,
           40.84716415
         ]
@@ -466991,6 +467735,30 @@
         "country": "US",
         "road": "E Road",
         "postalcode": "81504"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.62591553,
+          48.15591431
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:F7:7F:B0",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-03T22:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
+        "city": "Williston",
+        "region": "ND",
+        "country": "US",
+        "road": "West Highland Drive",
+        "postalcode": "58801"
       }
     },
     {
@@ -469062,30 +469830,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.81601715,
-          37.51444626
-        ]
-      },
-      "properties": {
-        "netid": "08:3A:88:F9:96:F2",
-        "ssid": null,
-        "oui": "08:3A:88",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-08-31T05:00:00.000Z",
-        "lasttime": "2024-09-03T15:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
-        "country": "US",
-        "road": "East Tuolumne Road",
-        "postalcode": "95382"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -85.94225311,
           39.81047058
         ]
@@ -469223,6 +469967,30 @@
         "country": "US",
         "road": "East 1400 South Street",
         "postalcode": "84660"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.73285675,
+          41.54825592
+        ]
+      },
+      "properties": {
+        "netid": "08:3A:88:F9:B5:3B",
+        "ssid": null,
+        "oui": "08:3A:88",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-03T18:00:00.000Z",
+        "lasttime": "2026-09-03T21:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "Cicero Avenue",
+        "postalcode": "60478"
       }
     },
     {
@@ -469923,10 +470691,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "08:3A:88",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 19580
+    "total_cameras": 19612
   }
 }

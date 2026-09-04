@@ -174,6 +174,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -74.43031311,
+          40.5497818
+        ]
+      },
+      "properties": {
+        "netid": "82:6B:F2:3C:41:A7",
+        "ssid": null,
+        "oui": "82:6B:F2",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-09-03T20:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
+        "city": null,
+        "region": "NJ",
+        "country": "US",
+        "road": "Hadley Center Drive",
+        "postalcode": "07080"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -111.55544281,
           35.33898163
         ]
@@ -507,10 +531,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "82:6B:F2",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 21
+    "total_cameras": 22
   }
 }

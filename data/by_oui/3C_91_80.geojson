@@ -5718,6 +5718,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -121.84101868,
+          36.60908508
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:2A:E5:B1",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T16:00:00.000Z",
+        "lasttime": "2026-09-03T22:00:00.000Z",
+        "city": "Seaside",
+        "region": "CA",
+        "country": "US",
+        "road": "Broadway Avenue",
+        "postalcode": "93955"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.12956238,
           47.66950226
         ]
@@ -9102,8 +9126,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.40470886,
-          36.94697571
+          -76.40471649,
+          36.94697952
         ]
       },
       "properties": {
@@ -9113,7 +9137,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-17T15:00:00.000Z",
-        "lasttime": "2026-09-03T02:00:00.000Z",
+        "lasttime": "2026-09-03T12:00:00.000Z",
         "city": "Newport News",
         "region": "VA",
         "country": "US",
@@ -14711,6 +14735,30 @@
         "country": "US",
         "road": "Fountain Avenue",
         "postalcode": "90046-4101"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.52145386,
+          45.02843475
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:BD:B0:11",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T19:00:00.000Z",
+        "lasttime": "2026-09-03T20:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "Alvarado Lane North",
+        "postalcode": "55340-9338"
       }
     },
     {
@@ -20883,10 +20931,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 870
+    "total_cameras": 872
   }
 }

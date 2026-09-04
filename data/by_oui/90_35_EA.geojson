@@ -918,7 +918,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.09939575,
+          -79.09938812,
           34.60424042
         ]
       },
@@ -926,10 +926,10 @@
         "netid": "90:35:EA:0D:60:19",
         "ssid": "MLG54216",
         "oui": "90:35:EA",
-        "channel": 1,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2024-06-15T10:00:00.000Z",
-        "lasttime": "2026-09-01T17:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": null,
         "region": "NC",
         "country": "US",
@@ -1446,8 +1446,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.35144806,
-          42.39427567
+          -76.35153198,
+          42.39423752
         ]
       },
       "properties": {
@@ -1457,7 +1457,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2024-04-08T20:00:00.000Z",
-        "lasttime": "2026-08-27T16:00:00.000Z",
+        "lasttime": "2026-09-03T13:00:00.000Z",
         "city": null,
         "region": "NY",
         "country": "US",
@@ -2687,6 +2687,30 @@
         "country": "US",
         "road": "US 44",
         "postalcode": "12569"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.25901794,
+          -33.79512787
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:25:C5:15",
+        "ssid": "Flock",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T03:00:00.000Z",
+        "lasttime": "2026-09-03T03:00:00.000Z",
+        "city": null,
+        "region": "New South Wales",
+        "country": "AU",
+        "road": "Seaview Street",
+        "postalcode": "2093"
       }
     },
     {
@@ -10278,6 +10302,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -75.14804077,
+          39.95359039
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:39:21:20",
+        "ssid": "W4A<Pj<10B7D0&4;*9-/0(<50)%',+Pf",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2024-01-17T12:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
+        "city": "Philadelphia",
+        "region": "PA",
+        "country": "US",
+        "road": "North Independence Ml East",
+        "postalcode": "19106"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -119.71902466,
           36.80820084
         ]
@@ -12078,23 +12126,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.15100098,
-          39.90987396
+          -75.14903259,
+          39.93710709
         ]
       },
       "properties": {
         "netid": "90:35:EA:39:3D:7C",
-        "ssid": "W4A<PKI10lID0&4;*9-/0.>5/&_&((`1",
+        "ssid": "W4A<PKI105<E0&4;*9-/0.>5/&,&((0a",
         "oui": "90:35:EA",
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-07T10:00:00.000Z",
-        "lasttime": "2026-08-07T13:00:00.000Z",
+        "lasttime": "2026-09-03T15:00:00.000Z",
         "city": "Philadelphia",
         "region": "PA",
         "country": "US",
-        "road": "South Front Street",
-        "postalcode": "19148"
+        "road": "Christian Street",
+        "postalcode": "19146"
       }
     },
     {
@@ -14955,10 +15003,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 623
+    "total_cameras": 625
   }
 }

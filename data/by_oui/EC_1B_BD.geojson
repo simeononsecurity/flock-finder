@@ -198,30 +198,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.62164307,
-          44.76539993
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:2C:6E:CD",
-        "ssid": "TVHub-200600154",
-        "oui": "EC:1B:BD",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-09-03T20:00:00.000Z",
-        "lasttime": "2024-09-03T14:00:00.000Z",
-        "city": "Traverse City",
-        "region": "MI",
-        "country": "US",
-        "road": "East Grandview Parkway",
-        "postalcode": "49684"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -80.41752625,
           27.76007462
         ]
@@ -3143,30 +3119,6 @@
         "country": "NL",
         "road": "Voermanweg",
         "postalcode": "3067LX"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.77108288,
-          45.65239334
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:2C:A5:E5",
-        "ssid": "FVDec1bbd2ca5e5",
-        "oui": "EC:1B:BD",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-03T10:00:00.000Z",
-        "lasttime": "2024-09-03T05:00:00.000Z",
-        "city": "Trieste",
-        "region": "Friuli-Venezia Giulia",
-        "country": "IT",
-        "road": "Passaggio Joyce",
-        "postalcode": "34121-34151"
       }
     },
     {
@@ -8263,7 +8215,7 @@
         "type": "Point",
         "coordinates": [
           19.42541885,
-          51.80280685
+          51.80279922
         ]
       },
       "properties": {
@@ -8273,7 +8225,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-07-25T16:00:00.000Z",
-        "lasttime": "2026-09-02T18:00:00.000Z",
+        "lasttime": "2026-09-03T07:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo \u0142\u00f3dzkie",
         "country": "PL",
@@ -8465,7 +8417,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-01-08T10:00:00.000Z",
-        "lasttime": "2026-09-02T18:00:00.000Z",
+        "lasttime": "2026-09-03T07:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo \u0142\u00f3dzkie",
         "country": "PL",
@@ -10443,10 +10395,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 435
+    "total_cameras": 433
   }
 }

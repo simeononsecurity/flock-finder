@@ -6870,30 +6870,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.44667053,
-          47.05685043
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:49:E6:E5",
-        "ssid": "AMTRON_7C70BC805AFE",
-        "oui": "58:8E:81",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2021-10-01T16:00:00.000Z",
-        "lasttime": "2024-09-03T07:00:00.000Z",
-        "city": "Graz",
-        "region": "Steiermark",
-        "country": "AT",
-        "road": null,
-        "postalcode": "8010"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.75520611,
           48.17510605
         ]
@@ -10662,6 +10638,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.32784271,
+          42.54899216
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:5C:B7:5D",
+        "ssid": "MLG01778",
+        "oui": "58:8E:81",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-03T23:00:00.000Z",
+        "lasttime": "2026-09-03T17:00:00.000Z",
+        "city": null,
+        "region": "NY",
+        "country": "US",
+        "road": "Peruville Road",
+        "postalcode": "13102"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -77.10303497,
           38.95321655
         ]
@@ -13313,7 +13313,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2021-11-16T17:00:00.000Z",
-        "lasttime": "2026-09-02T14:00:00.000Z",
+        "lasttime": "2026-09-03T11:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -19998,18 +19998,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.12176514,
-          33.20953751
+          -97.12187958,
+          33.20962143
         ]
       },
       "properties": {
         "netid": "58:8E:81:BC:A8:94",
         "ssid": "simplySnap_648e68",
         "oui": "58:8E:81",
-        "channel": 6,
+        "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-05-12T17:00:00.000Z",
-        "lasttime": "2026-08-12T17:00:00.000Z",
+        "lasttime": "2026-09-03T18:00:00.000Z",
         "city": "Denton",
         "region": "TX",
         "country": "US",
@@ -20214,18 +20214,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.9864502,
-          39.85313416
+          -104.98644257,
+          39.85309601
         ]
       },
       "properties": {
         "netid": "58:8E:81:BC:A8:B3",
         "ssid": "simplySnap_649160",
         "oui": "58:8E:81",
-        "channel": 11,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-10-15T08:00:00.000Z",
-        "lasttime": "2026-08-15T07:00:00.000Z",
+        "lasttime": "2026-09-03T14:00:00.000Z",
         "city": "Thornton",
         "region": "CO",
         "country": "US",
@@ -20934,8 +20934,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -115.21025848,
-          36.27873611
+          -115.21026611,
+          36.27872086
         ]
       },
       "properties": {
@@ -20945,7 +20945,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-04-30T03:00:00.000Z",
-        "lasttime": "2026-09-02T22:00:00.000Z",
+        "lasttime": "2026-09-03T23:00:00.000Z",
         "city": "Las Vegas",
         "region": "NV",
         "country": "US",
@@ -22614,8 +22614,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.60256958,
-          32.1067276
+          -85.53812408,
+          32.19423676
         ]
       },
       "properties": {
@@ -22625,7 +22625,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-10-15T11:00:00.000Z",
-        "lasttime": "2026-05-15T19:00:00.000Z",
+        "lasttime": "2026-09-03T16:00:00.000Z",
         "city": null,
         "region": "AL",
         "country": "US",
@@ -28707,7 +28707,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-03T10:20:00.465855+00:00",
+    "generated": "2026-09-04T10:08:29.536397+00:00",
     "oui": "58:8E:81",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
