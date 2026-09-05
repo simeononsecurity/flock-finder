@@ -870,30 +870,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.01287842,
-          -33.84618759
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:2C:88:03",
-        "ssid": null,
-        "oui": "EC:1B:BD",
-        "channel": 9,
-        "encryption": "unknown",
-        "firsttime": "2024-06-29T03:00:00.000Z",
-        "lasttime": "2024-09-04T00:00:00.000Z",
-        "city": "Sydney",
-        "region": "New South Wales",
-        "country": "AU",
-        "road": "Clyde Street",
-        "postalcode": "2142"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.06720543,
           47.4687233
         ]
@@ -1783,7 +1759,7 @@
         "type": "Point",
         "coordinates": [
           153.10290527,
-          -27.50006866
+          -27.50007057
         ]
       },
       "properties": {
@@ -1793,7 +1769,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-06-05T11:00:00.000Z",
-        "lasttime": "2026-09-02T04:00:00.000Z",
+        "lasttime": "2026-09-04T19:00:00.000Z",
         "city": "Brisbane City",
         "region": "Queensland",
         "country": "AU",
@@ -4103,6 +4079,30 @@
         "country": "CZ",
         "road": "D6;21",
         "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.96704102,
+          42.15449524
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:62:25:0D",
+        "ssid": "AiM-SOLO2DL-505571",
+        "oui": "EC:1B:BD",
+        "channel": 1,
+        "encryption": "unknown",
+        "firsttime": "2026-09-04T16:00:00.000Z",
+        "lasttime": "2026-09-04T20:00:00.000Z",
+        "city": null,
+        "region": "MA",
+        "country": "US",
+        "road": "Massachusetts Turnpike",
+        "postalcode": "01507"
       }
     },
     {
@@ -10395,7 +10395,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-04T10:08:29.536397+00:00",
+    "generated": "2026-09-05T09:38:12.862809+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

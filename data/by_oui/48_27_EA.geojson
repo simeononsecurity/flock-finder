@@ -991,7 +991,7 @@
         "type": "Point",
         "coordinates": [
           92.88751984,
-          56.02661896
+          56.02661514
         ]
       },
       "properties": {
@@ -1001,7 +1001,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2025-12-22T12:00:00.000Z",
-        "lasttime": "2026-09-02T07:00:00.000Z",
+        "lasttime": "2026-09-04T07:00:00.000Z",
         "city": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a",
         "region": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0438\u0439 \u043a\u0440\u0430\u0439",
         "country": "RU",
@@ -1566,23 +1566,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6934042,
-          47.9535408
+          13.13678932,
+          47.64528656
         ]
       },
       "properties": {
         "netid": "48:27:EA:1B:9F:51",
         "ssid": "AndroidAP",
         "oui": "48:27:EA",
-        "channel": 11,
+        "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-03-08T12:00:00.000Z",
-        "lasttime": "2026-05-08T11:00:00.000Z",
+        "lasttime": "2026-09-04T08:00:00.000Z",
         "city": null,
-        "region": "Bayern",
-        "country": "DE",
-        "road": "A 8",
-        "postalcode": "85649"
+        "region": "Salzburg",
+        "country": "AT",
+        "road": "Tauern Autobahn",
+        "postalcode": "5431"
       }
     },
     {
@@ -3791,6 +3791,30 @@
         "country": "BD",
         "road": "\u09ac\u09bf\u0986\u09b0\u099f\u09bf \u09b2\u09be\u0987\u09a8 \u09e9",
         "postalcode": "1711"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97198486,
+          41.0173912
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:44:79:6E",
+        "ssid": "BLACK COBRA",
+        "oui": "48:27:EA",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-04T15:00:00.000Z",
+        "lasttime": "2026-09-04T09:00:00.000Z",
+        "city": "\u0130stanbul",
+        "region": "Marmara B\u00f6lgesi",
+        "country": "TR",
+        "road": "Emin\u00f6n\u00fc Meydan\u0131",
+        "postalcode": "34116"
       }
     },
     {
@@ -22422,6 +22446,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          46.17618179,
+          35.51472092
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:E4:DA:41",
+        "ssid": "AndroidAP",
+        "oui": "48:27:EA",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-04T14:00:00.000Z",
+        "lasttime": "2026-09-04T16:00:00.000Z",
+        "city": null,
+        "region": "\u0627\u0633\u062a\u0627\u0646 \u06a9\u0631\u062f\u0633\u062a\u0627\u0646",
+        "country": "IR",
+        "road": "\u06a9\u0648\u0686\u0647 \u062f\u0631\u0645\u0627\u0646\u06af\u0627\u0647",
+        "postalcode": "66716-35747"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           55.43543625,
           25.35073662
         ]
@@ -25398,30 +25446,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -58.39986801,
-          -34.62249756
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:FA:D0:05",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-28T22:00:00.000Z",
-        "lasttime": "2024-09-04T14:00:00.000Z",
-        "city": "Buenos Aires",
-        "region": "Ciudad Aut\u00f3noma de Buenos Aires",
-        "country": "AR",
-        "road": "Matheu",
-        "postalcode": "C1229AAK"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -58.45171356,
           -34.55641556
         ]
@@ -25971,10 +25995,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-04T10:08:29.536397+00:00",
+    "generated": "2026-09-05T09:38:12.862809+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1082
+    "total_cameras": 1083
   }
 }
