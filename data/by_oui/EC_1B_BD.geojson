@@ -4278,6 +4278,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -76.70749664,
+          39.18006516
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:62:50:B8",
+        "ssid": "AiM-MYC5-058787",
+        "oui": "EC:1B:BD",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-05T13:00:00.000Z",
+        "lasttime": "2026-09-05T15:00:00.000Z",
+        "city": null,
+        "region": "MD",
+        "country": "US",
+        "road": "Stoney Run Road",
+        "postalcode": "20794:21076"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -85.41082764,
           39.85325623
         ]
@@ -6703,7 +6727,7 @@
         "type": "Point",
         "coordinates": [
           -79.45579529,
-          46.29695129
+          46.29698181
         ]
       },
       "properties": {
@@ -6713,7 +6737,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2022-09-30T20:00:00.000Z",
-        "lasttime": "2026-09-02T23:00:00.000Z",
+        "lasttime": "2026-09-05T16:00:00.000Z",
         "city": "North Bay",
         "region": "Ontario",
         "country": "CA",
@@ -7878,8 +7902,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -157.89993286,
-          21.35662842
+          -157.89994812,
+          21.35099983
         ]
       },
       "properties": {
@@ -7889,12 +7913,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-05-19T09:00:00.000Z",
-        "lasttime": "2026-06-09T09:00:00.000Z",
+        "lasttime": "2026-09-05T03:00:00.000Z",
         "city": "Honolulu",
         "region": "HI",
         "country": "US",
         "road": "Ala Napunani Street",
-        "postalcode": "96818"
+        "postalcode": "96819"
       }
     },
     {
@@ -8118,18 +8142,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.25272369,
-          43.52117538
+          -80.25275421,
+          43.52122498
         ]
       },
       "properties": {
         "netid": "EC:1B:BD:BD:6E:1D",
         "ssid": "Ephesus_64869b",
         "oui": "EC:1B:BD",
-        "channel": 6,
+        "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-12-15T19:00:00.000Z",
-        "lasttime": "2026-01-12T22:00:00.000Z",
+        "lasttime": "2026-09-05T14:00:00.000Z",
         "city": "Guelph",
         "region": "Ontario",
         "country": "CA",
@@ -10395,10 +10419,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-05T09:38:12.862809+00:00",
+    "generated": "2026-09-06T09:53:09.040575+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 433
+    "total_cameras": 434
   }
 }

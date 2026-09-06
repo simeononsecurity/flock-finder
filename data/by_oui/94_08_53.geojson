@@ -22374,8 +22374,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.14258385,
-          46.20952225
+          6.14260864,
+          46.20952606
         ]
       },
       "properties": {
@@ -22385,7 +22385,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-03-23T18:00:00.000Z",
-        "lasttime": "2026-09-04T12:00:00.000Z",
+        "lasttime": "2026-09-06T01:00:00.000Z",
         "city": "Gen\u00e8ve",
         "region": "Gen\u00e8ve",
         "country": "CH",
@@ -24270,8 +24270,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -78.8997879,
-          42.90328598
+          -78.8998642,
+          42.90335464
         ]
       },
       "properties": {
@@ -24281,7 +24281,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-09-12T01:00:00.000Z",
-        "lasttime": "2026-07-23T22:00:00.000Z",
+        "lasttime": "2026-09-05T17:00:00.000Z",
         "city": "Buffalo",
         "region": "NY",
         "country": "US",
@@ -26934,8 +26934,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7583313,
-          35.69129562
+          139.75831604,
+          35.69128418
         ]
       },
       "properties": {
@@ -26945,7 +26945,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-28T18:00:00.000Z",
-        "lasttime": "2026-07-01T08:00:00.000Z",
+        "lasttime": "2026-09-05T22:00:00.000Z",
         "city": "\u5343\u4ee3\u7530\u533a",
         "region": "\u4e00\u30c4\u6a4b",
         "country": "JP",
@@ -27071,30 +27071,6 @@
         "country": "CA",
         "road": "Kent Street",
         "postalcode": "K2P 2A4"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -122.85719299,
-          49.13736725
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:8D:AB:9B",
-        "ssid": null,
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-04T18:00:00.000Z",
-        "lasttime": "2024-09-05T01:00:00.000Z",
-        "city": "Surrey",
-        "region": "British Columbia",
-        "country": "CA",
-        "road": "131A Street",
-        "postalcode": "V3W 2V6"
       }
     },
     {
@@ -30150,30 +30126,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3550849,
-          52.00300598
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:8D:B4:EF",
-        "ssid": "ClickShare-DROC",
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-01-06T11:00:00.000Z",
-        "lasttime": "2024-09-05T01:00:00.000Z",
-        "city": "Delft",
-        "region": "Zuid-Holland",
-        "country": "NL",
-        "road": "Westlandseweg",
-        "postalcode": "2613"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.77426147,
           35.70212555
         ]
@@ -32670,8 +32622,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.29986286,
-          48.86495972
+          2.29986358,
+          48.86497116
         ]
       },
       "properties": {
@@ -32681,7 +32633,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-12-11T18:00:00.000Z",
-        "lasttime": "2026-05-22T11:00:00.000Z",
+        "lasttime": "2026-09-05T14:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -36051,10 +36003,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-05T09:38:12.862809+00:00",
+    "generated": "2026-09-06T09:53:09.040575+00:00",
     "oui": "94:08:53",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1502
+    "total_cameras": 1500
   }
 }

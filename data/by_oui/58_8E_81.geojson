@@ -1783,7 +1783,7 @@
         "type": "Point",
         "coordinates": [
           -75.52907562,
-          39.1308136
+          39.13081741
         ]
       },
       "properties": {
@@ -1793,7 +1793,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2024-09-21T17:00:00.000Z",
-        "lasttime": "2026-08-18T23:00:00.000Z",
+        "lasttime": "2026-09-05T23:00:00.000Z",
         "city": null,
         "region": "DE",
         "country": "US",
@@ -1937,7 +1937,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2021-04-14T11:00:00.000Z",
-        "lasttime": "2026-08-29T03:00:00.000Z",
+        "lasttime": "2026-09-05T22:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -5910,7 +5910,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.40677071,
+          8.40676498,
           47.45830154
         ]
       },
@@ -5921,7 +5921,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-02-14T01:00:00.000Z",
-        "lasttime": "2026-09-02T09:00:00.000Z",
+        "lasttime": "2026-09-05T14:00:00.000Z",
         "city": null,
         "region": "Z\u00fcrich",
         "country": "CH",
@@ -10734,8 +10734,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -88.1004715,
-          41.87148285
+          -88.10062408,
+          41.8706131
         ]
       },
       "properties": {
@@ -10743,14 +10743,14 @@
         "ssid": "MLG01566",
         "oui": "58:8E:81",
         "channel": 3,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2024-09-01T19:00:00.000Z",
-        "lasttime": "2026-08-11T17:00:00.000Z",
+        "lasttime": "2026-09-06T02:00:00.000Z",
         "city": null,
         "region": "IL",
         "country": "US",
-        "road": "East Jefferson Avenue",
-        "postalcode": "60187"
+        "road": "Hill Avenue",
+        "postalcode": "60137"
       }
     },
     {
@@ -10895,6 +10895,30 @@
         "country": "US",
         "road": "Robley Drive",
         "postalcode": "70503"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.32332611,
+          26.04401588
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:5C:BD:D1",
+        "ssid": "MLG15719",
+        "oui": "58:8E:81",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-08-26T09:00:00.000Z",
+        "lasttime": "2026-09-06T00:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Stirling Road",
+        "postalcode": "33328"
       }
     },
     {
@@ -15846,8 +15870,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.90716553,
-          40.86159515
+          -123.21735382,
+          43.63570786
         ]
       },
       "properties": {
@@ -15857,12 +15881,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-12-02T19:00:00.000Z",
-        "lasttime": "2026-08-25T20:00:00.000Z",
+        "lasttime": "2026-09-05T02:00:00.000Z",
         "city": null,
-        "region": "UT",
+        "region": "OR",
         "country": "US",
-        "road": "East 1100 North",
-        "postalcode": "84054"
+        "road": "I 5",
+        "postalcode": null
       }
     },
     {
@@ -16326,8 +16350,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.03709412,
-          34.76679993
+          -91.95956421,
+          37.31841278
         ]
       },
       "properties": {
@@ -16337,12 +16361,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-06-27T03:00:00.000Z",
-        "lasttime": "2026-05-31T10:00:00.000Z",
+        "lasttime": "2026-09-06T02:00:00.000Z",
         "city": null,
-        "region": "SC",
+        "region": "MO",
         "country": "US",
-        "road": "I 77",
-        "postalcode": "29724"
+        "road": "South Sam Houston Boulevard",
+        "postalcode": "65483"
       }
     },
     {
@@ -16878,8 +16902,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.1568985,
-          36.22357941
+          -84.15688324,
+          36.22388077
         ]
       },
       "properties": {
@@ -16889,7 +16913,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2021-09-04T15:00:00.000Z",
-        "lasttime": "2026-08-31T12:00:00.000Z",
+        "lasttime": "2026-09-06T02:00:00.000Z",
         "city": null,
         "region": "TN",
         "country": "US",
@@ -28707,10 +28731,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-05T09:38:12.862809+00:00",
+    "generated": "2026-09-06T09:53:09.040575+00:00",
     "oui": "58:8E:81",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1196
+    "total_cameras": 1197
   }
 }

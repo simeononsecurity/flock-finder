@@ -246,8 +246,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.1037674,
-          9.92944527
+          -84.10373688,
+          9.92948818
         ]
       },
       "properties": {
@@ -255,9 +255,9 @@
         "ssid": "MLG56421",
         "oui": "90:35:EA",
         "channel": 1,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-08-27T22:00:00.000Z",
+        "lasttime": "2026-09-05T10:00:00.000Z",
         "city": null,
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
@@ -2783,6 +2783,30 @@
         "country": "NZ",
         "road": "Mozeley Avenue",
         "postalcode": "0624"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.94976473,
+          52.45842743
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:2A:EC:C3",
+        "ssid": "Flock",
+        "oui": "90:35:EA",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-05T12:00:00.000Z",
+        "lasttime": "2026-09-05T22:00:00.000Z",
+        "city": "Birmingham",
+        "region": "England",
+        "country": "GB",
+        "road": "Vivian Road",
+        "postalcode": "B17"
       }
     },
     {
@@ -7751,6 +7775,30 @@
         "country": "DE",
         "road": "B 2",
         "postalcode": "86415"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.62620258,
+          51.04571915
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:2B:07:86",
+        "ssid": "24692492",
+        "oui": "90:35:EA",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-05T07:00:00.000Z",
+        "lasttime": "2026-09-05T05:00:00.000Z",
+        "city": null,
+        "region": "Limburg",
+        "country": "BE",
+        "road": "Weg naar As",
+        "postalcode": "3680"
       }
     },
     {
@@ -15030,6 +15078,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -1.94794905,
+          52.46342468
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:7A:CF:E8",
+        "ssid": null,
+        "oui": "90:35:EA",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-05T11:00:00.000Z",
+        "lasttime": "2026-09-05T22:00:00.000Z",
+        "city": "Birmingham",
+        "region": "England",
+        "country": "GB",
+        "road": "Park Hill Road",
+        "postalcode": "B17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -0.99460995,
           50.93976593
         ]
@@ -15075,10 +15147,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-05T09:38:12.862809+00:00",
+    "generated": "2026-09-06T09:53:09.040575+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 628
+    "total_cameras": 631
   }
 }

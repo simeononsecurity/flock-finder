@@ -12774,6 +12774,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.01425171,
+          50.08230591
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:2E:08:6F",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-05T13:00:00.000Z",
+        "lasttime": "2026-09-05T13:00:00.000Z",
+        "city": null,
+        "region": "wojew\u00f3dztwo ma\u0142opolskie",
+        "country": "PL",
+        "road": null,
+        "postalcode": "31-859"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -64.28591156,
           46.2165451
         ]
@@ -14694,7 +14718,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.33057666,
+          2.33057022,
           48.85079575
         ]
       },
@@ -14705,7 +14729,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-09-19T07:00:00.000Z",
-        "lasttime": "2026-09-03T09:00:00.000Z",
+        "lasttime": "2026-09-06T02:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -19203,10 +19227,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-05T09:38:12.862809+00:00",
+    "generated": "2026-09-06T09:53:09.040575+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 800
+    "total_cameras": 801
   }
 }

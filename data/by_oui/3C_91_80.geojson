@@ -15750,6 +15750,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.01420403,
+          50.09163284
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:C6:08:B1",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-09-05T12:00:00.000Z",
+        "lasttime": "2026-09-05T13:00:00.000Z",
+        "city": null,
+        "region": "wojew\u00f3dztwo ma\u0142opolskie",
+        "country": "PL",
+        "road": null,
+        "postalcode": "31-814"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.18950653,
           47.65887833
         ]
@@ -18414,6 +18438,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -111.79827118,
+          43.82322311
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:E4:42:38",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-05T05:00:00.000Z",
+        "lasttime": "2026-09-05T03:00:00.000Z",
+        "city": null,
+        "region": "ID",
+        "country": "US",
+        "road": "Taurus Drive",
+        "postalcode": "83440"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -83.54528046,
           41.69028854
         ]
@@ -19134,8 +19182,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.7602253,
-          61.49485397
+          23.76024818,
+          61.49484634
         ]
       },
       "properties": {
@@ -19145,7 +19193,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2020-08-29T12:00:00.000Z",
-        "lasttime": "2026-08-21T09:00:00.000Z",
+        "lasttime": "2026-09-05T13:00:00.000Z",
         "city": "Tampere",
         "region": "Manner-Suomi",
         "country": "FI",
@@ -21051,10 +21099,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-05T09:38:12.862809+00:00",
+    "generated": "2026-09-06T09:53:09.040575+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 877
+    "total_cameras": 879
   }
 }

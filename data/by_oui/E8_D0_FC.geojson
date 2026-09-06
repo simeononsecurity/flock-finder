@@ -2166,6 +2166,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -1.95380247,
+          52.46230698
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:36:3E:AA",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 13,
+        "encryption": "none",
+        "firsttime": "2026-09-05T11:00:00.000Z",
+        "lasttime": "2026-09-05T22:00:00.000Z",
+        "city": "Birmingham",
+        "region": "England",
+        "country": "GB",
+        "road": "Ravenhurst Road",
+        "postalcode": "B17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.73670197,
           27.81856728
         ]
@@ -5766,6 +5790,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.83538818,
+          35.6473732
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:4E:6D:01",
+        "ssid": "konica_SWY0117",
+        "oui": "E8:D0:FC",
+        "channel": 13,
+        "encryption": "wpa2",
+        "firsttime": "2022-11-06T13:00:00.000Z",
+        "lasttime": "2026-09-05T22:00:00.000Z",
+        "city": "\u6c5f\u6771\u533a",
+        "region": "\u5922\u306e\u5cf6\u4e00\u4e01\u76ee",
+        "country": "JP",
+        "road": "\u660e\u6cbb\u901a\u308a",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.82345581,
           35.66321182
         ]
@@ -6695,6 +6743,30 @@
         "country": "US",
         "road": "I 95",
         "postalcode": "02912"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.34699249,
+          41.80980301
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:4F:C5:4D",
+        "ssid": "S2080w-64637260",
+        "oui": "E8:D0:FC",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-04T04:00:00.000Z",
+        "lasttime": "2026-09-05T17:00:00.000Z",
+        "city": null,
+        "region": "RI",
+        "country": "US",
+        "road": "I 195",
+        "postalcode": "02914"
       }
     },
     {
@@ -12102,7 +12174,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -96.98161316,
+          -96.98160553,
           32.98900986
         ]
       },
@@ -12113,7 +12185,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-11-22T13:00:00.000Z",
-        "lasttime": "2026-08-17T18:00:00.000Z",
+        "lasttime": "2026-09-05T21:00:00.000Z",
         "city": "Lewisville",
         "region": "TX",
         "country": "US",
@@ -15966,8 +16038,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.49388885,
-          29.84240723
+          -95.49385071,
+          29.84238243
         ]
       },
       "properties": {
@@ -15977,7 +16049,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-03-25T23:00:00.000Z",
-        "lasttime": "2026-09-03T18:00:00.000Z",
+        "lasttime": "2026-09-05T23:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -19062,8 +19134,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2154007,
-          48.50175476
+          9.21541977,
+          48.50185013
         ]
       },
       "properties": {
@@ -19073,7 +19145,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-10-13T06:00:00.000Z",
-        "lasttime": "2026-05-06T10:00:00.000Z",
+        "lasttime": "2026-09-05T14:00:00.000Z",
         "city": "Reutlingen",
         "region": "Baden-W\u00fcrttemberg",
         "country": "DE",
@@ -21675,10 +21747,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-05T09:38:12.862809+00:00",
+    "generated": "2026-09-06T09:53:09.040575+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 903
+    "total_cameras": 906
   }
 }
