@@ -1134,8 +1134,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -69.80729675,
-          44.34409332
+          -69.80736542,
+          44.34401321
         ]
       },
       "properties": {
@@ -1145,7 +1145,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-07-31T21:00:00.000Z",
-        "lasttime": "2026-09-05T00:00:00.000Z",
+        "lasttime": "2026-09-06T05:00:00.000Z",
         "city": "Augusta",
         "region": "ME",
         "country": "US",
@@ -3126,6 +3126,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          174.52880859,
+          -35.61052704
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:17:BE:4D",
+        "ssid": "AC2MCEIY",
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-06T01:00:00.000Z",
+        "lasttime": "2026-09-06T07:00:00.000Z",
+        "city": null,
+        "region": "Northland",
+        "country": "NZ",
+        "road": "Marina Road",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.18385506,
           60.14443588
         ]
@@ -5046,18 +5070,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.5004425,
-          39.3307457
+          -76.50037384,
+          39.33079529
         ]
       },
       "properties": {
         "netid": "00:F4:8D:23:CD:2F",
         "ssid": null,
         "oui": "00:F4:8D",
-        "channel": 48,
+        "channel": 11,
         "encryption": "unknown",
         "firsttime": "2026-06-13T01:00:00.000Z",
-        "lasttime": "2026-09-05T03:00:00.000Z",
+        "lasttime": "2026-09-06T05:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
@@ -5718,8 +5742,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.54338074,
-          29.90600014
+          -95.54328156,
+          29.90589523
         ]
       },
       "properties": {
@@ -5729,7 +5753,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-05-01T20:00:00.000Z",
-        "lasttime": "2026-09-02T21:00:00.000Z",
+        "lasttime": "2026-09-06T04:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -10206,6 +10230,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -73.37794495,
+          40.8351593
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:71:A4:E5",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-04T11:00:00.000Z",
+        "lasttime": "2026-09-06T10:00:00.000Z",
+        "city": null,
+        "region": "NY",
+        "country": "US",
+        "road": "East Jericho Turnpike",
+        "postalcode": "11746"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -121.75062561,
           36.91628265
         ]
@@ -13182,6 +13230,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -95.55738831,
+          29.72739983
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:E1:C6:ED",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 153,
+        "encryption": "none",
+        "firsttime": "2026-09-04T06:00:00.000Z",
+        "lasttime": "2026-09-06T04:00:00.000Z",
+        "city": "Houston",
+        "region": "TX",
+        "country": "US",
+        "road": "West Sam Houston Tollway South",
+        "postalcode": "77042-9998"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.1451416,
           40.84992218
         ]
@@ -13563,10 +13635,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-06T09:53:09.040575+00:00",
+    "generated": "2026-09-07T10:59:17.494116+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 565
+    "total_cameras": 568
   }
 }

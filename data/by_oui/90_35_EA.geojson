@@ -246,8 +246,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.10373688,
-          9.92948818
+          -84.10374451,
+          9.92941475
         ]
       },
       "properties": {
@@ -257,7 +257,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-09-05T10:00:00.000Z",
+        "lasttime": "2026-09-06T09:00:00.000Z",
         "city": null,
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
@@ -918,7 +918,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.09938812,
+          -79.09939575,
           34.60424042
         ]
       },
@@ -929,7 +929,7 @@
         "channel": 6,
         "encryption": "none",
         "firsttime": "2024-06-15T10:00:00.000Z",
-        "lasttime": "2026-09-03T13:00:00.000Z",
+        "lasttime": "2026-09-06T06:00:00.000Z",
         "city": null,
         "region": "NC",
         "country": "US",
@@ -2982,6 +2982,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.92736149,
+          47.54526901
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:2A:F9:15",
+        "ssid": "24562706",
+        "oui": "90:35:EA",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-06T11:00:00.000Z",
+        "lasttime": "2026-09-06T20:00:00.000Z",
+        "city": null,
+        "region": "Thurgau",
+        "country": "CH",
+        "road": "Panoramaweg",
+        "postalcode": "9548"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.7744503,
           51.02470016
         ]
@@ -4350,8 +4374,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.85269356,
-          47.97491837
+          16.85268402,
+          47.97490311
         ]
       },
       "properties": {
@@ -4361,7 +4385,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2003-08-06T18:00:00.000Z",
-        "lasttime": "2026-08-26T06:00:00.000Z",
+        "lasttime": "2026-09-06T02:00:00.000Z",
         "city": null,
         "region": "Burgenland",
         "country": "AT",
@@ -10614,6 +10638,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -75.14916229,
+          39.95555115
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:39:23:BC",
+        "ssid": "W4A<PF;10VbG0&4;*9-/0&<50)%&.)0m",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-07-02T13:00:00.000Z",
+        "lasttime": "2026-09-05T09:00:00.000Z",
+        "city": "Philadelphia",
+        "region": "PA",
+        "country": "US",
+        "road": "I 676;US 30",
+        "postalcode": "19106"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -76.81835938,
           39.25688171
         ]
@@ -13662,23 +13710,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.23040771,
-          40.82450867
+          -73.2314682,
+          40.82494354
         ]
       },
       "properties": {
         "netid": "90:35:EA:39:54:B0",
-        "ssid": "W4b9`9M50?E00&4;1C.4+*<C/)*,+.04",
+        "ssid": "Flock",
         "oui": "90:35:EA",
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-11-01T16:00:00.000Z",
-        "lasttime": "2025-02-28T21:00:00.000Z",
+        "lasttime": "2026-09-06T10:00:00.000Z",
         "city": null,
         "region": "NY",
         "country": "US",
         "road": "Veterans Memorial Highway",
-        "postalcode": "11788"
+        "postalcode": "11787"
       }
     },
     {
@@ -15147,10 +15195,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-06T09:53:09.040575+00:00",
+    "generated": "2026-09-07T10:59:17.494116+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 631
+    "total_cameras": 633
   }
 }

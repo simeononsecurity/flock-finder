@@ -1614,6 +1614,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -118.14979553,
+          33.76067352
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:28:AC:EE",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-06T05:00:00.000Z",
+        "lasttime": "2026-09-06T09:00:00.000Z",
+        "city": "Long Beach",
+        "region": "CA",
+        "country": "US",
+        "road": "East Ocean Boulevard",
+        "postalcode": "90803"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -53.79243088,
           -29.68852234
         ]
@@ -2207,30 +2231,6 @@
         "country": "US",
         "road": "East Walton Boulevard",
         "postalcode": "48309-4430"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          150.97547913,
-          -33.91456985
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:30:C3:B0",
-        "ssid": null,
-        "oui": "70:C9:4E",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2024-09-06T02:00:00.000Z",
-        "lasttime": "2024-09-06T01:00:00.000Z",
-        "city": "Sydney",
-        "region": "New South Wales",
-        "country": "AU",
-        "road": "Henry Lawson Drive",
-        "postalcode": "2198"
       }
     },
     {
@@ -3726,6 +3726,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          17.96606064,
+          59.37842178
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3E:ED:EF",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-06T09:00:00.000Z",
+        "lasttime": "2026-09-06T20:00:00.000Z",
+        "city": null,
+        "region": "Stockholms l\u00e4n",
+        "country": "SE",
+        "road": "\u00d6stra Madenv\u00e4gen",
+        "postalcode": "174 55"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -76.26450348,
           36.68658447
         ]
@@ -4542,6 +4566,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -104.80311584,
+          39.69951248
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:4A:30:09",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-09-06T10:00:00.000Z",
+        "lasttime": "2026-09-06T23:00:00.000Z",
+        "city": "Aurora",
+        "region": "CO",
+        "country": "US",
+        "road": "East Tennessee Avenue",
+        "postalcode": "80017"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.88516235,
           33.72810745
         ]
@@ -4830,18 +4878,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.52198792,
-          39.35129547
+          -76.52201843,
+          39.35130692
         ]
       },
       "properties": {
         "netid": "70:C9:4E:4C:A6:A9",
         "ssid": null,
         "oui": "70:C9:4E",
-        "channel": 10,
+        "channel": 1,
         "encryption": "unknown",
         "firsttime": "2026-05-23T21:00:00.000Z",
-        "lasttime": "2026-08-23T20:00:00.000Z",
+        "lasttime": "2026-09-06T05:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
@@ -8718,18 +8766,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.10802641,
-          51.46294022
+          -0.10813671,
+          51.46291733
         ]
       },
       "properties": {
         "netid": "70:C9:4E:8B:F3:DF",
         "ssid": null,
         "oui": "70:C9:4E",
-        "channel": 157,
-        "encryption": "wep",
+        "channel": 149,
+        "encryption": "none",
         "firsttime": "2026-04-03T09:00:00.000Z",
-        "lasttime": "2026-07-20T16:00:00.000Z",
+        "lasttime": "2026-09-04T14:00:00.000Z",
         "city": "London",
         "region": "England",
         "country": "GB",
@@ -11091,10 +11139,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-06T09:53:09.040575+00:00",
+    "generated": "2026-09-07T10:59:17.494116+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 462
+    "total_cameras": 464
   }
 }

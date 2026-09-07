@@ -1206,30 +1206,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.07479095,
-          26.69018364
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:2C:9B:FD",
-        "ssid": "simplySnap_6486f2",
-        "oui": "EC:1B:BD",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2021-06-10T18:00:00.000Z",
-        "lasttime": "2024-09-06T05:00:00.000Z",
-        "city": "West Palm Beach",
-        "region": "FL",
-        "country": "US",
-        "road": "Australian Avenue",
-        "postalcode": "33406"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -94.73638916,
           32.46047592
         ]
@@ -4806,6 +4782,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          46.73387146,
+          24.85235023
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:BD:15:17",
+        "ssid": "20178619",
+        "oui": "EC:1B:BD",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-26T19:00:00.000Z",
+        "lasttime": "2026-09-05T12:00:00.000Z",
+        "city": null,
+        "region": "\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0631\u064a\u0627\u0636",
+        "country": "SA",
+        "road": null,
+        "postalcode": "11263"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -115.23517609,
           36.07246017
         ]
@@ -5303,6 +5303,30 @@
         "country": "US",
         "road": "North Country Club Road",
         "postalcode": "46111"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.00099945,
+          46.40655899
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:BD:25:BA",
+        "ssid": "Flock",
+        "oui": "EC:1B:BD",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-05T16:00:00.000Z",
+        "lasttime": "2026-09-06T07:00:00.000Z",
+        "city": "Lewiston",
+        "region": "ID",
+        "country": "US",
+        "road": "14th Avenue",
+        "postalcode": "83501"
       }
     },
     {
@@ -8526,8 +8550,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.91028404,
-          48.19576645
+          15.91085052,
+          48.19562912
         ]
       },
       "properties": {
@@ -8537,7 +8561,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2025-08-11T01:00:00.000Z",
-        "lasttime": "2025-08-10T19:00:00.000Z",
+        "lasttime": "2026-09-04T11:00:00.000Z",
         "city": "Gemeinde Neulengbach",
         "region": "Nieder\u00f6sterreich",
         "country": "AT",
@@ -9534,8 +9558,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1828146,
-          56.15582275
+          10.18275261,
+          56.15579224
         ]
       },
       "properties": {
@@ -9545,7 +9569,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2025-08-09T15:00:00.000Z",
-        "lasttime": "2026-08-31T08:00:00.000Z",
+        "lasttime": "2026-09-06T09:00:00.000Z",
         "city": "Aarhus",
         "region": "Region Midtjylland",
         "country": "DK",
@@ -10419,10 +10443,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-06T09:53:09.040575+00:00",
+    "generated": "2026-09-07T10:59:17.494116+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 434
+    "total_cameras": 435
   }
 }

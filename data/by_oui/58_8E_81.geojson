@@ -2383,17 +2383,17 @@
         "type": "Point",
         "coordinates": [
           -76.39109802,
-          36.77897263
+          36.77899551
         ]
       },
       "properties": {
         "netid": "58:8E:81:26:CE:07",
         "ssid": "MLG00826",
         "oui": "58:8E:81",
-        "channel": 11,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2021-09-16T14:00:00.000Z",
-        "lasttime": "2026-09-01T14:00:00.000Z",
+        "lasttime": "2026-09-06T04:00:00.000Z",
         "city": "Chesapeake",
         "region": "VA",
         "country": "US",
@@ -3407,6 +3407,30 @@
         "country": "US",
         "road": "Paseo del Campo",
         "postalcode": "94579"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.39069366,
+          38.96857452
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:2C:3A:09",
+        "ssid": "JuiceNet-A09",
+        "oui": "58:8E:81",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-09-06T04:00:00.000Z",
+        "lasttime": "2026-09-06T07:00:00.000Z",
+        "city": null,
+        "region": "VA",
+        "country": "US",
+        "road": "Locust Street",
+        "postalcode": "20170"
       }
     },
     {
@@ -9558,8 +9582,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.17670202,
-          50.92531204
+          7.17671013,
+          50.92531967
         ]
       },
       "properties": {
@@ -9569,7 +9593,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2023-08-06T15:00:00.000Z",
-        "lasttime": "2026-08-07T10:00:00.000Z",
+        "lasttime": "2026-09-07T00:00:00.000Z",
         "city": null,
         "region": "Nordrhein-Westfalen",
         "country": "DE",
@@ -10271,30 +10295,6 @@
         "country": "US",
         "road": "Riverside Drive",
         "postalcode": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -80.20436096,
-          26.6073494
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:5C:B1:CB",
-        "ssid": "MLG09843",
-        "oui": "58:8E:81",
-        "channel": 1,
-        "encryption": "none",
-        "firsttime": "2024-03-23T16:00:00.000Z",
-        "lasttime": "2024-09-06T05:00:00.000Z",
-        "city": null,
-        "region": "FL",
-        "country": "US",
-        "road": "Hunting Trail",
-        "postalcode": "33467"
       }
     },
     {
@@ -11598,8 +11598,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.69928741,
-          45.58960342
+          -122.70015717,
+          45.58969498
         ]
       },
       "properties": {
@@ -11607,9 +11607,9 @@
         "ssid": "MLG08140",
         "oui": "58:8E:81",
         "channel": 11,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2024-09-05T23:00:00.000Z",
-        "lasttime": "2025-09-16T01:00:00.000Z",
+        "lasttime": "2026-09-06T22:00:00.000Z",
         "city": "Portland",
         "region": "OR",
         "country": "US",
@@ -11687,30 +11687,6 @@
         "country": "US",
         "road": "Southeast 100th Avenue",
         "postalcode": "33514"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -95.11566925,
-          29.49667931
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:61:75:57",
-        "ssid": "MLG08123",
-        "oui": "58:8E:81",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-03-07T19:00:00.000Z",
-        "lasttime": "2024-09-06T17:00:00.000Z",
-        "city": null,
-        "region": "TX",
-        "country": "US",
-        "road": "Hobbs Road",
-        "postalcode": "77573"
       }
     },
     {
@@ -12726,8 +12702,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.63141632,
-          29.91713715
+          -95.63140869,
+          29.91713333
         ]
       },
       "properties": {
@@ -12737,7 +12713,7 @@
         "channel": 6,
         "encryption": "none",
         "firsttime": "2023-11-30T06:00:00.000Z",
-        "lasttime": "2026-08-27T18:00:00.000Z",
+        "lasttime": "2026-09-06T04:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -13326,8 +13302,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.10069275,
-          40.33675385
+          -74.10068512,
+          40.33674622
         ]
       },
       "properties": {
@@ -13337,7 +13313,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2021-11-16T17:00:00.000Z",
-        "lasttime": "2026-09-04T05:00:00.000Z",
+        "lasttime": "2026-09-05T10:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -15743,30 +15719,6 @@
         "country": "US",
         "road": "Sugarloaf Parkway",
         "postalcode": "30043:30096"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -96.70938873,
-          33.02742386
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:B4:96:5D",
-        "ssid": "ST1JXjSDPP1512",
-        "oui": "58:8E:81",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-05-17T23:00:00.000Z",
-        "lasttime": "2024-09-06T18:00:00.000Z",
-        "city": "Plano",
-        "region": "TX",
-        "country": "US",
-        "road": "Central Expressway",
-        "postalcode": "75074"
       }
     },
     {
@@ -18990,6 +18942,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -80.8479538,
+          35.22835159
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:BC:A7:1D",
+        "ssid": "Ephesus_648ce3",
+        "oui": "58:8E:81",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2024-04-05T15:00:00.000Z",
+        "lasttime": "2026-09-06T21:00:00.000Z",
+        "city": "Charlotte",
+        "region": "NC",
+        "country": "US",
+        "road": "South Mint Street",
+        "postalcode": "28202"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -88.18376923,
           40.29640579
         ]
@@ -19710,8 +19686,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -92.28844452,
-          34.75228119
+          -92.28839874,
+          34.75232315
         ]
       },
       "properties": {
@@ -19721,7 +19697,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-05-22T14:00:00.000Z",
-        "lasttime": "2026-08-31T20:00:00.000Z",
+        "lasttime": "2026-09-06T07:00:00.000Z",
         "city": "Little Rock",
         "region": "AR",
         "country": "US",
@@ -25758,30 +25734,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.38870239,
-          40.57653046
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:C5:61:28",
-        "ssid": "ST1JXjpFXC1t12",
-        "oui": "58:8E:81",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2022-08-17T10:00:00.000Z",
-        "lasttime": "2024-09-06T10:00:00.000Z",
-        "city": null,
-        "region": "PA",
-        "country": "US",
-        "road": "I 78",
-        "postalcode": "18015"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -81.35832214,
           35.70709991
         ]
@@ -27438,8 +27390,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.68434906,
-          45.59625626
+          -104.8343811,
+          38.85829163
         ]
       },
       "properties": {
@@ -27449,12 +27401,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-08-22T20:00:00.000Z",
-        "lasttime": "2026-08-26T18:00:00.000Z",
-        "city": "Portland",
-        "region": "OR",
+        "lasttime": "2026-09-06T08:00:00.000Z",
+        "city": "Colorado Springs",
+        "region": "CO",
         "country": "US",
-        "road": "I 5",
-        "postalcode": "97217"
+        "road": "I 25",
+        "postalcode": "80709"
       }
     },
     {
@@ -28731,10 +28683,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-06T09:53:09.040575+00:00",
+    "generated": "2026-09-07T10:59:17.494116+00:00",
     "oui": "58:8E:81",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1197
+    "total_cameras": 1195
   }
 }

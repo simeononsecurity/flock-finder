@@ -990,7 +990,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          92.88751984,
+          92.88752747,
           56.02661514
         ]
       },
@@ -1001,7 +1001,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2025-12-22T12:00:00.000Z",
-        "lasttime": "2026-09-04T07:00:00.000Z",
+        "lasttime": "2026-09-06T22:00:00.000Z",
         "city": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a",
         "region": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0438\u0439 \u043a\u0440\u0430\u0439",
         "country": "RU",
@@ -7374,30 +7374,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.81217241,
-          45.75673294
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:66:2B:B5",
-        "ssid": "AndroidAP2BB5",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-06T17:00:00.000Z",
-        "lasttime": "2024-09-06T10:00:00.000Z",
-        "city": "Lyon",
-        "region": "Auvergne-Rh\u00f4ne-Alpes",
-        "country": "FR",
-        "road": "Rue Appian",
-        "postalcode": "69005"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.86004829,
           45.76063919
         ]
@@ -13542,6 +13518,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          19.11927605,
+          47.45147705
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:9D:06:01",
+        "ssid": "Gerg\u00f6 s26",
+        "oui": "48:27:EA",
+        "channel": 2,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-06T13:00:00.000Z",
+        "lasttime": "2026-09-06T21:00:00.000Z",
+        "city": null,
+        "region": "Budapest",
+        "country": "HU",
+        "road": "Nagyk\u0151r\u00f6si \u00fat",
+        "postalcode": "1192"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           15.40186596,
           45.90929413
         ]
@@ -14543,30 +14543,6 @@
         "country": "CZ",
         "road": "Hrad\u010dansk\u00e9 n\u00e1m\u011bst\u00ed",
         "postalcode": "11800"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.27816153,
-          47.80543518
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:A7:94:1B",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-06T17:00:00.000Z",
-        "lasttime": "2024-09-06T10:00:00.000Z",
-        "city": null,
-        "region": "Bretagne",
-        "country": "FR",
-        "road": "Rue du Champ de Foire",
-        "postalcode": "56700"
       }
     },
     {
@@ -19319,30 +19295,6 @@
         "country": "SI",
         "road": "Detelova cesta",
         "postalcode": "1251"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          20.41291809,
-          49.39545822
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:CC:FA:3B",
-        "ssid": "Disconnected",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-05T12:00:00.000Z",
-        "lasttime": "2024-09-06T08:00:00.000Z",
-        "city": null,
-        "region": "Pre\u0161ovsk\u00fd kraj",
-        "country": "SK",
-        "road": "543",
-        "postalcode": "059 06"
       }
     },
     {
@@ -25851,10 +25803,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-06T09:53:09.040575+00:00",
+    "generated": "2026-09-07T10:59:17.494116+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1077
+    "total_cameras": 1075
   }
 }

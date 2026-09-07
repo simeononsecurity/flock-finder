@@ -102,8 +102,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.55483246,
-          35.3384552
+          -111.55495453,
+          35.33855438
         ]
       },
       "properties": {
@@ -113,7 +113,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-04-23T18:00:00.000Z",
-        "lasttime": "2026-01-13T21:00:00.000Z",
+        "lasttime": "2026-09-07T00:00:00.000Z",
         "city": null,
         "region": "AZ",
         "country": "US",
@@ -198,18 +198,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.55544281,
-          35.33898163
+          -111.55263519,
+          35.33672333
         ]
       },
       "properties": {
         "netid": "82:6B:F2:49:DB:5C",
-        "ssid": null,
+        "ssid": "Tsitouris",
         "oui": "82:6B:F2",
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-05-26T16:00:00.000Z",
-        "lasttime": "2025-08-05T16:00:00.000Z",
+        "lasttime": "2026-09-07T00:00:00.000Z",
         "city": null,
         "region": "AZ",
         "country": "US",
@@ -294,8 +294,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.55419159,
-          35.33792114
+          -111.5535202,
+          35.33737564
         ]
       },
       "properties": {
@@ -303,7 +303,7 @@
         "ssid": null,
         "oui": "82:6B:F2",
         "channel": 1,
-        "encryption": "wpa2",
+        "encryption": "wpa3",
         "firsttime": "2025-05-26T16:00:00.000Z",
         "lasttime": "2026-01-13T21:00:00.000Z",
         "city": null,
@@ -366,8 +366,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.55326843,
-          35.33713531
+          -111.55396271,
+          35.33770752
         ]
       },
       "properties": {
@@ -375,9 +375,9 @@
         "ssid": null,
         "oui": "82:6B:F2",
         "channel": 1,
-        "encryption": "wpa2",
+        "encryption": "wpa3",
         "firsttime": "2026-01-14T01:00:00.000Z",
-        "lasttime": "2026-03-27T14:00:00.000Z",
+        "lasttime": "2026-09-07T00:00:00.000Z",
         "city": null,
         "region": "AZ",
         "country": "US",
@@ -531,7 +531,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-06T09:53:09.040575+00:00",
+    "generated": "2026-09-07T10:59:17.494116+00:00",
     "oui": "82:6B:F2",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
