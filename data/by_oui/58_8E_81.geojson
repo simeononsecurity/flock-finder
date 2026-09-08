@@ -1854,18 +1854,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.46572113,
-          42.53980255
+          -83.46552277,
+          42.53982162
         ]
       },
       "properties": {
         "netid": "58:8E:81:26:C9:85",
         "ssid": "MLG00028",
         "oui": "58:8E:81",
-        "channel": 11,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2023-01-07T17:00:00.000Z",
-        "lasttime": "2026-08-26T22:00:00.000Z",
+        "lasttime": "2026-09-07T16:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -2903,6 +2903,30 @@
         "country": "US",
         "road": null,
         "postalcode": "95122-1204"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37995911,
+          28.19160271
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:26:E8:A0",
+        "ssid": null,
+        "oui": "58:8E:81",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-06T14:00:00.000Z",
+        "lasttime": "2026-09-07T08:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "FL 56",
+        "postalcode": "33559"
       }
     },
     {
@@ -4974,8 +4998,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.78964233,
-          48.14447403
+          11.78964901,
+          48.14447021
         ]
       },
       "properties": {
@@ -4985,7 +5009,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-08-04T11:00:00.000Z",
-        "lasttime": "2026-08-23T12:00:00.000Z",
+        "lasttime": "2026-09-07T10:00:00.000Z",
         "city": null,
         "region": "Bayern",
         "country": "DE",
@@ -5718,30 +5742,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.73872375,
-          35.63835907
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:42:E4:9E",
-        "ssid": "RPT_01977",
-        "oui": "58:8E:81",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-02-16T05:00:00.000Z",
-        "lasttime": "2024-09-07T05:00:00.000Z",
-        "city": "\u6e2f\u533a",
-        "region": "\u9ad8\u8f2a\u4e8c\u4e01\u76ee",
-        "country": "JP",
-        "road": "\u4f0a\u76bf\u5b50\u5742",
-        "postalcode": "1080074"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.18265533,
           41.17879868
         ]
@@ -6174,8 +6174,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -105.95667267,
-          35.64762497
+          -106.2580719,
+          35.3865509
         ]
       },
       "properties": {
@@ -6185,12 +6185,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-01-23T15:00:00.000Z",
-        "lasttime": "2026-01-25T01:00:00.000Z",
-        "city": "Santa Fe",
+        "lasttime": "2026-09-07T08:00:00.000Z",
+        "city": null,
         "region": "NM",
         "country": "US",
-        "road": "South Saint Francis Drive",
-        "postalcode": "87504"
+        "road": "County Road 57A",
+        "postalcode": null
       }
     },
     {
@@ -12990,8 +12990,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -94.6913147,
-          31.33924103
+          -94.69130707,
+          31.33947563
         ]
       },
       "properties": {
@@ -13001,7 +13001,7 @@
         "channel": 6,
         "encryption": "none",
         "firsttime": "2024-07-06T22:00:00.000Z",
-        "lasttime": "2026-08-14T17:00:00.000Z",
+        "lasttime": "2026-09-07T06:00:00.000Z",
         "city": "Lufkin",
         "region": "TX",
         "country": "US",
@@ -18510,6 +18510,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -88.0893631,
+          42.47038651
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:BC:A6:BC",
+        "ssid": "simplySnap_64927a",
+        "oui": "58:8E:81",
+        "channel": 1,
+        "encryption": "wep",
+        "firsttime": "2023-11-28T18:00:00.000Z",
+        "lasttime": "2026-09-07T09:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "IL 173",
+        "postalcode": "60002"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -80.41955566,
           37.21722412
         ]
@@ -18774,8 +18798,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.469841,
-          37.33234406
+          -120.46977997,
+          37.33258057
         ]
       },
       "properties": {
@@ -18785,7 +18809,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-06-07T02:00:00.000Z",
-        "lasttime": "2026-08-27T19:00:00.000Z",
+        "lasttime": "2026-09-07T15:00:00.000Z",
         "city": "Merced",
         "region": "CA",
         "country": "US",
@@ -19038,18 +19062,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -71.03209686,
-          42.2265625
+          -71.03210449,
+          42.2264328
         ]
       },
       "properties": {
         "netid": "58:8E:81:BC:A7:3D",
         "ssid": "simplySnap_648d04",
         "oui": "58:8E:81",
-        "channel": 1,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-10-15T17:00:00.000Z",
-        "lasttime": "2025-06-17T13:00:00.000Z",
+        "lasttime": "2026-09-07T08:00:00.000Z",
         "city": "Braintree",
         "region": "MA",
         "country": "US",
@@ -19134,8 +19158,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.38954926,
-          29.63600731
+          -82.38961792,
+          29.63604736
         ]
       },
       "properties": {
@@ -19143,9 +19167,9 @@
         "ssid": "Ephesus_649258",
         "oui": "58:8E:81",
         "channel": 1,
-        "encryption": "none",
+        "encryption": "wpa2",
         "firsttime": "2023-09-15T13:00:00.000Z",
-        "lasttime": "2026-08-18T18:00:00.000Z",
+        "lasttime": "2026-09-07T12:00:00.000Z",
         "city": "Gainesville",
         "region": "FL",
         "country": "US",
@@ -25662,8 +25686,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -88.22668457,
-          42.06646729
+          -90.00240326,
+          41.7136879
         ]
       },
       "properties": {
@@ -25673,12 +25697,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-03-23T11:00:00.000Z",
-        "lasttime": "2026-08-02T16:00:00.000Z",
+        "lasttime": "2026-09-07T09:00:00.000Z",
         "city": null,
         "region": "IL",
         "country": "US",
-        "road": "Jane Addams Memorial Tollway",
-        "postalcode": "60120"
+        "road": "Ronald Reagan Memorial Highway",
+        "postalcode": "61251"
       }
     },
     {
@@ -28683,10 +28707,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-07T10:59:17.494116+00:00",
+    "generated": "2026-09-08T10:15:52.662490+00:00",
     "oui": "58:8E:81",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1195
+    "total_cameras": 1196
   }
 }

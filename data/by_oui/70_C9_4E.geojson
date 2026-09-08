@@ -534,30 +534,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.03286743,
-          -33.83690643
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:0C:E9:CF",
-        "ssid": null,
-        "oui": "70:C9:4E",
-        "channel": 3,
-        "encryption": "unknown",
-        "firsttime": "2024-05-04T04:00:00.000Z",
-        "lasttime": "2024-09-07T07:00:00.000Z",
-        "city": "Sydney",
-        "region": "New South Wales",
-        "country": "AU",
-        "road": "Western Motorway",
-        "postalcode": "2128"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -118.7043457,
           34.28747559
         ]
@@ -2303,6 +2279,30 @@
         "country": "US",
         "road": "I 10",
         "postalcode": "77701"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.85255432,
+          30.02775383
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:31:42:4C",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-06T14:00:00.000Z",
+        "lasttime": "2026-09-07T08:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Kohlers Crossing",
+        "postalcode": "78640-4520"
       }
     },
     {
@@ -8406,18 +8406,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.79810333,
-          -6.24592447
+          106.79815674,
+          -6.24591398
         ]
       },
       "properties": {
         "netid": "70:C9:4E:83:76:F3",
-        "ssid": "DIRECT-EUDESKTOP-88QSKC0ARYB",
+        "ssid": "DIRECT-YoDESKTOP-UJM07ECOMOI",
         "oui": "70:C9:4E",
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-11-01T08:00:00.000Z",
-        "lasttime": "2024-11-30T03:00:00.000Z",
+        "lasttime": "2026-09-07T14:00:00.000Z",
         "city": "Daerah Khusus Ibukota Jakarta",
         "region": "Melawai",
         "country": "ID",
@@ -11139,7 +11139,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-07T10:59:17.494116+00:00",
+    "generated": "2026-09-08T10:15:52.662490+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

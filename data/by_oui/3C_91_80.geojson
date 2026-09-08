@@ -4086,30 +4086,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.49047852,
-          59.88200378
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:19:7A:4E",
-        "ssid": "ACsOwQ8L",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-07T14:00:00.000Z",
-        "lasttime": "2024-09-07T09:00:00.000Z",
-        "city": null,
-        "region": "Viken",
-        "country": "NO",
-        "road": "Juterudveien",
-        "postalcode": "1341"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.35927868,
           60.36876678
         ]
@@ -5063,30 +5039,6 @@
         "country": "IT",
         "road": "Autostrada A6 La Verdemare",
         "postalcode": "10029"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.4892292,
-          59.88109589
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:19:83:91",
-        "ssid": "ACw4gOKb",
-        "oui": "3C:91:80",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-07T14:00:00.000Z",
-        "lasttime": "2024-09-07T09:00:00.000Z",
-        "city": null,
-        "region": "Viken",
-        "country": "NO",
-        "road": "Rugdefaret",
-        "postalcode": "1341"
       }
     },
     {
@@ -8910,30 +8862,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -98.72897339,
-          29.78545761
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:77:23:A5",
-        "ssid": null,
-        "oui": "3C:91:80",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-09-06T08:00:00.000Z",
-        "lasttime": "2024-09-07T06:00:00.000Z",
-        "city": null,
-        "region": "TX",
-        "country": "US",
-        "road": "East Kronkosky Street",
-        "postalcode": "78006"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -91.41517639,
           44.75838089
         ]
@@ -11633,7 +11561,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-02T18:00:00.000Z",
-        "lasttime": "2026-08-11T22:00:00.000Z",
+        "lasttime": "2026-09-07T11:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -18510,6 +18438,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -96.68052673,
+          33.16112137
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:E7:D9:9F",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-06T21:00:00.000Z",
+        "lasttime": "2026-09-07T12:00:00.000Z",
+        "city": "McKinney",
+        "region": "TX",
+        "country": "US",
+        "road": "Lake Forest Drive",
+        "postalcode": "75070"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -70.64880371,
           43.72674942
         ]
@@ -21099,10 +21051,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-07T10:59:17.494116+00:00",
+    "generated": "2026-09-08T10:15:52.662490+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 879
+    "total_cameras": 877
   }
 }

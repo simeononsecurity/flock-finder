@@ -246,8 +246,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.10374451,
-          9.92941475
+          -84.10373688,
+          9.92941761
         ]
       },
       "properties": {
@@ -257,7 +257,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-09-06T09:00:00.000Z",
+        "lasttime": "2026-09-07T15:00:00.000Z",
         "city": null,
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
@@ -606,8 +606,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.61557007,
-          40.8299408
+          -74.61566925,
+          40.8298378
         ]
       },
       "properties": {
@@ -617,7 +617,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2024-04-28T15:00:00.000Z",
-        "lasttime": "2026-07-31T09:00:00.000Z",
+        "lasttime": "2026-09-07T01:00:00.000Z",
         "city": "Randolph Township",
         "region": "NJ",
         "country": "US",
@@ -1926,8 +1926,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.33096313,
-          39.19625854
+          -84.33099365,
+          39.19626236
         ]
       },
       "properties": {
@@ -1937,7 +1937,7 @@
         "channel": 1,
         "encryption": "unknown",
         "firsttime": "2025-12-08T22:00:00.000Z",
-        "lasttime": "2026-09-03T00:00:00.000Z",
+        "lasttime": "2026-09-07T14:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -2214,18 +2214,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.74080658,
-          40.01922226
+          -80.74079895,
+          40.01917267
         ]
       },
       "properties": {
         "netid": "90:35:EA:14:56:FB",
         "ssid": "MLG54394",
         "oui": "90:35:EA",
-        "channel": 11,
+        "channel": 1,
         "encryption": "none",
         "firsttime": "2026-06-24T18:00:00.000Z",
-        "lasttime": "2026-08-27T15:00:00.000Z",
+        "lasttime": "2026-09-07T09:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -2670,8 +2670,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.25901794,
-          -33.79512787
+          151.2590332,
+          -33.79505539
         ]
       },
       "properties": {
@@ -2681,7 +2681,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-09-03T03:00:00.000Z",
-        "lasttime": "2026-09-03T03:00:00.000Z",
+        "lasttime": "2026-09-07T14:00:00.000Z",
         "city": null,
         "region": "New South Wales",
         "country": "AU",
@@ -4062,30 +4062,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.506073,
-          50.14174652
-        ]
-      },
-      "properties": {
-        "netid": "90:35:EA:2A:FC:1D",
-        "ssid": "24077373",
-        "oui": "90:35:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-06-18T18:00:00.000Z",
-        "lasttime": "2024-09-07T10:00:00.000Z",
-        "city": null,
-        "region": "Hessen",
-        "country": "DE",
-        "road": "Salinenstra\u00dfe",
-        "postalcode": "65812"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.15051746,
           48.10947037
         ]
@@ -4374,8 +4350,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.85268402,
-          47.97490311
+          16.85263062,
+          47.97488403
         ]
       },
       "properties": {
@@ -4385,7 +4361,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2003-08-06T18:00:00.000Z",
-        "lasttime": "2026-09-06T02:00:00.000Z",
+        "lasttime": "2026-09-07T06:00:00.000Z",
         "city": null,
         "region": "Burgenland",
         "country": "AT",
@@ -6222,8 +6198,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.84143257,
-          50.98221207
+          13.84132004,
+          50.98225403
         ]
       },
       "properties": {
@@ -6233,7 +6209,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2024-02-22T19:00:00.000Z",
-        "lasttime": "2025-08-03T14:00:00.000Z",
+        "lasttime": "2026-09-07T10:00:00.000Z",
         "city": null,
         "region": "Sachsen",
         "country": "DE",
@@ -15195,10 +15171,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-07T10:59:17.494116+00:00",
+    "generated": "2026-09-08T10:15:52.662490+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 633
+    "total_cameras": 632
   }
 }

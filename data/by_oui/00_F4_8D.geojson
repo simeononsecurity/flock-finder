@@ -4350,6 +4350,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -93.65377045,
+          44.92155075
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:1D:65:86",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 8,
+        "encryption": "none",
+        "firsttime": "2026-09-06T18:00:00.000Z",
+        "lasttime": "2026-09-07T12:00:00.000Z",
+        "city": null,
+        "region": "MN",
+        "country": "US",
+        "road": "Tuxedo Road",
+        "postalcode": "55364"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -72.97934723,
           43.46607208
         ]
@@ -5071,17 +5095,17 @@
         "type": "Point",
         "coordinates": [
           -76.50037384,
-          39.33079529
+          39.33079147
         ]
       },
       "properties": {
         "netid": "00:F4:8D:23:CD:2F",
         "ssid": null,
         "oui": "00:F4:8D",
-        "channel": 11,
+        "channel": 44,
         "encryption": "unknown",
         "firsttime": "2026-06-13T01:00:00.000Z",
-        "lasttime": "2026-09-06T05:00:00.000Z",
+        "lasttime": "2026-09-07T15:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
@@ -6239,6 +6263,30 @@
         "country": "US",
         "road": "South Mary Moore Searight Drive",
         "postalcode": "78748"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.10325623,
+          34.03855896
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:34:45:16",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-09-06T17:00:00.000Z",
+        "lasttime": "2026-09-07T09:00:00.000Z",
+        "city": "Columbia",
+        "region": "SC",
+        "country": "US",
+        "road": "I 20",
+        "postalcode": "29210-9998"
       }
     },
     {
@@ -11190,6 +11238,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -117.73616791,
+          34.08060837
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:84:36:45",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-06T17:00:00.000Z",
+        "lasttime": "2026-09-07T15:00:00.000Z",
+        "city": "Pomona",
+        "region": "CA",
+        "country": "US",
+        "road": "San Bernardino Freeway",
+        "postalcode": "91767"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.73097563,
           52.63862991
         ]
@@ -13038,6 +13110,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -104.83143616,
+          39.69070816
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:DF:CF:4D",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-06T13:00:00.000Z",
+        "lasttime": "2026-09-07T08:00:00.000Z",
+        "city": "Aurora",
+        "region": "CO",
+        "country": "US",
+        "road": "South Potomac Street",
+        "postalcode": "80012"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.24312592,
           47.19490433
         ]
@@ -13635,10 +13731,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-07T10:59:17.494116+00:00",
+    "generated": "2026-09-08T10:15:52.662490+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 568
+    "total_cameras": 572
   }
 }

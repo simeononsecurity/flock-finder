@@ -7710,6 +7710,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -0.13365655,
+          51.50065613
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:14:BE:C9",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2002-09-25T08:00:00.000Z",
+        "lasttime": "2026-09-06T17:00:00.000Z",
+        "city": "London",
+        "region": "England",
+        "country": "GB",
+        "road": "Queen Anne's Gate",
+        "postalcode": "SW1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -0.12094751,
           51.51405716
         ]
@@ -8166,8 +8190,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.19684355,
-          51.52143097
+          -0.19670784,
+          51.52142715
         ]
       },
       "properties": {
@@ -8177,7 +8201,7 @@
         "channel": 48,
         "encryption": "wpa2",
         "firsttime": "2024-07-13T20:00:00.000Z",
-        "lasttime": "2026-09-04T13:00:00.000Z",
+        "lasttime": "2026-09-06T16:00:00.000Z",
         "city": "London",
         "region": "England",
         "country": "GB",
@@ -13278,8 +13302,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.12706956,
-          51.51158142
+          -0.12706901,
+          51.51158524
         ]
       },
       "properties": {
@@ -13289,7 +13313,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-12-17T15:00:00.000Z",
-        "lasttime": "2026-08-28T08:00:00.000Z",
+        "lasttime": "2026-09-06T18:00:00.000Z",
         "city": "London",
         "region": "England",
         "country": "GB",
@@ -13494,8 +13518,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.08795143,
-          51.51890945
+          -0.08792643,
+          51.5189209
         ]
       },
       "properties": {
@@ -13505,7 +13529,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2025-07-15T22:00:00.000Z",
-        "lasttime": "2026-08-27T11:00:00.000Z",
+        "lasttime": "2026-09-06T14:00:00.000Z",
         "city": "City of London",
         "region": "England",
         "country": "GB",
@@ -13590,8 +13614,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.08108075,
-          51.51150894
+          -0.08107025,
+          51.51156998
         ]
       },
       "properties": {
@@ -13601,7 +13625,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-03-03T11:00:00.000Z",
-        "lasttime": "2026-07-18T17:00:00.000Z",
+        "lasttime": "2026-09-06T18:00:00.000Z",
         "city": "City of London",
         "region": "England",
         "country": "GB",
@@ -13878,8 +13902,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.08100127,
-          51.51125336
+          -0.08096442,
+          51.51131058
         ]
       },
       "properties": {
@@ -13889,7 +13913,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2001-01-01T00:00:00.000Z",
-        "lasttime": "2026-07-18T17:00:00.000Z",
+        "lasttime": "2026-09-06T17:00:00.000Z",
         "city": "City of London",
         "region": "England",
         "country": "GB",
@@ -19371,10 +19395,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-07T10:59:17.494116+00:00",
+    "generated": "2026-09-08T10:15:52.662490+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 807
+    "total_cameras": 808
   }
 }
