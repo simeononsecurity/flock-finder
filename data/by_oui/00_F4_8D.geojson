@@ -4926,6 +4926,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.87744141,
+          43.26293564
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:23:5B:53",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 9,
+        "encryption": "none",
+        "firsttime": "2026-09-07T20:00:00.000Z",
+        "lasttime": "2026-09-08T10:00:00.000Z",
+        "city": "Hamilton",
+        "region": "Ontario",
+        "country": "CA",
+        "road": "York Boulevard",
+        "postalcode": "L8R 2X9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.00836182,
           46.40333557
         ]
@@ -5807,6 +5831,30 @@
         "country": "US",
         "road": "5th Avenue North",
         "postalcode": "33710"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.26506042,
+          32.62406921
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:2B:0A:C6",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-08T09:00:00.000Z",
+        "lasttime": "2026-09-08T17:00:00.000Z",
+        "city": null,
+        "region": "NM",
+        "country": "US",
+        "road": "NM 8",
+        "postalcode": null
       }
     },
     {
@@ -11238,6 +11286,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.51171875,
+          28.34144783
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:84:34:3B",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-07T00:00:00.000Z",
+        "lasttime": "2026-09-07T17:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Cortes Creek Boulevard",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.73616791,
           34.08060837
         ]
@@ -11742,6 +11814,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.85613537,
+          43.83535004
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:8E:0A:5F",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-07T06:00:00.000Z",
+        "lasttime": "2026-09-07T16:00:00.000Z",
+        "city": null,
+        "region": "Liguria",
+        "country": "IT",
+        "road": "Via Aurelia",
+        "postalcode": "18011"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -100.45685577,
           20.70589828
         ]
@@ -12023,6 +12119,30 @@
         "country": "NL",
         "road": "Kwekersweg",
         "postalcode": "2171DM"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.04672527,
+          52.29957581
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:90:A3:D3",
+        "ssid": "BcoJBDirect",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-07T15:00:00.000Z",
+        "lasttime": "2026-09-07T21:00:00.000Z",
+        "city": null,
+        "region": "Noord-Holland",
+        "country": "NL",
+        "road": "G.J. Wiefferingdreef",
+        "postalcode": "1383CC"
       }
     },
     {
@@ -13446,6 +13566,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -84.05867004,
+          9.91138172
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:F3:EE:AB",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-08T03:00:00.000Z",
+        "lasttime": "2026-09-08T18:00:00.000Z",
+        "city": null,
+        "region": "Provincia San Jos\u00e9",
+        "country": "CR",
+        "road": "V\u00eda 211",
+        "postalcode": "10106"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -97.65803528,
           30.33025551
         ]
@@ -13731,10 +13875,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-08T10:15:52.662490+00:00",
+    "generated": "2026-09-09T10:20:37.265373+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 572
+    "total_cameras": 578
   }
 }

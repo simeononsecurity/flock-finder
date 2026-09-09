@@ -4998,8 +4998,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.02157161,
-          51.50115967
+          -0.02160634,
+          51.50115204
         ]
       },
       "properties": {
@@ -5009,7 +5009,7 @@
         "channel": 48,
         "encryption": "wpa2",
         "firsttime": "2022-03-08T13:00:00.000Z",
-        "lasttime": "2026-08-20T12:00:00.000Z",
+        "lasttime": "2026-09-08T01:00:00.000Z",
         "city": "London",
         "region": "England",
         "country": "GB",
@@ -5070,8 +5070,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.76321459,
-          48.58628845
+          7.76294374,
+          48.58644485
         ]
       },
       "properties": {
@@ -5081,7 +5081,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-07-25T06:00:00.000Z",
-        "lasttime": "2025-06-15T00:00:00.000Z",
+        "lasttime": "2026-09-08T04:00:00.000Z",
         "city": "Strasbourg",
         "region": "Grand Est",
         "country": "FR",
@@ -5663,6 +5663,30 @@
         "country": "US",
         "road": "Purple Heart Memorial Highway",
         "postalcode": "57005"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98114777,
+          40.7567749
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:14:B7:13",
+        "ssid": "ClickShare-NYC-MtgRm-BryantPark",
+        "oui": "80:30:49",
+        "channel": 40,
+        "encryption": "wpa2",
+        "firsttime": "2022-03-22T13:00:00.000Z",
+        "lasttime": "2026-09-08T05:00:00.000Z",
+        "city": "City of New York",
+        "region": "NY",
+        "country": "US",
+        "road": "West 46th Street",
+        "postalcode": "10036"
       }
     },
     {
@@ -7446,8 +7470,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.57668781,
-          55.67402649
+          12.57663822,
+          55.67424011
         ]
       },
       "properties": {
@@ -7457,12 +7481,12 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-12-31T12:00:00.000Z",
-        "lasttime": "2024-12-31T07:00:00.000Z",
+        "lasttime": "2026-09-07T20:00:00.000Z",
         "city": "K\u00f8benhavn",
         "region": "Region Hovedstaden",
         "country": "DK",
-        "road": "Ny Kongensgade",
-        "postalcode": "1472"
+        "road": "Frederiksholms Kanal",
+        "postalcode": "1220"
       }
     },
     {
@@ -9630,8 +9654,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.98109436,
-          40.75665665
+          -73.98111725,
+          40.75661087
         ]
       },
       "properties": {
@@ -9641,7 +9665,7 @@
         "channel": 44,
         "encryption": "wpa2",
         "firsttime": "2023-10-12T22:00:00.000Z",
-        "lasttime": "2026-04-14T18:00:00.000Z",
+        "lasttime": "2026-09-08T05:00:00.000Z",
         "city": "City of New York",
         "region": "NY",
         "country": "US",
@@ -9737,7 +9761,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-10-01T05:00:00.000Z",
-        "lasttime": "2026-09-04T00:00:00.000Z",
+        "lasttime": "2026-09-08T12:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -13326,8 +13350,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.30871391,
-          50.81944275
+          4.30868959,
+          50.8194313
         ]
       },
       "properties": {
@@ -13337,7 +13361,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2023-01-26T08:00:00.000Z",
-        "lasttime": "2025-04-19T23:00:00.000Z",
+        "lasttime": "2026-09-07T19:00:00.000Z",
         "city": null,
         "region": "R\u00e9gion de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest",
         "country": "BE",
@@ -19395,10 +19419,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-08T10:15:52.662490+00:00",
+    "generated": "2026-09-09T10:20:37.265373+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 808
+    "total_cameras": 809
   }
 }

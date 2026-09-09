@@ -1614,6 +1614,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -70.28230286,
+          43.67219925
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:28:AE:7F",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-07T17:00:00.000Z",
+        "lasttime": "2026-09-08T04:00:00.000Z",
+        "city": "Portland",
+        "region": "ME",
+        "country": "US",
+        "road": "Hersey Street",
+        "postalcode": "04103"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -53.79243088,
           -29.68852234
         ]
@@ -2214,8 +2238,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.25698853,
-          -33.89293289
+          151.25721741,
+          -33.89296722
         ]
       },
       "properties": {
@@ -2225,7 +2249,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-25T09:00:00.000Z",
-        "lasttime": "2026-08-26T18:00:00.000Z",
+        "lasttime": "2026-09-07T19:00:00.000Z",
         "city": null,
         "region": "New South Wales",
         "country": "AU",
@@ -3486,6 +3510,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          138.52381897,
+          -35.02772903
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3D:A2:59",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 9,
+        "encryption": "none",
+        "firsttime": "2026-09-07T17:00:00.000Z",
+        "lasttime": "2026-09-07T18:00:00.000Z",
+        "city": "Adelaide",
+        "region": "South Australia",
+        "country": "AU",
+        "road": "Brighton Road",
+        "postalcode": "5048"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.39605427,
           55.38447571
         ]
@@ -4206,18 +4254,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          144.74285889,
-          -37.69189453
+          144.74339294,
+          -37.69195557
         ]
       },
       "properties": {
         "netid": "70:C9:4E:46:D5:69",
         "ssid": "Flock",
         "oui": "70:C9:4E",
-        "channel": 1,
+        "channel": 4,
         "encryption": "none",
         "firsttime": "2026-09-03T16:00:00.000Z",
-        "lasttime": "2026-09-03T00:00:00.000Z",
+        "lasttime": "2026-09-07T16:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -5135,6 +5183,30 @@
         "country": "US",
         "road": "Buckfield Road",
         "postalcode": "04282"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.99143982,
+          38.73793793
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:4D:0B:34",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-07T21:00:00.000Z",
+        "lasttime": "2026-09-08T10:00:00.000Z",
+        "city": null,
+        "region": "MD",
+        "country": "US",
+        "road": "Indian Head Highway",
+        "postalcode": "20744"
       }
     },
     {
@@ -10758,6 +10830,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          138.57998657,
+          -34.94572067
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:E9:54:7F",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-09-07T16:00:00.000Z",
+        "lasttime": "2026-09-07T18:00:00.000Z",
+        "city": "Adelaide",
+        "region": "South Australia",
+        "country": "AU",
+        "road": "Anzac Highway",
+        "postalcode": "5035"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -80.68502808,
           28.35829353
         ]
@@ -11139,10 +11235,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-08T10:15:52.662490+00:00",
+    "generated": "2026-09-09T10:20:37.265373+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 464
+    "total_cameras": 468
   }
 }

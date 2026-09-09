@@ -990,18 +990,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          92.88752747,
-          56.02661514
+          92.8875351,
+          56.02661896
         ]
       },
       "properties": {
         "netid": "48:27:EA:14:81:09",
         "ssid": "RubinBuket",
         "oui": "48:27:EA",
-        "channel": 1,
+        "channel": 11,
         "encryption": "unknown",
         "firsttime": "2025-12-22T12:00:00.000Z",
-        "lasttime": "2026-09-06T22:00:00.000Z",
+        "lasttime": "2026-09-08T12:00:00.000Z",
         "city": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a",
         "region": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0438\u0439 \u043a\u0440\u0430\u0439",
         "country": "RU",
@@ -9143,30 +9143,6 @@
         "country": "PH",
         "road": null,
         "postalcode": "1705"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.84780502,
-          46.46072769
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:71:87:1B",
-        "ssid": null,
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "unknown",
-        "firsttime": "2024-09-08T18:00:00.000Z",
-        "lasttime": "2024-09-08T21:00:00.000Z",
-        "city": null,
-        "region": "Vaud",
-        "country": "CH",
-        "road": "Rue du Clos",
-        "postalcode": "1800"
       }
     },
     {
@@ -24054,30 +24030,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.64185762,
-          44.98396683
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:F2:A2:12",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2021-06-10T18:00:00.000Z",
-        "lasttime": "2024-09-08T02:00:00.000Z",
-        "city": null,
-        "region": "Piemonte",
-        "country": "IT",
-        "road": "Via Gozzano",
-        "postalcode": "10042"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           36.20015335,
           33.46241379
         ]
@@ -25755,10 +25707,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-08T10:15:52.662490+00:00",
+    "generated": "2026-09-09T10:20:37.265373+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1073
+    "total_cameras": 1071
   }
 }
