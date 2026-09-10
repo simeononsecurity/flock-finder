@@ -12486,30 +12486,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          79.92658997,
-          6.91982269
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:93:D5:E9",
-        "ssid": "Galaxy J593_D5_E9",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-09T08:00:00.000Z",
-        "lasttime": "2024-09-09T20:00:00.000Z",
-        "city": null,
-        "region": "\u0db6\u0dc3\u0dca\u0db1\u0dcf\u0dc4\u0dd2\u0dbb \u0db4\u0dc5\u0dcf\u0dad",
-        "country": "LK",
-        "road": "Walpola Road",
-        "postalcode": "10620"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           36.21974945,
           33.52445602
         ]
@@ -15630,22 +15606,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.0805397,
-          51.66273499
+          16.08044434,
+          51.6631279
         ]
       },
       "properties": {
         "netid": "48:27:EA:B2:1B:37",
         "ssid": "Galaxy J51B37",
         "oui": "48:27:EA",
-        "channel": 1,
+        "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2026-08-26T14:00:00.000Z",
-        "lasttime": "2026-08-26T11:00:00.000Z",
+        "lasttime": "2026-09-08T21:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo dolno\u015bl\u0105skie",
         "country": "PL",
-        "road": "S\u0142owia\u0144ska",
+        "road": "Jedno\u015bci Robotniczej",
         "postalcode": "67-200"
       }
     },
@@ -21054,8 +21030,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.65332699,
-          50.3659668
+          9.29729271,
+          49.15771103
         ]
       },
       "properties": {
@@ -21065,12 +21041,12 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2026-07-30T14:00:00.000Z",
-        "lasttime": "2026-08-13T10:00:00.000Z",
+        "lasttime": "2026-09-09T04:00:00.000Z",
         "city": null,
-        "region": "Severoz\u00e1pad",
-        "country": "CZ",
-        "road": "D7",
-        "postalcode": "439 42"
+        "region": "Baden-W\u00fcrttemberg",
+        "country": "DE",
+        "road": "A 6",
+        "postalcode": "74189"
       }
     },
     {
@@ -25707,10 +25683,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-09T10:20:37.265373+00:00",
+    "generated": "2026-09-10T10:14:51.019750+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1071
+    "total_cameras": 1070
   }
 }

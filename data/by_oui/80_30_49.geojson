@@ -2729,7 +2729,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-08-05T12:00:00.000Z",
-        "lasttime": "2026-08-29T13:00:00.000Z",
+        "lasttime": "2026-09-09T09:00:00.000Z",
         "city": null,
         "region": "MN",
         "country": "US",
@@ -8646,7 +8646,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          151.20840454,
+          151.20838928,
           -33.87078857
         ]
       },
@@ -8657,7 +8657,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-03-16T14:00:00.000Z",
-        "lasttime": "2026-06-13T16:00:00.000Z",
+        "lasttime": "2026-09-09T15:00:00.000Z",
         "city": "Sydney",
         "region": "New South Wales",
         "country": "AU",
@@ -9222,8 +9222,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.30971241,
-          48.8758316
+          2.30972338,
+          48.8759079
         ]
       },
       "properties": {
@@ -9233,7 +9233,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-17T11:00:00.000Z",
-        "lasttime": "2026-08-17T04:00:00.000Z",
+        "lasttime": "2026-09-08T19:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -9750,7 +9750,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.69083405,
+          -82.69084167,
           39.94905472
         ]
       },
@@ -9761,7 +9761,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-10-01T05:00:00.000Z",
-        "lasttime": "2026-09-08T12:00:00.000Z",
+        "lasttime": "2026-09-09T18:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -13062,6 +13062,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          137.7303772,
+          34.79331589
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:2F:1B:1F",
+        "ssid": "palcosmo",
+        "oui": "80:30:49",
+        "channel": 7,
+        "encryption": "wpa",
+        "firsttime": "2026-09-09T08:00:00.000Z",
+        "lasttime": "2026-09-09T18:00:00.000Z",
+        "city": "\u6d5c\u677e\u5e02",
+        "region": "\u9759\u5ca1\u770c",
+        "country": "JP",
+        "road": "\u90fd\u7530\u30c6\u30af\u30ce\u30ed\u30fc\u30c9",
+        "postalcode": "433-8102"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           133.79682922,
           33.51924896
         ]
@@ -13830,8 +13854,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.07007694,
-          53.57367706
+          10.0700798,
+          53.57368851
         ]
       },
       "properties": {
@@ -13841,7 +13865,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2025-06-23T14:00:00.000Z",
-        "lasttime": "2026-08-02T10:00:00.000Z",
+        "lasttime": "2026-09-09T02:00:00.000Z",
         "city": "Hamburg",
         "region": "Wandsbek",
         "country": "DE",
@@ -15918,18 +15942,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.29709625,
-          47.19981003
+          -122.29705811,
+          47.19981384
         ]
       },
       "properties": {
         "netid": "80:30:49:71:F0:85",
         "ssid": null,
         "oui": "80:30:49",
-        "channel": 1,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-07-18T19:00:00.000Z",
-        "lasttime": "2026-08-28T17:00:00.000Z",
+        "lasttime": "2026-09-09T13:00:00.000Z",
         "city": null,
         "region": "WA",
         "country": "US",
@@ -16319,6 +16343,30 @@
         "country": "US",
         "road": "South Cimarron Road",
         "postalcode": "89178"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.37246704,
+          29.6009922
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:77:D5:7F",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-08T14:00:00.000Z",
+        "lasttime": "2026-09-09T05:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "I 75",
+        "postalcode": "32608"
       }
     },
     {
@@ -19110,6 +19158,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.26392365,
+          37.30844498
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:F1:CB:FD",
+        "ssid": "Flock-F1CBFD",
+        "oui": "80:30:49",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-07-28T22:00:00.000Z",
+        "lasttime": "2026-09-09T02:00:00.000Z",
+        "city": null,
+        "region": "VA",
+        "country": "US",
+        "road": "Sunburst Road",
+        "postalcode": "24502-2851"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -90.68665314,
           35.82049179
         ]
@@ -19419,10 +19491,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-09T10:20:37.265373+00:00",
+    "generated": "2026-09-10T10:14:51.019750+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 809
+    "total_cameras": 812
   }
 }

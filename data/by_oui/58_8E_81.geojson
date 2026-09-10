@@ -6,8 +6,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.79656982,
-          43.0278244
+          -85.79666138,
+          43.02784729
         ]
       },
       "properties": {
@@ -17,7 +17,7 @@
         "channel": 11,
         "encryption": "none",
         "firsttime": "2022-02-12T15:00:00.000Z",
-        "lasttime": "2026-07-29T21:00:00.000Z",
+        "lasttime": "2026-09-09T02:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -654,8 +654,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -96.08486176,
-          41.24862671
+          -96.08485413,
+          41.24863815
         ]
       },
       "properties": {
@@ -665,7 +665,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2023-04-03T08:00:00.000Z",
-        "lasttime": "2026-08-10T16:00:00.000Z",
+        "lasttime": "2026-09-09T09:00:00.000Z",
         "city": "Omaha",
         "region": "NE",
         "country": "US",
@@ -1902,8 +1902,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.52072144,
-          40.53933334
+          -74.52075958,
+          40.53931427
         ]
       },
       "properties": {
@@ -1913,7 +1913,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2021-04-14T11:00:00.000Z",
-        "lasttime": "2026-09-05T22:00:00.000Z",
+        "lasttime": "2026-09-09T03:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -3606,8 +3606,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -87.71031189,
-          41.58387756
+          27.98178864,
+          -26.24275017
+        ]
+      },
+      "properties": {
+        "netid": "58:8E:81:2C:5C:FF",
+        "ssid": "TranstronicAP_211614",
+        "oui": "58:8E:81",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-09-08T08:00:00.000Z",
+        "lasttime": "2026-09-09T05:00:00.000Z",
+        "city": "Johannesburg",
+        "region": "Gauteng",
+        "country": "ZA",
+        "road": "Recreation Road",
+        "postalcode": "2001"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.71014404,
+          41.5839386
         ]
       },
       "properties": {
@@ -3617,11 +3641,11 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2022-07-30T15:00:00.000Z",
-        "lasttime": "2026-07-19T18:00:00.000Z",
+        "lasttime": "2026-09-09T06:00:00.000Z",
         "city": null,
         "region": "IL",
         "country": "US",
-        "road": "Briargate Drive",
+        "road": "168th Place",
         "postalcode": "60478"
       }
     },
@@ -12198,8 +12222,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -81.54434967,
-          28.47707748
+          -81.54417419,
+          28.47665405
         ]
       },
       "properties": {
@@ -12207,9 +12231,9 @@
         "ssid": "MLG15801",
         "oui": "58:8E:81",
         "channel": 3,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2026-07-05T20:00:00.000Z",
-        "lasttime": "2026-07-06T09:00:00.000Z",
+        "lasttime": "2026-09-08T19:00:00.000Z",
         "city": null,
         "region": "FL",
         "country": "US",
@@ -12654,18 +12678,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -87.61276245,
-          41.57919312
+          -87.61273193,
+          41.57922363
         ]
       },
       "properties": {
         "netid": "58:8E:81:A6:1A:54",
         "ssid": "MLG10455",
         "oui": "58:8E:81",
-        "channel": 6,
+        "channel": 11,
         "encryption": "none",
         "firsttime": "2021-08-28T23:00:00.000Z",
-        "lasttime": "2026-08-03T16:00:00.000Z",
+        "lasttime": "2026-09-09T06:00:00.000Z",
         "city": null,
         "region": "IL",
         "country": "US",
@@ -13303,7 +13327,7 @@
         "type": "Point",
         "coordinates": [
           -74.10068512,
-          40.33674622
+          40.33675003
         ]
       },
       "properties": {
@@ -13313,7 +13337,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2021-11-16T17:00:00.000Z",
-        "lasttime": "2026-09-05T10:00:00.000Z",
+        "lasttime": "2026-09-09T12:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -13326,18 +13350,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -78.25031281,
-          43.95943451
+          -78.25071716,
+          43.95933914
         ]
       },
       "properties": {
         "netid": "58:8E:81:A6:1F:E2",
         "ssid": "MLG17548",
         "oui": "58:8E:81",
-        "channel": 11,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2025-09-02T18:00:00.000Z",
-        "lasttime": "2026-08-16T05:00:00.000Z",
+        "lasttime": "2026-09-09T11:00:00.000Z",
         "city": "Hamilton Township",
         "region": "Ontario",
         "country": "CA",
@@ -17262,7 +17286,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.61461639,
+          -73.61457062,
           41.03700638
         ]
       },
@@ -17273,7 +17297,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-04-20T16:00:00.000Z",
-        "lasttime": "2026-08-11T07:00:00.000Z",
+        "lasttime": "2026-09-09T00:00:00.000Z",
         "city": null,
         "region": "CT",
         "country": "US",
@@ -17622,8 +17646,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.10585022,
-          38.41837311
+          -82.1060257,
+          38.41846848
         ]
       },
       "properties": {
@@ -17633,7 +17657,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2026-04-11T14:00:00.000Z",
-        "lasttime": "2026-08-18T13:00:00.000Z",
+        "lasttime": "2026-09-09T01:00:00.000Z",
         "city": null,
         "region": "WV",
         "country": "US",
@@ -17718,8 +17742,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.36096191,
-          25.04919243
+          -77.36091614,
+          25.04917908
         ]
       },
       "properties": {
@@ -17729,7 +17753,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2004-05-03T02:00:00.000Z",
-        "lasttime": "2026-07-08T17:00:00.000Z",
+        "lasttime": "2026-09-09T08:00:00.000Z",
         "city": "Nassau",
         "region": "Nassau",
         "country": "BS",
@@ -19806,8 +19830,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.65987396,
-          40.11210632
+          -111.65988159,
+          40.11215591
         ]
       },
       "properties": {
@@ -19817,7 +19841,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-04-14T23:00:00.000Z",
-        "lasttime": "2026-07-25T09:00:00.000Z",
+        "lasttime": "2026-09-09T11:00:00.000Z",
         "city": null,
         "region": "UT",
         "country": "US",
@@ -20431,7 +20455,7 @@
         "type": "Point",
         "coordinates": [
           -96.82480621,
-          32.70196533
+          32.7019577
         ]
       },
       "properties": {
@@ -20441,7 +20465,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2021-07-23T12:00:00.000Z",
-        "lasttime": "2026-08-22T09:00:00.000Z",
+        "lasttime": "2026-09-09T14:00:00.000Z",
         "city": "Dallas",
         "region": "TX",
         "country": "US",
@@ -22590,8 +22614,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -96.27346802,
-          41.08402252
+          -95.65811157,
+          41.4019165
         ]
       },
       "properties": {
@@ -22601,12 +22625,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-03-02T23:00:00.000Z",
-        "lasttime": "2025-06-03T18:00:00.000Z",
+        "lasttime": "2026-09-09T15:00:00.000Z",
         "city": null,
-        "region": "NE",
+        "region": "IA",
         "country": "US",
-        "road": "I 80",
-        "postalcode": "68028"
+        "road": null,
+        "postalcode": null
       }
     },
     {
@@ -23574,8 +23598,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.7598877,
-          33.17862701
+          -85.03501129,
+          32.92383575
         ]
       },
       "properties": {
@@ -23589,8 +23613,8 @@
         "city": null,
         "region": "GA",
         "country": "US",
-        "road": "John Trammell Road",
-        "postalcode": "30251"
+        "road": "Baughs Cross Road",
+        "postalcode": "31833"
       }
     },
     {
@@ -23694,23 +23718,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.46619415,
-          41.66695023
+          -90.20178986,
+          42.8621788
         ]
       },
       "properties": {
         "netid": "58:8E:81:C5:52:F6",
         "ssid": "ST1MP53n1P1912",
         "oui": "58:8E:81",
-        "channel": 2,
-        "encryption": "wep",
+        "channel": 1,
+        "encryption": "wpa2",
         "firsttime": "2023-10-11T20:00:00.000Z",
-        "lasttime": "2026-07-28T20:00:00.000Z",
+        "lasttime": "2026-09-09T09:00:00.000Z",
         "city": null,
-        "region": "IA",
+        "region": "WI",
         "country": "US",
-        "road": "I 80;US 6",
-        "postalcode": "50009"
+        "road": "US Highway 151",
+        "postalcode": "53565"
       }
     },
     {
@@ -26142,30 +26166,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.50959015,
-          40.54037857
-        ]
-      },
-      "properties": {
-        "netid": "58:8E:81:C5:61:EE",
-        "ssid": "ST1JXjpVLC5912",
-        "oui": "58:8E:81",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-01-10T17:00:00.000Z",
-        "lasttime": "2024-09-09T13:00:00.000Z",
-        "city": null,
-        "region": "NJ",
-        "country": "US",
-        "road": "I 287",
-        "postalcode": "08873-1362"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -91.61909485,
           44.84700775
         ]
@@ -27294,8 +27294,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -91.06420135,
-          38.30757904
+          -95.65814209,
+          41.4018898
         ]
       },
       "properties": {
@@ -27305,12 +27305,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-04-25T11:00:00.000Z",
-        "lasttime": "2026-08-15T16:00:00.000Z",
+        "lasttime": "2026-09-09T15:00:00.000Z",
         "city": null,
-        "region": "MO",
+        "region": "IA",
         "country": "US",
-        "road": "I 44",
-        "postalcode": "63080"
+        "road": null,
+        "postalcode": null
       }
     },
     {
@@ -27750,8 +27750,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.83001709,
-          33.10254669
+          -77.49993134,
+          38.04875946
         ]
       },
       "properties": {
@@ -27761,12 +27761,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-01-11T23:00:00.000Z",
-        "lasttime": "2026-05-23T11:00:00.000Z",
+        "lasttime": "2026-09-09T14:00:00.000Z",
         "city": null,
-        "region": "AZ",
+        "region": "VA",
         "country": "US",
-        "road": "I 10",
-        "postalcode": "85147"
+        "road": "I 95",
+        "postalcode": "22565"
       }
     },
     {
@@ -27990,8 +27990,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -71.78359985,
-          42.2089119
+          -72.30783844,
+          42.17557144
         ]
       },
       "properties": {
@@ -28001,12 +28001,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-06-14T10:00:00.000Z",
-        "lasttime": "2026-08-22T09:00:00.000Z",
+        "lasttime": "2026-09-09T00:00:00.000Z",
         "city": null,
         "region": "MA",
         "country": "US",
         "road": "Massachusetts Turnpike",
-        "postalcode": "01607"
+        "postalcode": "01069"
       }
     },
     {
@@ -28803,7 +28803,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-09T10:20:37.265373+00:00",
+    "generated": "2026-09-10T10:14:51.019750+00:00",
     "oui": "58:8E:81",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

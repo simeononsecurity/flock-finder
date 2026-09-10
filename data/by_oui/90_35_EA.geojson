@@ -926,10 +926,10 @@
         "netid": "90:35:EA:0D:60:19",
         "ssid": "MLG54216",
         "oui": "90:35:EA",
-        "channel": 6,
+        "channel": 11,
         "encryption": "none",
         "firsttime": "2024-06-15T10:00:00.000Z",
-        "lasttime": "2026-09-06T06:00:00.000Z",
+        "lasttime": "2026-09-09T12:00:00.000Z",
         "city": null,
         "region": "NC",
         "country": "US",
@@ -1926,18 +1926,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.33099365,
-          39.19626236
+          -84.3310318,
+          39.19626617
         ]
       },
       "properties": {
         "netid": "90:35:EA:0D:68:D5",
         "ssid": "MLG53615",
         "oui": "90:35:EA",
-        "channel": 1,
+        "channel": 6,
         "encryption": "unknown",
         "firsttime": "2025-12-08T22:00:00.000Z",
-        "lasttime": "2026-09-07T14:00:00.000Z",
+        "lasttime": "2026-09-09T13:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -2735,6 +2735,30 @@
         "country": "US",
         "road": "West Fort Island Trail",
         "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.29474926,
+          48.86182785
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:2A:E8:8F",
+        "ssid": "MOREAU",
+        "oui": "90:35:EA",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-08T09:00:00.000Z",
+        "lasttime": "2026-09-09T01:00:00.000Z",
+        "city": "Paris",
+        "region": "\u00cele-de-France",
+        "country": "FR",
+        "road": "Avenue de New York",
+        "postalcode": "75016"
       }
     },
     {
@@ -6054,8 +6078,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.34028625,
-          48.21365738
+          16.34029007,
+          48.21365356
         ]
       },
       "properties": {
@@ -6065,7 +6089,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-03-19T22:00:00.000Z",
-        "lasttime": "2026-09-07T23:00:00.000Z",
+        "lasttime": "2026-09-09T02:00:00.000Z",
         "city": "Wien",
         "region": "Breitenfeld",
         "country": "AT",
@@ -8718,13 +8742,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -72.67019653,
-          40.91153336
+          -72.67084503,
+          40.91116333
         ]
       },
       "properties": {
         "netid": "90:35:EA:39:08:B0",
-        "ssid": "W4b90;Vm0Ki50(1)<82/<FAB**+&+)`I",
+        "ssid": "W4b9P;Vm0U570(1)<82/<FAB**+&+)`G",
         "oui": "90:35:EA",
         "channel": 1,
         "encryption": "wep",
@@ -15195,10 +15219,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-09T10:20:37.265373+00:00",
+    "generated": "2026-09-10T10:14:51.019750+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 633
+    "total_cameras": 634
   }
 }

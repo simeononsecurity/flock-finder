@@ -942,30 +942,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -120.87217712,
-          37.53383636
-        ]
-      },
-      "properties": {
-        "netid": "00:F4:8D:07:AE:D3",
-        "ssid": null,
-        "oui": "00:F4:8D",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-09-09T22:00:00.000Z",
-        "lasttime": "2024-09-09T16:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
-        "country": "US",
-        "road": "Alba Court",
-        "postalcode": "95382"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -81.13015747,
           34.02408218
         ]
@@ -2087,6 +2063,30 @@
         "country": "FR",
         "road": "Place Raspail",
         "postalcode": "69250"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.04831648,
+          47.33369827
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:0F:D2:B9",
+        "ssid": "AC5RdxKe",
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-28T11:00:00.000Z",
+        "lasttime": "2026-09-09T03:00:00.000Z",
+        "city": "Dijon",
+        "region": "Bourgogne-Franche-Comt\u00e9",
+        "country": "FR",
+        "road": "Rue Lafayette",
+        "postalcode": "21000"
       }
     },
     {
@@ -3894,8 +3894,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          115.18022156,
-          -8.74475479
+          115.18022919,
+          -8.74475193
         ]
       },
       "properties": {
@@ -3905,12 +3905,36 @@
         "channel": 6,
         "encryption": "unknown",
         "firsttime": "2023-11-08T05:00:00.000Z",
-        "lasttime": "2026-01-06T00:00:00.000Z",
+        "lasttime": "2026-09-09T16:00:00.000Z",
         "city": "Tuban",
         "region": "Bali",
         "country": "ID",
         "road": "Jalan Bandara Ngurah Rai",
         "postalcode": "80362"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.24295807,
+          34.09532166
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:18:21:BF",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2022-05-12T07:00:00.000Z",
+        "lasttime": "2026-09-09T09:00:00.000Z",
+        "city": "Los Angeles",
+        "region": "CA",
+        "country": "US",
+        "road": "Riverside Drive",
+        "postalcode": "90065-1256"
       }
     },
     {
@@ -3935,6 +3959,30 @@
         "country": "US",
         "road": "Southwest 20th Avenue",
         "postalcode": "32607"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.77840424,
+          41.61554718
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:19:48:54",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 157,
+        "encryption": "none",
+        "firsttime": "2026-09-08T14:00:00.000Z",
+        "lasttime": "2026-09-09T06:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "Forest View Drive",
+        "postalcode": "60452"
       }
     },
     {
@@ -4151,30 +4199,6 @@
         "country": "US",
         "road": "Anderson Loop",
         "postalcode": "78233"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -98.39152527,
-          29.43546295
-        ]
-      },
-      "properties": {
-        "netid": "00:F4:8D:1B:B6:6D",
-        "ssid": null,
-        "oui": "00:F4:8D",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-09-09T12:00:00.000Z",
-        "lasttime": "2024-09-09T17:00:00.000Z",
-        "city": "San Antonio",
-        "region": "TX",
-        "country": "US",
-        "road": "Jose Lopez Freeway",
-        "postalcode": "78219"
       }
     },
     {
@@ -4559,30 +4583,6 @@
         "country": "US",
         "road": "South Falkenburg Road",
         "postalcode": "33511-8819"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -120.85637665,
-          37.48053741
-        ]
-      },
-      "properties": {
-        "netid": "00:F4:8D:1D:8E:29",
-        "ssid": null,
-        "oui": "00:F4:8D",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-09-06T03:00:00.000Z",
-        "lasttime": "2024-09-09T11:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
-        "country": "US",
-        "road": "Butte Way",
-        "postalcode": "95381"
       }
     },
     {
@@ -5790,8 +5790,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.54328156,
-          29.90589523
+          -95.54330444,
+          29.9058857
         ]
       },
       "properties": {
@@ -5801,7 +5801,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-05-01T20:00:00.000Z",
-        "lasttime": "2026-09-06T04:00:00.000Z",
+        "lasttime": "2026-09-09T13:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -6095,6 +6095,30 @@
         "country": "US",
         "road": "Rockwell Avenue",
         "postalcode": "44113"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.94504547,
+          36.74599075
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:2F:DA:19",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 165,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-07T13:00:00.000Z",
+        "lasttime": "2026-09-08T21:00:00.000Z",
+        "city": "Virginia Beach",
+        "region": "VA",
+        "country": "US",
+        "road": "Sandbridge Road",
+        "postalcode": "23456"
       }
     },
     {
@@ -6695,6 +6719,30 @@
         "country": "US",
         "road": "Kinnear Road",
         "postalcode": "43212"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.69186401,
+          41.65631104
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:34:F0:13",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-03T01:00:00.000Z",
+        "lasttime": "2026-09-09T18:00:00.000Z",
+        "city": null,
+        "region": "NY",
+        "country": "US",
+        "road": "Broadway",
+        "postalcode": "12701"
       }
     },
     {
@@ -7878,8 +7926,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.61164093,
-          40.4969902
+          -74.61190796,
+          40.49695587
         ]
       },
       "properties": {
@@ -7889,7 +7937,7 @@
         "channel": 0,
         "encryption": "unknown",
         "firsttime": "2026-05-17T18:00:00.000Z",
-        "lasttime": "2026-05-19T15:00:00.000Z",
+        "lasttime": "2026-09-09T03:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -8790,6 +8838,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -87.81014252,
+          41.59470367
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:41:36:17",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-08T14:00:00.000Z",
+        "lasttime": "2026-09-09T06:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "163rd Street",
+        "postalcode": "60477"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -78.58009338,
           35.84440994
         ]
@@ -8951,6 +9023,30 @@
         "country": "PH",
         "road": "Manuel A. Roxas Highway",
         "postalcode": "2023"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.30259705,
+          47.30261612
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:4A:5F:53",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-06T21:00:00.000Z",
+        "lasttime": "2026-09-09T13:00:00.000Z",
+        "city": "Federal Way",
+        "region": "WA",
+        "country": "US",
+        "road": "I 5",
+        "postalcode": "98003"
       }
     },
     {
@@ -10422,6 +10518,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -87.80387878,
+          41.59960938
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:73:4C:39",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-08T15:00:00.000Z",
+        "lasttime": "2026-09-09T06:00:00.000Z",
+        "city": null,
+        "region": "IL",
+        "country": "US",
+        "road": "76th Avenue",
+        "postalcode": "60477"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           25.06557846,
           60.19017029
         ]
@@ -10895,6 +11015,30 @@
         "country": "US",
         "road": "8th Avenue East",
         "postalcode": "98387-8412"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.4516983,
+          29.38621902
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:7D:4C:69",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-08T04:00:00.000Z",
+        "lasttime": "2026-09-09T05:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "West Noble Avenue",
+        "postalcode": "32696-6683"
       }
     },
     {
@@ -12702,6 +12846,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -80.22296906,
+          26.21809578
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:BD:BF:C7",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-26T22:00:00.000Z",
+        "lasttime": "2026-09-09T04:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Southwest 73rd Avenue",
+        "postalcode": "33068"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -118.44789886,
           33.99642181
         ]
@@ -13875,10 +14043,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-09T10:20:37.265373+00:00",
+    "generated": "2026-09-10T10:14:51.019750+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 578
+    "total_cameras": 585
   }
 }
