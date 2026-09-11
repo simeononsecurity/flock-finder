@@ -558,30 +558,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.04487228,
-          47.50562286
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:0A:3E:F3",
-        "ssid": "AndroidHotspot3836",
-        "oui": "48:27:EA",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-06-11T20:00:00.000Z",
-        "lasttime": "2024-09-10T09:00:00.000Z",
-        "city": null,
-        "region": "Budapest",
-        "country": "HU",
-        "road": "Id. Antall J\u00f3zsef rakpart",
-        "postalcode": "1055"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.41558456,
           50.48490524
         ]
@@ -990,8 +966,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          92.8875351,
-          56.02661896
+          92.88752747,
+          56.02661133
         ]
       },
       "properties": {
@@ -1001,7 +977,7 @@
         "channel": 11,
         "encryption": "unknown",
         "firsttime": "2025-12-22T12:00:00.000Z",
-        "lasttime": "2026-09-08T12:00:00.000Z",
+        "lasttime": "2026-09-10T21:00:00.000Z",
         "city": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a",
         "region": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0438\u0439 \u043a\u0440\u0430\u0439",
         "country": "RU",
@@ -3830,7 +3806,7 @@
         "netid": "48:27:EA:44:B9:59",
         "ssid": "AndroidAPB959",
         "oui": "48:27:EA",
-        "channel": 11,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-03-12T12:00:00.000Z",
         "lasttime": "2026-08-14T04:00:00.000Z",
@@ -8886,8 +8862,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.20905972,
-          48.84160995
+          8.24455357,
+          48.85953903
         ]
       },
       "properties": {
@@ -8897,11 +8873,11 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2023-08-29T16:00:00.000Z",
-        "lasttime": "2026-08-26T02:00:00.000Z",
+        "lasttime": "2026-09-10T13:00:00.000Z",
         "city": null,
         "region": "Baden-W\u00fcrttemberg",
         "country": "DE",
-        "road": "Hurstweg",
+        "road": null,
         "postalcode": "76437"
       }
     },
@@ -15942,30 +15918,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.22198582,
-          37.25013733
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:B3:8F:18",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-05T17:00:00.000Z",
-        "lasttime": "2024-09-10T05:00:00.000Z",
-        "city": "Augusta",
-        "region": "Sicilia",
-        "country": "IT",
-        "road": null,
-        "postalcode": "96012"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -0.105415,
           51.52065659
         ]
@@ -19295,30 +19247,6 @@
         "country": "CH",
         "road": "An der Ersten Strasse",
         "postalcode": "8274"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.32350922,
-          43.84176636
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:CD:9C:A7",
-        "ssid": "AdisH",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-10T12:00:00.000Z",
-        "lasttime": "2024-09-10T10:00:00.000Z",
-        "city": null,
-        "region": "Federacija Bosne i Hercegovine",
-        "country": "BA",
-        "road": "D\u017eemala Bijedi\u0107a",
-        "postalcode": "71210"
       }
     },
     {
@@ -25683,10 +25611,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-10T10:14:51.019750+00:00",
+    "generated": "2026-09-11T10:11:02.395791+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1070
+    "total_cameras": 1067
   }
 }

@@ -1518,6 +1518,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          2.31153417,
+          48.83842468
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:14:A8:C1",
+        "ssid": "ClickShare-1863569444",
+        "oui": "80:30:49",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-10T16:00:00.000Z",
+        "lasttime": "2026-09-10T22:00:00.000Z",
+        "city": "Paris",
+        "region": "\u00cele-de-France",
+        "country": "FR",
+        "road": "Rue Falgui\u00e8re",
+        "postalcode": "75015"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           3.61347008,
           51.49996948
         ]
@@ -1542,23 +1566,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.00547361,
-          51.44863892
+          7.77199364,
+          48.59524918
         ]
       },
       "properties": {
-        "netid": "80:30:49:14:A9:19",
-        "ssid": "ESS-Raum-1-4OG",
+        "netid": "80:30:49:14:A8:DB",
+        "ssid": "cs - PO",
         "oui": "80:30:49",
         "channel": 36,
         "encryption": "wpa2",
-        "firsttime": "2022-02-13T21:00:00.000Z",
-        "lasttime": "2024-09-10T08:00:00.000Z",
-        "city": "Essen",
-        "region": "Nordrhein-Westfalen",
-        "country": "DE",
-        "road": "Kruppstra\u00dfe",
-        "postalcode": "45128"
+        "firsttime": "2026-09-09T11:00:00.000Z",
+        "lasttime": "2026-09-10T00:00:00.000Z",
+        "city": "Strasbourg",
+        "region": "Grand Est",
+        "country": "FR",
+        "road": "Quai du Bassin de l'Ill",
+        "postalcode": "67075"
       }
     },
     {
@@ -5070,8 +5094,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.76294374,
-          48.58644485
+          7.76325655,
+          48.58630371
         ]
       },
       "properties": {
@@ -5081,7 +5105,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-07-25T06:00:00.000Z",
-        "lasttime": "2026-09-08T04:00:00.000Z",
+        "lasttime": "2026-09-10T00:00:00.000Z",
         "city": "Strasbourg",
         "region": "Grand Est",
         "country": "FR",
@@ -7398,8 +7422,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.95544434,
-          40.67613983
+          -111.95543671,
+          40.67613602
         ]
       },
       "properties": {
@@ -7409,7 +7433,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-08-28T13:00:00.000Z",
-        "lasttime": "2026-05-28T15:00:00.000Z",
+        "lasttime": "2026-09-10T18:00:00.000Z",
         "city": "West Valley City",
         "region": "UT",
         "country": "US",
@@ -10697,7 +10721,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-04-24T12:00:00.000Z",
-        "lasttime": "2026-08-31T07:00:00.000Z",
+        "lasttime": "2026-09-10T07:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -14471,30 +14495,6 @@
         "country": "FR",
         "road": "A 63",
         "postalcode": "33170"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.36395168,
-          47.36822128
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:33:EF:51",
-        "ssid": null,
-        "oui": "80:30:49",
-        "channel": 40,
-        "encryption": "wpa2",
-        "firsttime": "2024-04-05T11:00:00.000Z",
-        "lasttime": "2024-09-10T07:00:00.000Z",
-        "city": null,
-        "region": "Aargau",
-        "country": "CH",
-        "road": "Hasenbergstrasse",
-        "postalcode": "8967"
       }
     },
     {
@@ -19491,7 +19491,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-10T10:14:51.019750+00:00",
+    "generated": "2026-09-11T10:11:02.395791+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

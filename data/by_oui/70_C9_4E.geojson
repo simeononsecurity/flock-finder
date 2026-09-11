@@ -654,6 +654,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.61925507,
+          34.59044647
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:0F:63:D0",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-10T13:00:00.000Z",
+        "lasttime": "2026-09-10T22:00:00.000Z",
+        "city": null,
+        "region": "SC",
+        "country": "US",
+        "road": "Highway 81 North",
+        "postalcode": "29621"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -80.2127533,
           26.21154404
         ]
@@ -1727,6 +1751,30 @@
         "country": "US",
         "road": "Horace Harding Expressway",
         "postalcode": "11364"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.10173035,
+          18.40583038
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:2B:2F:67",
+        "ssid": "ELUX_70C94E2B2F67",
+        "oui": "70:C9:4E",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-09T23:00:00.000Z",
+        "lasttime": "2026-09-10T08:00:00.000Z",
+        "city": null,
+        "region": "PR",
+        "country": "US",
+        "road": "Avenida San Patricio",
+        "postalcode": "00968"
       }
     },
     {
@@ -11238,6 +11286,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -74.28567505,
+          40.46300125
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:F6:E1:47",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-09T19:00:00.000Z",
+        "lasttime": "2026-09-10T11:00:00.000Z",
+        "city": "Sayreville",
+        "region": "NJ",
+        "country": "US",
+        "road": "Garden State Parkway",
+        "postalcode": "08859"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -77.47973633,
           37.55417252
         ]
@@ -11331,10 +11403,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-10T10:14:51.019750+00:00",
+    "generated": "2026-09-11T10:11:02.395791+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 472
+    "total_cameras": 475
   }
 }
