@@ -246,8 +246,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -84.10373688,
+          9.92926407
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:08:FE:F2",
+        "ssid": "Flock",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-11T03:00:00.000Z",
+        "lasttime": "2026-09-11T17:00:00.000Z",
+        "city": "San Jos\u00e9",
+        "region": "Provincia San Jos\u00e9",
+        "country": "CR",
+        "road": "Calle Morenos",
+        "postalcode": "10108"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -84.1037674,
-          9.9294138
+          9.92942047
         ]
       },
       "properties": {
@@ -257,7 +281,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-09-08T18:00:00.000Z",
+        "lasttime": "2026-09-11T13:00:00.000Z",
         "city": null,
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
@@ -407,6 +431,30 @@
         "country": "US",
         "road": "Vanderbilt Beach Road",
         "postalcode": "34108"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.66438293,
+          30.65138626
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:0D:47:BF",
+        "ssid": "MLG54362",
+        "oui": "90:35:EA",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-11T09:00:00.000Z",
+        "lasttime": "2026-09-11T18:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "North College Street",
+        "postalcode": "78626"
       }
     },
     {
@@ -1878,18 +1926,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.07232666,
-          29.92874718
+          -95.07234955,
+          29.92875862
         ]
       },
       "properties": {
         "netid": "90:35:EA:0D:68:7F",
         "ssid": "MLG53954",
         "oui": "90:35:EA",
-        "channel": 6,
+        "channel": 11,
         "encryption": "none",
         "firsttime": "2025-01-08T22:00:00.000Z",
-        "lasttime": "2026-05-28T09:00:00.000Z",
+        "lasttime": "2026-09-11T23:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -2214,8 +2262,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.74079895,
-          40.01917267
+          -80.74078369,
+          40.01922226
         ]
       },
       "properties": {
@@ -2225,12 +2273,12 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2026-06-24T18:00:00.000Z",
-        "lasttime": "2026-09-07T09:00:00.000Z",
+        "lasttime": "2026-09-11T05:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
-        "road": "37th Street",
-        "postalcode": "43906"
+        "road": "SR 7",
+        "postalcode": "26031"
       }
     },
     {
@@ -2639,30 +2687,6 @@
         "country": "US",
         "road": "Delaware Turnpike",
         "postalcode": "19702"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -74.423172,
-          40.8545723
-        ]
-      },
-      "properties": {
-        "netid": "90:35:EA:1C:28:28",
-        "ssid": null,
-        "oui": "90:35:EA",
-        "channel": 0,
-        "encryption": "none",
-        "firsttime": "2024-09-11T15:00:00.000Z",
-        "lasttime": "2024-09-11T08:00:00.000Z",
-        "city": null,
-        "region": "NJ",
-        "country": "US",
-        "road": "I 287",
-        "postalcode": "07054"
       }
     },
     {
@@ -5958,8 +5982,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.60879898,
-          48.88340378
+          12.60879803,
+          48.88339996
         ]
       },
       "properties": {
@@ -5969,7 +5993,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-12-03T13:00:00.000Z",
-        "lasttime": "2026-08-03T15:00:00.000Z",
+        "lasttime": "2026-09-11T03:00:00.000Z",
         "city": null,
         "region": "Bayern",
         "country": "DE",
@@ -9150,23 +9174,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.91746521,
-          33.50178909
+          -111.93466187,
+          33.49441147
         ]
       },
       "properties": {
         "netid": "90:35:EA:39:13:78",
-        "ssid": "W4B3PPi00k=80&4;*9-/0F<5/+(&('A8",
+        "ssid": "W4B3PPi00gU<0&4;*9-/0F<5/+(&('0>",
         "oui": "90:35:EA",
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2025-04-01T18:00:00.000Z",
-        "lasttime": "2026-07-21T04:00:00.000Z",
+        "lasttime": "2026-09-11T19:00:00.000Z",
         "city": "Scottsdale",
         "region": "AZ",
         "country": "US",
-        "road": "North Miller Road",
-        "postalcode": "85251"
+        "road": "North 68th Street",
+        "postalcode": "85257-1102"
       }
     },
     {
@@ -9311,30 +9335,6 @@
         "country": "US",
         "road": "Sam Rayburn Highway",
         "postalcode": "75454"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -119.7021637,
-          36.83707809
-        ]
-      },
-      "properties": {
-        "netid": "90:35:EA:39:14:B4",
-        "ssid": "W4l5P<P10h050&4;A9-06)<5/(..&+17",
-        "oui": "90:35:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-10T20:00:00.000Z",
-        "lasttime": "2024-09-11T15:00:00.000Z",
-        "city": null,
-        "region": "CA",
-        "country": "US",
-        "road": "Herndon Avenue",
-        "postalcode": "93611"
       }
     },
     {
@@ -15267,7 +15267,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-11T10:11:02.395791+00:00",
+    "generated": "2026-09-12T09:46:17.968266+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

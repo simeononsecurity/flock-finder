@@ -9785,7 +9785,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-10-01T05:00:00.000Z",
-        "lasttime": "2026-09-09T18:00:00.000Z",
+        "lasttime": "2026-09-11T14:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -10841,7 +10841,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-05-26T18:00:00.000Z",
-        "lasttime": "2026-08-31T15:00:00.000Z",
+        "lasttime": "2026-09-11T22:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -11671,7 +11671,7 @@
         "type": "Point",
         "coordinates": [
           144.89335632,
-          -37.80023193
+          -37.80022812
         ]
       },
       "properties": {
@@ -11681,7 +11681,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-03-24T23:00:00.000Z",
-        "lasttime": "2026-08-30T00:00:00.000Z",
+        "lasttime": "2026-09-11T11:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -14910,30 +14910,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.19880581,
-          45.46324539
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:33:F0:C7",
-        "ssid": "ClickShare-1862476674",
-        "oui": "80:30:49",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-03-01T09:00:00.000Z",
-        "lasttime": "2024-09-11T12:00:00.000Z",
-        "city": "Milano",
-        "region": "Lombardia",
-        "country": "IT",
-        "road": "Via Uberto Visconti di Modrone",
-        "postalcode": "20122"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.14356136,
           48.52511215
         ]
@@ -17238,6 +17214,54 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -108.57853699,
+          45.74689102
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:9A:19:6D",
+        "ssid": "MySpectrumWiFiF3-5G",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-10T18:00:00.000Z",
+        "lasttime": "2026-09-11T08:00:00.000Z",
+        "city": "Billings",
+        "region": "MT",
+        "country": "US",
+        "road": "Gabel Road",
+        "postalcode": "59102"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.57855225,
+          45.74699402
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:9A:19:79",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-10T09:00:00.000Z",
+        "lasttime": "2026-09-11T08:00:00.000Z",
+        "city": "Billings",
+        "region": "MT",
+        "country": "US",
+        "road": "Gabel Road",
+        "postalcode": "59102"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.21665955,
           41.03958511
         ]
@@ -17519,6 +17543,30 @@
         "country": "CA",
         "road": "Rue Saint-Hubert",
         "postalcode": "H2R 2P4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.6102829,
+          39.28442383
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:A3:E8:75",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 48,
+        "encryption": "none",
+        "firsttime": "2026-09-11T11:00:00.000Z",
+        "lasttime": "2026-09-11T21:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "James A. Rhodes Appalachian Highway",
+        "postalcode": "45714"
       }
     },
     {
@@ -19491,10 +19539,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-11T10:11:02.395791+00:00",
+    "generated": "2026-09-12T09:46:17.968266+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 812
+    "total_cameras": 814
   }
 }

@@ -966,7 +966,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          92.88752747,
+          92.8875351,
           56.02661133
         ]
       },
@@ -977,7 +977,7 @@
         "channel": 11,
         "encryption": "unknown",
         "firsttime": "2025-12-22T12:00:00.000Z",
-        "lasttime": "2026-09-10T21:00:00.000Z",
+        "lasttime": "2026-09-11T21:00:00.000Z",
         "city": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a",
         "region": "\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0438\u0439 \u043a\u0440\u0430\u0439",
         "country": "RU",
@@ -5903,6 +5903,30 @@
         "country": "RU",
         "road": "\u043f\u043b\u043e\u0449\u0430\u0434\u044c 60-\u043b\u0435\u0442\u0438\u044f \u041e\u043a\u0442\u044f\u0431\u0440\u044f",
         "postalcode": "163051"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.41253948,
+          52.33691406
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:5C:60:BE",
+        "ssid": "AndroidAP",
+        "oui": "48:27:EA",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-10T11:00:00.000Z",
+        "lasttime": "2026-09-11T01:00:00.000Z",
+        "city": null,
+        "region": "Niedersachsen",
+        "country": "DE",
+        "road": "A 2",
+        "postalcode": "31542"
       }
     },
     {
@@ -15582,22 +15606,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.08044434,
-          51.6631279
+          16.07577705,
+          51.66200638
         ]
       },
       "properties": {
         "netid": "48:27:EA:B2:1B:37",
         "ssid": "Galaxy J51B37",
         "oui": "48:27:EA",
-        "channel": 11,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-08-26T14:00:00.000Z",
-        "lasttime": "2026-09-08T21:00:00.000Z",
+        "lasttime": "2026-09-11T00:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo dolno\u015bl\u0105skie",
         "country": "PL",
-        "road": "Jedno\u015bci Robotniczej",
+        "road": "Armii Krajowej",
         "postalcode": "67-200"
       }
     },
@@ -20742,30 +20766,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          44.52079391,
-          40.18803406
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:DA:10:09",
-        "ssid": "AndroidAP1009viva.am",
-        "oui": "48:27:EA",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-09-04T04:00:00.000Z",
-        "lasttime": "2024-09-11T00:00:00.000Z",
-        "city": "\u0535\u0580\u0587\u0561\u0576",
-        "region": "\u0535\u0580\u0587\u0561\u0576",
-        "country": "AM",
-        "road": "\u054f\u0565\u0580\u0575\u0561\u0576 \u0583\u0578\u0572\u0578\u0581",
-        "postalcode": "0009"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -58.42673111,
           -34.57783508
         ]
@@ -23574,30 +23574,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          69.21155548,
-          41.30157089
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:F0:34:B5",
-        "ssid": "BKQK-U00tSjcxMEY",
-        "oui": "48:27:EA",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-11T13:00:00.000Z",
-        "lasttime": "2024-09-11T07:00:00.000Z",
-        "city": "Toshkent",
-        "region": "Oq Tepa",
-        "country": "UZ",
-        "road": "Gulhaniy ko`chasi",
-        "postalcode": "100000"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           36.20251846,
           51.74567413
         ]
@@ -25611,10 +25587,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-11T10:11:02.395791+00:00",
+    "generated": "2026-09-12T09:46:17.968266+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1067
+    "total_cameras": 1066
   }
 }

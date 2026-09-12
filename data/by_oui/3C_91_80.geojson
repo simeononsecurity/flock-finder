@@ -3558,18 +3558,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -112.17712402,
+          -112.17711639,
           33.53860855
         ]
       },
       "properties": {
         "netid": "3C:91:80:16:77:7C",
-        "ssid": "DIRECT-ULFINANCE",
+        "ssid": "DIRECT-BzFINANCE",
         "oui": "3C:91:80",
-        "channel": 40,
+        "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2025-01-31T03:00:00.000Z",
-        "lasttime": "2026-07-05T11:00:00.000Z",
+        "lasttime": "2026-09-11T01:00:00.000Z",
         "city": "Glendale",
         "region": "AZ",
         "country": "US",
@@ -7230,6 +7230,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.73371124,
+          40.32957458
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:52:A7:7B",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-10T18:00:00.000Z",
+        "lasttime": "2026-09-11T06:00:00.000Z",
+        "city": "North Huntingdon Township",
+        "region": "PA",
+        "country": "US",
+        "road": "Center Highway",
+        "postalcode": "15642"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.69985199,
           27.82308197
         ]
@@ -9198,8 +9222,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.40470886,
-          36.94697571
+          -76.4046936,
+          36.94694519
         ]
       },
       "properties": {
@@ -9209,7 +9233,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-17T15:00:00.000Z",
-        "lasttime": "2026-09-10T16:00:00.000Z",
+        "lasttime": "2026-09-12T00:00:00.000Z",
         "city": "Newport News",
         "region": "VA",
         "country": "US",
@@ -13399,7 +13423,7 @@
         "type": "Point",
         "coordinates": [
           139.76019287,
-          35.65520096
+          35.65518188
         ]
       },
       "properties": {
@@ -13409,7 +13433,7 @@
         "channel": 4,
         "encryption": "wpa",
         "firsttime": "2021-07-08T08:00:00.000Z",
-        "lasttime": "2026-05-31T06:00:00.000Z",
+        "lasttime": "2026-09-11T06:00:00.000Z",
         "city": "\u6e2f\u533a",
         "region": "\u6d5c\u96e2\u5bae\u5ead\u5712",
         "country": "JP",
@@ -18942,6 +18966,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -113.62168884,
+          37.14110565
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:EE:1E:67",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-10T16:00:00.000Z",
+        "lasttime": "2026-09-11T07:00:00.000Z",
+        "city": "St. George",
+        "region": "UT",
+        "country": "US",
+        "road": "Snow Canyon Parkway",
+        "postalcode": "84765-5109"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -58.45422745,
           -34.55354309
         ]
@@ -20574,8 +20622,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.84948063,
-          59.91781998
+          10.84950829,
+          59.91780853
         ]
       },
       "properties": {
@@ -20585,7 +20633,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-01-23T20:00:00.000Z",
-        "lasttime": "2026-06-01T05:00:00.000Z",
+        "lasttime": "2026-09-11T20:00:00.000Z",
         "city": "Oslo",
         "region": "Nedre Hellerud",
         "country": "NO",
@@ -21339,10 +21387,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-11T10:11:02.395791+00:00",
+    "generated": "2026-09-12T09:46:17.968266+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 889
+    "total_cameras": 891
   }
 }

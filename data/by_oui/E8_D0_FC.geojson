@@ -702,6 +702,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.36092377,
+          36.61816788
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:1B:FB:81",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-11T08:00:00.000Z",
+        "lasttime": "2026-09-11T19:00:00.000Z",
+        "city": null,
+        "region": "VA",
+        "country": "US",
+        "road": "Old Richmond Road",
+        "postalcode": "24566"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -79.92690277,
           40.46974945
         ]
@@ -6887,6 +6911,30 @@
         "country": "US",
         "road": "24th Street",
         "postalcode": "67530"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.66429138,
+          42.83050156
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:52:4A:5A",
+        "ssid": null,
+        "oui": "E8:D0:FC",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-11T12:00:00.000Z",
+        "lasttime": "2026-09-11T19:00:00.000Z",
+        "city": null,
+        "region": "MI",
+        "country": "US",
+        "road": "Division Avenue South",
+        "postalcode": "49548"
       }
     },
     {
@@ -16110,8 +16158,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.49382019,
-          29.84235954
+          -95.49381256,
+          29.84235191
         ]
       },
       "properties": {
@@ -16121,7 +16169,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-03-25T23:00:00.000Z",
-        "lasttime": "2026-09-07T22:00:00.000Z",
+        "lasttime": "2026-09-11T02:00:00.000Z",
         "city": "Houston",
         "region": "TX",
         "country": "US",
@@ -19254,30 +19302,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.16292953,
-          57.78217316
-        ]
-      },
-      "properties": {
-        "netid": "E8:D0:FC:C0:45:7B",
-        "ssid": "Samtalsrum Rosa",
-        "oui": "E8:D0:FC",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2021-12-03T10:00:00.000Z",
-        "lasttime": "2024-09-11T14:00:00.000Z",
-        "city": "J\u00f6nk\u00f6ping",
-        "region": "J\u00f6nk\u00f6pings l\u00e4n",
-        "country": "SE",
-        "road": "Barnarpsgatan",
-        "postalcode": "553 16"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.5704155,
           55.66905212
         ]
@@ -21819,10 +21843,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-11T10:11:02.395791+00:00",
+    "generated": "2026-09-12T09:46:17.968266+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 909
+    "total_cameras": 910
   }
 }

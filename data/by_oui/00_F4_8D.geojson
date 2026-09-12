@@ -2862,6 +2862,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.34719849,
+          36.65967941
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:13:7C:FC",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-11T08:00:00.000Z",
+        "lasttime": "2026-09-11T19:00:00.000Z",
+        "city": null,
+        "region": "VA",
+        "country": "US",
+        "road": "Old Richmond Road",
+        "postalcode": "24566"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -114.09768677,
           51.14284515
         ]
@@ -5527,7 +5551,7 @@
         "type": "Point",
         "coordinates": [
           -70.93382263,
-          42.56333542
+          42.5633812
         ]
       },
       "properties": {
@@ -5537,7 +5561,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-09-03T18:00:00.000Z",
-        "lasttime": "2026-09-03T11:00:00.000Z",
+        "lasttime": "2026-09-11T02:00:00.000Z",
         "city": null,
         "region": "MA",
         "country": "US",
@@ -6246,6 +6270,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -84.33494568,
+          33.73981094
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:2F:DA:F4",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T15:00:00.000Z",
+        "lasttime": "2026-09-10T23:00:00.000Z",
+        "city": "Atlanta",
+        "region": "GA",
+        "country": "US",
+        "road": "Maynard Terrace Southeast",
+        "postalcode": "30316"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.67441559,
           27.79951668
         ]
@@ -6342,8 +6390,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -103.12690735,
-          32.72564316
+          -103.12746429,
+          32.72457886
         ]
       },
       "properties": {
@@ -6353,11 +6401,11 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-09-10T07:00:00.000Z",
-        "lasttime": "2026-09-10T16:00:00.000Z",
+        "lasttime": "2026-09-11T19:00:00.000Z",
         "city": "Hobbs",
         "region": "NM",
         "country": "US",
-        "road": "East Bender Boulevard",
+        "road": "North Dal Paso Street",
         "postalcode": "88240"
       }
     },
@@ -14070,6 +14118,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -116.8032074,
+          47.7155571
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:FD:68:BB",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-10T16:00:00.000Z",
+        "lasttime": "2026-09-11T07:00:00.000Z",
+        "city": "Coeur d'Alene",
+        "region": "ID",
+        "country": "US",
+        "road": "West Kathleen Avenue",
+        "postalcode": "83815"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -81.47033691,
           41.64248276
         ]
@@ -14235,10 +14307,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-11T10:11:02.395791+00:00",
+    "generated": "2026-09-12T09:46:17.968266+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 593
+    "total_cameras": 596
   }
 }
