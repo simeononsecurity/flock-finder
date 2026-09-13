@@ -270,8 +270,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.1037674,
-          9.92942047
+          -84.10375977,
+          9.92937469
         ]
       },
       "properties": {
@@ -281,11 +281,11 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-09-11T13:00:00.000Z",
-        "city": null,
+        "lasttime": "2026-09-12T15:00:00.000Z",
+        "city": "San Jos\u00e9",
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
-        "road": "Calle Morenos",
+        "road": "Avenida Campos",
         "postalcode": "10108"
       }
     },
@@ -335,6 +335,30 @@
         "country": "US",
         "road": "North Boyer Avenue",
         "postalcode": "83852"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.42778778,
+          40.10925293
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:08:FF:95",
+        "ssid": "MLG60711",
+        "oui": "90:35:EA",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-11T19:00:00.000Z",
+        "lasttime": "2026-09-12T04:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "Mount Vernon Road",
+        "postalcode": "43055"
       }
     },
     {
@@ -966,18 +990,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.09939575,
-          34.60424042
+          -79.09938812,
+          34.60424423
         ]
       },
       "properties": {
         "netid": "90:35:EA:0D:60:19",
         "ssid": "MLG54216",
         "oui": "90:35:EA",
-        "channel": 11,
+        "channel": 1,
         "encryption": "none",
         "firsttime": "2024-06-15T10:00:00.000Z",
-        "lasttime": "2026-09-09T12:00:00.000Z",
+        "lasttime": "2026-09-12T21:00:00.000Z",
         "city": null,
         "region": "NC",
         "country": "US",
@@ -13182,6 +13206,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -77.56375122,
+          37.53810883
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:39:4C:64",
+        "ssid": "W4P0PW000e8S0&4B4E&34*294*).+)`5",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2023-04-11T14:00:00.000Z",
+        "lasttime": "2026-09-12T21:00:00.000Z",
+        "city": "Richmond",
+        "region": "VA",
+        "country": "US",
+        "road": "Stony Point Road",
+        "postalcode": "23235"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -76.5617981,
           39.36693192
         ]
@@ -15267,10 +15315,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-12T09:46:17.968266+00:00",
+    "generated": "2026-09-13T10:47:10.755516+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 636
+    "total_cameras": 638
   }
 }
