@@ -102,6 +102,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -108.7348938,
+          39.16966248
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:02:DA:78",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-12T12:00:00.000Z",
+        "lasttime": "2026-09-13T03:00:00.000Z",
+        "city": null,
+        "region": "CO",
+        "country": "US",
+        "road": "Dogwood Court",
+        "postalcode": "81521"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -76.25350189,
           36.7029953
         ]
@@ -215,6 +239,30 @@
         "country": "NO",
         "road": "Frysjaveien",
         "postalcode": "0884"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.62430573,
+          55.68245697
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:05:44:F6",
+        "ssid": "EU-2077",
+        "oui": "E8:D0:FC",
+        "channel": 11,
+        "encryption": "unknown",
+        "firsttime": "2026-09-13T18:00:00.000Z",
+        "lasttime": "2026-09-13T23:00:00.000Z",
+        "city": "\u041c\u043e\u0441\u043a\u0432\u0430",
+        "region": "\u041c\u043e\u0441\u043a\u0432\u0430",
+        "country": "RU",
+        "road": "\u041d\u0430\u0433\u0430\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u0443\u043b\u0438\u0446\u0430",
+        "postalcode": "115230"
       }
     },
     {
@@ -2207,6 +2255,30 @@
         "country": "US",
         "road": "44th Street South",
         "postalcode": "33711"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.098495,
+          51.75387955
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:36:30:F9",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-13T09:00:00.000Z",
+        "lasttime": "2026-09-13T15:00:00.000Z",
+        "city": "Harlow",
+        "region": "England",
+        "country": "GB",
+        "road": "Bishopsfield",
+        "postalcode": "CM18 6FF"
       }
     },
     {
@@ -11502,8 +11574,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.03312683,
-          38.92642593
+          -77.0327301,
+          38.92644119
         ]
       },
       "properties": {
@@ -11511,14 +11583,38 @@
         "ssid": null,
         "oui": "E8:D0:FC",
         "channel": 161,
-        "encryption": "none",
+        "encryption": "wep",
         "firsttime": "2026-08-13T21:00:00.000Z",
-        "lasttime": "2026-08-13T15:00:00.000Z",
+        "lasttime": "2026-09-14T01:00:00.000Z",
         "city": "Washington",
         "region": "DC",
         "country": "US",
         "road": "Harvard Street Northwest",
         "postalcode": "20009"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.73836517,
+          39.17615891
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:B6:0A:B1",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 10,
+        "encryption": "none",
+        "firsttime": "2026-09-12T15:00:00.000Z",
+        "lasttime": "2026-09-13T03:00:00.000Z",
+        "city": null,
+        "region": "CO",
+        "country": "US",
+        "road": "17 Road",
+        "postalcode": "81521"
       }
     },
     {
@@ -12366,7 +12462,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -96.9815979,
+          -96.98159027,
           32.98901367
         ]
       },
@@ -12377,7 +12473,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-11-22T13:00:00.000Z",
-        "lasttime": "2026-09-08T00:00:00.000Z",
+        "lasttime": "2026-09-13T19:00:00.000Z",
         "city": "Lewisville",
         "region": "TX",
         "country": "US",
@@ -17070,8 +17166,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.31918383,
-          48.87467194
+          2.31918216,
+          48.87466049
         ]
       },
       "properties": {
@@ -17081,7 +17177,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-12-22T15:00:00.000Z",
-        "lasttime": "2026-09-09T22:00:00.000Z",
+        "lasttime": "2026-09-13T02:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -18822,8 +18918,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.10809617,
-          51.51111603
+          -0.1081152,
+          51.51110458
         ]
       },
       "properties": {
@@ -18833,7 +18929,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-04-01T12:00:00.000Z",
-        "lasttime": "2026-09-12T07:00:00.000Z",
+        "lasttime": "2026-09-13T22:00:00.000Z",
         "city": "City of London",
         "region": "England",
         "country": "GB",
@@ -21891,10 +21987,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-13T10:47:10.755516+00:00",
+    "generated": "2026-09-14T11:11:48.171609+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 912
+    "total_cameras": 916
   }
 }

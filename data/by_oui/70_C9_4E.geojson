@@ -822,8 +822,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.94121552,
-          40.49629974
+          -79.94102478,
+          40.49621582
         ]
       },
       "properties": {
@@ -833,12 +833,12 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-17T12:00:00.000Z",
-        "lasttime": "2026-08-21T05:00:00.000Z",
+        "lasttime": "2026-09-13T16:00:00.000Z",
         "city": null,
         "region": "PA",
         "country": "US",
-        "road": "Sycamore Street",
-        "postalcode": "15223"
+        "road": "Bridge Street",
+        "postalcode": "15215:15223"
       }
     },
     {
@@ -3534,6 +3534,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -78.39391327,
+          35.64806747
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3C:78:F6",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-04T19:00:00.000Z",
+        "lasttime": "2026-09-13T11:00:00.000Z",
+        "city": null,
+        "region": "NC",
+        "country": "US",
+        "road": "NC 42",
+        "postalcode": "27527"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -80.99271393,
           29.14632034
         ]
@@ -3599,6 +3623,30 @@
         "country": "US",
         "road": "Bartlett Lane",
         "postalcode": "32955"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.96773911,
+          51.03118134
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3C:BC:35",
+        "ssid": "DIRECT-RMLAPTOP-5KEH9B1OmsYA",
+        "oui": "70:C9:4E",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2024-04-10T06:00:00.000Z",
+        "lasttime": "2026-09-13T20:00:00.000Z",
+        "city": null,
+        "region": "wojew\u00f3dztwo dolno\u015bl\u0105skie",
+        "country": "PL",
+        "road": "K\u0142odzka",
+        "postalcode": "55-040"
       }
     },
     {
@@ -10974,6 +11022,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          37.81373978,
+          55.79767227
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:D1:4F:9B",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "unknown",
+        "firsttime": "2026-09-13T09:00:00.000Z",
+        "lasttime": "2026-09-13T16:00:00.000Z",
+        "city": "\u041c\u043e\u0441\u043a\u0432\u0430",
+        "region": "\u041c\u043e\u0441\u043a\u0432\u0430",
+        "country": "RU",
+        "road": "\u0418\u0437\u043c\u0430\u0439\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u0431\u0443\u043b\u044c\u0432\u0430\u0440",
+        "postalcode": "105077"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.58846283,
           45.64536285
         ]
@@ -11523,10 +11595,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-13T10:47:10.755516+00:00",
+    "generated": "2026-09-14T11:11:48.171609+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 480
+    "total_cameras": 483
   }
 }

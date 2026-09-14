@@ -4230,8 +4230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.99073029,
-          39.95718002
+          -82.99066162,
+          39.95729446
         ]
       },
       "properties": {
@@ -4241,7 +4241,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-04-08T17:00:00.000Z",
-        "lasttime": "2026-03-16T07:00:00.000Z",
+        "lasttime": "2026-09-14T00:00:00.000Z",
         "city": "Columbus",
         "region": "OH",
         "country": "US",
@@ -4254,8 +4254,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.6754303,
-          45.52249908
+          -122.67542267,
+          45.52250671
         ]
       },
       "properties": {
@@ -4265,7 +4265,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-08-01T20:00:00.000Z",
-        "lasttime": "2026-08-31T22:00:00.000Z",
+        "lasttime": "2026-09-14T00:00:00.000Z",
         "city": "Portland",
         "region": "OR",
         "country": "US",
@@ -5903,30 +5903,6 @@
         "country": "CH",
         "road": "Walzm\u00fchlestrasse",
         "postalcode": "8500"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.69014168,
-          48.13562012
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:14:B8:25",
-        "ssid": "MUC Grosser Arber 0.2.13",
-        "oui": "80:30:49",
-        "channel": 48,
-        "encryption": "wpa2",
-        "firsttime": "2003-09-23T11:00:00.000Z",
-        "lasttime": "2024-09-13T08:00:00.000Z",
-        "city": "M\u00fcnchen",
-        "region": "Bayern",
-        "country": "DE",
-        "road": "Olof-Palme-Stra\u00dfe",
-        "postalcode": "81829"
       }
     },
     {
@@ -10494,7 +10470,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.29005051,
+          13.29008675,
           52.63384247
         ]
       },
@@ -10505,7 +10481,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-07-16T19:00:00.000Z",
-        "lasttime": "2026-04-26T08:00:00.000Z",
+        "lasttime": "2026-09-13T16:00:00.000Z",
         "city": "Berlin",
         "region": "Reinickendorf",
         "country": "DE",
@@ -10793,7 +10769,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-05-26T18:00:00.000Z",
-        "lasttime": "2026-09-12T22:00:00.000Z",
+        "lasttime": "2026-09-13T04:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -12342,30 +12318,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -87.76851654,
-          41.5735054
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:21:D5:A7",
-        "ssid": "Flock-21D5A7",
-        "oui": "80:30:49",
-        "channel": 44,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-13T16:00:00.000Z",
-        "lasttime": "2024-09-13T09:00:00.000Z",
-        "city": null,
-        "region": "IL",
-        "country": "US",
-        "road": "175th Street",
-        "postalcode": "60477"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -118.00665283,
           33.71620178
         ]
@@ -12534,30 +12486,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -99.17862701,
-          19.3248539
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:27:A6:69",
-        "ssid": null,
-        "oui": "80:30:49",
-        "channel": 9,
-        "encryption": "unknown",
-        "firsttime": "2024-09-13T00:00:00.000Z",
-        "lasttime": "2024-09-13T17:00:00.000Z",
-        "city": "Ciudad de M\u00e9xico",
-        "region": "Ciudad Universitaria",
-        "country": "MX",
-        "road": "Circuito de la Investigaci\u00f3n Cient\u00edfica",
-        "postalcode": "04510"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -75.1136322,
           39.84633255
         ]
@@ -12647,6 +12575,30 @@
         "country": "US",
         "road": "Broad Street",
         "postalcode": "07003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.88578033,
+          43.26874542
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:2A:58:49",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-09-13T13:00:00.000Z",
+        "lasttime": "2026-09-13T21:00:00.000Z",
+        "city": "Hamilton",
+        "region": "Ontario",
+        "country": "CA",
+        "road": "York Boulevard",
+        "postalcode": "L8R 3K4"
       }
     },
     {
@@ -13350,7 +13302,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.12706901,
+          -0.12707078,
           51.51158524
         ]
       },
@@ -13361,7 +13313,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-12-17T15:00:00.000Z",
-        "lasttime": "2026-09-06T18:00:00.000Z",
+        "lasttime": "2026-09-13T22:00:00.000Z",
         "city": "London",
         "region": "England",
         "country": "GB",
@@ -17646,6 +17598,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -116.35282135,
+          43.58379364
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:A4:FA:BD",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-09T22:00:00.000Z",
+        "lasttime": "2026-09-13T09:00:00.000Z",
+        "city": "Meridian",
+        "region": "ID",
+        "country": "US",
+        "road": "East Copper Point Drive",
+        "postalcode": "83642"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -78.81291962,
           35.92853165
         ]
@@ -17742,8 +17718,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.49504852,
-          27.89371681
+          -82.49542999,
+          27.89368439
         ]
       },
       "properties": {
@@ -17753,12 +17729,36 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-09-06T15:00:00.000Z",
-        "lasttime": "2026-09-06T23:00:00.000Z",
+        "lasttime": "2026-09-13T21:00:00.000Z",
         "city": "Tampa",
         "region": "FL",
         "country": "US",
         "road": "West Gandy Boulevard",
         "postalcode": "33611"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.65268707,
+          48.1687355
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:A8:04:85",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 48,
+        "encryption": "none",
+        "firsttime": "2026-09-13T00:00:00.000Z",
+        "lasttime": "2026-09-13T12:00:00.000Z",
+        "city": "Williston",
+        "region": "ND",
+        "country": "US",
+        "road": null,
+        "postalcode": "58802"
       }
     },
     {
@@ -19494,7 +19494,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -121.50963593,
+          -121.50965118,
           38.67037201
         ]
       },
@@ -19505,7 +19505,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-06-13T14:00:00.000Z",
-        "lasttime": "2026-07-31T19:00:00.000Z",
+        "lasttime": "2026-09-13T10:00:00.000Z",
         "city": "Sacramento",
         "region": "CA",
         "country": "US",
@@ -19563,7 +19563,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-13T10:47:10.755516+00:00",
+    "generated": "2026-09-14T11:11:48.171609+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

@@ -270,8 +270,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -84.10375977,
-          9.92937469
+          -84.10378265,
+          9.92929459
         ]
       },
       "properties": {
@@ -281,11 +281,11 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-09-12T15:00:00.000Z",
+        "lasttime": "2026-09-13T15:00:00.000Z",
         "city": "San Jos\u00e9",
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
-        "road": "Avenida Campos",
+        "road": "Calle Morenos",
         "postalcode": "10108"
       }
     },
@@ -1542,7 +1542,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.98085785,
+          -77.98086548,
           39.15081024
         ]
       },
@@ -1550,10 +1550,10 @@
         "netid": "90:35:EA:0D:65:5D",
         "ssid": "MLG55755",
         "oui": "90:35:EA",
-        "channel": 1,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2026-03-29T16:00:00.000Z",
-        "lasttime": "2026-08-18T19:00:00.000Z",
+        "lasttime": "2026-09-13T19:00:00.000Z",
         "city": null,
         "region": "VA",
         "country": "US",
@@ -2286,23 +2286,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.74078369,
-          40.01922226
+          -80.74084473,
+          40.01921463
         ]
       },
       "properties": {
         "netid": "90:35:EA:14:56:FB",
         "ssid": "MLG54394",
         "oui": "90:35:EA",
-        "channel": 1,
+        "channel": 6,
         "encryption": "none",
         "firsttime": "2026-06-24T18:00:00.000Z",
-        "lasttime": "2026-09-11T05:00:00.000Z",
+        "lasttime": "2026-09-13T11:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
-        "road": "SR 7",
-        "postalcode": "26031"
+        "road": "37th Street",
+        "postalcode": "43906"
       }
     },
     {
@@ -2814,8 +2814,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.29474926,
-          48.86182785
+          2.29357147,
+          48.86158752
         ]
       },
       "properties": {
@@ -2825,12 +2825,12 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-09-08T09:00:00.000Z",
-        "lasttime": "2026-09-09T01:00:00.000Z",
+        "lasttime": "2026-09-13T03:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
-        "road": "Avenue de New York",
-        "postalcode": "75016"
+        "road": "Place de l'Alma",
+        "postalcode": null
       }
     },
     {
@@ -4038,8 +4038,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.12458611,
-          47.68923187
+          9.12459755,
+          47.68925095
         ]
       },
       "properties": {
@@ -4049,7 +4049,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-06-13T10:00:00.000Z",
-        "lasttime": "2026-05-03T12:00:00.000Z",
+        "lasttime": "2026-09-14T00:00:00.000Z",
         "city": null,
         "region": "Baden-W\u00fcrttemberg",
         "country": "DE",
@@ -4823,6 +4823,30 @@
         "country": "BE",
         "road": "Bergen",
         "postalcode": "2370"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.13512039,
+          49.6839447
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:2A:FD:5B",
+        "ssid": "24329352",
+        "oui": "90:35:EA",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2023-10-07T12:00:00.000Z",
+        "lasttime": "2026-09-13T04:00:00.000Z",
+        "city": null,
+        "region": "Bayern",
+        "country": "DE",
+        "road": "Pressather Stra\u00dfe",
+        "postalcode": "92637"
       }
     },
     {
@@ -6006,7 +6030,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.60879803,
+          12.60879898,
           48.88339996
         ]
       },
@@ -6017,7 +6041,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-12-03T13:00:00.000Z",
-        "lasttime": "2026-09-11T03:00:00.000Z",
+        "lasttime": "2026-09-13T09:00:00.000Z",
         "city": null,
         "region": "Bayern",
         "country": "DE",
@@ -6150,7 +6174,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.34029007,
+          16.34028244,
           48.21365356
         ]
       },
@@ -6161,11 +6185,11 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-03-19T22:00:00.000Z",
-        "lasttime": "2026-09-09T02:00:00.000Z",
+        "lasttime": "2026-09-13T18:00:00.000Z",
         "city": "Wien",
         "region": "Breitenfeld",
         "country": "AT",
-        "road": "Hernalser G\u00fcrtel",
+        "road": "Lerchenfelder G\u00fcrtel",
         "postalcode": "1080"
       }
     },
@@ -11598,6 +11622,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -98.06244659,
+          29.85538101
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:39:2D:C0",
+        "ssid": "W404Pge00TR^2%%%%%%%%%%_.&(&'(@Y",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2024-04-05T22:00:00.000Z",
+        "lasttime": "2026-09-13T21:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Wegner Road",
+        "postalcode": "78132"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -111.90879059,
           33.49469757
         ]
@@ -14694,6 +14742,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -98.55447388,
+          29.60120392
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:39:5F:24",
+        "ssid": "W4k1P5d;0Tm;0&4;*9-/0F<5/)-'&'0D",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-13T13:00:00.000Z",
+        "lasttime": "2026-09-13T17:00:00.000Z",
+        "city": "San Antonio",
+        "region": "TX",
+        "country": "US",
+        "road": "Anderson Loop",
+        "postalcode": "78248"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.12132263,
           40.81237793
         ]
@@ -15315,10 +15387,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-13T10:47:10.755516+00:00",
+    "generated": "2026-09-14T11:11:48.171609+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 638
+    "total_cameras": 641
   }
 }

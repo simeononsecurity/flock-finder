@@ -13447,7 +13447,7 @@
         "type": "Point",
         "coordinates": [
           139.76019287,
-          35.65518188
+          35.65517807
         ]
       },
       "properties": {
@@ -13457,7 +13457,7 @@
         "channel": 4,
         "encryption": "wpa",
         "firsttime": "2021-07-08T08:00:00.000Z",
-        "lasttime": "2026-09-11T06:00:00.000Z",
+        "lasttime": "2026-09-13T16:00:00.000Z",
         "city": "\u6e2f\u533a",
         "region": "\u6d5c\u96e2\u5bae\u5ead\u5712",
         "country": "JP",
@@ -15726,8 +15726,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.64842987,
-          42.97252655
+          -85.64847565,
+          42.97233963
         ]
       },
       "properties": {
@@ -15737,7 +15737,7 @@
         "channel": 48,
         "encryption": "none",
         "firsttime": "2026-09-12T19:00:00.000Z",
-        "lasttime": "2026-09-13T01:00:00.000Z",
+        "lasttime": "2026-09-13T16:00:00.000Z",
         "city": "Grand Rapids",
         "region": "MI",
         "country": "US",
@@ -16799,6 +16799,30 @@
         "country": "US",
         "road": "Cedar Lane",
         "postalcode": "11554"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.81140518,
+          -29.68840981
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:DD:62:75",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-09T13:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
+        "city": "Santa Maria",
+        "region": "Rio Grande do Sul",
+        "country": "BR",
+        "road": "Rua Coronel Niederauer",
+        "postalcode": "97015-420"
       }
     },
     {
@@ -18558,6 +18582,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -108.71517181,
+          39.17440796
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:E1:CF:27",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-12T11:00:00.000Z",
+        "lasttime": "2026-09-13T03:00:00.000Z",
+        "city": null,
+        "region": "CO",
+        "country": "US",
+        "road": "Sunrose Lane",
+        "postalcode": "81521"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -77.6884079,
           43.1606102
         ]
@@ -19374,6 +19422,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -80.74058533,
+          28.31609344
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:F6:6D:A9",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-12T19:00:00.000Z",
+        "lasttime": "2026-09-13T06:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Brunswick Lane",
+        "postalcode": "32955"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -70.27155304,
           44.28431702
         ]
@@ -19391,6 +19463,30 @@
         "country": "US",
         "road": "Auburn Road",
         "postalcode": "04282"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.07594299,
+          46.39178467
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:F6:B2:91",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-13T06:00:00.000Z",
+        "lasttime": "2026-09-13T13:00:00.000Z",
+        "city": null,
+        "region": "WA",
+        "country": "US",
+        "road": "Reservoir Road",
+        "postalcode": "99403"
       }
     },
     {
@@ -21459,10 +21555,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-13T10:47:10.755516+00:00",
+    "generated": "2026-09-14T11:11:48.171609+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 894
+    "total_cameras": 898
   }
 }

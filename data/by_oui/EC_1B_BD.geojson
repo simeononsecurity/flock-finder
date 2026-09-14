@@ -4974,8 +4974,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.65908557,
-          51.56301498
+          0.6590274,
+          51.56301117
         ]
       },
       "properties": {
@@ -4985,7 +4985,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2020-02-18T10:00:00.000Z",
-        "lasttime": "2026-04-06T04:00:00.000Z",
+        "lasttime": "2026-09-13T23:00:00.000Z",
         "city": "Southend-on-Sea",
         "region": "England",
         "country": "GB",
@@ -5279,30 +5279,6 @@
         "country": "US",
         "road": "14th Avenue",
         "postalcode": "83501"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -120.88034058,
-          37.51612091
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:BD:27:43",
-        "ssid": null,
-        "oui": "EC:1B:BD",
-        "channel": 6,
-        "encryption": "unknown",
-        "firsttime": "2024-09-13T19:00:00.000Z",
-        "lasttime": "2024-09-13T13:00:00.000Z",
-        "city": "Turlock",
-        "region": "CA",
-        "country": "US",
-        "road": "CA 99",
-        "postalcode": "95382"
       }
     },
     {
@@ -6390,8 +6366,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.92851543,
-          57.03145599
+          9.92854404,
+          57.03149033
         ]
       },
       "properties": {
@@ -6401,11 +6377,11 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2025-03-29T19:00:00.000Z",
-        "lasttime": "2026-09-12T21:00:00.000Z",
+        "lasttime": "2026-09-13T17:00:00.000Z",
         "city": "Aalborg",
         "region": "Region Nordjylland",
         "country": "DK",
-        "road": "S\u00f8nderbro",
+        "road": null,
         "postalcode": "9000"
       }
     },
@@ -7879,7 +7855,7 @@
         "type": "Point",
         "coordinates": [
           -157.89994812,
-          21.35099983
+          21.35274696
         ]
       },
       "properties": {
@@ -8214,8 +8190,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.42541695,
-          51.80277634
+          19.42541122,
+          51.80275345
         ]
       },
       "properties": {
@@ -8225,7 +8201,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-07-25T16:00:00.000Z",
-        "lasttime": "2026-09-08T20:00:00.000Z",
+        "lasttime": "2026-09-13T04:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo \u0142\u00f3dzkie",
         "country": "PL",
@@ -8407,7 +8383,7 @@
         "type": "Point",
         "coordinates": [
           19.42534637,
-          51.80246735
+          51.80246353
         ]
       },
       "properties": {
@@ -8417,7 +8393,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-01-08T10:00:00.000Z",
-        "lasttime": "2026-09-08T20:00:00.000Z",
+        "lasttime": "2026-09-13T04:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo \u0142\u00f3dzkie",
         "country": "PL",
@@ -10395,10 +10371,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-13T10:47:10.755516+00:00",
+    "generated": "2026-09-14T11:11:48.171609+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 433
+    "total_cameras": 432
   }
 }
