@@ -822,8 +822,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.94102478,
-          40.49621582
+          -79.94072723,
+          40.49608612
         ]
       },
       "properties": {
@@ -833,7 +833,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-17T12:00:00.000Z",
-        "lasttime": "2026-09-13T16:00:00.000Z",
+        "lasttime": "2026-09-14T11:00:00.000Z",
         "city": null,
         "region": "PA",
         "country": "US",
@@ -2310,6 +2310,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -69.22288513,
+          45.18313217
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:30:A7:52",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-14T14:00:00.000Z",
+        "lasttime": "2026-09-14T17:00:00.000Z",
+        "city": null,
+        "region": "ME",
+        "country": "US",
+        "road": "East Main Street",
+        "postalcode": "04426"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -83.2026825,
           42.68025208
         ]
@@ -3335,6 +3359,30 @@
         "country": "DE",
         "road": "Rendsburger Landstra\u00dfe",
         "postalcode": "24113"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -53.79859543,
+          -29.68412971
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:3B:4A:00",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 7,
+        "encryption": "none",
+        "firsttime": "2026-09-12T21:00:00.000Z",
+        "lasttime": "2026-09-15T00:00:00.000Z",
+        "city": "Santa Maria",
+        "region": "Rio Grande do Sul",
+        "country": "BR",
+        "road": "Rua Major Duarte",
+        "postalcode": "97050-460"
       }
     },
     {
@@ -5550,30 +5598,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          27.98302269,
-          -26.24285316
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:4E:19:40",
-        "ssid": "DIRECT-WOLAPTOP-D9DAJKA1msFJ",
-        "oui": "70:C9:4E",
-        "channel": 4,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-03T13:00:00.000Z",
-        "lasttime": "2024-09-14T04:00:00.000Z",
-        "city": "Johannesburg",
-        "region": "Gauteng",
-        "country": "ZA",
-        "road": "Recreation Road",
-        "postalcode": "2001"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -106.1581192,
           35.5268631
         ]
@@ -5663,6 +5687,30 @@
         "country": "SK",
         "road": "Bajkalsk\u00e1",
         "postalcode": "831 04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.13402557,
+          37.98916626
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:50:35:BB",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-08-30T18:00:00.000Z",
+        "lasttime": "2026-09-14T19:00:00.000Z",
+        "city": null,
+        "region": "WV",
+        "country": "US",
+        "road": "Roberts Avenue",
+        "postalcode": "25901"
       }
     },
     {
@@ -11595,10 +11643,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-14T11:11:48.171609+00:00",
+    "generated": "2026-09-15T10:40:09.017949+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 483
+    "total_cameras": 485
   }
 }

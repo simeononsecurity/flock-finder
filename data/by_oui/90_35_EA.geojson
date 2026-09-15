@@ -6030,7 +6030,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.60879898,
+          12.60881042,
           48.88339996
         ]
       },
@@ -6041,7 +6041,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-12-03T13:00:00.000Z",
-        "lasttime": "2026-09-13T09:00:00.000Z",
+        "lasttime": "2026-09-14T08:00:00.000Z",
         "city": null,
         "region": "Bayern",
         "country": "DE",
@@ -6894,6 +6894,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.32701778,
+          51.55624771
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:2B:04:0F",
+        "ssid": "23473787",
+        "oui": "90:35:EA",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-12T07:00:00.000Z",
+        "lasttime": "2026-09-14T15:00:00.000Z",
+        "city": null,
+        "region": "Nordrhein-Westfalen",
+        "country": "DE",
+        "road": "Handwerkerstra\u00dfe",
+        "postalcode": "59609"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.92091274,
           53.04111481
         ]
@@ -7127,30 +7151,6 @@
         "country": "DE",
         "road": "Gebr\u00fcder-Welger-Stra\u00dfe",
         "postalcode": "38304"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.29546165,
-          47.33393097
-        ]
-      },
-      "properties": {
-        "netid": "90:35:EA:2B:05:3B",
-        "ssid": "24473247",
-        "oui": "90:35:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-06-27T10:00:00.000Z",
-        "lasttime": "2024-09-14T13:00:00.000Z",
-        "city": null,
-        "region": "Salzburg",
-        "country": "AT",
-        "road": "Markt",
-        "postalcode": "5602"
       }
     },
     {
@@ -10710,18 +10710,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.35652161,
-          39.78408051
+          -76.35697937,
+          39.78463745
         ]
       },
       "properties": {
         "netid": "90:35:EA:39:23:88",
-        "ssid": "W4P00BJ20Po<0&4;*9-/E'<</&)(&(@m",
+        "ssid": "W4P00BJ20cS?0&4;*9-/E'<</&)(&(`k",
         "oui": "90:35:EA",
         "channel": 1,
-        "encryption": "wpa2",
+        "encryption": "wep",
         "firsttime": "2026-03-29T22:00:00.000Z",
-        "lasttime": "2026-03-29T17:00:00.000Z",
+        "lasttime": "2026-09-14T16:00:00.000Z",
         "city": "Lower Chanceford Township",
         "region": "PA",
         "country": "US",
@@ -15387,7 +15387,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-14T11:11:48.171609+00:00",
+    "generated": "2026-09-15T10:40:09.017949+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

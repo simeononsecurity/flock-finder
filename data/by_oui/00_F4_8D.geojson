@@ -1230,8 +1230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.97564697,
-          40.49552917
+          -79.97572327,
+          40.49525833
         ]
       },
       "properties": {
@@ -1241,7 +1241,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-25T16:00:00.000Z",
-        "lasttime": "2026-08-25T15:00:00.000Z",
+        "lasttime": "2026-09-14T21:00:00.000Z",
         "city": null,
         "region": "PA",
         "country": "US",
@@ -4038,6 +4038,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -119.85152435,
+          34.4152832
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:18:20:81",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-13T22:00:00.000Z",
+        "lasttime": "2026-09-14T10:00:00.000Z",
+        "city": null,
+        "region": "CA",
+        "country": "US",
+        "road": "Sierra Madre Court",
+        "postalcode": "93106"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -118.24295807,
           34.09532166
         ]
@@ -4830,6 +4854,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -108.4474411,
+          39.07379913
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:21:26:45",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-13T17:00:00.000Z",
+        "lasttime": "2026-09-14T03:00:00.000Z",
+        "city": null,
+        "region": "CO",
+        "country": "US",
+        "road": "West Chukar Way",
+        "postalcode": "81520"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -84.24888611,
           30.50393867
         ]
@@ -5015,30 +5063,6 @@
         "country": "US",
         "road": "Northeast Sandy Boulevard",
         "postalcode": "97232"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -84.29090881,
-          30.37936592
-        ]
-      },
-      "properties": {
-        "netid": "00:F4:8D:23:3D:DA",
-        "ssid": null,
-        "oui": "00:F4:8D",
-        "channel": 2,
-        "encryption": "unknown",
-        "firsttime": "2024-08-23T14:00:00.000Z",
-        "lasttime": "2024-09-14T20:00:00.000Z",
-        "city": "Tallahassee",
-        "region": "FL",
-        "country": "US",
-        "road": "Crawfordville Road",
-        "postalcode": "32305-3308"
       }
     },
     {
@@ -5286,18 +5310,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.50034332,
-          39.33081436
+          -76.50035095,
+          39.33080673
         ]
       },
       "properties": {
         "netid": "00:F4:8D:23:CD:2F",
         "ssid": null,
         "oui": "00:F4:8D",
-        "channel": 161,
+        "channel": 1,
         "encryption": "unknown",
         "firsttime": "2026-06-13T01:00:00.000Z",
-        "lasttime": "2026-09-12T12:00:00.000Z",
+        "lasttime": "2026-09-14T05:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
@@ -8958,23 +8982,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -93.82816315,
-          41.60049438
+          -93.82893372,
+          41.60048676
         ]
       },
       "properties": {
         "netid": "00:F4:8D:3E:9A:A0",
         "ssid": null,
         "oui": "00:F4:8D",
-        "channel": 8,
+        "channel": 4,
         "encryption": "unknown",
         "firsttime": "2026-06-13T13:00:00.000Z",
-        "lasttime": "2026-06-13T21:00:00.000Z",
+        "lasttime": "2026-09-14T19:00:00.000Z",
         "city": "West Des Moines",
         "region": "IA",
         "country": "US",
         "road": "University Avenue",
-        "postalcode": "50266"
+        "postalcode": "50265"
       }
     },
     {
@@ -10079,6 +10103,30 @@
         "country": "ES",
         "road": "Carrer de Francesc de Riera",
         "postalcode": "43700"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.60575867,
+          45.65522003
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:5A:18:D9",
+        "ssid": "Darude LANstorm                 ",
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-14T17:00:00.000Z",
+        "lasttime": "2026-09-14T18:00:00.000Z",
+        "city": null,
+        "region": "New Brunswick / Nouveau-Brunswick",
+        "country": "CA",
+        "road": "Sunbury Drive",
+        "postalcode": "E5L 1S1"
       }
     },
     {
@@ -12318,18 +12366,42 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.52213287,
-          39.32555389
+          -108.52206421,
+          39.08649063
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:8D:93:DB",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 48,
+        "encryption": "none",
+        "firsttime": "2026-09-13T16:00:00.000Z",
+        "lasttime": "2026-09-14T03:00:00.000Z",
+        "city": "Grand Junction",
+        "region": "CO",
+        "country": "US",
+        "road": "Picardy Drive",
+        "postalcode": "81501"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.52236938,
+          39.32552338
         ]
       },
       "properties": {
         "netid": "00:F4:8D:8D:9E:21",
         "ssid": null,
         "oui": "00:F4:8D",
-        "channel": 10,
+        "channel": 11,
         "encryption": "unknown",
         "firsttime": "2026-08-23T08:00:00.000Z",
-        "lasttime": "2026-08-23T20:00:00.000Z",
+        "lasttime": "2026-09-14T05:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
@@ -14523,10 +14595,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-14T11:11:48.171609+00:00",
+    "generated": "2026-09-15T10:40:09.017949+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 605
+    "total_cameras": 608
   }
 }

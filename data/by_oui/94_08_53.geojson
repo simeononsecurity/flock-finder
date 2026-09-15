@@ -4878,7 +4878,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.29553199,
+          2.29552913,
           48.82978058
         ]
       },
@@ -4889,7 +4889,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2022-01-01T10:00:00.000Z",
-        "lasttime": "2026-09-08T14:00:00.000Z",
+        "lasttime": "2026-09-14T10:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -5022,8 +5022,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.29266262,
-          48.85660553
+          2.29264879,
+          48.85655594
         ]
       },
       "properties": {
@@ -5033,7 +5033,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-03-23T16:00:00.000Z",
-        "lasttime": "2026-09-14T02:00:00.000Z",
+        "lasttime": "2026-09-14T21:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -5671,7 +5671,7 @@
         "type": "Point",
         "coordinates": [
           144.96040344,
-          -37.81655502
+          -37.81655884
         ]
       },
       "properties": {
@@ -5681,7 +5681,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-09-16T16:00:00.000Z",
-        "lasttime": "2026-09-03T04:00:00.000Z",
+        "lasttime": "2026-09-14T13:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -7710,6 +7710,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -111.95546722,
+          40.67657471
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:45:8F:7D",
+        "ssid": "Snowbasin-ClickShare-UID",
+        "oui": "94:08:53",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2023-08-28T13:00:00.000Z",
+        "lasttime": "2026-09-15T01:00:00.000Z",
+        "city": "West Valley City",
+        "region": "UT",
+        "country": "US",
+        "road": "Constitution Boulevard",
+        "postalcode": "84129"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -121.06934357,
           38.9005127
         ]
@@ -8886,6 +8910,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.39381409,
+          29.62667084
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:54:4A:2F",
+        "ssid": null,
+        "oui": "94:08:53",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-14T12:00:00.000Z",
+        "lasttime": "2026-09-14T22:00:00.000Z",
+        "city": "Gainesville",
+        "region": "FL",
+        "country": "US",
+        "road": "Bass Pro Shops Boulevard",
+        "postalcode": "32608"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.06967163,
           40.72909546
         ]
@@ -9839,30 +9887,6 @@
         "country": "NO",
         "road": "Drammensveien",
         "postalcode": "0278"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.35661554,
-          50.85206223
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:60:8C:9B",
-        "ssid": "ClickShare-zaal-1B",
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-05-21T11:00:00.000Z",
-        "lasttime": "2024-09-14T07:00:00.000Z",
-        "city": null,
-        "region": "R\u00e9gion de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest",
-        "country": "BE",
-        "road": "Place des Martyrs - Martelaarsplein",
-        "postalcode": "1000"
       }
     },
     {
@@ -13326,30 +13350,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.79469872,
-          38.03499603
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:60:97:61",
-        "ssid": "ClickShare-Scientific-Council",
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2022-10-24T10:00:00.000Z",
-        "lasttime": "2024-09-14T06:00:00.000Z",
-        "city": null,
-        "region": "\u0391\u03c0\u03bf\u03ba\u03b5\u03bd\u03c4\u03c1\u03c9\u03bc\u03ad\u03bd\u03b7 \u0394\u03b9\u03bf\u03af\u03ba\u03b7\u03c3\u03b7 \u0391\u03c4\u03c4\u03b9\u03ba\u03ae\u03c2",
-        "country": "GR",
-        "road": "\u0391\u03b3\u03b7\u03c3\u03b9\u03bb\u03ac\u03bf\u03c5",
-        "postalcode": "15123"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.16140652,
           46.67297363
         ]
@@ -14183,6 +14183,30 @@
         "country": "CA",
         "road": "Autoroute Chomedey - Desserte Ouest",
         "postalcode": "H7P 1W1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.11587524,
+          29.14984512
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:65:2D:E9",
+        "ssid": null,
+        "oui": "94:08:53",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-14T17:00:00.000Z",
+        "lasttime": "2026-09-14T22:00:00.000Z",
+        "city": "Ocala",
+        "region": "FL",
+        "country": "US",
+        "road": "Southeast 38th Street",
+        "postalcode": "34480"
       }
     },
     {
@@ -18007,7 +18031,7 @@
         "type": "Point",
         "coordinates": [
           -75.70308685,
-          45.41995239
+          45.41994858
         ]
       },
       "properties": {
@@ -18017,7 +18041,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-04-29T15:00:00.000Z",
-        "lasttime": "2026-08-25T03:00:00.000Z",
+        "lasttime": "2026-09-13T08:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -18150,8 +18174,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70554352,
-          45.42006683
+          -75.7049942,
+          45.41989517
         ]
       },
       "properties": {
@@ -18161,7 +18185,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2026-06-11T18:00:00.000Z",
-        "lasttime": "2026-08-25T03:00:00.000Z",
+        "lasttime": "2026-09-13T08:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -19470,8 +19494,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -157.86125183,
-          21.30879974
+          -157.86131287,
+          21.30875778
         ]
       },
       "properties": {
@@ -19481,7 +19505,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-08-22T21:00:00.000Z",
-        "lasttime": "2026-09-12T10:00:00.000Z",
+        "lasttime": "2026-09-15T01:00:00.000Z",
         "city": "Honolulu",
         "region": "HI",
         "country": "US",
@@ -21030,6 +21054,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -75.70397186,
+          45.41918182
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:85:AF:C1",
+        "ssid": "ClickShare-F10D33",
+        "oui": "94:08:53",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2023-05-02T13:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
+        "city": "(Old) Ottawa",
+        "region": "Ontario",
+        "country": "CA",
+        "road": "Concourse Level",
+        "postalcode": "K1R 7S8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           174.7822113,
           -41.29141617
         ]
@@ -21126,8 +21174,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70411682,
-          45.41915131
+          -75.70394897,
+          45.41917038
         ]
       },
       "properties": {
@@ -21137,12 +21185,12 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-11-07T08:00:00.000Z",
-        "lasttime": "2026-08-17T20:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
-        "road": "Queen Street",
-        "postalcode": "K1A 0N5"
+        "road": "Concourse Level",
+        "postalcode": "K1R 7S8"
       }
     },
     {
@@ -21918,8 +21966,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70269775,
-          45.41987228
+          -75.70267487,
+          45.41986847
         ]
       },
       "properties": {
@@ -21929,7 +21977,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-04-29T15:00:00.000Z",
-        "lasttime": "2026-08-17T21:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
         "city": "Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -22206,8 +22254,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70291138,
-          45.42008209
+          -75.70290375,
+          45.42007828
         ]
       },
       "properties": {
@@ -22217,7 +22265,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-04-29T15:00:00.000Z",
-        "lasttime": "2026-07-27T04:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
         "city": "Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -22902,8 +22950,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70510864,
-          45.41912842
+          -75.70523834,
+          45.4191246
         ]
       },
       "properties": {
@@ -22913,11 +22961,11 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-07-27T20:00:00.000Z",
-        "lasttime": "2025-07-23T16:00:00.000Z",
+        "lasttime": "2026-09-13T08:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
-        "road": "Place de Ville Underground Level",
+        "road": "Lyon Street North",
         "postalcode": "K1A 0N5"
       }
     },
@@ -23983,7 +24031,7 @@
         "type": "Point",
         "coordinates": [
           -75.703125,
-          45.42002869
+          45.42002487
         ]
       },
       "properties": {
@@ -23993,7 +24041,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-04-29T15:00:00.000Z",
-        "lasttime": "2026-08-25T03:00:00.000Z",
+        "lasttime": "2026-09-13T08:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -24150,8 +24198,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70387268,
-          45.4192276
+          -75.70373535,
+          45.41925812
         ]
       },
       "properties": {
@@ -24161,7 +24209,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-09T16:00:00.000Z",
-        "lasttime": "2025-10-22T05:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -25398,8 +25446,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70426941,
-          45.41908646
+          -75.704216,
+          45.41909027
         ]
       },
       "properties": {
@@ -25409,11 +25457,11 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-10-07T10:00:00.000Z",
-        "lasttime": "2026-08-17T20:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
-        "road": "Concourse Level",
+        "road": "Queen Street",
         "postalcode": "K1A 0N5"
       }
     },
@@ -26166,6 +26214,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.3265686,
+          43.77424622
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:8D:A7:19",
+        "ssid": "ClickShare-Kitchen",
+        "oui": "94:08:53",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2023-09-08T19:00:00.000Z",
+        "lasttime": "2026-09-12T10:00:00.000Z",
+        "city": "Toronto",
+        "region": "Ontario",
+        "country": "CA",
+        "road": "Sheppard Avenue East",
+        "postalcode": "M2J 4Y1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -91.40470886,
           40.4163208
         ]
@@ -26790,8 +26862,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70030212,
-          45.42011642
+          -75.70030975,
+          45.42012024
         ]
       },
       "properties": {
@@ -26801,7 +26873,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-11-29T08:00:00.000Z",
-        "lasttime": "2026-09-07T04:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -27462,7 +27534,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.34326077,
+          13.34327793,
           52.50455093
         ]
       },
@@ -27473,7 +27545,7 @@
         "channel": 13,
         "encryption": "wpa2",
         "firsttime": "2023-04-19T09:00:00.000Z",
-        "lasttime": "2026-08-16T18:00:00.000Z",
+        "lasttime": "2026-09-14T18:00:00.000Z",
         "city": "Berlin",
         "region": "Botschaftsviertel",
         "country": "DE",
@@ -28902,8 +28974,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.70008087,
-          45.41976929
+          -75.7000885,
+          45.41978073
         ]
       },
       "properties": {
@@ -28913,7 +28985,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-12-14T08:00:00.000Z",
-        "lasttime": "2026-09-07T04:00:00.000Z",
+        "lasttime": "2026-09-14T02:00:00.000Z",
         "city": "(Old) Ottawa",
         "region": "Ontario",
         "country": "CA",
@@ -33222,6 +33294,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -91.14286041,
+          40.82130051
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:99:51:D3",
+        "ssid": null,
+        "oui": "94:08:53",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-09-03T17:00:00.000Z",
+        "lasttime": "2026-09-14T19:00:00.000Z",
+        "city": "Burlington",
+        "region": "IA",
+        "country": "US",
+        "road": "Sylvania Drive",
+        "postalcode": "52601"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -91.14160919,
           40.79823685
         ]
@@ -34343,6 +34439,30 @@
         "country": "US",
         "road": "Harrash Court",
         "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.85135651,
+          33.03410339
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:B9:07:FB",
+        "ssid": "Flock",
+        "oui": "94:08:53",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-07T18:00:00.000Z",
+        "lasttime": "2026-09-14T03:00:00.000Z",
+        "city": "Plano",
+        "region": "TX",
+        "country": "US",
+        "road": null,
+        "postalcode": "75187"
       }
     },
     {
@@ -36579,10 +36699,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-14T11:11:48.171609+00:00",
+    "generated": "2026-09-15T10:40:09.017949+00:00",
     "oui": "94:08:53",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1524
+    "total_cameras": 1529
   }
 }
