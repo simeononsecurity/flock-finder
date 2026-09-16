@@ -7374,8 +7374,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.53562737,
-          47.34519577
+          8.53526402,
+          47.34529114
         ]
       },
       "properties": {
@@ -7385,7 +7385,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-09-30T16:00:00.000Z",
-        "lasttime": "2025-10-17T15:00:00.000Z",
+        "lasttime": "2026-09-15T12:00:00.000Z",
         "city": "Z\u00fcrich",
         "region": "Z\u00fcrich",
         "country": "CH",
@@ -8046,8 +8046,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.57747841,
-          48.14283752
+          11.57748032,
+          48.14284897
         ]
       },
       "properties": {
@@ -8057,7 +8057,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-05-18T10:00:00.000Z",
-        "lasttime": "2026-08-13T12:00:00.000Z",
+        "lasttime": "2026-09-15T10:00:00.000Z",
         "city": "M\u00fcnchen",
         "region": "Bayern",
         "country": "DE",
@@ -10601,7 +10601,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-04-24T12:00:00.000Z",
-        "lasttime": "2026-09-10T07:00:00.000Z",
+        "lasttime": "2026-09-15T20:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -14718,8 +14718,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.33057022,
-          48.85079575
+          2.33056569,
+          48.85079193
         ]
       },
       "properties": {
@@ -14729,7 +14729,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-09-19T07:00:00.000Z",
-        "lasttime": "2026-09-06T02:00:00.000Z",
+        "lasttime": "2026-09-15T15:00:00.000Z",
         "city": "Paris",
         "region": "\u00cele-de-France",
         "country": "FR",
@@ -15407,6 +15407,30 @@
         "country": "US",
         "road": "Eastbrook Boulevard",
         "postalcode": "32972"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.17359161,
+          40.61405563
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:4F:14:D5",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 112,
+        "encryption": "none",
+        "firsttime": "2026-09-15T19:00:00.000Z",
+        "lasttime": "2026-09-15T23:00:00.000Z",
+        "city": "White Township",
+        "region": "PA",
+        "country": "US",
+        "road": "Rose Street",
+        "postalcode": "15701"
       }
     },
     {
@@ -16247,6 +16271,30 @@
         "country": "US",
         "road": "Pioneer Road",
         "postalcode": "84020"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.66497803,
+          37.68156815
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:78:2B:CB",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 9,
+        "encryption": "none",
+        "firsttime": "2026-09-13T05:00:00.000Z",
+        "lasttime": "2026-09-15T08:00:00.000Z",
+        "city": null,
+        "region": "MO",
+        "country": "US",
+        "road": "East 2nd Street",
+        "postalcode": "65536"
       }
     },
     {
@@ -17687,6 +17735,30 @@
         "country": "US",
         "road": "2nd Avenue West",
         "postalcode": "58801"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.67087555,
+          48.17387772
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:A7:3E:41",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-15T22:00:00.000Z",
+        "lasttime": "2026-09-16T03:00:00.000Z",
+        "city": "Williston",
+        "region": "ND",
+        "country": "US",
+        "road": "Wheat Ridge Street",
+        "postalcode": "58802"
       }
     },
     {
@@ -19350,6 +19422,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -108.6824646,
+          39.14997482
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:F7:98:E2",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-09-15T08:00:00.000Z",
+        "lasttime": "2026-09-15T22:00:00.000Z",
+        "city": null,
+        "region": "CO",
+        "country": "US",
+        "road": "20 Road",
+        "postalcode": "81521"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -72.3212204,
           43.64940643
         ]
@@ -19563,10 +19659,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-15T10:40:09.017949+00:00",
+    "generated": "2026-09-16T10:28:28.647177+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 815
+    "total_cameras": 819
   }
 }

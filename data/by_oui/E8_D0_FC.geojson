@@ -1926,6 +1926,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.31839752,
+          34.82558441
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:25:09:B3",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-15T21:00:00.000Z",
+        "lasttime": "2026-09-16T01:00:00.000Z",
+        "city": "Greenville",
+        "region": "SC",
+        "country": "US",
+        "road": "Old Sulphur Springs Road",
+        "postalcode": "29607"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.64024353,
           34.12796783
         ]
@@ -13734,7 +13758,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.57773495,
+          11.57774162,
           48.14736938
         ]
       },
@@ -13745,7 +13769,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-07-01T13:00:00.000Z",
-        "lasttime": "2026-07-20T20:00:00.000Z",
+        "lasttime": "2026-09-15T10:00:00.000Z",
         "city": "M\u00fcnchen",
         "region": "Bayern",
         "country": "DE",
@@ -22107,10 +22131,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-15T10:40:09.017949+00:00",
+    "generated": "2026-09-16T10:28:28.647177+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 921
+    "total_cameras": 922
   }
 }

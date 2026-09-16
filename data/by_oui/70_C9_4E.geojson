@@ -798,6 +798,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.57064056,
+          39.27147293
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:12:B7:86",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-15T08:00:00.000Z",
+        "lasttime": "2026-09-15T12:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "US Highway 50",
+        "postalcode": "45651"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -117.26404572,
           47.62797546
         ]
@@ -822,8 +846,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.94072723,
-          40.49608612
+          -79.9407959,
+          40.49612045
         ]
       },
       "properties": {
@@ -833,7 +857,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-17T12:00:00.000Z",
-        "lasttime": "2026-09-14T11:00:00.000Z",
+        "lasttime": "2026-09-15T11:00:00.000Z",
         "city": null,
         "region": "PA",
         "country": "US",
@@ -2159,6 +2183,30 @@
         "country": "US",
         "road": "Andover Place",
         "postalcode": "07003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.92803955,
+          40.49446869
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:2F:71:B0",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-15T12:00:00.000Z",
+        "lasttime": "2026-09-15T11:00:00.000Z",
+        "city": null,
+        "region": "PA",
+        "country": "US",
+        "road": "Main Street",
+        "postalcode": "15215"
       }
     },
     {
@@ -5958,30 +6006,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          113.75569153,
-          -8.09591389
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:55:A6:FB",
-        "ssid": "111",
-        "oui": "70:C9:4E",
-        "channel": 10,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-15T10:00:00.000Z",
-        "lasttime": "2024-09-15T05:00:00.000Z",
-        "city": null,
-        "region": "Jawa Timur",
-        "country": "ID",
-        "road": "JI-210",
-        "postalcode": "68262"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.59366322,
           51.22431183
         ]
@@ -9366,30 +9390,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          80.28964996,
-          13.09083462
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:90:7D:43",
-        "ssid": "sharan",
-        "oui": "70:C9:4E",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-15T10:00:00.000Z",
-        "lasttime": "2024-09-15T07:00:00.000Z",
-        "city": "Chennai",
-        "region": "Tamil Nadu",
-        "country": "IN",
-        "road": "Errabalu Chetty Street",
-        "postalcode": "600001"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           38.96815491,
           45.02365875
         ]
@@ -11643,7 +11643,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-15T10:40:09.017949+00:00",
+    "generated": "2026-09-16T10:28:28.647177+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
