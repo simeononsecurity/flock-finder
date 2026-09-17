@@ -1398,30 +1398,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.92224884,
-          34.35193634
-        ]
-      },
-      "properties": {
-        "netid": "EC:1B:BD:2C:9D:8E",
-        "ssid": "Ephesus_Hub",
-        "oui": "EC:1B:BD",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-16T15:00:00.000Z",
-        "lasttime": "2024-09-16T15:00:00.000Z",
-        "city": null,
-        "region": "GA",
-        "country": "US",
-        "road": "Powell Road",
-        "postalcode": "30643"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -81.40621185,
           28.36892509
         ]
@@ -2015,6 +1991,30 @@
         "country": "US",
         "road": "West Old West Highway",
         "postalcode": "85220"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82937622,
+          -37.54001999
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:2C:A1:A7",
+        "ssid": "FVDec1bbd2ca1a7",
+        "oui": "EC:1B:BD",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2022-11-11T14:00:00.000Z",
+        "lasttime": "2026-09-16T23:00:00.000Z",
+        "city": "Ballarat",
+        "region": "Victoria",
+        "country": "AU",
+        "road": "Howitt Street",
+        "postalcode": "3355"
       }
     },
     {
@@ -3918,18 +3918,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.96689892,
-          50.34758759
+          6.96678925,
+          50.34754181
         ]
       },
       "properties": {
         "netid": "EC:1B:BD:62:14:B5",
         "ssid": "AiM-MXM-600983",
         "oui": "EC:1B:BD",
-        "channel": 11,
+        "channel": 6,
         "encryption": "unknown",
         "firsttime": "2025-10-18T15:00:00.000Z",
-        "lasttime": "2026-08-16T09:00:00.000Z",
+        "lasttime": "2026-09-16T12:00:00.000Z",
         "city": null,
         "region": "Rheinland-Pfalz",
         "country": "DE",
@@ -4302,18 +4302,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.96602917,
-          50.34687805
+          6.96618748,
+          50.34716415
         ]
       },
       "properties": {
         "netid": "EC:1B:BD:62:DC:D2",
         "ssid": "AiM-MXM-601178",
         "oui": "EC:1B:BD",
-        "channel": 11,
+        "channel": 6,
         "encryption": "unknown",
         "firsttime": "2026-08-16T12:00:00.000Z",
-        "lasttime": "2026-08-16T09:00:00.000Z",
+        "lasttime": "2026-09-16T12:00:00.000Z",
         "city": null,
         "region": "Rheinland-Pfalz",
         "country": "DE",
@@ -6630,8 +6630,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.13171387,
-          39.48243332
+          -76.13781738,
+          39.48059845
         ]
       },
       "properties": {
@@ -6641,11 +6641,11 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2026-08-18T10:00:00.000Z",
-        "lasttime": "2026-08-18T04:00:00.000Z",
+        "lasttime": "2026-09-16T17:00:00.000Z",
         "city": null,
         "region": "MD",
         "country": "US",
-        "road": "Aberdeen Boulevard",
+        "road": "Boothby Hill Road",
         "postalcode": "21005"
       }
     },
@@ -9894,8 +9894,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.73191738,
-          56.07823181
+          12.73195744,
+          56.07821655
         ]
       },
       "properties": {
@@ -9905,7 +9905,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-02-25T10:00:00.000Z",
-        "lasttime": "2026-09-07T21:00:00.000Z",
+        "lasttime": "2026-09-16T13:00:00.000Z",
         "city": "Helsingborg",
         "region": "Sk\u00e5ne l\u00e4n",
         "country": "SE",
@@ -10347,7 +10347,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-16T10:28:28.647177+00:00",
+    "generated": "2026-09-17T10:38:00.635298+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

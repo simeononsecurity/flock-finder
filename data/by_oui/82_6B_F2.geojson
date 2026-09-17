@@ -270,6 +270,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -97.17550659,
+          33.20466232
+        ]
+      },
+      "properties": {
+        "netid": "82:6B:F2:5E:78:A5",
+        "ssid": "Flock",
+        "oui": "82:6B:F2",
+        "channel": 36,
+        "encryption": "none",
+        "firsttime": "2026-09-14T17:00:00.000Z",
+        "lasttime": "2026-09-16T21:00:00.000Z",
+        "city": "Denton",
+        "region": "TX",
+        "country": "US",
+        "road": "Airport Road",
+        "postalcode": "76207"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           121.44694519,
           24.9896698
         ]
@@ -531,10 +555,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-16T10:28:28.647177+00:00",
+    "generated": "2026-09-17T10:38:00.635298+00:00",
     "oui": "82:6B:F2",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 22
+    "total_cameras": 23
   }
 }

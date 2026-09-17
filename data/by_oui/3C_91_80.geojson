@@ -702,30 +702,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.01740265,
-          39.9953537
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:08:63:F4",
-        "ssid": null,
-        "oui": "3C:91:80",
-        "channel": 8,
-        "encryption": "unknown",
-        "firsttime": "2024-06-17T21:00:00.000Z",
-        "lasttime": "2024-09-16T13:00:00.000Z",
-        "city": null,
-        "region": "IN",
-        "country": "US",
-        "road": "Nolan Drive",
-        "postalcode": "46038"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -116.98407745,
           46.38035202
         ]
@@ -2111,30 +2087,6 @@
         "country": "US",
         "road": "San Felipe Street",
         "postalcode": "77056"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -86.06629944,
-          39.97221756
-        ]
-      },
-      "properties": {
-        "netid": "3C:91:80:10:EE:31",
-        "ssid": null,
-        "oui": "3C:91:80",
-        "channel": 8,
-        "encryption": "unknown",
-        "firsttime": "2024-06-17T09:00:00.000Z",
-        "lasttime": "2024-09-16T13:00:00.000Z",
-        "city": null,
-        "region": "IN",
-        "country": "US",
-        "road": "Sandalwood Drive",
-        "postalcode": "46033"
       }
     },
     {
@@ -5183,6 +5135,30 @@
         "country": "IT",
         "road": "Campiello Riccardo Selvatico",
         "postalcode": "30170"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.8416748,
+          -32.89477158
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:1A:35:AD",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-15T22:00:00.000Z",
+        "lasttime": "2026-09-16T21:00:00.000Z",
+        "city": "Ciudad de Mendoza",
+        "region": "Mendoza",
+        "country": "AR",
+        "road": "Avenida Col\u00f3n",
+        "postalcode": "CP 5500"
       }
     },
     {
@@ -8382,6 +8358,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -95.2796936,
+          29.97566032
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:68:08:7B",
+        "ssid": "Flock ALPR [wifi_receiver_oui;low]",
+        "oui": "3C:91:80",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-09-11T14:00:00.000Z",
+        "lasttime": "2026-09-16T16:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Eastex Freeway",
+        "postalcode": "77396"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.65148926,
           27.77718353
         ]
@@ -9390,8 +9390,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -76.40471649,
-          36.9469986
+          -76.40473938,
+          36.94704056
         ]
       },
       "properties": {
@@ -9401,7 +9401,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-17T15:00:00.000Z",
-        "lasttime": "2026-09-15T17:00:00.000Z",
+        "lasttime": "2026-09-16T11:00:00.000Z",
         "city": "Newport News",
         "region": "VA",
         "country": "US",
@@ -11873,7 +11873,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-02T18:00:00.000Z",
-        "lasttime": "2026-09-07T11:00:00.000Z",
+        "lasttime": "2026-09-16T18:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -12294,8 +12294,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -83.35090637,
-          42.49637604
+          -83.3508606,
+          42.49636459
         ]
       },
       "properties": {
@@ -12305,7 +12305,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2024-12-21T21:00:00.000Z",
-        "lasttime": "2026-07-24T09:00:00.000Z",
+        "lasttime": "2026-09-16T13:00:00.000Z",
         "city": null,
         "region": "MI",
         "country": "US",
@@ -18942,6 +18942,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -68.85231781,
+          -32.92769623
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:E4:9D:6C",
+        "ssid": "Flock",
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-15T23:00:00.000Z",
+        "lasttime": "2026-09-16T21:00:00.000Z",
+        "city": null,
+        "region": "Mendoza",
+        "country": "AR",
+        "road": "Salta",
+        "postalcode": "5501"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.78718567,
           27.84830475
         ]
@@ -21771,10 +21795,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-16T10:28:28.647177+00:00",
+    "generated": "2026-09-17T10:38:00.635298+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 907
+    "total_cameras": 908
   }
 }

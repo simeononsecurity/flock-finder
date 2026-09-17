@@ -1230,23 +1230,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.98022461,
-          39.98310471
+          -95.46487427,
+          29.78394508
         ]
       },
       "properties": {
-        "netid": "94:08:53:21:E4:93",
-        "ssid": null,
+        "netid": "94:08:53:21:ED:45",
+        "ssid": "Flock ALPR [wifi_receiver_oui;low]",
         "oui": "94:08:53",
-        "channel": 0,
+        "channel": 6,
         "encryption": "unknown",
-        "firsttime": "2024-06-17T09:00:00.000Z",
-        "lasttime": "2024-09-16T13:00:00.000Z",
-        "city": null,
-        "region": "IN",
+        "firsttime": "2026-09-15T18:00:00.000Z",
+        "lasttime": "2026-09-16T16:00:00.000Z",
+        "city": "Houston",
+        "region": "TX",
         "country": "US",
-        "road": "Howe Road",
-        "postalcode": "46038"
+        "road": "Katy Freeway",
+        "postalcode": "77024"
       }
     },
     {
@@ -2063,30 +2063,6 @@
         "country": "US",
         "road": "Trevilian Way",
         "postalcode": "40205"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -86.01931,
-          39.94684219
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:39:60:97",
-        "ssid": null,
-        "oui": "94:08:53",
-        "channel": 1,
-        "encryption": "unknown",
-        "firsttime": "2024-04-06T11:00:00.000Z",
-        "lasttime": "2024-09-16T12:00:00.000Z",
-        "city": null,
-        "region": "IN",
-        "country": "US",
-        "road": null,
-        "postalcode": "46038"
       }
     },
     {
@@ -6318,8 +6294,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.45779419,
-          27.9470787
+          -82.45778656,
+          27.94706917
         ]
       },
       "properties": {
@@ -6329,12 +6305,12 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-06-22T00:00:00.000Z",
-        "lasttime": "2026-09-11T16:00:00.000Z",
+        "lasttime": "2026-09-16T08:00:00.000Z",
         "city": "Tampa",
         "region": "FL",
         "country": "US",
-        "road": "East Jackson Street",
-        "postalcode": "33601"
+        "road": null,
+        "postalcode": null
       }
     },
     {
@@ -10206,6 +10182,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -81.25166321,
+          42.97756195
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:60:8D:0D",
+        "ssid": "ClickShare-1863572390",
+        "oui": "94:08:53",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-16T19:00:00.000Z",
+        "lasttime": "2026-09-16T15:00:00.000Z",
+        "city": "London",
+        "region": "Ontario",
+        "country": "CA",
+        "road": "Ridout Street South",
+        "postalcode": "N6A 2N8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -79.38702393,
           43.70034409
         ]
@@ -12895,7 +12895,7 @@
         "type": "Point",
         "coordinates": [
           -76.30433655,
-          40.09409714
+          40.09408569
         ]
       },
       "properties": {
@@ -12905,7 +12905,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-06-29T19:00:00.000Z",
-        "lasttime": "2026-09-08T18:00:00.000Z",
+        "lasttime": "2026-09-16T06:00:00.000Z",
         "city": null,
         "region": "PA",
         "country": "US",
@@ -15702,6 +15702,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -111.78456116,
+          43.82427216
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:81:EA:A9",
+        "ssid": "Flock",
+        "oui": "94:08:53",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-16T00:00:00.000Z",
+        "lasttime": "2026-09-16T03:00:00.000Z",
+        "city": null,
+        "region": "ID",
+        "country": "US",
+        "road": "West 1st South",
+        "postalcode": "83440"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -122.76560974,
           45.44645309
         ]
@@ -17742,8 +17766,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.9888916,
-          40.7009964
+          -73.98889923,
+          40.70099258
         ]
       },
       "properties": {
@@ -17753,7 +17777,7 @@
         "channel": 48,
         "encryption": "wpa2",
         "firsttime": "2023-04-16T10:00:00.000Z",
-        "lasttime": "2026-09-10T10:00:00.000Z",
+        "lasttime": "2026-09-16T13:00:00.000Z",
         "city": "City of New York",
         "region": "NY",
         "country": "US",
@@ -17886,8 +17910,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -113.5859375,
-          53.5802269
+          -113.58601379,
+          53.58021164
         ]
       },
       "properties": {
@@ -17897,7 +17921,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-02-22T17:00:00.000Z",
-        "lasttime": "2026-09-11T19:00:00.000Z",
+        "lasttime": "2026-09-16T09:00:00.000Z",
         "city": "Edmonton",
         "region": "Alberta",
         "country": "CA",
@@ -19758,8 +19782,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.03423309,
-          38.90173721
+          -77.03422546,
+          38.90174103
         ]
       },
       "properties": {
@@ -19769,7 +19793,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-03-18T21:00:00.000Z",
-        "lasttime": "2026-09-11T10:00:00.000Z",
+        "lasttime": "2026-09-16T09:00:00.000Z",
         "city": "Washington",
         "region": "DC",
         "country": "US",
@@ -22271,30 +22295,6 @@
         "country": "CH",
         "road": "Via Antonio Adamini",
         "postalcode": "6900"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          3.86936688,
-          43.77352524
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:85:B4:2B",
-        "ssid": "ClickShare-Salle de r\u00e9union 129",
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-15T16:00:00.000Z",
-        "lasttime": "2024-09-16T04:00:00.000Z",
-        "city": null,
-        "region": "Occitanie",
-        "country": "FR",
-        "road": "Avenue Louis Cancel",
-        "postalcode": "34270"
       }
     },
     {
@@ -28638,8 +28638,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.0737688,
-          51.51410675
+          -0.07376277,
+          51.51411438
         ]
       },
       "properties": {
@@ -28649,7 +28649,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-11-03T10:00:00.000Z",
-        "lasttime": "2026-09-13T22:00:00.000Z",
+        "lasttime": "2026-09-16T14:00:00.000Z",
         "city": "City of London",
         "region": "England",
         "country": "GB",
@@ -31038,30 +31038,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.942276,
-          45.29732132
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:8D:B7:3F",
-        "ssid": "ClickShare-1862368169",
-        "oui": "94:08:53",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-13T21:00:00.000Z",
-        "lasttime": "2024-09-16T16:00:00.000Z",
-        "city": "Ottawa",
-        "region": "Ontario",
-        "country": "CA",
-        "road": null,
-        "postalcode": "K2T 0N2"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -79.34706116,
           43.75505829
         ]
@@ -31686,8 +31662,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.6703949,
-          45.64213562
+          -122.67038727,
+          45.64215851
         ]
       },
       "properties": {
@@ -31697,7 +31673,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2023-08-23T08:00:00.000Z",
-        "lasttime": "2026-08-28T13:00:00.000Z",
+        "lasttime": "2026-09-16T03:00:00.000Z",
         "city": "Vancouver",
         "region": "WA",
         "country": "US",
@@ -33942,6 +33918,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -82.46083832,
+          27.95106506
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:AA:9B:FD",
+        "ssid": "Flock",
+        "oui": "94:08:53",
+        "channel": 64,
+        "encryption": "none",
+        "firsttime": "2026-09-16T15:00:00.000Z",
+        "lasttime": "2026-09-16T15:00:00.000Z",
+        "city": "Tampa",
+        "region": "FL",
+        "country": "US",
+        "road": "East Cass Street",
+        "postalcode": "33602"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -97.69602966,
           30.4489994
         ]
@@ -35238,30 +35238,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.01371002,
-          39.93647766
-        ]
-      },
-      "properties": {
-        "netid": "94:08:53:BC:3D:D7",
-        "ssid": null,
-        "oui": "94:08:53",
-        "channel": 12,
-        "encryption": "unknown",
-        "firsttime": "2024-06-18T03:00:00.000Z",
-        "lasttime": "2024-09-16T14:00:00.000Z",
-        "city": null,
-        "region": "IN",
-        "country": "US",
-        "road": "Lantern Road",
-        "postalcode": "46038"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.83513832,
           45.25588608
         ]
@@ -35766,6 +35742,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -93.92286682,
+          30.13237572
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:C8:28:85",
+        "ssid": "Flock",
+        "oui": "94:08:53",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-16T18:00:00.000Z",
+        "lasttime": "2026-09-16T18:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Michelle Avenue",
+        "postalcode": "77662"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -69.93397522,
           18.47137642
         ]
@@ -35807,6 +35807,30 @@
         "country": "US",
         "road": "Page Road",
         "postalcode": "27703"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.12814331,
+          34.0270195
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:CA:C1:F7",
+        "ssid": "Flock",
+        "oui": "94:08:53",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-09-16T13:00:00.000Z",
+        "lasttime": "2026-09-16T18:00:00.000Z",
+        "city": null,
+        "region": "CA",
+        "country": "US",
+        "road": "Via Altamira",
+        "postalcode": "90640"
       }
     },
     {
@@ -35975,6 +35999,30 @@
         "country": "US",
         "road": "County Road 33",
         "postalcode": "55367"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.45905304,
+          34.26613617
+        ]
+      },
+      "properties": {
+        "netid": "94:08:53:D3:46:E8",
+        "ssid": "Flock",
+        "oui": "94:08:53",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-16T08:00:00.000Z",
+        "lasttime": "2026-09-16T23:00:00.000Z",
+        "city": "Los Angeles",
+        "region": "CA",
+        "country": "US",
+        "road": "Chatsworth Drive",
+        "postalcode": "91345-1111"
       }
     },
     {
@@ -36675,10 +36723,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-16T10:28:28.647177+00:00",
+    "generated": "2026-09-17T10:38:00.635298+00:00",
     "oui": "94:08:53",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1528
+    "total_cameras": 1530
   }
 }

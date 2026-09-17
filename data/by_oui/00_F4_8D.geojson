@@ -78,30 +78,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -85.9693985,
-          39.97297668
-        ]
-      },
-      "properties": {
-        "netid": "00:F4:8D:01:D9:9A",
-        "ssid": null,
-        "oui": "00:F4:8D",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-06-17T21:00:00.000Z",
-        "lasttime": "2024-09-16T13:00:00.000Z",
-        "city": null,
-        "region": "IN",
-        "country": "US",
-        "road": "East 126th Street",
-        "postalcode": "46038"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -74.18878937,
           40.70871353
         ]
@@ -4062,22 +4038,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.24295807,
-          34.09532166
+          -118.24282074,
+          34.09498215
         ]
       },
       "properties": {
         "netid": "00:F4:8D:18:21:BF",
         "ssid": "Flock",
         "oui": "00:F4:8D",
-        "channel": 11,
+        "channel": 8,
         "encryption": "none",
         "firsttime": "2022-05-12T07:00:00.000Z",
-        "lasttime": "2026-09-09T09:00:00.000Z",
+        "lasttime": "2026-09-16T23:00:00.000Z",
         "city": "Los Angeles",
         "region": "CA",
         "country": "US",
-        "road": "Riverside Drive",
+        "road": "Golden State Freeway",
         "postalcode": "90065-1256"
       }
     },
@@ -11502,6 +11478,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -116.03193665,
+          46.22486115
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:79:6F:21",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 10,
+        "encryption": "none",
+        "firsttime": "2026-09-15T17:00:00.000Z",
+        "lasttime": "2026-09-16T03:00:00.000Z",
+        "city": "Kamiah",
+        "region": "ID",
+        "country": "US",
+        "road": "Pine Street",
+        "postalcode": "83536"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -82.4516983,
           29.38621902
         ]
@@ -14667,7 +14667,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-16T10:28:28.647177+00:00",
+    "generated": "2026-09-17T10:38:00.635298+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

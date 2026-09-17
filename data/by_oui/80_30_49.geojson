@@ -966,7 +966,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.40730858,
+          4.40730906,
           51.21645737
         ]
       },
@@ -977,7 +977,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-09-03T15:00:00.000Z",
-        "lasttime": "2026-09-12T20:00:00.000Z",
+        "lasttime": "2026-09-16T10:00:00.000Z",
         "city": null,
         "region": "Antwerpen",
         "country": "BE",
@@ -1367,6 +1367,30 @@
         "country": "GB",
         "road": "Kent Road",
         "postalcode": "CF31 3UL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.37833214,
+          50.84304047
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:14:A7:E9",
+        "ssid": null,
+        "oui": "80:30:49",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-16T12:00:00.000Z",
+        "lasttime": "2026-09-16T09:00:00.000Z",
+        "city": null,
+        "region": "R\u00e9gion de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest",
+        "country": "BE",
+        "road": "Chauss\u00e9e d'Etterbeek - Etterbeeksesteenweg",
+        "postalcode": "1040"
       }
     },
     {
@@ -2238,8 +2262,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.55282593,
-          47.31809616
+          8.55283642,
+          47.31806946
         ]
       },
       "properties": {
@@ -2249,7 +2273,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2025-04-11T16:00:00.000Z",
-        "lasttime": "2026-07-16T06:00:00.000Z",
+        "lasttime": "2026-09-16T07:00:00.000Z",
         "city": null,
         "region": "Z\u00fcrich",
         "country": "CH",
@@ -2719,7 +2743,7 @@
         "type": "Point",
         "coordinates": [
           -93.39803314,
-          44.92558289
+          44.92557526
         ]
       },
       "properties": {
@@ -2729,7 +2753,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-08-05T12:00:00.000Z",
-        "lasttime": "2026-09-14T13:00:00.000Z",
+        "lasttime": "2026-09-16T09:00:00.000Z",
         "city": null,
         "region": "MN",
         "country": "US",
@@ -9006,8 +9030,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.5091548,
-          51.8505249
+          4.50913429,
+          51.8504982
         ]
       },
       "properties": {
@@ -9017,7 +9041,7 @@
         "channel": 40,
         "encryption": "wpa2",
         "firsttime": "2023-06-27T15:00:00.000Z",
-        "lasttime": "2025-12-29T10:00:00.000Z",
+        "lasttime": "2026-09-16T04:00:00.000Z",
         "city": null,
         "region": "Zuid-Holland",
         "country": "NL",
@@ -10721,7 +10745,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-05-26T18:00:00.000Z",
-        "lasttime": "2026-09-13T04:00:00.000Z",
+        "lasttime": "2026-09-17T00:00:00.000Z",
         "city": "Montr\u00e9al",
         "region": "Qu\u00e9bec",
         "country": "CA",
@@ -12966,8 +12990,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          137.7303772,
-          34.79331589
+          137.73039246,
+          34.79332733
         ]
       },
       "properties": {
@@ -12977,7 +13001,7 @@
         "channel": 7,
         "encryption": "wpa",
         "firsttime": "2026-09-09T08:00:00.000Z",
-        "lasttime": "2026-09-09T18:00:00.000Z",
+        "lasttime": "2026-09-16T06:00:00.000Z",
         "city": "\u6d5c\u677e\u5e02",
         "region": "\u9759\u5ca1\u770c",
         "country": "JP",
@@ -17214,6 +17238,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -81.84135437,
+          41.24206161
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:9A:19:8B",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-16T16:00:00.000Z",
+        "lasttime": "2026-09-16T18:00:00.000Z",
+        "city": null,
+        "region": "OH",
+        "country": "US",
+        "road": "Pearl Road",
+        "postalcode": "44212"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.21665955,
           41.03958511
         ]
@@ -19659,10 +19707,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-16T10:28:28.647177+00:00",
+    "generated": "2026-09-17T10:38:00.635298+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 819
+    "total_cameras": 821
   }
 }
