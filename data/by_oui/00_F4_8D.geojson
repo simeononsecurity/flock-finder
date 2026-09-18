@@ -5646,6 +5646,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -108.44730377,
+          39.07003784
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:28:39:6D",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 8,
+        "encryption": "none",
+        "firsttime": "2026-09-17T15:00:00.000Z",
+        "lasttime": "2026-09-17T16:00:00.000Z",
+        "city": null,
+        "region": "CO",
+        "country": "US",
+        "road": "D 1/2 Road",
+        "postalcode": "81520"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -93.62191772,
           41.58538055
         ]
@@ -6007,7 +6031,7 @@
         "type": "Point",
         "coordinates": [
           -95.54330444,
-          29.9058857
+          29.90588379
         ]
       },
       "properties": {
@@ -6017,7 +6041,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-05-01T20:00:00.000Z",
-        "lasttime": "2026-09-09T13:00:00.000Z",
+        "lasttime": "2026-09-17T21:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -6438,6 +6462,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -118.09906769,
+          34.10625076
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:2F:F4:CF",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-17T12:00:00.000Z",
+        "lasttime": "2026-09-17T16:00:00.000Z",
+        "city": "San Gabriel",
+        "region": "CA",
+        "country": "US",
+        "road": "Hermosa Drive",
+        "postalcode": "91775:91776"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.62319946,
           45.52859497
         ]
@@ -6455,6 +6503,30 @@
         "country": "CA",
         "road": "Rue Jean-Talon Ouest",
         "postalcode": "H3N 1R3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.70188093,
+          50.8804512
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:30:8D:D8",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-17T18:00:00.000Z",
+        "lasttime": "2026-09-17T10:00:00.000Z",
+        "city": null,
+        "region": "West-Vlaanderen",
+        "country": "BE",
+        "road": "Krombeekseweg",
+        "postalcode": "8970"
       }
     },
     {
@@ -11694,6 +11766,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -118.02418518,
+          33.72516632
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:80:E6:D9",
+        "ssid": null,
+        "oui": "00:F4:8D",
+        "channel": 4,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-17T22:00:00.000Z",
+        "lasttime": "2026-09-17T17:00:00.000Z",
+        "city": "Huntington Beach",
+        "region": "CA",
+        "country": "US",
+        "road": "Springdale Street",
+        "postalcode": "92649"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -75.68753815,
           39.50479126
         ]
@@ -12599,6 +12695,30 @@
         "country": "TW",
         "road": "\u6587\u5316\u8def\u4e00\u6bb5",
         "postalcode": "22050"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.73878479,
+          34.28792572
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:90:4A:67",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-17T18:00:00.000Z",
+        "lasttime": "2026-09-17T21:00:00.000Z",
+        "city": "Simi Valley",
+        "region": "CA",
+        "country": "US",
+        "road": "Meadowstone Drive",
+        "postalcode": "90363"
       }
     },
     {
@@ -14667,10 +14787,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-17T10:38:00.635298+00:00",
+    "generated": "2026-09-18T10:13:56.463780+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 611
+    "total_cameras": 616
   }
 }

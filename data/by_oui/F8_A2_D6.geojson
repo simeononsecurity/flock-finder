@@ -2695,7 +2695,7 @@
         "type": "Point",
         "coordinates": [
           -81.82591248,
-          41.4826088
+          41.48254395
         ]
       },
       "properties": {
@@ -2705,7 +2705,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-07-25T07:00:00.000Z",
-        "lasttime": "2026-09-11T05:00:00.000Z",
+        "lasttime": "2026-09-17T11:00:00.000Z",
         "city": null,
         "region": "OH",
         "country": "US",
@@ -3126,8 +3126,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -73.87621307,
-          40.76234055
+          -73.8762207,
+          40.76283646
         ]
       },
       "properties": {
@@ -3135,9 +3135,9 @@
         "ssid": "ELUX_f8:a2:d6:0d:1f:09",
         "oui": "F8:A2:D6",
         "channel": 6,
-        "encryption": "unknown",
+        "encryption": "none",
         "firsttime": "2024-10-01T20:00:00.000Z",
-        "lasttime": "2024-10-04T13:00:00.000Z",
+        "lasttime": "2026-09-17T23:00:00.000Z",
         "city": "City of New York",
         "region": "NY",
         "country": "US",
@@ -9330,6 +9330,30 @@
         "encryption": "unknown",
         "firsttime": "2026-07-31T21:00:00.000Z",
         "lasttime": "2026-08-17T15:00:00.000Z",
+        "city": null,
+        "region": "UT",
+        "country": "US",
+        "road": "I 15",
+        "postalcode": "84058"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.72532654,
+          40.28459549
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:2D:26:B9",
+        "ssid": "Flock",
+        "oui": "F8:A2:D6",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-18T02:00:00.000Z",
+        "lasttime": "2026-09-17T20:00:00.000Z",
         "city": null,
         "region": "UT",
         "country": "US",
@@ -17694,8 +17718,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.39416504,
-          37.79505157
+          -122.39412689,
+          37.79503632
         ]
       },
       "properties": {
@@ -17705,7 +17729,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-09-02T02:00:00.000Z",
-        "lasttime": "2026-09-12T13:00:00.000Z",
+        "lasttime": "2026-09-17T12:00:00.000Z",
         "city": "San Francisco",
         "region": "CA",
         "country": "US",
@@ -19782,8 +19806,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.57776642,
-          35.52728653
+          -97.57778168,
+          35.52729416
         ]
       },
       "properties": {
@@ -19793,7 +19817,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-03-09T22:00:00.000Z",
-        "lasttime": "2026-07-18T17:00:00.000Z",
+        "lasttime": "2026-09-17T09:00:00.000Z",
         "city": "Oklahoma City",
         "region": "OK",
         "country": "US",
@@ -25974,8 +25998,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          24.44006157,
-          60.12253189
+          24.41108894,
+          60.12361526
         ]
       },
       "properties": {
@@ -25985,12 +26009,12 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-09-04T11:00:00.000Z",
-        "lasttime": "2026-09-04T05:00:00.000Z",
+        "lasttime": "2026-09-17T16:00:00.000Z",
         "city": null,
         "region": "Manner-Suomi",
         "country": "FI",
-        "road": "Ervastintie",
-        "postalcode": "02410"
+        "road": "Hietapellontie",
+        "postalcode": "02460"
       }
     },
     {
@@ -30150,8 +30174,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3213501,
-          52.45721436
+          13.32135487,
+          52.45721054
         ]
       },
       "properties": {
@@ -30161,7 +30185,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-05-06T21:00:00.000Z",
-        "lasttime": "2026-09-12T18:00:00.000Z",
+        "lasttime": "2026-09-18T01:00:00.000Z",
         "city": "Berlin",
         "region": "Nachbarschaftsladen Mittelhof",
         "country": "DE",
@@ -34374,8 +34398,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.60741663,
-          47.53813934
+          7.60742426,
+          47.5381279
         ]
       },
       "properties": {
@@ -34385,7 +34409,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2020-07-13T08:00:00.000Z",
-        "lasttime": "2026-09-12T15:00:00.000Z",
+        "lasttime": "2026-09-17T07:00:00.000Z",
         "city": "Basel",
         "region": "Basel-Stadt",
         "country": "CH",
@@ -38951,30 +38975,6 @@
         "country": "AT",
         "road": "Mariahilfer Stra\u00dfe",
         "postalcode": "1060"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -78.65020752,
-          38.38195419
-        ]
-      },
-      "properties": {
-        "netid": "F8:A2:D6:A1:32:CD",
-        "ssid": "B2A-ConferenceRoom",
-        "oui": "F8:A2:D6",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-17T15:00:00.000Z",
-        "lasttime": "2024-09-17T13:00:00.000Z",
-        "city": null,
-        "region": "VA",
-        "country": "US",
-        "road": "South East Side Highway",
-        "postalcode": "22827"
       }
     },
     {
@@ -43758,8 +43758,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.06221771,
-          40.87236786
+          -74.06221008,
+          40.87237549
         ]
       },
       "properties": {
@@ -43769,7 +43769,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-04-17T17:00:00.000Z",
-        "lasttime": "2026-09-15T23:00:00.000Z",
+        "lasttime": "2026-09-17T20:00:00.000Z",
         "city": null,
         "region": "NJ",
         "country": "US",
@@ -45342,8 +45342,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.41113091,
-          49.00592422
+          8.4111042,
+          49.00591278
         ]
       },
       "properties": {
@@ -45353,7 +45353,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-12-26T11:00:00.000Z",
-        "lasttime": "2026-07-17T16:00:00.000Z",
+        "lasttime": "2026-09-17T02:00:00.000Z",
         "city": "Karlsruhe",
         "region": "Baden-W\u00fcrttemberg",
         "country": "DE",
@@ -45654,8 +45654,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -95.06330109,
-          29.69556999
+          -95.06343079,
+          29.69560814
         ]
       },
       "properties": {
@@ -45665,7 +45665,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2020-04-13T18:00:00.000Z",
-        "lasttime": "2026-09-01T09:00:00.000Z",
+        "lasttime": "2026-09-17T15:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -48123,7 +48123,7 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-17T10:38:00.635298+00:00",
+    "generated": "2026-09-18T10:13:56.463780+00:00",
     "oui": "F8:A2:D6",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",

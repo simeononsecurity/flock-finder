@@ -1254,6 +1254,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -73.78173065,
+          45.62221527
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:0B:6A:0E",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 2,
+        "encryption": "unknown",
+        "firsttime": "2026-09-17T14:00:00.000Z",
+        "lasttime": "2026-09-17T14:00:00.000Z",
+        "city": "Laval (13)",
+        "region": "Qu\u00e9bec",
+        "country": "CA",
+        "road": "Rue Gigu\u00e8re",
+        "postalcode": "H7L 3J7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -158.02510071,
           21.49989319
         ]
@@ -4182,8 +4206,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.45520306,
-          48.08602524
+          11.45514774,
+          48.08613586
         ]
       },
       "properties": {
@@ -4193,7 +4217,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-07-03T12:00:00.000Z",
-        "lasttime": "2026-04-02T05:00:00.000Z",
+        "lasttime": "2026-09-17T09:00:00.000Z",
         "city": null,
         "region": "Bayern",
         "country": "DE",
@@ -7254,18 +7278,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -82.39215088,
-          34.79419708
+          -82.39162445,
+          34.79430389
         ]
       },
       "properties": {
         "netid": "3C:91:80:52:9E:05",
         "ssid": "Flock",
         "oui": "3C:91:80",
-        "channel": 1,
-        "encryption": "wpa2",
+        "channel": 6,
+        "encryption": "none",
         "firsttime": "2026-08-05T22:00:00.000Z",
-        "lasttime": "2026-09-12T08:00:00.000Z",
+        "lasttime": "2026-09-17T07:00:00.000Z",
         "city": null,
         "region": "SC",
         "country": "US",
@@ -10927,7 +10951,7 @@
         "type": "Point",
         "coordinates": [
           -97.6770401,
-          30.63585281
+          30.63586617
         ]
       },
       "properties": {
@@ -10937,7 +10961,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2023-05-06T07:00:00.000Z",
-        "lasttime": "2024-11-16T16:00:00.000Z",
+        "lasttime": "2026-09-17T11:00:00.000Z",
         "city": null,
         "region": "TX",
         "country": "US",
@@ -11095,7 +11119,7 @@
         "type": "Point",
         "coordinates": [
           46.68246078,
-          24.68994141
+          24.68994522
         ]
       },
       "properties": {
@@ -11105,7 +11129,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-02-06T08:00:00.000Z",
-        "lasttime": "2026-09-14T14:00:00.000Z",
+        "lasttime": "2026-09-17T06:00:00.000Z",
         "city": null,
         "region": "\u0645\u0646\u0637\u0642\u0629 \u0627\u0644\u0631\u064a\u0627\u0636",
         "country": "SA",
@@ -21795,10 +21819,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-17T10:38:00.635298+00:00",
+    "generated": "2026-09-18T10:13:56.463780+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 908
+    "total_cameras": 909
   }
 }

@@ -150,6 +150,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -84.22967529,
+          39.78490829
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:07:A0:B8",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-09-17T07:00:00.000Z",
+        "lasttime": "2026-09-17T05:00:00.000Z",
+        "city": "Dayton",
+        "region": "OH",
+        "country": "US",
+        "road": "Salem Avenue",
+        "postalcode": "45315"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -0.93752098,
           51.00755692
         ]
@@ -791,6 +815,30 @@
         "country": "US",
         "road": "Madison Avenue",
         "postalcode": "95628"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.09901428,
+          42.56360245
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:12:B2:6A",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-17T21:00:00.000Z",
+        "lasttime": "2026-09-17T16:00:00.000Z",
+        "city": null,
+        "region": "MI",
+        "country": "US",
+        "road": "East Big Beaver Road",
+        "postalcode": "48083"
       }
     },
     {
@@ -10374,30 +10422,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.63814831,
-          48.71037292
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:A2:AB:93",
-        "ssid": null,
-        "oui": "70:C9:4E",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-09-17T17:00:00.000Z",
-        "lasttime": "2024-09-17T11:00:00.000Z",
-        "city": null,
-        "region": "Baden-W\u00fcrttemberg",
-        "country": "DE",
-        "road": "N\u00f6rdliche Ringstra\u00dfe",
-        "postalcode": "73033"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -73.77262878,
           40.59586716
         ]
@@ -11142,6 +11166,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -90.02731323,
+          38.54727554
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:CC:6E:9F",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 44,
+        "encryption": "unknown",
+        "firsttime": "2026-09-17T11:00:00.000Z",
+        "lasttime": "2026-09-17T18:00:00.000Z",
+        "city": "Belleville",
+        "region": "IL",
+        "country": "US",
+        "road": "Bellevue Park Drive",
+        "postalcode": "62223"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           145.28721619,
           -37.8007431
         ]
@@ -11739,10 +11787,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-17T10:38:00.635298+00:00",
+    "generated": "2026-09-18T10:13:56.463780+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 489
+    "total_cameras": 491
   }
 }

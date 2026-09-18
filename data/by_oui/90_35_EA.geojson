@@ -12174,6 +12174,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -89.85883331,
+          35.08020401
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:39:3A:68",
+        "ssid": "W4i<PRY00N4<0&42%E)5<)<32,-)((68",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-17T07:00:00.000Z",
+        "lasttime": "2026-09-17T06:00:00.000Z",
+        "city": "Memphis",
+        "region": "TN",
+        "country": "US",
+        "road": "Old Ridgeway Road",
+        "postalcode": "38119"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -118.40255737,
           33.90062332
         ]
@@ -15339,10 +15363,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-17T10:38:00.635298+00:00",
+    "generated": "2026-09-18T10:13:56.463780+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 639
+    "total_cameras": 640
   }
 }
