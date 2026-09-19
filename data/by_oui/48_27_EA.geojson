@@ -3462,30 +3462,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -74.08766174,
-          4.67477322
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:3E:3D:DC",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 1,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-17T20:00:00.000Z",
-        "lasttime": "2024-09-18T10:00:00.000Z",
-        "city": "Bogot\u00e1",
-        "region": "Localidad Engativ\u00e1",
-        "country": "CO",
-        "road": "TransMilenio",
-        "postalcode": "111061"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -90.51567841,
           14.6062355
         ]
@@ -8510,7 +8486,7 @@
         "netid": "48:27:EA:6D:E9:B6",
         "ssid": "AndroidAP",
         "oui": "48:27:EA",
-        "channel": 11,
+        "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2022-11-11T01:00:00.000Z",
         "lasttime": "2026-07-28T07:00:00.000Z",
@@ -10343,30 +10319,6 @@
         "country": "GB",
         "road": "Seven Sisters Road",
         "postalcode": "N15 6SP"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.11439281,
-          51.46311569
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:7B:79:5F",
-        "ssid": "AndroidAP",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-08-02T13:00:00.000Z",
-        "lasttime": "2024-09-18T09:00:00.000Z",
-        "city": "London",
-        "region": "England",
-        "country": "GB",
-        "road": "Atlantic Road",
-        "postalcode": "SW9 8HY"
       }
     },
     {
@@ -13439,30 +13391,6 @@
         "country": "BH",
         "road": "\u0634\u0627\u0631\u0639 \u0648\u0644\u064a \u0627\u0644\u0639\u0647\u062f",
         "postalcode": "1203"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -57.5451088,
-          -25.27560806
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:9F:39:B6",
-        "ssid": "Julio",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-13T22:00:00.000Z",
-        "lasttime": "2024-09-18T13:00:00.000Z",
-        "city": "Asunci\u00f3n",
-        "region": "Distrito Capital de Paraguay",
-        "country": "PY",
-        "road": "Avenida Madame Elisa Alicia Lynch",
-        "postalcode": "1401"
       }
     },
     {
@@ -18438,6 +18366,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          19.52708054,
+          47.64257812
+        ]
+      },
+      "properties": {
+        "netid": "48:27:EA:C6:F7:95",
+        "ssid": "AndroidAP",
+        "oui": "48:27:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-18T16:00:00.000Z",
+        "lasttime": "2026-09-18T11:00:00.000Z",
+        "city": null,
+        "region": "K\u00f6z\u00e9p-Magyarorsz\u00e1g",
+        "country": "HU",
+        "road": "M3",
+        "postalcode": "2192"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.51875687,
           52.53312683
         ]
@@ -21623,30 +21575,6 @@
         "country": "KZ",
         "road": "\u049a\u04b1\u0440\u043c\u0430\u043d\u0493\u0430\u0437\u044b \u043a\u04e9\u0448\u0435\u0441\u0456",
         "postalcode": "050013"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.77363205,
-          55.70426559
-        ]
-      },
-      "properties": {
-        "netid": "48:27:EA:E0:98:2A",
-        "ssid": "AndroidAP982A",
-        "oui": "48:27:EA",
-        "channel": 11,
-        "encryption": "unknown",
-        "firsttime": "2024-09-18T15:00:00.000Z",
-        "lasttime": "2024-09-18T09:00:00.000Z",
-        "city": "\u041c\u043e\u0441\u043a\u0432\u0430",
-        "region": "\u041c\u043e\u0441\u043a\u0432\u0430",
-        "country": "RU",
-        "road": "\u0412\u043e\u043b\u0433\u043e\u0433\u0440\u0430\u0434\u0441\u043a\u0438\u0439 \u043f\u0440\u043e\u0441\u043f\u0435\u043a\u0442",
-        "postalcode": "109443"
       }
     },
     {
@@ -25539,10 +25467,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-18T10:13:56.463780+00:00",
+    "generated": "2026-09-19T09:55:36.411136+00:00",
     "oui": "48:27:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 1064
+    "total_cameras": 1061
   }
 }

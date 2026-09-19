@@ -2166,6 +2166,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -98.71202087,
+          29.4914341
+        ]
+      },
+      "properties": {
+        "netid": "EC:1B:BD:2C:A1:D8",
+        "ssid": "FVDec1bbd2ca1d8",
+        "oui": "EC:1B:BD",
+        "channel": 11,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-18T22:00:00.000Z",
+        "lasttime": "2026-09-18T18:00:00.000Z",
+        "city": null,
+        "region": "TX",
+        "country": "US",
+        "road": "Westwood Loop",
+        "postalcode": "78253"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -91.09613037,
           30.44532394
         ]
@@ -6607,7 +6631,7 @@
         "type": "Point",
         "coordinates": [
           -96.64302063,
-          35.76322937
+          35.76323318
         ]
       },
       "properties": {
@@ -6617,7 +6641,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2022-01-20T23:00:00.000Z",
-        "lasttime": "2026-08-29T08:00:00.000Z",
+        "lasttime": "2026-09-18T11:00:00.000Z",
         "city": null,
         "region": "OK",
         "country": "US",
@@ -8166,8 +8190,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.42541122,
-          51.80274963
+          19.42540741,
+          51.80273438
         ]
       },
       "properties": {
@@ -8177,7 +8201,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-07-25T16:00:00.000Z",
-        "lasttime": "2026-09-15T20:00:00.000Z",
+        "lasttime": "2026-09-18T07:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo \u0142\u00f3dzkie",
         "country": "PL",
@@ -8359,7 +8383,7 @@
         "type": "Point",
         "coordinates": [
           19.42534447,
-          51.8024559
+          51.80245209
         ]
       },
       "properties": {
@@ -8369,7 +8393,7 @@
         "channel": 11,
         "encryption": "wpa2",
         "firsttime": "2021-01-08T10:00:00.000Z",
-        "lasttime": "2026-09-15T20:00:00.000Z",
+        "lasttime": "2026-09-18T07:00:00.000Z",
         "city": null,
         "region": "wojew\u00f3dztwo \u0142\u00f3dzkie",
         "country": "PL",
@@ -10347,10 +10371,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-18T10:13:56.463780+00:00",
+    "generated": "2026-09-19T09:55:36.411136+00:00",
     "oui": "EC:1B:BD",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 431
+    "total_cameras": 432
   }
 }

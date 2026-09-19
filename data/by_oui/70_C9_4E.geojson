@@ -750,8 +750,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -79.94552612,
-          40.49530792
+          -79.94550323,
+          40.49530411
         ]
       },
       "properties": {
@@ -761,7 +761,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-08-26T11:00:00.000Z",
-        "lasttime": "2026-09-11T18:00:00.000Z",
+        "lasttime": "2026-09-18T07:00:00.000Z",
         "city": null,
         "region": "PA",
         "country": "US",
@@ -3383,30 +3383,6 @@
         "country": "US",
         "road": "South Lincoln Avenue",
         "postalcode": "33756"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          19.82396126,
-          45.25876999
-        ]
-      },
-      "properties": {
-        "netid": "70:C9:4E:38:AC:38",
-        "ssid": null,
-        "oui": "70:C9:4E",
-        "channel": 0,
-        "encryption": "unknown",
-        "firsttime": "2024-09-18T09:00:00.000Z",
-        "lasttime": "2024-09-18T15:00:00.000Z",
-        "city": "\u0413\u0440\u0430\u0434 \u041d\u043e\u0432\u0438 \u0421\u0430\u0434",
-        "region": "\u0412\u043e\u0458\u0432\u043e\u0434\u0438\u043d\u0430",
-        "country": "RS",
-        "road": "\u041c\u0438\u0447\u0443\u0440\u0438\u043d\u043e\u0432\u0430",
-        "postalcode": "21101"
       }
     },
     {
@@ -8526,8 +8502,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -111.78263092,
-          40.37228775
+          -111.78249359,
+          40.37233734
         ]
       },
       "properties": {
@@ -8537,7 +8513,7 @@
         "channel": 1,
         "encryption": "wpa2",
         "firsttime": "2026-06-18T12:00:00.000Z",
-        "lasttime": "2026-07-02T10:00:00.000Z",
+        "lasttime": "2026-09-18T12:00:00.000Z",
         "city": null,
         "region": "UT",
         "country": "US",
@@ -10782,6 +10758,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -103.64668274,
+          48.27834702
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:B1:6B:3F",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 44,
+        "encryption": "none",
+        "firsttime": "2026-09-18T22:00:00.000Z",
+        "lasttime": "2026-09-18T21:00:00.000Z",
+        "city": null,
+        "region": "ND",
+        "country": "US",
+        "road": "Hawthorn Loop Northwest",
+        "postalcode": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.04110718,
           40.76185608
         ]
@@ -10991,6 +10991,30 @@
         "country": "US",
         "road": "West Sam Houston Tollway North",
         "postalcode": "77043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.72785425,
+          50.85552979
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:BC:C6:83",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-18T13:00:00.000Z",
+        "lasttime": "2026-09-18T06:00:00.000Z",
+        "city": null,
+        "region": "West-Vlaanderen",
+        "country": "BE",
+        "road": "Grote Markt",
+        "postalcode": "8970"
       }
     },
     {
@@ -11787,10 +11811,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-18T10:13:56.463780+00:00",
+    "generated": "2026-09-19T09:55:36.411136+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 491
+    "total_cameras": 492
   }
 }

@@ -1734,6 +1734,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.05953693,
+          59.26897812
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:0F:BB:05",
+        "ssid": "AC8aw6LS",
+        "oui": "3C:91:80",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-18T13:00:00.000Z",
+        "lasttime": "2026-09-18T09:00:00.000Z",
+        "city": null,
+        "region": "V\u00e4rmlands l\u00e4n",
+        "country": "SE",
+        "road": "Stranduddsv\u00e4gen",
+        "postalcode": "681 52"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.33679485,
           45.43980789
         ]
@@ -5183,6 +5207,30 @@
         "country": "AR",
         "road": "Avenida Col\u00f3n",
         "postalcode": "CP 5500"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.05517578,
+          44.0459137
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:1A:36:DF",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-18T18:00:00.000Z",
+        "lasttime": "2026-09-18T19:00:00.000Z",
+        "city": null,
+        "region": "NH",
+        "country": "US",
+        "road": "Dartmouth College Highway",
+        "postalcode": "03774"
       }
     },
     {
@@ -11502,7 +11550,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -86.15041351,
+          -86.15040588,
           39.76246262
         ]
       },
@@ -11513,7 +11561,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-19T16:00:00.000Z",
-        "lasttime": "2026-08-25T16:00:00.000Z",
+        "lasttime": "2026-09-18T15:00:00.000Z",
         "city": "Indianapolis",
         "region": "IN",
         "country": "US",
@@ -11886,8 +11934,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          144.93534851,
-          -37.82576752
+          144.93533325,
+          -37.82577133
         ]
       },
       "properties": {
@@ -11897,7 +11945,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-02T18:00:00.000Z",
-        "lasttime": "2026-09-16T18:00:00.000Z",
+        "lasttime": "2026-09-19T00:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -12815,6 +12863,30 @@
         "country": "DE",
         "road": "Rendsburger Landstra\u00dfe",
         "postalcode": "24113"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -108.46801758,
+          39.10413361
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:96:1C:57",
+        "ssid": null,
+        "oui": "3C:91:80",
+        "channel": 3,
+        "encryption": "none",
+        "firsttime": "2026-09-18T15:00:00.000Z",
+        "lasttime": "2026-09-18T15:00:00.000Z",
+        "city": "Grand Junction",
+        "region": "CO",
+        "country": "US",
+        "road": "I 70",
+        "postalcode": "81506"
       }
     },
     {
@@ -19734,18 +19806,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -118.54793549,
-          34.27402496
+          -118.54811859,
+          34.27383041
         ]
       },
       "properties": {
         "netid": "3C:91:80:F6:C8:1E",
         "ssid": "Flock",
         "oui": "3C:91:80",
-        "channel": 11,
+        "channel": 1,
         "encryption": "none",
         "firsttime": "2026-08-23T13:00:00.000Z",
-        "lasttime": "2026-08-23T14:00:00.000Z",
+        "lasttime": "2026-09-18T22:00:00.000Z",
         "city": "Los Angeles",
         "region": "CA",
         "country": "US",
@@ -21819,10 +21891,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-18T10:13:56.463780+00:00",
+    "generated": "2026-09-19T09:55:36.411136+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 909
+    "total_cameras": 912
   }
 }

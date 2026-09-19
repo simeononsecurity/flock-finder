@@ -271,7 +271,7 @@
         "type": "Point",
         "coordinates": [
           -84.10379028,
-          9.92927837
+          9.92928982
         ]
       },
       "properties": {
@@ -281,7 +281,7 @@
         "channel": 1,
         "encryption": "none",
         "firsttime": "2025-03-31T04:00:00.000Z",
-        "lasttime": "2026-09-15T09:00:00.000Z",
+        "lasttime": "2026-09-18T21:00:00.000Z",
         "city": "San Jos\u00e9",
         "region": "Provincia San Jos\u00e9",
         "country": "CR",
@@ -935,6 +935,30 @@
         "country": "US",
         "road": "Ford Road",
         "postalcode": "48198"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.62486267,
+          42.94966507
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:0D:5F:CD",
+        "ssid": "MLG53027",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "none",
+        "firsttime": "2026-09-17T18:00:00.000Z",
+        "lasttime": "2026-09-18T10:00:00.000Z",
+        "city": null,
+        "region": "MI",
+        "country": "US",
+        "road": "Plymouth Avenue Southeast",
+        "postalcode": "49506"
       }
     },
     {
@@ -8094,6 +8118,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -119.78949738,
+          39.52201462
+        ]
+      },
+      "properties": {
+        "netid": "90:35:EA:38:F5:38",
+        "ssid": "W4e4PoI00]c=0'1(12F95F<6&*-(&&PK",
+        "oui": "90:35:EA",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-18T14:00:00.000Z",
+        "lasttime": "2026-09-18T07:00:00.000Z",
+        "city": "Reno",
+        "region": "NV",
+        "country": "US",
+        "road": "Mill Street",
+        "postalcode": "89595"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -75.0049057,
           39.83515549
         ]
@@ -8934,23 +8982,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -77.03916168,
-          38.90196991
+          -77.03921509,
+          38.90211868
         ]
       },
       "properties": {
         "netid": "90:35:EA:39:0E:28",
-        "ssid": "W4A;P3c30BS:0&6B3E;;;'<6(-)__'@8",
+        "ssid": "W4A;P3c30HC;0&6B3E;;;'<6(-),,'06",
         "oui": "90:35:EA",
         "channel": 1,
-        "encryption": "wpa2",
+        "encryption": "wep",
         "firsttime": "2026-05-13T14:00:00.000Z",
-        "lasttime": "2026-05-14T07:00:00.000Z",
+        "lasttime": "2026-09-18T08:00:00.000Z",
         "city": "Washington",
         "region": "DC",
         "country": "US",
         "road": "17th Street Northwest",
-        "postalcode": "20009"
+        "postalcode": "20006"
       }
     },
     {
@@ -15363,10 +15411,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-18T10:13:56.463780+00:00",
+    "generated": "2026-09-19T09:55:36.411136+00:00",
     "oui": "90:35:EA",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 640
+    "total_cameras": 642
   }
 }
