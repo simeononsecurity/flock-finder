@@ -3,8 +3,9 @@
 ssid_query.py — WiGLE SSID-Pattern Query for Novel Flock OUI Discovery
 ========================================================================
 Queries WiGLE for networks whose SSID matches known Flock Safety naming
-patterns (Flock%, FLOCK%).  For each result the OUI prefix is extracted and
-compared against the canonical Flock OUI list (data/flock_ouis.csv).
+patterns (Flock%, FLOCK%, FS Ext Battery%).  For each result the OUI prefix is
+extracted and compared against the canonical Flock OUI list
+(data/flock_ouis.csv).
 
 OUI prefixes that are:
   1. NOT already in the known Flock OUI list, AND
@@ -76,11 +77,21 @@ CANDIDATE_CSV        = DATA_DIR / "ssid_candidate_cameras.csv"
 CANDIDATE_OUIS_JSON  = DATA_DIR / "candidate_ouis.json"
 SSID_STATE_FILE      = DATA_DIR / "ssid_scan_state.json"
 
-# SSID patterns — WiGLE supports % as a SQL-style wildcard suffix
+# SSID patterns — WiGLE supports % as a SQL-style wildcard suffix.
 # These deliberately cast a wide net; novel-OUI filtering happens in analysis.
+#
+# WiGLE's SSID matching is case-sensitive, which is why the same prefix appears
+# in more than one capitalization.
+#
+# "FS Ext Battery%" covers the FS Ext Battery accessory / battery-pack series
+# (dougborg/PR#39): those packs broadcast an SSID beginning with that string, so
+# they are invisible to the Flock%/FLOCK% patterns — the same blind spot that
+# hid "Flock Camera net." from Flock-* searches.
 FLOCK_SSID_PATTERNS = [
-    ("Flock%",  "Flock, Flock-XXXXXX, Flock Camera net., and all Flock-prefixed variants"),
-    ("FLOCK%",  "FLOCK-XXXXXX all-caps variant"),
+    ("Flock%",          "Flock, Flock-XXXXXX, Flock Camera net., and all Flock-prefixed variants"),
+    ("FLOCK%",          "FLOCK-XXXXXX all-caps variant"),
+    ("FS Ext Battery%", "FS Ext Battery accessory/battery-pack series (dougborg/PR#39)"),
+    ("fs ext battery%", "FS Ext Battery lower-case variant"),
 ]
 
 
@@ -366,7 +377,8 @@ def write_candidate_geojson(networks: list, candidates: dict, path: Path) -> Non
             "project":          "flock-finder",
             "description": (
                 "CANDIDATE Flock Safety ALPR camera locations discovered via SSID-pattern "
-                "WiGLE queries (Flock%, FLOCK%). OUI prefixes in this file are NOT in the "
+                "WiGLE queries (Flock%, FLOCK%, FS Ext Battery%). OUI prefixes in this file "
+                "are NOT in the "
                 "canonical flock_ouis.csv — they appeared ≥5 times in SSID-matched results "
                 "and require field verification. match_confidence = 'unconfirmed_candidate'."
             ),
@@ -456,7 +468,7 @@ def update_readme(candidates: dict, readme: Path) -> None:
             ssids = ", ".join(f"`{s}`" for s in info["top_ssids"][:2])
             rows.append(f"| `{oui}`{la} | {info['count']:,} | {ssids} |")
         inner = (
-            f"SSID-pattern WiGLE queries (`Flock%` / `FLOCK%`) identified "
+            f"SSID-pattern WiGLE queries (`Flock%` / `FLOCK%` / `FS Ext Battery%`) identified "
             f"**{len(candidates)} candidate OUI prefix(es)** that appear "
             f"≥{CANDIDATE_MIN_COUNT} times in SSID-matched records but are **not** in "
             "the canonical `flock_ouis.csv`. These are **unconfirmed**.\n\n"
@@ -541,7 +553,8 @@ def update_index_html(candidates: dict, html_path: Path) -> None:
 
         summary_html = (
             '        <p>\n'
-            '            SSID-pattern WiGLE queries (<code>Flock%</code> / <code>FLOCK%</code>)\n'
+            '            SSID-pattern WiGLE queries (<code>Flock%</code> / <code>FLOCK%</code> / '
+            '<code>FS Ext Battery%</code>)\n'
             f'            identified <strong>{len(candidates)} candidate OUI prefix(es)</strong> '
             f'seen ≥{CANDIDATE_MIN_COUNT} times\n'
             '            that are <strong>not</strong> in the known Flock Safety OUI list.\n'
