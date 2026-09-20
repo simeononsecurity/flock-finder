@@ -449,7 +449,7 @@
             <div class="label">Cameras Mapped</div>
         </div>
         <div class="stat-box">
-            <div class="number" id="total-ouis">31</div>
+            <div class="number" id="total-ouis">38</div>
             <div class="label">Known OUI Prefixes</div>
         </div>
         <div class="stat-box">
@@ -543,9 +543,13 @@
     <section class="info-section" id="oui-data">
         <h3><span class="icon">📡</span> Flock Safety WiFi OUI Fingerprints</h3>
         <p>
-            These 31 OUI prefixes were identified by <strong>@NitekryDPaul</strong> through promiscuous-mode
+            These 38 OUI prefixes were identified by <strong>@NitekryDPaul</strong> through promiscuous-mode
             analysis of Flock camera WiFi traffic. The 31st prefix (<code>82:6B:F2</code>) was contributed
-            by <strong>Michael / DeFlockJoplin</strong> during field testing.
+            by <strong>Michael / DeFlockJoplin</strong> during field testing. Prefix <code>B4:1E:52</code>
+            is Flock Safety's own IEEE registration, and the six-prefix
+            <strong>FS Ext Battery</strong> series (<code>04:0D:84</code>, <code>F0:82:C0</code>,
+            <code>1C:34:F1</code>, <code>38:5B:44</code>, <code>94:34:69</code>, <code>B4:E3:F9</code>)
+            came from <strong>dougborg/PR#39</strong>.
         </p>
         <div style="max-height: 400px; overflow-y: auto; margin-top: 1rem;">
             <table class="oui-table" id="oui-table">
@@ -695,8 +699,8 @@
 
         <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--text-muted);">
             This table is populated automatically by querying WiGLE for SSIDs matching
-            <code>Flock%</code> / <code>FLOCK%</code>, then extracting OUI prefixes from results
-            that are <strong>not</strong> in the canonical OUI list. Only OUIs seen
+            <code>Flock%</code> / <code>FLOCK%</code> / <code>FS Ext Battery%</code>, then extracting OUI
+            prefixes from results that are <strong>not</strong> in the canonical OUI list. Only OUIs seen
             <strong>≥5 times</strong> are shown to reduce false positives.
         </p>
 
@@ -901,6 +905,13 @@ let FLOCK_OUIS = [
     { oui: "48:27:EA", source: "@NitekryDPaul" },
     { oui: "A4:CF:12", source: "@NitekryDPaul" },
     { oui: "82:6B:F2", source: "DeFlockJoplin" },
+    { oui: "B4:1E:52", source: "dougborg/PR#39 — direct Flock Safety IEEE registration" },
+    { oui: "04:0D:84", source: "dougborg/PR#39 — FS Ext Battery series" },
+    { oui: "F0:82:C0", source: "dougborg/PR#39 — FS Ext Battery series" },
+    { oui: "1C:34:F1", source: "dougborg/PR#39 — FS Ext Battery series" },
+    { oui: "38:5B:44", source: "dougborg/PR#39 — FS Ext Battery series" },
+    { oui: "94:34:69", source: "dougborg/PR#39 — FS Ext Battery series" },
+    { oui: "B4:E3:F9", source: "dougborg/PR#39 — FS Ext Battery series" },
 ];
 
 // ── Initialize Map ─────────────────────────────────────────────────────────

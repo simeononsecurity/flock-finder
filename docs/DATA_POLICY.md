@@ -31,7 +31,7 @@ specific address or person.
 
 | Layer | Source |
 |-------|--------|
-| OUI prefixes | Promiscuous‑mode research by **@NitekryDPaul**; 31st prefix from **DeFlockJoplin** |
+| OUI prefixes | Promiscuous‑mode research by **@NitekryDPaul**; 31st prefix from **DeFlockJoplin**; Flock Safety's own IEEE registration (`B4:1E:52`) and the FS Ext Battery series from **dougborg/PR#39** |
 | Sightings | [WiGLE](https://wigle.net) — a crowdsourced, volunteer‑wardriven WiFi survey database |
 | Geocoding (search only) | [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org) |
 
@@ -75,3 +75,30 @@ advise in the issue.
 This project uses only **publicly available** WiGLE data. The intent is
 transparency about **surveillance infrastructure**, not surveillance of people.
 Please use it accordingly.
+
+## 7. Signatures we deliberately do NOT query (and why)
+
+Not every Flock-related radio signature belongs in an OUI query list. Some are
+too generic to query, and some are too specific to be a *prefix*. Both cases are
+documented here so they don't get re-added by accident.
+
+| Signature | Why it is not a query prefix |
+|-----------|------------------------------|
+| `00:03:7F` — Qualcomm Atheros **QCA9377** chipset OUI | This is the WiFi radio *chipset* used in Flock's MSM8953-generation cameras, but the OUI itself is a generic Atheros assignment shared with a huge installed base of unrelated hardware. Queried alone it would return mostly non-Flock devices, so it is only ever a **low-confidence signal that requires corroboration** (an SSID, an exact default MAC, or a BLE match). It is intentionally **not** in `data/flock_ouis.csv`. |
+| `00:03:7F:50:00:01` / `00:03:7F:4F:00:16` — factory-default QCA9377 radio MACs (from `bdwlan30.bin` / `otp30.bin`) | These are *exact 6-byte addresses*, not prefixes: what an unprovisioned camera transmits before Flock's provisioning step rewrites the MAC. They are far more specific than the bare OUI above, but (a) this project's collector searches by 3-octet prefix and (b) a provisioned camera no longer uses them. The on-device detector in [flock-you-esp32](https://github.com/simeononsecurity/flock-you-esp32) scores an exact match on these addresses as high confidence. |
+
+Two related notes:
+
+- Several prefixes in this list (`F4:6A:DD`, `F8:A2:D6` — Liteon; `00:F4:8D`,
+  `D0:39:57`, `E8:D0:FC` — USI) belong to **contract manufacturers**, not to
+  Flock directly. They are queried because they have been observed on confirmed
+  Flock hardware in the field, but they are expected to carry a higher
+  false-positive rate than a Flock-registered prefix; the firmware project above
+  scores them as a separate, lower-confidence tier for that reason.
+- `FS Ext Battery%` is the one **SSID** pattern beyond `Flock%`/`FLOCK%` that the
+  discovery pass queries (see `scripts/ssid_query.py`). It exists because the
+  battery-pack/accessory series advertises that SSID and is invisible to
+  `Flock-*` matching — the same blind spot that hid `Flock Camera net.` from
+  earlier SSID searches. SSID matches never enter `flock_ouis.csv` on their own;
+  they only surface **candidate** prefixes awaiting field verification (see the
+  README's *SSID-Discovery: Candidate OUI Prefixes* section).

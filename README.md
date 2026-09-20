@@ -12,7 +12,7 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 | Metric | Value |
 |--------|-------|
 | 📸 **Cameras Mapped** | 146,526 |
-| 📡 **OUI Prefixes with Data** | 31 / 31 |
+| 📡 **OUI Prefixes with Data** | 31 / 38 |
 | 🌎 **Countries** | 138 |
 | 🗺️ **Regions** | 50 |
 | 🕐 **Last Updated** | 2026-09-20 |
@@ -34,10 +34,13 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 
 Flock Safety ALPR cameras have WiFi transceivers that periodically wake to upload captured license plate data. These transmissions use MAC addresses with identifiable **OUI** (Organizationally Unique Identifier) prefixes.
 
-**@NitekryDPaul** discovered 30 of these OUI prefixes through promiscuous-mode 2.4 GHz analysis. A 31st was contributed by **Michael / DeFlockJoplin** during field testing in Joplin, MO.
+**@NitekryDPaul** discovered 30 of these OUI prefixes through promiscuous-mode 2.4 GHz analysis. A 31st was contributed by **Michael / DeFlockJoplin** during field testing in Joplin, MO. Seven more have since been promoted into the canonical list:
+
+- **`B4:1E:52`** — IEEE registration held directly by **Flock Safety** (the most authoritative signal in the list: it is Flock's own assignment, not a chipset vendor's).
+- **`04:0D:84`, `F0:82:C0`, `1C:34:F1`, `38:5B:44`, `94:34:69`, `B4:E3:F9`** — the **FS Ext Battery** accessory / battery-pack series ([dougborg/PR#39](https://github.com/colonelpanichacks/flock-you/pull/39)). These packs broadcast an `FS Ext Battery…` SSID, which is why that naming pattern is now queried alongside `Flock%` / `FLOCK%`.
 
 This project:
-1. Takes those 31 known Flock Safety WiFi OUI prefixes
+1. Takes those 38 known Flock Safety WiFi OUI prefixes
 2. Queries the WiGLE WiFi database for networks matching each prefix
 3. Deduplicates and exports results as GeoJSON + CSV
 4. Displays camera locations on a dark-themed interactive Leaflet map
@@ -79,7 +82,7 @@ cp .env.example .env
 ### Run the Scanner
 
 ```bash
-# Full scan — all 31 OUI prefixes, worldwide
+# Full scan — all 38 OUI prefixes, worldwide
 python3 scripts/wigle_query.py
 
 # Single OUI test
@@ -121,7 +124,7 @@ flock-finder/
 ├── scripts/
 │   └── wigle_query.py    # WiGLE API query script
 ├── data/
-│   ├── flock_ouis.csv    # 31 known Flock Safety OUI prefixes
+│   ├── flock_ouis.csv    # 38 known Flock Safety OUI prefixes
 │   ├── flock_cameras.geojson  # Output: camera locations (GeoJSON)
 │   ├── flock_cameras.csv      # Output: camera locations (CSV)
 │   └── scan_stats.json        # Output: scan statistics
@@ -136,7 +139,7 @@ flock-finder/
 
 ## 📡 Flock Safety WiFi OUI Prefixes
 
-31 known prefixes identified by **@NitekryDPaul** + **DeFlockJoplin**:
+38 known prefixes identified by **@NitekryDPaul** + **DeFlockJoplin** + **dougborg/PR#39**:
 
 | # | OUI Prefix | Source |
 |---|------------|--------|
@@ -171,6 +174,13 @@ flock-finder/
 | 29 | `48:27:EA` | @NitekryDPaul |
 | 30 | `A4:CF:12` | @NitekryDPaul |
 | 31 | `82:6B:F2` | DeFlockJoplin |
+| 32 | `B4:1E:52` | dougborg/PR#39 — direct IEEE registration to Flock Safety |
+| 33 | `04:0D:84` | dougborg/PR#39 — FS Ext Battery series |
+| 34 | `F0:82:C0` | dougborg/PR#39 — FS Ext Battery series |
+| 35 | `1C:34:F1` | dougborg/PR#39 — FS Ext Battery series |
+| 36 | `38:5B:44` | dougborg/PR#39 — FS Ext Battery series |
+| 37 | `94:34:69` | dougborg/PR#39 — FS Ext Battery series |
+| 38 | `B4:E3:F9` | dougborg/PR#39 — FS Ext Battery series |
 
 ---
 
@@ -226,7 +236,7 @@ Filtering for only `Flock*`-prefixed SSIDs yields **166 unique variants** across
 > **New SSID pattern observed in the wild — `Flock Camera net.`**
 > A community member ([flock-you issue #43](https://github.com/colonelpanichacks/flock-you/issues/43)) reported a Flock Safety camera broadcasting as **`Flock Camera net.`** — a naming format completely invisible to `Flock-*` pattern searches. The same camera simultaneously broadcast on both **2.4 GHz (channel 1)** and **5 GHz (channel 157)** using **sequential locally administered MACs** (e.g. `52:64:CF:9F:A2:DE` / `:DF`). The locally administered addressing is likely a **deliberate anti-fingerprinting measure** — these MACs will never match IEEE OUI lookups, making SSID-pattern detection the only viable passive identification path for cameras using this scheme.
 
-This section is populated automatically by querying WiGLE for any SSID matching `Flock%` or `FLOCK%`, then extracting OUI prefixes from the results that are **not** in the canonical `flock_ouis.csv`. Only OUIs observed **≥5 times** are reported here to reduce false positives.
+This section is populated automatically by querying WiGLE for any SSID matching `Flock%`, `FLOCK%` or `FS Ext Battery%`, then extracting OUI prefixes from the results that are **not** in the canonical `flock_ouis.csv`. Only OUIs observed **≥5 times** are reported here to reduce false positives.
 
 <!-- CANDIDATE_OUIS_START -->
 *No candidate OUI prefixes identified yet — SSID-pattern incremental queries are running. Candidate prefixes will appear here once any novel OUI is observed ≥5 times in Flock-SSID-bearing WiGLE records.*
@@ -260,6 +270,7 @@ The included workflow runs daily and auto-commits updated camera data:
 
 - **OUI Research:** [@NitekryDPaul](https://github.com/NitekryDPaul) — all 30 original OUI prefixes and the promiscuous-mode detection strategy
 - **Field Testing:** [DeFlockJoplin](https://github.com/DeflockJoplin/flock-you) — 31st OUI prefix (`82:6B:F2`) and wildcard probe tightening
+- **Additional OUI prefixes:** [dougborg/PR#39](https://github.com/colonelpanichacks/flock-you/pull/39) — Flock Safety's own IEEE registration (`B4:1E:52`) and the six-prefix FS Ext Battery series
 - **Inspired by:** [DeFlock](https://www.deflock.me) (ALPR mapping) and [track-openroaming-passpoint](https://github.com/simeononsecurity/track-openroaming-passpoint) (WiGLE data mining)
 - **Data Source:** [WiGLE](https://wigle.net) — crowdsourced WiFi/cell network database
 - **Map:** [Leaflet](https://leafletjs.com) + [OpenStreetMap](https://www.openstreetmap.org)
