@@ -13182,6 +13182,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.60290337,
+          67.85012817
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:38:9E:C8",
+        "ssid": "ACfw7JXS",
+        "oui": "F8:A2:D6",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-17T17:00:00.000Z",
+        "lasttime": "2026-09-19T06:00:00.000Z",
+        "city": null,
+        "region": "Norrbottens l\u00e4n",
+        "country": "SE",
+        "road": "Marknadsv\u00e4gen",
+        "postalcode": "981 91"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           25.78737259,
           62.24459076
         ]
@@ -22158,8 +22182,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -97.51429749,
-          35.47460175
+          -97.51428986,
+          35.47460556
         ]
       },
       "properties": {
@@ -22169,7 +22193,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-05-31T23:00:00.000Z",
-        "lasttime": "2026-07-25T12:00:00.000Z",
+        "lasttime": "2026-09-19T11:00:00.000Z",
         "city": "Oklahoma City",
         "region": "OK",
         "country": "US",
@@ -24407,30 +24431,6 @@
         "country": "CZ",
         "road": "Na H\u0159ebenech \u2161",
         "postalcode": "14023"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.56636143,
-          52.28707504
-        ]
-      },
-      "properties": {
-        "netid": "F8:A2:D6:6D:F3:05",
-        "ssid": "ClickShare-1873206271",
-        "oui": "F8:A2:D6",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2020-03-08T18:00:00.000Z",
-        "lasttime": "2024-09-19T10:00:00.000Z",
-        "city": "Braunschweig",
-        "region": "Niedersachsen",
-        "country": "DE",
-        "road": "Volkmaroder Stra\u00dfe",
-        "postalcode": "38104"
       }
     },
     {
@@ -36558,7 +36558,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.12584543,
+          6.12584734,
           49.61083984
         ]
       },
@@ -36569,7 +36569,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-07-12T15:00:00.000Z",
-        "lasttime": "2026-09-04T17:00:00.000Z",
+        "lasttime": "2026-09-19T12:00:00.000Z",
         "city": "Luxembourg",
         "region": "Canton Luxembourg",
         "country": "LU",
@@ -38718,7 +38718,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.12592363,
+          6.12592554,
           49.61083221
         ]
       },
@@ -38729,7 +38729,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2021-03-01T16:00:00.000Z",
-        "lasttime": "2026-09-04T17:00:00.000Z",
+        "lasttime": "2026-09-19T12:00:00.000Z",
         "city": "Luxembourg",
         "region": "Canton Luxembourg",
         "country": "LU",
@@ -39822,7 +39822,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.17093396,
+          -0.17094459,
           51.24047852
         ]
       },
@@ -39833,7 +39833,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-09-21T10:00:00.000Z",
-        "lasttime": "2026-04-24T15:00:00.000Z",
+        "lasttime": "2026-09-19T05:00:00.000Z",
         "city": "Reigate and Banstead",
         "region": "England",
         "country": "GB",
@@ -47502,6 +47502,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.48884964,
+          51.34500122
+        ]
+      },
+      "properties": {
+        "netid": "F8:A2:D6:D8:09:7B",
+        "ssid": "Flock",
+        "oui": "F8:A2:D6",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-19T15:00:00.000Z",
+        "lasttime": "2026-09-19T09:00:00.000Z",
+        "city": "Kassel",
+        "region": "Hessen",
+        "country": "DE",
+        "road": "Frommersh\u00e4user Stra\u00dfe",
+        "postalcode": "34127"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.58512878,
           45.62294006
         ]
@@ -48195,10 +48219,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-19T09:55:36.411136+00:00",
+    "generated": "2026-09-20T10:16:19.529591+00:00",
     "oui": "F8:A2:D6",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 2008
+    "total_cameras": 2009
   }
 }

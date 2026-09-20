@@ -6,6 +6,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.73928642,
+          45.69389343
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:01:B7:DB",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-19T06:00:00.000Z",
+        "lasttime": "2026-09-19T11:00:00.000Z",
+        "city": null,
+        "region": "Lombardia",
+        "country": "IT",
+        "road": "Viale Fratelli Kennedy",
+        "postalcode": "24066"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -93.56041718,
           42.1026001
         ]
@@ -191,30 +215,6 @@
         "country": "FI",
         "road": "Reipintie",
         "postalcode": "33980"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.54130745,
-          68.78330994
-        ]
-      },
-      "properties": {
-        "netid": "00:F4:8D:01:E8:19",
-        "ssid": "ACAx19Ab",
-        "oui": "00:F4:8D",
-        "channel": 6,
-        "encryption": "wpa2",
-        "firsttime": "2003-04-23T22:00:00.000Z",
-        "lasttime": "2024-09-19T07:00:00.000Z",
-        "city": null,
-        "region": "Troms og Finnmark",
-        "country": "NO",
-        "road": "83",
-        "postalcode": null
       }
     },
     {
@@ -6870,6 +6870,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -73.83921814,
+          45.6292038
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:34:83:CC",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-19T16:00:00.000Z",
+        "lasttime": "2026-09-19T12:00:00.000Z",
+        "city": null,
+        "region": "Qu\u00e9bec",
+        "country": "CA",
+        "road": "Rue Charron",
+        "postalcode": "J7E 3W8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -73.6576004,
           40.75326538
         ]
@@ -11766,6 +11790,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.69727325,
+          45.6021843
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:80:A6:57",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-19T07:00:00.000Z",
+        "lasttime": "2026-09-19T11:00:00.000Z",
+        "city": null,
+        "region": "Lombardia",
+        "country": "IT",
+        "road": null,
+        "postalcode": "24059"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -118.02418518,
           33.72516632
         ]
@@ -13926,6 +13974,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -83.20152283,
+          35.94919205
+        ]
+      },
+      "properties": {
+        "netid": "00:F4:8D:D4:BE:FD",
+        "ssid": "Flock",
+        "oui": "00:F4:8D",
+        "channel": 6,
+        "encryption": "none",
+        "firsttime": "2026-09-19T06:00:00.000Z",
+        "lasttime": "2026-09-19T04:00:00.000Z",
+        "city": null,
+        "region": "TN",
+        "country": "US",
+        "road": "Heritage Boulevard",
+        "postalcode": "37821"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -74.42263794,
           40.53986359
         ]
@@ -14787,10 +14859,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-19T09:55:36.411136+00:00",
+    "generated": "2026-09-20T10:16:19.529591+00:00",
     "oui": "00:F4:8D",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 616
+    "total_cameras": 619
   }
 }

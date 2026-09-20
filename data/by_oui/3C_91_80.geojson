@@ -3054,8 +3054,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.79756546,
-          68.6811142
+          16.79759598,
+          68.68112183
         ]
       },
       "properties": {
@@ -3065,7 +3065,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-02-09T16:00:00.000Z",
-        "lasttime": "2026-09-10T02:00:00.000Z",
+        "lasttime": "2026-09-19T06:00:00.000Z",
         "city": null,
         "region": "Troms og Finnmark",
         "country": "NO",
@@ -11934,7 +11934,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          144.93533325,
+          144.93534851,
           -37.82577133
         ]
       },
@@ -11945,7 +11945,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2020-02-02T18:00:00.000Z",
-        "lasttime": "2026-09-19T00:00:00.000Z",
+        "lasttime": "2026-09-19T07:00:00.000Z",
         "city": "Melbourne",
         "region": "Victoria",
         "country": "AU",
@@ -14327,6 +14327,30 @@
         "country": "FR",
         "road": "Rue d'Orl\u00e9ans",
         "postalcode": "44000"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.88897324,
+          52.36867905
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:B1:B9:AD",
+        "ssid": "DEVIALET-N27X00672P0LA",
+        "oui": "3C:91:80",
+        "channel": 6,
+        "encryption": "unknown",
+        "firsttime": "2026-09-19T14:00:00.000Z",
+        "lasttime": "2026-09-19T07:00:00.000Z",
+        "city": "Amsterdam",
+        "region": "Noord-Holland",
+        "country": "NL",
+        "road": "Spui",
+        "postalcode": "1012XA"
       }
     },
     {
@@ -17862,6 +17886,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.81908607,
+          44.10452652
+        ]
+      },
+      "properties": {
+        "netid": "3C:91:80:DD:90:8C",
+        "ssid": "ACsa4ggh",
+        "oui": "3C:91:80",
+        "channel": 6,
+        "encryption": "wpa2",
+        "firsttime": "2003-10-26T11:00:00.000Z",
+        "lasttime": "2026-09-19T09:00:00.000Z",
+        "city": "La Spezia",
+        "region": "Liguria",
+        "country": "IT",
+        "road": "Via Baldassarre Biassa",
+        "postalcode": "19121"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.24942207,
           45.08415604
         ]
@@ -21031,7 +21079,7 @@
         "type": "Point",
         "coordinates": [
           16.53812408,
-          68.6847229
+          68.68470764
         ]
       },
       "properties": {
@@ -21041,7 +21089,7 @@
         "channel": 6,
         "encryption": "wpa2",
         "firsttime": "2025-02-09T10:00:00.000Z",
-        "lasttime": "2026-08-30T05:00:00.000Z",
+        "lasttime": "2026-09-19T06:00:00.000Z",
         "city": null,
         "region": "Troms og Finnmark",
         "country": "NO",
@@ -21891,10 +21939,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-19T09:55:36.411136+00:00",
+    "generated": "2026-09-20T10:16:19.529591+00:00",
     "oui": "3C:91:80",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 912
+    "total_cameras": 914
   }
 }

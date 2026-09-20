@@ -3630,8 +3630,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.60807896,
-          51.96118164
+          7.60798693,
+          51.96119308
         ]
       },
       "properties": {
@@ -3641,7 +3641,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2022-11-08T17:00:00.000Z",
-        "lasttime": "2026-03-30T12:00:00.000Z",
+        "lasttime": "2026-09-19T09:00:00.000Z",
         "city": "M\u00fcnster",
         "region": "Nordrhein-Westfalen",
         "country": "DE",
@@ -3654,8 +3654,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.60822487,
-          51.96115112
+          7.6082921,
+          51.96115875
         ]
       },
       "properties": {
@@ -3665,7 +3665,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-03-30T18:00:00.000Z",
-        "lasttime": "2026-03-30T12:00:00.000Z",
+        "lasttime": "2026-09-19T09:00:00.000Z",
         "city": "M\u00fcnster",
         "region": "Nordrhein-Westfalen",
         "country": "DE",
@@ -5166,30 +5166,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.56487656,
-          68.78125763
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:14:B5:E1",
-        "ssid": "ClickShare-Harstadtraf",
-        "oui": "80:30:49",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2024-09-19T13:00:00.000Z",
-        "lasttime": "2024-09-19T07:00:00.000Z",
-        "city": null,
-        "region": "Troms og Finnmark",
-        "country": "NO",
-        "road": "Kongsveien",
-        "postalcode": "9411"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.34305382,
           51.32872772
         ]
@@ -5903,30 +5879,6 @@
         "country": "CH",
         "road": "Walzm\u00fchlestrasse",
         "postalcode": "8500"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.24239302,
-          53.47776794
-        ]
-      },
-      "properties": {
-        "netid": "80:30:49:14:B8:27",
-        "ssid": "ClickShare-Motel-One",
-        "oui": "80:30:49",
-        "channel": 36,
-        "encryption": "wpa2",
-        "firsttime": "2023-09-15T12:00:00.000Z",
-        "lasttime": "2024-09-19T13:00:00.000Z",
-        "city": "Manchester",
-        "region": "England",
-        "country": "GB",
-        "road": "Dickinson Street",
-        "postalcode": "M1 4LF"
       }
     },
     {
@@ -11046,8 +10998,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6071744,
-          51.96120453
+          7.60741282,
+          51.96121216
         ]
       },
       "properties": {
@@ -11057,7 +11009,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2026-03-30T18:00:00.000Z",
-        "lasttime": "2026-03-30T12:00:00.000Z",
+        "lasttime": "2026-09-19T09:00:00.000Z",
         "city": "M\u00fcnster",
         "region": "Nordrhein-Westfalen",
         "country": "DE",
@@ -17934,6 +17886,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -78.99176025,
+          39.427742
+        ]
+      },
+      "properties": {
+        "netid": "80:30:49:A7:96:F9",
+        "ssid": "Flock",
+        "oui": "80:30:49",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-09-19T11:00:00.000Z",
+        "lasttime": "2026-09-19T11:00:00.000Z",
+        "city": null,
+        "region": "WV",
+        "country": "US",
+        "road": "Southern Drive",
+        "postalcode": "26726"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -103.65268707,
           48.1687355
         ]
@@ -19827,10 +19803,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-19T09:55:36.411136+00:00",
+    "generated": "2026-09-20T10:16:19.529591+00:00",
     "oui": "80:30:49",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 826
+    "total_cameras": 825
   }
 }

@@ -1158,6 +1158,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -0.20437901,
+          50.83794403
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:1D:8E:1A",
+        "ssid": "Flock",
+        "oui": "70:C9:4E",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-19T17:00:00.000Z",
+        "lasttime": "2026-09-19T11:00:00.000Z",
+        "city": null,
+        "region": "England",
+        "country": "GB",
+        "road": "Station Road",
+        "postalcode": "BN3 7GA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -116.0318985,
           46.22219849
         ]
@@ -2070,6 +2094,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -79.88162231,
+          43.252285
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:2B:C7:3F",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 2,
+        "encryption": "none",
+        "firsttime": "2026-09-19T10:00:00.000Z",
+        "lasttime": "2026-09-19T08:00:00.000Z",
+        "city": "Hamilton",
+        "region": "Ontario",
+        "country": "CA",
+        "road": "Queen Street South",
+        "postalcode": "L8P 1Z9"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           152.85783386,
           -27.64341164
         ]
@@ -2087,6 +2135,30 @@
         "country": "AU",
         "road": "Glen Noble Avenue",
         "postalcode": "4301"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.67082214,
+          28.18543243
+        ]
+      },
+      "properties": {
+        "netid": "70:C9:4E:2B:F4:65",
+        "ssid": null,
+        "oui": "70:C9:4E",
+        "channel": 11,
+        "encryption": "none",
+        "firsttime": "2026-09-19T08:00:00.000Z",
+        "lasttime": "2026-09-19T06:00:00.000Z",
+        "city": null,
+        "region": "FL",
+        "country": "US",
+        "road": "Persea Court",
+        "postalcode": "34655"
       }
     },
     {
@@ -11811,10 +11883,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-19T09:55:36.411136+00:00",
+    "generated": "2026-09-20T10:16:19.529591+00:00",
     "oui": "70:C9:4E",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 492
+    "total_cameras": 495
   }
 }

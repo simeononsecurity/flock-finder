@@ -4686,8 +4686,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -104.94503784,
-          39.68376541
+          -104.94506836,
+          39.68377304
         ]
       },
       "properties": {
@@ -4697,7 +4697,7 @@
         "channel": 6,
         "encryption": "none",
         "firsttime": "2022-02-22T17:00:00.000Z",
-        "lasttime": "2026-09-17T19:00:00.000Z",
+        "lasttime": "2026-09-19T10:00:00.000Z",
         "city": "Denver",
         "region": "CO",
         "country": "US",
@@ -9558,30 +9558,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          153.26654053,
-          -27.53343582
-        ]
-      },
-      "properties": {
-        "netid": "E8:D0:FC:88:4A:61",
-        "ssid": null,
-        "oui": "E8:D0:FC",
-        "channel": 149,
-        "encryption": "wep",
-        "firsttime": "2024-09-19T06:00:00.000Z",
-        "lasttime": "2024-09-19T00:00:00.000Z",
-        "city": null,
-        "region": "Queensland",
-        "country": "AU",
-        "road": "Bloomfield Street",
-        "postalcode": "4163"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -77.68575287,
           43.12534714
         ]
@@ -13182,6 +13158,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -0.17124353,
+          51.24007034
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:BF:19:15",
+        "ssid": "ClickShare-Room-GF5",
+        "oui": "E8:D0:FC",
+        "channel": 36,
+        "encryption": "wpa2",
+        "firsttime": "2024-03-23T14:00:00.000Z",
+        "lasttime": "2026-09-19T05:00:00.000Z",
+        "city": "Reigate and Banstead",
+        "region": "England",
+        "country": "GB",
+        "road": "St. Matthews Road",
+        "postalcode": "RH1 1HT"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           2.13542962,
           41.39176559
         ]
@@ -13566,8 +13566,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.17093129,
-          51.24039078
+          -0.17096853,
+          51.24041367
         ]
       },
       "properties": {
@@ -13577,7 +13577,7 @@
         "channel": 36,
         "encryption": "wpa2",
         "firsttime": "2024-03-23T14:00:00.000Z",
-        "lasttime": "2026-04-24T15:00:00.000Z",
+        "lasttime": "2026-09-19T05:00:00.000Z",
         "city": "Reigate and Banstead",
         "region": "England",
         "country": "GB",
@@ -21870,6 +21870,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -0.15252499,
+          50.83424759
+        ]
+      },
+      "properties": {
+        "netid": "E8:D0:FC:F8:AF:53",
+        "ssid": "Flock",
+        "oui": "E8:D0:FC",
+        "channel": 1,
+        "encryption": "wpa2",
+        "firsttime": "2026-09-19T10:00:00.000Z",
+        "lasttime": "2026-09-19T05:00:00.000Z",
+        "city": "Brighton",
+        "region": "England",
+        "country": "GB",
+        "road": "Dyke Road",
+        "postalcode": "BN3 6EG"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -93.73204041,
           41.60393524
         ]
@@ -22275,10 +22299,10 @@
     }
   ],
   "properties": {
-    "generated": "2026-09-19T09:55:36.411136+00:00",
+    "generated": "2026-09-20T10:16:19.529591+00:00",
     "oui": "E8:D0:FC",
     "source": "WiGLE (wigle.net)",
     "project": "flock-finder",
-    "total_cameras": 928
+    "total_cameras": 929
   }
 }
