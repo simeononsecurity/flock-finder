@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-20T10:16:22.594150+00:00",
+  "generated": "2026-09-20T22:47:43.297140+00:00",
   "description": "Canonical list of SUSPECTED Flock Safety WiFi OUI prefixes. An OUI match is a heuristic, not a confirmation.",
   "match_confidence": "suspected",
-  "total": 31,
+  "total": 38,
   "ouis": [
     {
       "oui": "70:C9:4E",
@@ -220,6 +220,55 @@
       "detection_protocol": "WiFi 2.4 GHz (wildcard probe)",
       "source": "Michael / DeFlockJoplin",
       "notes": "field-test Joplin - 12th camera OUI"
+    },
+    {
+      "oui": "B4:1E:52",
+      "vendor_context": "Flock Safety infrastructure",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "direct IEEE registration to Flock Safety"
+    },
+    {
+      "oui": "04:0D:84",
+      "vendor_context": "Flock Safety infrastructure",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "FS Ext Battery accessory series"
+    },
+    {
+      "oui": "F0:82:C0",
+      "vendor_context": "Flock Safety infrastructure",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "FS Ext Battery accessory series"
+    },
+    {
+      "oui": "1C:34:F1",
+      "vendor_context": "Flock Safety infrastructure",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "FS Ext Battery accessory series"
+    },
+    {
+      "oui": "38:5B:44",
+      "vendor_context": "Flock Safety infrastructure",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "FS Ext Battery accessory series"
+    },
+    {
+      "oui": "94:34:69",
+      "vendor_context": "Flock Safety infrastructure",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "FS Ext Battery accessory series"
+    },
+    {
+      "oui": "B4:E3:F9",
+      "vendor_context": "Flock Safety infrastructure",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "FS Ext Battery accessory series"
     }
   ]
 }

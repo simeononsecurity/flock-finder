@@ -134,7 +134,10 @@ def load_ouis(oui_file: Path = None) -> list:
 
 
 
-# All 31 known Flock Safety OUI prefixes (fallback if CSV missing)
+# All known Flock Safety OUI prefixes (fallback if the canonical CSV is missing).
+# MUST be kept in sync with data/flock_ouis.csv — this list is only a safety net
+# so a missing/unreadable CSV degrades to "scan the known prefixes" instead of
+# "scan nothing". tests/test_oui_metadata.py asserts the two agree.
 FLOCK_OUIS_FALLBACK = [
     "70:C9:4E", "3C:91:80", "D8:F3:BC", "80:30:49", "B8:35:32",
     "14:5A:FC", "74:4C:A1", "08:3A:88", "9C:2F:9D", "C0:35:32",
@@ -143,6 +146,11 @@ FLOCK_OUIS_FALLBACK = [
     "70:08:94", "58:8E:81", "EC:1B:BD", "3C:71:BF", "58:00:E3",
     "90:35:EA", "5C:93:A2", "64:6E:69", "48:27:EA", "A4:CF:12",
     "82:6B:F2",
+    # Flock Safety direct IEEE assignment (dougborg/PR#39)
+    "B4:1E:52",
+    # FS Ext Battery device series (dougborg/PR#39)
+    "04:0D:84", "F0:82:C0", "1C:34:F1", "38:5B:44", "94:34:69",
+    "B4:E3:F9",
 ]
 
 
@@ -841,6 +849,14 @@ def update_readme(stats_path: Path, readme_path: Path = None) -> None:
 
         total = stats.get("total_cameras", 0)
         ouis_found = stats.get("unique_ouis_found", 0)
+        # Denominator = size of the CANONICAL OUI list (data/flock_ouis.csv),
+        # not this scan's ouis_queried — a partial `--oui <prefix>` run reports
+        # 1 there. Falls back to the recorded scan value if the CSV cannot be
+        # read, so the stats line is never hand-maintained.
+        try:
+            ouis_total = len(load_ouis())
+        except OSError:
+            ouis_total = stats.get("ouis_queried", 0)
         countries = stats.get("cameras_by_country", {})
 
         regions = stats.get("cameras_by_region", {})
@@ -852,7 +868,7 @@ def update_readme(stats_path: Path, readme_path: Path = None) -> None:
             "| Metric | Value |\n"
             "|--------|-------|\n"
             f"| 📸 **Cameras Mapped** | {total:,} |\n"
-            f"| 📡 **OUI Prefixes with Data** | {ouis_found} / 31 |\n"
+            f"| 📡 **OUI Prefixes with Data** | {ouis_found} / {ouis_total} |\n"
             f"| 🌎 **Countries** | {len(countries)} |\n"
             f"| 🗺️ **Regions** | {len(regions)} |\n"
             f"| 🕐 **Last Updated** | {timestamp} |\n"
@@ -885,7 +901,8 @@ def main():
     )
     parser.add_argument(
         "--oui", type=str, default=None,
-        help="Query a single OUI prefix (e.g., '70:C9:4E'). Default: all 31 OUIs."
+        help="Query a single OUI prefix (e.g., '70:C9:4E'). Default: every OUI "
+             "in data/flock_ouis.csv."
     )
     parser.add_argument(
         "--country", type=str, default=None,
