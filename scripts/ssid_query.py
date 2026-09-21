@@ -36,6 +36,7 @@ Run manually:   python3 scripts/ssid_query.py
 Via CI:         called automatically after wigle_query.py in update-data.yml
 """
 
+import argparse
 import csv
 import html as html_lib
 import json
@@ -76,6 +77,7 @@ CANDIDATE_GEOJSON    = DATA_DIR / "ssid_candidate_cameras.geojson"
 CANDIDATE_CSV        = DATA_DIR / "ssid_candidate_cameras.csv"
 CANDIDATE_OUIS_JSON  = DATA_DIR / "candidate_ouis.json"
 SSID_STATE_FILE      = DATA_DIR / "ssid_scan_state.json"
+CAMERAS_CSV          = DATA_DIR / "flock_cameras.csv"   # published dataset (coverage input)
 
 # SSID patterns — WiGLE supports % as a SQL-style wildcard suffix.
 # These deliberately cast a wide net; novel-OUI filtering happens in analysis.
@@ -411,8 +413,8 @@ def write_candidate_csv(networks: list, candidates: dict, path: Path) -> None:
     print(f"  [✓] Candidate CSV     : {path}  ({len(records)} rows)")
 
 
-def write_candidate_ouis_json(candidates: dict, path: Path) -> None:
-    _atomic_write_json(path, {
+def write_candidate_ouis_json(candidates: dict, path: Path, coverage: dict = None) -> None:
+    payload = {
         "generated": datetime.now(timezone.utc).isoformat(),
         "description": (
             f"Candidate Flock Safety OUI prefixes identified via SSID-pattern WiGLE queries. "
@@ -423,8 +425,236 @@ def write_candidate_ouis_json(candidates: dict, path: Path) -> None:
         "min_count_threshold": CANDIDATE_MIN_COUNT,
         "total_candidates": len(candidates),
         "candidates": list(candidates.values()),
-    })
+    }
+    # Coverage of each *camera class* — published even when (especially when) the
+    # count is zero, so an empty candidate table can never be mistaken for a
+    # class that was not searched.
+    if coverage is not None:
+        payload["ssid_pattern_coverage"] = coverage
+    _atomic_write_json(path, payload)
     print(f"  [✓] Candidate OUIs    : {path}  ({len(candidates)} prefixes)")
+
+
+def build_coverage(pattern_hits: dict = None) -> dict:
+    """
+    Assemble the coverage payload: dataset-side class counts plus, when a query
+    pass ran, the per-pattern hit counts.
+
+    In coverage-only mode (`pattern_hits is None`) the previous pass's pattern
+    counts are carried over and labelled as such, so the block never implies
+    fresh query results it does not have.
+    """
+    carried = {}
+    patterns = pattern_hits
+    if patterns is None:
+        try:
+            previous = json.loads(CANDIDATE_OUIS_JSON.read_text(encoding="utf-8"))
+            carried = previous.get("ssid_pattern_coverage", {}).get("patterns", {})
+        except Exception:
+            carried = {}
+        patterns = carried
+
+    coverage = {
+        "generated": datetime.now(timezone.utc).isoformat(),
+        "patterns": patterns,
+        "dataset": summarize_dataset_coverage(CAMERAS_CSV),
+    }
+    if pattern_hits is None and carried:
+        coverage["patterns_note"] = (
+            "Carried over from the previous query pass — this run made no WiGLE queries."
+        )
+    return coverage
+
+
+def update_coverage_blocks(coverage: dict, readme: Path, html_path: Path) -> None:
+    """Inject the camera-class coverage block into README and index.html."""
+    try:
+        content = readme.read_text(encoding="utf-8")
+        updated = _replace_markers(content, *COVERAGE_MARKERS, render_coverage_md(coverage))
+        readme.write_text(updated, encoding="utf-8")
+        print("  [✓] README coverage section updated")
+    except (ValueError, OSError) as e:
+        print(f"  [!] README coverage markers missing — skipping ({e})")
+
+    try:
+        content = html_path.read_text(encoding="utf-8")
+        updated = _replace_markers(content, *COVERAGE_MARKERS, render_coverage_html(coverage))
+        html_path.write_text(updated, encoding="utf-8")
+        print("  [✓] index.html coverage section updated")
+    except (ValueError, OSError) as e:
+        print(f"  [!] index.html coverage markers missing — skipping ({e})")
+
+
+# ── Coverage reporting (the LAA class had no coverage and said nothing) ───────
+#
+# The candidate tables answer "which novel OUIs did the SSID pass find?" — which
+# is useless when the answer is none, because the reader cannot tell an empty
+# result from an unsearched class. These helpers make the coverage of each
+# *camera class* explicit in the published outputs, including — especially —
+# when that coverage is zero.
+
+COVERAGE_MARKERS = ("<!-- SSID_COVERAGE_START -->", "<!-- SSID_COVERAGE_END -->")
+
+# The issue-#43 camera class: LAA MACs + this SSID. It is the one class that
+# defeats OUI matching entirely, so its coverage is reported separately.
+LAA_CLASS_SSID = "Flock Camera net."
+
+
+def summarize_dataset_coverage(csv_path: Path) -> dict:
+    """
+    Coverage of each named camera class in the PUBLISHED dataset.
+
+    Streams data/flock_cameras.csv and counts what the candidate tables cannot
+    express: how many records carry an SSID from the `Flock Camera net.` class,
+    how many carry an `FS Ext Battery…` SSID, and how many records have a
+    locally-administered (LAA) MAC at all.
+    """
+    dataset = {
+        "records_scanned": 0,
+        "ssid_bearing": 0,
+        "flock_camera_net_records": 0,
+        "fs_ext_battery_records": 0,
+        "laa_records": 0,
+        "laa_by_oui": {},
+    }
+    if not csv_path.exists():
+        return dataset
+
+    with open(csv_path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            dataset["records_scanned"] += 1
+            ssid = (row.get("ssid") or "").strip().lower()
+            if ssid:
+                dataset["ssid_bearing"] += 1
+                if "flock camera" in ssid:
+                    dataset["flock_camera_net_records"] += 1
+                if "fs ext battery" in ssid:
+                    dataset["fs_ext_battery_records"] += 1
+
+            netid = (row.get("netid") or "").upper()
+            if is_locally_administered(netid):
+                dataset["laa_records"] += 1
+                oui = extract_oui(netid)
+                if oui:
+                    dataset["laa_by_oui"][oui] = dataset["laa_by_oui"].get(oui, 0) + 1
+    return dataset
+
+
+def count_pattern_hits(networks: list, patterns) -> dict:
+    """
+    Count how many fetched records each SSID discovery pattern matched.
+
+    WiGLE's SSID `LIKE` matching is case-sensitive — which is exactly why the
+    pattern list carries both `Flock%` and `FLOCK%` — so this prefix test is
+    case-sensitive too, and each pattern's count reflects only its own casing.
+    """
+    hits = {}
+    for pattern, _description in patterns:
+        prefix = pattern.rstrip("%")
+        hits[pattern] = sum(
+            1 for net in networks
+            if str(net.get("ssid") or "").startswith(prefix)
+        )
+    return hits
+
+
+def coverage_note(dataset: dict) -> str:
+    """Plain-language interpretation of the dataset coverage counts."""
+    notes = []
+
+    fcn = dataset.get("flock_camera_net_records", 0)
+    if fcn:
+        notes.append(
+            f"**LAA-MAC camera class (`{LAA_CLASS_SSID}`):** {fcn:,} published record(s) — the "
+            "class is present, and SSID matching (the only handle these cameras give) is "
+            "catching it."
+        )
+    else:
+        notes.append(
+            f"**LAA-MAC camera class (`{LAA_CLASS_SSID}`): zero records.** No published record "
+            f"has an SSID containing `{LAA_CLASS_SSID}`, so the one camera class that defeats OUI "
+            "matching entirely (locally-administered MACs — "
+            "[flock-you issue #43](https://github.com/colonelpanichacks/flock-you/issues/43)) "
+            "currently has **no coverage at all**. This is a *data* gap, not a pattern gap: the "
+            "`Flock%` pattern is a prefix match that already covers `Flock Camera net.`, so the "
+            "search is correct — either no wardrive has passed one of these cameras yet, or they "
+            "broadcast a hidden SSID. If it stays at zero across several scans, the next widening "
+            "step is `%Camera net.%` (any prefix before `Camera`), which trades precision for "
+            "coverage."
+        )
+
+    laa = dataset.get("laa_records", 0)
+    by_oui = dataset.get("laa_by_oui", {})
+    if laa:
+        ouis = ", ".join(
+            f"`{oui}` ({n:,})" for oui, n in sorted(by_oui.items(), key=lambda kv: -kv[1])
+        )
+        notes.append(
+            f"**Locally-administered (LAA) records:** {laa:,} — all from {ouis}. That prefix is a "
+            "confirmed Flock OUI whose first octet happens to set the LAA bit, so it is *not* the "
+            "anti-fingerprinting class; LAA-randomised cameras remain unrepresented."
+        )
+    else:
+        notes.append("**Locally-administered (LAA) records:** none in the published dataset.")
+
+    notes.append(
+        f"**FS Ext Battery pattern:** {dataset.get('fs_ext_battery_records', 0):,} published "
+        "record(s) carry an `FS Ext Battery…` SSID — the class the `FS Ext Battery%` discovery "
+        "pattern was added for."
+    )
+    return "\n\n".join(notes)
+
+
+def render_coverage_md(coverage: dict) -> str:
+    """Markdown coverage block for README."""
+    lines = ["### Camera-class coverage", "", coverage_note(coverage.get("dataset", {}))]
+    hits = coverage.get("patterns") or {}
+    if hits:
+        lines += [
+            "",
+            "| SSID pattern | Records matched (this pass) |",
+            "|--------------|------------------------------|",
+        ]
+        lines += [f"| `{pat}` | {n:,} |" for pat, n in hits.items()]
+        if coverage.get("patterns_note"):
+            lines += ["", f"*{coverage['patterns_note']}*"]
+    return "\n".join(lines)
+
+
+def _coverage_note_html(md_note: str) -> str:
+    """
+    Convert the coverage note's small markdown subset to HTML.
+
+    Deliberately minimal (bold, inline code, one link) rather than pulling in a
+    markdown dependency for three constructs.
+    """
+    escaped = html_lib.escape(md_note)
+    escaped = re.sub(
+        r"\[flock-you issue #43\]\(https://github\.com/colonelpanichacks/flock-you/issues/43\)",
+        '<a href="https://github.com/colonelpanichacks/flock-you/issues/43" target="_blank" '
+        'rel="noopener noreferrer" style="color:var(--yellow);">flock-you issue #43</a>',
+        escaped,
+    )
+    escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped, flags=re.DOTALL)
+    escaped = re.sub(r"`(.+?)`", r"<code>\1</code>", escaped, flags=re.DOTALL)
+    escaped = re.sub(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)", r"<em>\1</em>", escaped, flags=re.DOTALL)
+    return escaped
+
+
+def render_coverage_html(coverage: dict) -> str:
+    """HTML coverage block for docs/index.html."""
+    note_html = _coverage_note_html(coverage_note(coverage.get("dataset", {})))
+    paragraphs = "".join(
+        f"            <p>{para.strip()}</p>\n"
+        for para in note_html.split("\n\n") if para.strip()
+    )
+    return (
+        '        <div style="margin-top:0.75rem;font-size:0.875rem;line-height:1.6;color:#ccc;">\n'
+        '            <strong style="color:var(--yellow);">Camera-class coverage '
+        "(what OUI matching cannot see)</strong>\n"
+        f"{paragraphs}"
+        "        </div>"
+    )
 
 
 # ── README / index.html injection ────────────────────────────────────────────
@@ -585,11 +815,28 @@ def update_index_html(candidates: dict, html_path: Path) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Detect novel Flock OUI prefixes from Flock SSID patterns in WiGLE"
+    )
+    parser.add_argument(
+        "--coverage-only", action="store_true",
+        help="Recompute the camera-class coverage block from the published dataset "
+             "(data/flock_cameras.csv) and re-render README/index.html without calling "
+             "WiGLE. Use after a data change to refresh the coverage section offline.",
+    )
+    args = parser.parse_args()
+
     banner = "=" * 62
     print(banner)
     print("  Flock Finder — SSID-Pattern OUI Discovery")
     print("  Detecting novel OUIs via Flock SSID patterns in WiGLE")
     print(banner)
+
+    if args.coverage_only:
+        print("\n[coverage-only] Recomputing coverage from the published dataset…")
+        update_coverage_blocks(build_coverage(None), README_PATH, INDEX_HTML)
+        print("  [✓] No WiGLE queries were made.")
+        return
 
     # ── Credentials ──────────────────────────────────────────────────────────
     print("\n[1/5] Loading credentials…")
@@ -700,12 +947,24 @@ def main() -> None:
         la = " [locally administered]" if info["is_locally_administered"] else ""
         print(f"    {oui}{la}: {info['count']:,} records — SSIDs: {info['top_ssids'][:2]}")
 
+    # ── Camera-class coverage ─────────────────────────────────────────────────
+    # Report what each class actually yielded on this pass, alongside the
+    # published dataset's own class counts. A zero here is information (see
+    # coverage_note()), so it is published rather than silently omitted.
+    coverage = build_coverage(count_pattern_hits(networks_list, FLOCK_SSID_PATTERNS))
+    for pattern, hits in coverage["patterns"].items():
+        print(f"  Coverage: {pattern!r} matched {hits:,} record(s) this pass")
+    dataset_cov = coverage["dataset"]
+    print(f"  Coverage: {dataset_cov['flock_camera_net_records']} `{LAA_CLASS_SSID}` "
+          f"record(s), {dataset_cov['laa_records']} LAA record(s) in the published dataset")
+
     # ── Write outputs ─────────────────────────────────────────────────────────
     write_candidate_geojson(networks_list, candidates, CANDIDATE_GEOJSON)
     write_candidate_csv(networks_list, candidates, CANDIDATE_CSV)
-    write_candidate_ouis_json(candidates, CANDIDATE_OUIS_JSON)
+    write_candidate_ouis_json(candidates, CANDIDATE_OUIS_JSON, coverage)
     update_readme(candidates, README_PATH)
     update_index_html(candidates, INDEX_HTML)
+    update_coverage_blocks(coverage, README_PATH, INDEX_HTML)
 
     print()
     print(banner)

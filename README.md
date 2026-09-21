@@ -11,15 +11,40 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** | 146,526 |
+| 📸 **Cameras Mapped** (actionable) | 85,689 |
+| 🔎 *of which SSID-confirmed* | 3,502 |
+| 🛰️ *of which OUI-suspected (high tier)* | 73,963 |
+| 🧩 *of which OUI-suspected (contract-mfr tier)* | 8,224 |
+| 🚫 **Excluded — SSID is other hardware** | 60,837 |
+| 🌍 **Flagged outside the US** | 70,708 |
 | 📡 **OUI Prefixes with Data** | 31 / 38 |
 | 🌎 **Countries** | 138 |
-| 🗺️ **Regions** | 50 |
+| 🗺️ **Regions / provinces (distinct)** | 1,982 |
 | 🕐 **Last Updated** | 2026-09-20 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
-> *Stats update automatically after each scan via GitHub Actions.*
+> *Stats update automatically after each scan via GitHub Actions. “Cameras Mapped” counts only the records that pass evidence classification — the breakdown is below.*
+
+<!-- CONFIDENCE_BREAKDOWN_START -->
+### What the numbers mean
+
+Every published record carries a `confidence` field, because an OUI match on its own is weak evidence. The map and the headline count only the records that survive that classification.
+
+| Confidence | Records | Share | Meaning |
+|------------|---------|-------|---------|
+| `ssid_confirmed` | 3,502 | 2.4% | SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, `Flock Camera net.`, `FS Ext Battery`) — strongest signal passive WiFi can give |
+| `oui_high` | 73,963 | 50.5% | High-confidence Flock OUI, SSID absent/hidden/unrecognised — suspected, unverified |
+| `oui_mfr` | 8,224 | 5.6% | Contract-manufacturer OUI (Liteon/USI) — weakest evidence, expect false positives |
+| `identified_other` | 60,837 | 41.5% | SSID positively identifies other hardware — excluded from the map and from the camera count above |
+| **All records** | **146,526** | 100.0% | |
+
+SSID denylist hits: `clickshare*` 50,278 · `smartgate_*` 6,099 · `direct-*` 3,801 · `androidap*` 629 · `flock alpr [*` 30.
+
+Market: 70,708 records (48.3%) are outside the primary US market and carry `"out_of_market": true`. They are flagged, not deleted — Flock has expanded internationally — so consumers can filter them.
+
+Every record is still *suspected*: the tiers describe the strength of the evidence, not a confirmation from Flock that a device is theirs. See [docs/DATA_POLICY.md](docs/DATA_POLICY.md).
+<!-- CONFIDENCE_BREAKDOWN_END -->
 
 ---
 
@@ -124,10 +149,11 @@ flock-finder/
 ├── scripts/
 │   └── wigle_query.py    # WiGLE API query script
 ├── data/
-│   ├── flock_ouis.csv    # 38 known Flock Safety OUI prefixes
-│   ├── flock_cameras.geojson  # Output: camera locations (GeoJSON)
-│   ├── flock_cameras.csv      # Output: camera locations (CSV)
-│   └── scan_stats.json        # Output: scan statistics
+│   ├── flock_ouis.csv    # 38 known Flock Safety OUI prefixes (canonical, tiers)
+│   ├── flock_cameras.geojson  # GENERATED + published (not committed) — see “Where Is the Data?”
+│   ├── flock_cameras.csv      # GENERATED + published (not committed)
+│   ├── by_oui/                # GENERATED per-OUI splits (not committed)
+│   └── scan_stats.json        # Output: scan + evidence-tier statistics
 ├── docs/
 │   └── index.html        # Interactive web map (Leaflet + dark theme)
 └── .github/
@@ -242,6 +268,16 @@ This section is populated automatically by querying WiGLE for any SSID matching 
 *No candidate OUI prefixes identified yet — SSID-pattern incremental queries are running. Candidate prefixes will appear here once any novel OUI is observed ≥5 times in Flock-SSID-bearing WiGLE records.*
 <!-- CANDIDATE_OUIS_END -->
 
+<!-- SSID_COVERAGE_START -->
+### Camera-class coverage
+
+**LAA-MAC camera class (`Flock Camera net.`): zero records.** No published record has an SSID containing `Flock Camera net.`, so the one camera class that defeats OUI matching entirely (locally-administered MACs — [flock-you issue #43](https://github.com/colonelpanichacks/flock-you/issues/43)) currently has **no coverage at all**. This is a *data* gap, not a pattern gap: the `Flock%` pattern is a prefix match that already covers `Flock Camera net.`, so the search is correct — either no wardrive has passed one of these cameras yet, or they broadcast a hidden SSID. If it stays at zero across several scans, the next widening step is `%Camera net.%` (any prefix before `Camera`), which trades precision for coverage.
+
+**Locally-administered (LAA) records:** 23 — all from `82:6B:F2` (23). That prefix is a confirmed Flock OUI whose first octet happens to set the LAA bit, so it is *not* the anti-fingerprinting class; LAA-randomised cameras remain unrepresented.
+
+**FS Ext Battery pattern:** 0 published record(s) carry an `FS Ext Battery…` SSID — the class the `FS Ext Battery%` discovery pattern was added for.
+<!-- SSID_COVERAGE_END -->
+
 ---
 
 ## ⚙️ GitHub Actions (Automated Updates)
@@ -255,6 +291,31 @@ The included workflow runs daily and auto-commits updated camera data:
 2. The workflow runs at 6 AM UTC daily, or manually via "Run workflow"
 
 3. If new data is found, it commits updated GeoJSON/CSV/stats automatically
+
+---
+
+## 📦 Where Is the Data?
+
+The dataset is **published, not committed**. `flock_cameras.geojson` (~90 MB,
+rewritten in full on every daily scan), `flock_cameras.csv` and the per-OUI
+splits under `data/by_oui/` used to be committed; because each scan rewrites them
+completely, they grew the repository to ~1.6 GB and made it slow to clone. They
+now live in three places instead:
+
+| What | Where |
+|------|-------|
+| Live map (unchanged `/data/…` paths) | the [GitHub Pages site](https://simeononsecurity.github.io/flock-finder/) — the deploy jobs restore the files from the release before publishing |
+| Downloadable dataset | the rolling [`data-latest` release](https://github.com/simeononsecurity/flock-finder/releases/tag/data-latest): `flock_cameras.geojson`, `flock_cameras.csv`, `by_oui.zip` |
+| A local checkout | run `python3 scripts/wigle_query.py` (needs WiGLE credentials), or fetch the published copy: `gh release download data-latest -p 'flock_cameras.geojson' -D data` |
+
+What stays in git are the small, diffable artifacts: `data/flock_ouis.csv` (the
+canonical OUI list), `scan_stats.json`, `candidate_ouis.json` and
+`ssid_candidate_cameras.*`.
+
+> **History note.** Untracking stops the growth; the old blobs are still in
+> history. Reclaiming the existing ~1.6 GB requires a history rewrite
+> (`git filter-repo --path data/flock_cameras.geojson --path data/flock_cameras.csv --path data/by_oui --invert-paths`),
+> which is a maintainer call because it rewrites every commit hash.
 
 ---
 

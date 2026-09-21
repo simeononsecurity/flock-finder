@@ -88,6 +88,52 @@ def validate_ouis(errors: list) -> None:
             errors.append(f"flock_ouis.json: invalid JSON ({exc})")
 
 
+def validate_stats(errors: list) -> None:
+    """
+    Check that scan_stats.json's counts are internally consistent.
+
+    The dataset itself (flock_cameras.geojson / .csv / by_oui/) is published rather
+    than committed, so in PR CI this file is the only artifact that still carries
+    dataset-wide numbers — which makes it the right place to catch a headline that
+    no longer adds up to the records behind it.
+    """
+    path = DATA_DIR / "scan_stats.json"
+    if not path.exists():
+        print("  [i] scan_stats.json not present — skipping")
+        return
+    try:
+        stats = json.loads(path.read_text())
+    except Exception as exc:
+        errors.append(f"scan_stats.json: invalid JSON ({exc})")
+        return
+
+    total = stats.get("total_cameras")
+    by_conf = stats.get("by_confidence")
+    if not isinstance(total, int) or not isinstance(by_conf, dict):
+        print("  [i] scan_stats.json: no confidence breakdown yet — skipping")
+        return
+
+    if sum(by_conf.values()) != total:
+        errors.append(
+            f"scan_stats.json: by_confidence sums to {sum(by_conf.values()):,} but "
+            f"total_cameras is {total:,}"
+        )
+
+    actionable = stats.get("total_actionable")
+    other = by_conf.get("identified_other", 0)
+    if actionable is not None and actionable != total - other:
+        errors.append(
+            f"scan_stats.json: total_actionable {actionable:,} != total_cameras - "
+            f"identified_other ({total - other:,})"
+        )
+    print(
+        f"  [✓] scan_stats.json: {total:,} records, {actionable:,} actionable "
+        f"(breakdown adds up)"
+        if actionable is not None else
+        f"  [✓] scan_stats.json: {total:,} records (breakdown adds up)"
+    )
+
+
 def main() -> int:
     print("Validating Flock Finder data artifacts…")
     errors: list = []
@@ -95,6 +141,7 @@ def main() -> int:
     for sub in sorted((DATA_DIR / "by_oui").glob("*.geojson")):
         validate_geojson(sub, errors)
     validate_ouis(errors)
+    validate_stats(errors)
 
     if errors:
         print("\n[✗] Data validation FAILED:")
