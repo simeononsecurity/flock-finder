@@ -230,5 +230,43 @@
     "GW": 1,
     "GA": 1,
     "BJ": 1
-  }
+  },
+  "total_actionable": 85689,
+  "by_confidence": {
+    "ssid_confirmed": 3502,
+    "oui_high": 73963,
+    "oui_mfr": 8224,
+    "identified_other": 60837
+  },
+  "by_oui_tier": {
+    "high": 119455,
+    "mfr": 27071
+  },
+  "out_of_market": 70708,
+  "confidence_summary": {
+    "total": 146526,
+    "actionable": 85689,
+    "by_confidence": {
+      "ssid_confirmed": 3502,
+      "oui_high": 73963,
+      "oui_mfr": 8224,
+      "identified_other": 60837
+    },
+    "by_oui_tier": {
+      "high": 119455,
+      "mfr": 27071
+    },
+    "out_of_market": 70708,
+    "actionable_out_of_market": 28914,
+    "ssid_denylist_hits": {
+      "clickshare": 50278,
+      "smartgate_": 6099,
+      "direct-": 3801,
+      "androidap": 629,
+      "flock alpr [": 30
+    },
+    "countries": 138,
+    "regions": 1982
+  },
+  "confidence_refreshed": "2026-09-21T07:33:35.792013+00:00"
 }

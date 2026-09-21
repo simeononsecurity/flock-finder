@@ -28,6 +28,22 @@ venv/
 data/scan_state.json
 data/ssid_scan_state.json
 
+# Generated dataset artifacts — deliberately NOT committed.
+#
+# These are machine-generated, rewrite-in-full on every daily scan, and reached
+# ~200 MB in the working tree (a 90 MB combined GeoJSON alone), which made the
+# repository slow to clone and impossible to keep healthy long-term. They are
+# published instead, at the same paths, from two places that already served the
+# website:
+#   * GitHub Pages  → /data/…   (restored from the release by the deploy jobs)
+#   * GitHub Release "data-latest"  → flock_cameras.geojson, flock_cameras.csv,
+#     by_oui.zip     (the canonical download for humans/scripts)
+# The small, diffable, hand-curated artifacts (flock_ouis.csv, scan_stats.json,
+# candidate_ouis.json, …) stay tracked — see README "Where is the data?".
+data/flock_cameras.geojson
+data/flock_cameras.csv
+data/by_oui/
+
 # Logs
 *.log
 

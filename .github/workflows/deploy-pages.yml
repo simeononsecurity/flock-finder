@@ -27,12 +27,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      # The 90 MB dataset is not committed (see .gitignore): restore the current
+      # published copy so the site keeps serving /data/… at the same paths.
+      - name: Restore published dataset from the rolling release
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/fy-dataset
+          gh release download data-latest --repo "$GITHUB_REPOSITORY" --clobber \
+            --pattern 'flock_cameras.geojson' --pattern 'flock_cameras.csv' \
+            --dir /tmp/fy-dataset || true
+          if [ -f /tmp/fy-dataset/flock_cameras.geojson ]; then
+            cp /tmp/fy-dataset/flock_cameras.geojson data/
+          else
+            echo "::warning::No published dataset found — the map will fall back to its inline sample."
+          fi
+          if [ -f /tmp/fy-dataset/flock_cameras.csv ]; then
+            cp /tmp/fy-dataset/flock_cameras.csv data/
+          fi
+
       - name: Prepare pages content
         run: |
           mkdir -p _site
           cp -r docs/* _site/
           cp -r data _site/data
-
       - name: Setup Pages
         uses: actions/configure-pages@v6
 

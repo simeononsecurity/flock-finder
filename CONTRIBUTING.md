@@ -25,24 +25,48 @@ Open a pull request once `ruff`, `pytest`, and `validate_data.py` all pass.
 | Path | Purpose |
 |------|---------|
 | `scripts/wigle_query.py` | Collector: queries WiGLE, merges + writes data |
-| `scripts/validation.py` | Pure, unit-tested validation + data-policy helpers |
-| `scripts/oui_metadata.py` | Loads canonical OUI CSV → generates `flock_ouis.json` |
-| `scripts/validate_data.py` | CI data-integrity / precision checks |
-| `data/flock_ouis.csv` | **Single source of truth** for OUI prefixes |
-| `docs/index.html` | Interactive Leaflet map |
+| `scripts/validation.py` | Pure, unit-tested validation, data-policy **and evidence-tier classification** helpers |
+| `scripts/oui_metadata.py` | Loads canonical OUI CSV (incl. `tier`) → generates `flock_ouis.json` |
+| `scripts/update_confidence_stats.py` | Renders the evidence-tier headline (README stats + site hero chips) from the published CSV; sole writer of that block |
+| `scripts/update_ssid_stats.py` | Renders the SSID top-10 / pattern tables from `data/by_oui/*.csv` |
+| `scripts/ssid_query.py` | SSID-pattern OUI discovery + camera-class coverage reporting |
+| `scripts/validate_data.py` | CI data-integrity / precision / stats-consistency checks |
+| `data/flock_ouis.csv` | **Single source of truth** for OUI prefixes + their tier |
+| `docs/index.html` | Interactive Leaflet map (evidence filter + tier-coloured pins) |
 | `docs/DATA_POLICY.md` | What the data means + corrections process |
 | `docs/DATA_DICTIONARY.md` | Field-level schema reference |
 | `tests/` | Pytest suite |
+
+> **The generated dataset is not committed.** `data/flock_cameras.geojson`,
+> `data/flock_cameras.csv` and `data/by_oui/` are published (site `/data/` +
+> `data-latest` release) because they are rewritten in full on every scan. For
+> local work, run a scan (`scripts/wigle_query.py`, needs WiGLE credentials) or
+> fetch the published copy:
+>
+> ```bash
+> gh release download data-latest -p 'flock_cameras.geojson' -p 'flock_cameras.csv' -D data
+> gh release download data-latest -p 'by_oui.zip' -D /tmp && unzip -o /tmp/by_oui.zip -d data
+> ```
+>
+> Scripts that need the CSV (`update_confidence_stats.py`, `ssid_query.py
+> --coverage-only`) print a clear message and exit non-zero when it is absent.
 
 ## Adding or changing an OUI prefix
 
 1. Edit **only** `data/flock_ouis.csv` (the canonical source). Use lowercase
    `xx:xx:xx` and fill in `source` / `notes`.
-2. Regenerate the JSON mirror: `python3 scripts/oui_metadata.py`.
-3. Run `python3 scripts/validate_data.py` to confirm it's well-formed and in
+2. Set `tier`: `high` for prefixes assigned to Flock Safety or observed
+   exclusively on Flock hardware, `mfr` for contract-manufacturer prefixes
+   (Liteon/USI) that also ship in unrelated products. `mfr` prefixes score lower
+   and are rendered amber on the map.
+3. Regenerate the JSON mirror: `python3 scripts/oui_metadata.py`.
+4. Run `python3 scripts/validate_data.py` to confirm it's well-formed and in
    sync. Do **not** hand-edit `data/flock_ouis.json` or the OUI list in
    `docs/index.html` — the frontend loads the JSON at runtime and falls back to
    an inline copy only if the fetch fails.
+5. If the change affects the headline, re-render it:
+   `python3 scripts/update_confidence_stats.py` (it reads the published CSV and
+   rewrites the README/site blocks — never edit those blocks by hand).
 
 ## Data policy (please read)
 
@@ -56,7 +80,16 @@ See [docs/DATA_POLICY.md](docs/DATA_POLICY.md).
 ## Coding conventions
 
 - **Python**: keep `scripts/validation.py` free of I/O so it stays testable.
-  New parsing/validation logic belongs there with matching tests.
+  New parsing/validation/classification logic belongs there with matching tests.
+- **One writer per generated block**: each comment-marker block in README.md /
+  docs/index.html has exactly one script that renders it (see the table above).
+  Never hand-edit inside those markers — a later run will overwrite it, and the
+  numbers will silently disagree with the data in between.
+- **Classification parity**: the browser classifier in `docs/index.html` must
+  stay equivalent to `validation.classify_confidence()`. It reads the rules from
+  `data/flock_ouis.json`'s `classifier` block (generated from the Python
+  constants) rather than hard-coding them, so adding a pattern in Python is
+  enough — but if the *logic* changes, change both.
 - **Frontend**: escape every WiGLE-sourced value with `escapeHtml(...)` before
   inserting it into the DOM. External links use `rel="noopener noreferrer"`.
 - **Atomic writes**: data files are written via `atomic_write_json` /

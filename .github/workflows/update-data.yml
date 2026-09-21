@@ -58,6 +58,25 @@ jobs:
           restore-keys: |
             scan-state-${{ hashFiles('data/flock_ouis.csv') }}-
 
+      # The 90 MB dataset is not committed (see .gitignore). Restore the current
+      # published copy BEFORE scanning: the collector merges new results into the
+      # existing GeoJSON, so without it a CI run would rebuild the dataset from
+      # only the incremental window and silently lose every older record.
+      - name: Restore published dataset from the rolling release
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/fy-dataset
+          gh release download data-latest --repo "$GITHUB_REPOSITORY" --clobber \
+            --pattern 'flock_cameras.geojson' --dir /tmp/fy-dataset || true
+          if [ -f /tmp/fy-dataset/flock_cameras.geojson ]; then
+            cp /tmp/fy-dataset/flock_cameras.geojson data/
+            echo "[i] restored $(du -h data/flock_cameras.geojson | cut -f1) of existing data"
+          else
+            echo "[i] no published dataset yet — this run starts from scratch"
+          fi
+
       - name: Query WiGLE for Flock cameras (incremental)
         env:
           WIGLE_API_NAME: ${{ secrets.WIGLE_API_NAME }}
@@ -81,6 +100,32 @@ jobs:
           WIGLE_API_TOKEN: ${{ secrets.WIGLE_API_TOKEN }}
         run: python3 scripts/ssid_query.py
 
+      # Render the evidence-tier headline (README stats + website hero chips) from
+      # the CSV the scan just wrote. Single writer of those blocks — the collector
+      # no longer renders them itself (see the note in scripts/wigle_query.py).
+      - name: Render confidence headline from the dataset
+        run: python3 scripts/update_confidence_stats.py
+
+      # Validate the freshly generated artifacts while they are present in this
+      # job — the big files are not committed, so PR CI can only validate the
+      # small tracked ones (see .github/workflows/ci.yml).
+      - name: Validate generated data artifacts
+        run: python3 scripts/validate_data.py
+
+      # Publish the generated dataset (deliberately not committed — see
+      # .gitignore) so the website and downstream consumers keep getting it.
+      - name: Publish dataset to the rolling release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          (cd data && zip -qr /tmp/by_oui.zip by_oui)
+          gh release view data-latest --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
+            gh release create data-latest --repo "$GITHUB_REPOSITORY" \
+              --title "Flock Finder dataset (rolling)" \
+              --notes "Machine-generated dataset, rebuilt by .github/workflows/update-data.yml and intentionally not stored in git (see README: 'Where is the data?'). Assets: flock_cameras.geojson (combined), flock_cameras.csv (same records, flat), by_oui.zip (per-OUI splits)."
+          gh release upload data-latest --repo "$GITHUB_REPOSITORY" --clobber \
+            data/flock_cameras.geojson data/flock_cameras.csv /tmp/by_oui.zip
+
       - name: Check for data changes
         id: check
         run: |
@@ -91,8 +136,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/flock_cameras.geojson data/flock_cameras.csv data/scan_stats.json \
-                  data/flock_ouis.json data/by_oui/ \
+          # Only the small, diffable artifacts are committed. The dataset itself
+          # (flock_cameras.geojson / .csv / by_oui/) is published to the rolling
+          # release above and served from Pages — committing a full-rewrite
+          # snapshot every day is what grew this repo to 1.6 GB.
+          git add data/scan_stats.json data/flock_ouis.csv data/flock_ouis.json \
                   data/ssid_candidate_cameras.geojson data/ssid_candidate_cameras.csv \
                   data/candidate_ouis.json \
                   README.md docs/index.html
@@ -106,10 +154,12 @@ jobs:
   deploy-pages:
     needs: update
     runs-on: ubuntu-latest
-    # Pages deployment needs to write Pages + mint an OIDC token, nothing more.
+    # Pages deployment needs to write Pages + mint an OIDC token, plus read a
+    # release asset (the dataset is published, not committed — see .gitignore).
     permissions:
       pages: write
       id-token: write
+      contents: read
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -123,12 +173,27 @@ jobs:
       - name: Pull latest changes
         run: git pull origin main || true
 
+      # The dataset is not committed (see .gitignore) — restore the published copy
+      # from the rolling release so Pages keeps serving /data/… unchanged.
+      - name: Restore published dataset from the rolling release
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/fy-dataset
+          gh release download data-latest --repo "$GITHUB_REPOSITORY" --clobber \
+            --pattern 'flock_cameras.geojson' --pattern 'flock_cameras.csv' \
+            --dir /tmp/fy-dataset || true
+          for f in flock_cameras.geojson flock_cameras.csv; do
+            if [ -f "/tmp/fy-dataset/$f" ]; then cp "/tmp/fy-dataset/$f" data/; fi
+          done
+          ls -la data/ | head -20
+
       - name: Prepare pages content
         run: |
           mkdir -p _site
           cp -r docs/* _site/
           cp -r data _site/data
-
       - name: Setup Pages
         uses: actions/configure-pages@v6
 

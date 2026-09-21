@@ -23,6 +23,9 @@ For this reason:
 - The combined dataset's top-level properties include
   `"match_confidence": "suspected"`.
 - The map popups say **"Suspected Flock Camera — Unconfirmed."**
+- Every record also carries a `confidence` **evidence tier** (see §8) so
+  consumers can tell a Flock-named SSID apart from a bare OUI hit — and tell
+  both apart from a record whose own SSID identifies other hardware.
 
 Do not treat this as an authoritative inventory or as evidence about any
 specific address or person.
@@ -40,7 +43,12 @@ timestamps may be months or years old. It is not a live feed.
 
 The canonical OUI list lives in [`data/flock_ouis.csv`](../data/flock_ouis.csv)
 and is mirrored to `data/flock_ouis.json` for the web frontend by
-`scripts/oui_metadata.py`.
+`scripts/oui_metadata.py`. Each prefix carries a `tier` (`high` | `mfr`) — see §8.
+
+The generated dataset (`flock_cameras.geojson`, `flock_cameras.csv`, `by_oui/`)
+is **published rather than committed** and is served from the site's `/data/`
+paths and from the `data-latest` release; see the README section
+*"Where Is the Data?"* for the download commands and the reasoning.
 
 ## 3. Coordinate precision
 
@@ -102,3 +110,43 @@ Two related notes:
   earlier SSID searches. SSID matches never enter `flock_ouis.csv` on their own;
   they only surface **candidate** prefixes awaiting field verification (see the
   README's *SSID-Discovery: Candidate OUI Prefixes* section).
+
+## 8. Evidence tiers, exclusions and the market flag
+
+An OUI match is weak evidence on its own — OUIs belong to chipset and contract
+manufacturers, so unrelated hardware shares the same MAC space. Every published
+record therefore carries a `confidence` field, and the headline counts only the
+records that survive that classification. Data dictionary entries for these
+fields live in [DATA_DICTIONARY.md](DATA_DICTIONARY.md).
+
+| `confidence` | Meaning |
+|--------------|---------|
+| `ssid_confirmed` | The SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, `FLOCK-XXXXXX`, `Flock Camera net.`, `FS Ext Battery…`). The strongest signal passive WiFi can give. |
+| `oui_high` | High-confidence Flock OUI; SSID absent, hidden or unrecognised. Suspected, unverified. |
+| `oui_mfr` | Contract-manufacturer OUI (Liteon/USI) that also ships in unrelated products. Weakest evidence. |
+| `identified_other` | The SSID positively identifies other hardware, so the OUI match is spurious. Excluded from the map by default and from the camera counts. |
+
+`identified_other` is produced by a **denylist of SSIDs** that prove the record
+is something else — `ClickShare*` (Barco presentation units), `SMARTGATE_*`
+(gateway/intercom APs), `DIRECT-*` (consumer TV adapters), `AndroidAP` (phone
+hotspots) and `Flock ALPR [*`. That last pattern is *wardriving-tool verdict
+text* stored in the SSID field (e.g. `Flock ALPR [wifi_receiver_oui;low]`), not
+a broadcast from a camera; it contains the word "flock", so it is denylisted
+ahead of the confirmation patterns — otherwise it would be counted as
+SSID-confirmed.
+
+Denylisting is a *classification*, not a deletion: the records remain in
+`flock_cameras.geojson` with `"confidence": "identified_other"`, they are simply
+hidden by default and excluded from the headline. The map's evidence filter can
+show them again, greyed out.
+
+**Market flag.** Records outside `PRIMARY_MARKET_COUNTRIES` (currently `US`) carry
+`"out_of_market": true`. They are flagged rather than deleted, because Flock has
+expanded internationally and hiding evidence would be worse than labelling it.
+Roughly half of the OUI-matched records fall outside the US, which is itself a
+signal that many of them are unrelated hardware rather than an argument for
+deleting them.
+
+Neither the tiers nor the market flag change what a record *is*: every record
+remains **suspected**, and the tiers describe the strength of the evidence, not a
+confirmation from Flock that a device is theirs.
