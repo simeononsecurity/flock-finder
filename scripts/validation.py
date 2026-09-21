@@ -168,29 +168,60 @@ SSID_CONFIRM_PATTERNS = (
     "fs ext battery",
 )
 
-# SSID substrings that *contradict* a Flock match — the record is provably some
-# other device that happens to share the OUI space. Checked BEFORE
-# SSID_CONFIRM_PATTERNS, which is what the last entry depends on.
-SSID_DENYLIST_PATTERNS = (
-    "clickshare",     # Barco ClickShare wireless presentation units
-    "smartgate_",     # SMARTGATE_###### gateway / intercom APs
-    "direct-",        # DIRECT-xx consumer set-top / TV adapters
-    "androidap",      # Android phone hotspots
-    "flock alpr [",   # wardriving-tool verdict text, e.g.
-                      # "Flock ALPR [wifi_receiver_oui;low]" — a tool's own
-                      # classification copied into the SSID field, NOT a camera
-                      # broadcast. It contains "flock", so it must be denylisted
-                      # ahead of the confirm patterns or it would be counted as
-                      # SSID-confirmed.
+# SSID rules that *contradict* a Flock match — the record is provably some other
+# device that happens to share the OUI space. Checked BEFORE the confirm
+# patterns, which is what the last rule depends on.
+#
+# Each rule is (label, regex, why). Regexes (case-insensitive, matched against
+# the whole SSID) rather than plain substrings, because the detector-verdict rule
+# has to catch every spelling variant of another tool's output, not one literal
+# prefix — see the evidence on that rule below.
+SSID_DENYLIST_RULES = (
+    ("clickshare", r"clickshare",
+     "Barco ClickShare wireless presentation units"),
+    ("smartgate_", r"smartgate_",
+     "SMARTGATE_###### gateway / intercom APs"),
+    ("direct-", r"direct-",
+     "DIRECT-xx consumer set-top / TV adapters"),
+    ("androidap", r"androidap",
+     "Android phone hotspots"),
+    ("audi hud", r"audi\s*hud",
+     "Audi head-up-display WiFi (car infotainment)"),
+    ("max-printer", r"max[\s-]*printer",
+     "MAX-PRINTER office printers"),
+    # DETECTOR OUTPUT INGESTED AS DATA. Another tool's verdict string was written
+    # into the SSID column and uploaded to WiGLE, so these records are not
+    # observations of a camera at all — they are a downstream copy of a
+    # detection. Observed variants (all 30 in Texas, 26 tagged "low" and 4
+    # "medium" by the originating tool):
+    #     Flock ALPR [flock_receiver_oui;low]
+    #     Flock ALPR [wifi_receiver_oui;low]
+    #     Flock ALPR [wifi_bssid_oui;low]
+    #     Flock ALPR [wifi_hidden_ssid_oui;low]
+    #     Flock ALPR [wifi_oui_wildcard_probe;medium]
+    # No Flock camera broadcasts an SSID beginning "Flock ALPR", and they contain
+    # "flock", so without this rule they would be counted as SSID-confirmed —
+    # i.e. the project would be scoring a detector's opinion as evidence.
+    ("detector_verdict", r"^\s*flock[\s_-]*alpr\b",
+     "another detector's verdict string stored in the SSID field"),
 )
 
-SSID_DENYLIST_NOTES = {
-    "clickshare": "Barco ClickShare presentation hardware",
-    "smartgate_": "SMARTGATE_###### gateway / intercom APs",
-    "direct-": "DIRECT-xx consumer set-top / TV adapters",
-    "androidap": "Android phone hotspots",
-    "flock alpr [": "wardriving-tool verdict text stored in the SSID field",
-}
+# Labels only, in rule order (back-compat for callers/tests that just want the
+# set of reasons, and what the frontend publishes).
+SSID_DENYLIST_PATTERNS = tuple(label for label, _regex, _why in SSID_DENYLIST_RULES)
+
+SSID_DENYLIST_NOTES = {label: why for label, _regex, why in SSID_DENYLIST_RULES}
+
+# Compiled once — classify_confidence() runs for every record on every scan.
+_DENYLIST_REGEXES = tuple(
+    (label, re.compile(regex, re.IGNORECASE)) for label, regex, _why in SSID_DENYLIST_RULES
+)
+
+# The verdict tag a detector-verdict SSID carries, e.g. ";low" in
+# "Flock ALPR [wifi_receiver_oui;low]". Reported in the headline breakdown so
+# readers can see that most of these records were low-confidence guesses by the
+# tool that produced them.
+_VERDICT_TAG_RE = re.compile(r";\s*(low|medium|high)\b", re.IGNORECASE)
 
 # Countries where Flock Safety is known to operate in volume. Records outside
 # this set are *flagged* (`out_of_market`), never dropped: Flock has expanded
@@ -214,17 +245,32 @@ def is_valid_tier(tier: str) -> bool:
 
 def ssid_denylist_match(ssid: str) -> str:
     """
-    Return the denylist pattern matched by `ssid`, or '' if none matched.
+    Return the denylist *label* matched by `ssid`, or '' if none matched.
 
-    The SSID is lowercased first, so callers may pass WiGLE's original casing.
+    Matching is case-insensitive and regex-based (see SSID_DENYLIST_RULES), so
+    spelling variants of another tool's output cannot slip through.
     """
     if not ssid:
         return ""
-    low = ssid.strip().lower()
-    for pattern in SSID_DENYLIST_PATTERNS:
-        if pattern in low:
-            return pattern
+    for label, regex in _DENYLIST_REGEXES:
+        if regex.search(ssid):
+            return label
     return ""
+
+
+def ssid_tool_verdict(ssid: str) -> str:
+    """
+    Return the confidence tag a detector-verdict SSID carries, else ''.
+
+    Only meaningful for records whose SSID is another tool's output, e.g.
+    "Flock ALPR [wifi_receiver_oui;low]" -> "low". Published so the evidence can
+    show that these records were mostly low-confidence guesses by the tool that
+    produced them, not observations.
+    """
+    if ssid_denylist_match(ssid) != "detector_verdict":
+        return ""
+    match = _VERDICT_TAG_RE.search(ssid)
+    return match.group(1).lower() if match else ""
 
 
 def ssid_confirms_flock(ssid: str) -> bool:
@@ -291,6 +337,10 @@ def annotate_record(record: dict, oui_tier_map: dict = None) -> dict:
     record["oui_tier"] = tier
     record["confidence"] = classify_confidence(record.get("ssid") or "", tier)
     record["out_of_market"] = is_out_of_market(record.get("country"))
+    # Why the record was excluded from the map, when it was — so a reader (or a
+    # filter) can tell "a ClickShare dongle" from "another tool's output" without
+    # re-deriving it. Empty string for anything that is not identified_other.
+    record["blocked_reason"] = ssid_denylist_match(record.get("ssid") or "")
     return record
 
 
@@ -314,6 +364,8 @@ def summarize_confidence(records) -> dict:
           "out_of_market": 70708,
           "actionable_out_of_market": 28914,
           "ssid_denylist_hits": {"clickshare": 50278, ...},
+          "ssid_tool_verdicts": {"low": 26, "medium": 4},   # detector output only
+          "by_oui_confidence": {"70:C9:4E": {"oui_high": 362, ...}, ...},
           "countries": 138,
           "regions": 50,
         }
@@ -321,6 +373,8 @@ def summarize_confidence(records) -> dict:
     by_confidence = {label: 0 for label in CONFIDENCE_LEVELS}
     by_oui_tier = {tier: 0 for tier in OUI_TIERS}
     denylist_hits = {pattern: 0 for pattern in SSID_DENYLIST_PATTERNS}
+    tool_verdicts = {}
+    by_oui_confidence = {}
     out_of_market = 0
     actionable_out_of_market = 0
     countries, regions = set(), set()
@@ -332,6 +386,7 @@ def summarize_confidence(records) -> dict:
         total += 1
 
         ssid = record.get("ssid") or ""
+        oui = (record.get("oui_match") or record.get("oui") or "").upper()
         tier = record.get("oui_tier") or OUI_TIER_DEFAULT
         if not is_valid_tier(tier):
             tier = OUI_TIER_DEFAULT
@@ -343,9 +398,20 @@ def summarize_confidence(records) -> dict:
         by_confidence[confidence] += 1
         by_oui_tier[tier] += 1
 
+        # Per-prefix breakdown: the audit's point is that prefixes differ wildly in
+        # signal-to-noise (one prefix's records are 70% ClickShare, another's are
+        # almost all Flock-SSID), so publish the measurement instead of leaving it
+        # for a reader to re-derive from the raw dataset.
+        if oui:
+            bucket = by_oui_confidence.setdefault(oui, {})
+            bucket[confidence] = bucket.get(confidence, 0) + 1
+
         matched = ssid_denylist_match(ssid)
         if matched:
             denylist_hits[matched] += 1
+            if matched == "detector_verdict":
+                tag = ssid_tool_verdict(ssid) or "untagged"
+                tool_verdicts[tag] = tool_verdicts.get(tag, 0) + 1
 
         country = (record.get("country") or "").strip().upper()
         if country:
@@ -364,11 +430,13 @@ def summarize_confidence(records) -> dict:
         "actionable": total - by_confidence[CONFIDENCE_IDENTIFIED_OTHER],
         "by_confidence": dict(by_confidence),
         "by_oui_tier": dict(by_oui_tier),
+        "by_oui_confidence": {oui: dict(counts) for oui, counts in sorted(by_oui_confidence.items())},
         "out_of_market": out_of_market,
         "actionable_out_of_market": actionable_out_of_market,
         "ssid_denylist_hits": {
             pattern: hits for pattern, hits in denylist_hits.items() if hits
         },
+        "ssid_tool_verdicts": tool_verdicts,
         "countries": len(countries),
         "regions": len(regions),
     }

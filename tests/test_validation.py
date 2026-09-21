@@ -27,6 +27,7 @@ from validation import (  # noqa: E402
     oui_from_netid,
     ssid_confirms_flock,
     ssid_denylist_match,
+    ssid_tool_verdict,
     summarize_confidence,
     validate_record,
 )
@@ -148,20 +149,45 @@ def test_ssid_denylist_proves_other_hardware():
     assert ssid_denylist_match("SMARTGATE_712638") == "smartgate_"
     assert ssid_denylist_match("DIRECT-4a-HP Printer") == "direct-"
     assert ssid_denylist_match("AndroidAP_1234") == "androidap"
+    assert ssid_denylist_match("Audi HUD") == "audi hud"
+    assert ssid_denylist_match("MAX-PRINTER") == "max-printer"
     assert ssid_denylist_match("") == ""
     assert ssid_denylist_match("Flock Camera net.") == ""
 
 
-def test_denylist_beats_confirm_patterns_on_flock_alpr_tool_text():
+def test_denylist_rules_are_regex_not_literal():
+    """A new spelling of a known non-camera SSID must not slip through."""
+    assert ssid_denylist_match("audi  hud") == "audi hud"          # extra space
+    assert ssid_denylist_match("MAX PRINTER 2") == "max-printer"   # space, no dash
+    assert ssid_denylist_match("max-printer") == "max-printer"
+
+
+def test_every_observed_detector_verdict_variant_is_excluded():
     """
-    "Flock ALPR [wifi_receiver_oui;low]" is wardriving-tool verdict text stored in
-    the SSID field, not a camera broadcast. It contains "flock", so the denylist
-    must be consulted first or these records inflate the SSID-confirmed count.
+    These 30 SSIDs are another tool's verdict string, uploaded to WiGLE and then
+    ingested by this collector. All five spellings that exist in the published
+    data must be caught by the regex, not just the one literal prefix.
     """
-    tool_text = "Flock ALPR [wifi_receiver_oui;low]"
-    assert ssid_denylist_match(tool_text) == "flock alpr ["
-    assert not ssid_confirms_flock(tool_text)
-    assert classify_confidence(tool_text) == CONFIDENCE_IDENTIFIED_OTHER
+    variants = {
+        "Flock ALPR [flock_receiver_oui;low]": "low",
+        "Flock ALPR [wifi_receiver_oui;low]": "low",
+        "Flock ALPR [wifi_bssid_oui;low]": "low",
+        "Flock ALPR [wifi_hidden_ssid_oui;low]": "low",
+        "Flock ALPR [wifi_oui_wildcard_probe;medium]": "medium",
+    }
+    for ssid, expected_tag in variants.items():
+        assert ssid_denylist_match(ssid) == "detector_verdict", ssid
+        assert ssid_tool_verdict(ssid) == expected_tag, ssid
+        assert not ssid_confirms_flock(ssid), ssid
+        assert classify_confidence(ssid) == CONFIDENCE_IDENTIFIED_OTHER, ssid
+
+    # Future spellings with different brackets/spacing are covered too.
+    assert ssid_denylist_match("Flock-ALPR (wifi_receiver_oui;high)") == "detector_verdict"
+    assert ssid_denylist_match("  FLOCK_ALPR [x;low]") == "detector_verdict"
+    # ...but a real camera SSID is not, and only verdict strings have a tag.
+    assert ssid_denylist_match("Flock Camera net.") == ""
+    assert ssid_tool_verdict("Flock") == ""
+    assert ssid_tool_verdict("ClickShare") == ""
 
 
 def test_ssid_confirms_flock_patterns():
@@ -208,6 +234,14 @@ def test_annotate_record_stamps_all_three_fields():
     assert rec["oui_tier"] == OUI_TIER_MFR
     assert rec["confidence"] == CONFIDENCE_IDENTIFIED_OTHER
     assert rec["out_of_market"] is True
+    # The reason travels with the record so the exclusion is auditable.
+    assert rec["blocked_reason"] == "clickshare"
+
+
+def test_annotate_record_leaves_blocked_reason_empty_when_actionable():
+    rec = {"ssid": "Flock", "oui_match": "70:C9:4E", "country": "US"}
+    annotate_record(rec, {"70:C9:4E": "high"})
+    assert rec["blocked_reason"] == ""
 
 
 def test_annotate_record_recomputes_a_stale_confidence():
@@ -242,7 +276,18 @@ def test_summarize_confidence_counts_and_totals():
     assert summary["actionable"] == 3
     assert summary["out_of_market"] == 1
     assert summary["actionable_out_of_market"] == 0
-    assert summary["ssid_denylist_hits"] == {"clickshare": 1, "flock alpr [": 1}
+    assert summary["ssid_denylist_hits"] == {"clickshare": 1, "detector_verdict": 1}
+    assert summary["ssid_tool_verdicts"] == {"low": 1}
+    # Per-prefix measurement, used for the README's signal table.
+    assert summary["by_oui_confidence"]["70:C9:4E"] == {
+        CONFIDENCE_SSID_CONFIRMED: 1,
+        CONFIDENCE_OUI_HIGH: 1,
+        CONFIDENCE_IDENTIFIED_OTHER: 1,
+    }
+    assert summary["by_oui_confidence"]["F4:6A:DD"] == {
+        CONFIDENCE_OUI_MFR: 1,
+        CONFIDENCE_IDENTIFIED_OTHER: 1,
+    }
     assert summary["countries"] == 2
 
 

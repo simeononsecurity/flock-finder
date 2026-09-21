@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-21T07:21:53.415778+00:00",
+  "generated": "2026-09-21T07:42:39.968045+00:00",
   "description": "Canonical list of SUSPECTED Flock Safety WiFi OUI prefixes. An OUI match is a heuristic, not a confirmation.",
   "match_confidence": "suspected",
-  "total": 38,
+  "total": 39,
   "total_by_tier": {
     "high": 33,
-    "mfr": 5
+    "mfr": 6
   },
   "tiers": {
     "levels": [
@@ -41,14 +41,55 @@
       "smartgate_",
       "direct-",
       "androidap",
-      "flock alpr ["
+      "audi hud",
+      "max-printer",
+      "detector_verdict"
+    ],
+    "ssid_denylist_rules": [
+      {
+        "label": "clickshare",
+        "regex": "clickshare",
+        "why": "Barco ClickShare wireless presentation units"
+      },
+      {
+        "label": "smartgate_",
+        "regex": "smartgate_",
+        "why": "SMARTGATE_###### gateway / intercom APs"
+      },
+      {
+        "label": "direct-",
+        "regex": "direct-",
+        "why": "DIRECT-xx consumer set-top / TV adapters"
+      },
+      {
+        "label": "androidap",
+        "regex": "androidap",
+        "why": "Android phone hotspots"
+      },
+      {
+        "label": "audi hud",
+        "regex": "audi\\s*hud",
+        "why": "Audi head-up-display WiFi (car infotainment)"
+      },
+      {
+        "label": "max-printer",
+        "regex": "max[\\s-]*printer",
+        "why": "MAX-PRINTER office printers"
+      },
+      {
+        "label": "detector_verdict",
+        "regex": "^\\s*flock[\\s_-]*alpr\\b",
+        "why": "another detector's verdict string stored in the SSID field"
+      }
     ],
     "ssid_denylist_notes": {
-      "clickshare": "Barco ClickShare presentation hardware",
+      "clickshare": "Barco ClickShare wireless presentation units",
       "smartgate_": "SMARTGATE_###### gateway / intercom APs",
       "direct-": "DIRECT-xx consumer set-top / TV adapters",
       "androidap": "Android phone hotspots",
-      "flock alpr [": "wardriving-tool verdict text stored in the SSID field"
+      "audi hud": "Audi head-up-display WiFi (car infotainment)",
+      "max-printer": "MAX-PRINTER office printers",
+      "detector_verdict": "another detector's verdict string stored in the SSID field"
     },
     "primary_market_countries": [
       "US"
@@ -57,307 +98,354 @@
   "ouis": [
     {
       "oui": "70:C9:4E",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "3C:91:80",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "D8:F3:BC",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "80:30:49",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "B8:35:32",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "unknown (absent from IEEE registry snapshot)"
     },
     {
       "oui": "14:5A:FC",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "74:4C:A1",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "08:3A:88",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Universal Global Scientific Industrial Co., Ltd."
     },
     {
       "oui": "9C:2F:9D",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "C0:35:32",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "94:08:53",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "E4:AA:EA",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "F4:6A:DD",
-      "vendor_context": "Liteon Technology (contract manufacturer)",
+      "vendor_context": "Contract-manufacturer silicon (shared with unrelated products)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "mfr"
+      "tier": "mfr",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "F8:A2:D6",
-      "vendor_context": "Liteon Technology (contract manufacturer)",
+      "vendor_context": "Contract-manufacturer silicon (shared with unrelated products)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "mfr"
+      "tier": "mfr",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "24:B2:B9",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "00:F4:8D",
-      "vendor_context": "Universal Scientific Industrial (USI) - contract manufacturer",
+      "vendor_context": "Contract-manufacturer silicon (shared with unrelated products)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "mfr"
+      "tier": "mfr",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "D0:39:57",
-      "vendor_context": "Universal Scientific Industrial (USI) - contract manufacturer",
+      "vendor_context": "Contract-manufacturer silicon (shared with unrelated products)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "mfr"
+      "tier": "mfr",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "E8:D0:FC",
-      "vendor_context": "Universal Scientific Industrial (USI) - contract manufacturer",
+      "vendor_context": "Contract-manufacturer silicon (shared with unrelated products)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "mfr"
+      "tier": "mfr",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "E0:4F:43",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Universal Global Scientific Industrial Co., Ltd."
     },
     {
       "oui": "B8:1E:A4",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "70:08:94",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "58:8E:81",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "EC:1B:BD",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "3C:71:BF",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Espressif Inc."
     },
     {
       "oui": "58:00:E3",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "90:35:EA",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "5C:93:A2",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "64:6E:69",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Liteon Technology Corporation"
     },
     {
       "oui": "48:27:EA",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Samsung Electronics Co.,Ltd"
     },
     {
       "oui": "A4:CF:12",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
       "notes": "promiscuous-mode research",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Espressif Inc."
     },
     {
       "oui": "82:6B:F2",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock camera radio (field-observed)",
       "detection_protocol": "WiFi 2.4 GHz (wildcard probe)",
       "source": "Michael / DeFlockJoplin",
       "notes": "field-test Joplin - 12th camera OUI",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "locally administered (no IEEE assignment)"
     },
     {
       "oui": "B4:1E:52",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Flock Safety (direct IEEE registration)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
       "notes": "direct IEEE registration to Flock Safety",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Flock Safety"
     },
     {
       "oui": "04:0D:84",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "FS Ext Battery accessory series",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
       "notes": "FS Ext Battery accessory series",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "F0:82:C0",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "FS Ext Battery accessory series",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
       "notes": "FS Ext Battery accessory series",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "1C:34:F1",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "FS Ext Battery accessory series",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
       "notes": "FS Ext Battery accessory series",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "38:5B:44",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "FS Ext Battery accessory series",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
       "notes": "FS Ext Battery accessory series",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "94:34:69",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "FS Ext Battery accessory series",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
       "notes": "FS Ext Battery accessory series",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
     },
     {
       "oui": "B4:E3:F9",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "FS Ext Battery accessory series",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
       "notes": "FS Ext Battery accessory series",
-      "tier": "high"
+      "tier": "high",
+      "vendor": "Silicon Laboratories"
+    },
+    {
+      "oui": "E0:0A:F6",
+      "vendor_context": "Contract-manufacturer silicon (shared with unrelated products)",
+      "detection_protocol": "WiFi 2.4 GHz",
+      "source": "dougborg/PR#39",
+      "notes": "added dougborg/PR#39 - USI per the upstream comment, Liteon per the IEEE registry; contract manufacturer either way",
+      "tier": "mfr",
+      "vendor": "Liteon Technology Corporation"
     }
   ]
 }

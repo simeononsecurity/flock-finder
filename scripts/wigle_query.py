@@ -153,6 +153,8 @@ FLOCK_OUIS_FALLBACK = [
     # FS Ext Battery device series (dougborg/PR#39)
     "04:0D:84", "F0:82:C0", "1C:34:F1", "38:5B:44", "94:34:69",
     "B4:E3:F9",
+    # Contract-manufacturer silicon (dougborg/PR#39); mfr tier in the CSV
+    "E0:0A:F6",
 ]
 
 
@@ -607,6 +609,8 @@ def annotate_records(records: dict) -> dict:
         confidence     "ssid_confirmed" | "oui_high" | "oui_mfr" | "identified_other"
         oui_tier       "high" | "mfr"           (from data/flock_ouis.csv)
         out_of_market  bool                     (outside PRIMARY_MARKET_COUNTRIES)
+        blocked_reason which denylist rule identified the record as other hardware
+                       (empty unless confidence == "identified_other")
 
     Runs over the *merged* record set immediately before writing, so records
     carried over from a previous scan — which were loaded back without these
@@ -662,6 +666,7 @@ def write_geojson(records: dict, output_path: Path) -> None:
                 "confidence": net.get("confidence", ""),
                 "oui_tier": net.get("oui_tier", ""),
                 "out_of_market": bool(net.get("out_of_market", False)),
+                "blocked_reason": net.get("blocked_reason", ""),
                 "channel": net.get("channel"),
                 "encryption": net.get("encryption", ""),
                 "firsttime": net.get("firsttime", ""),
@@ -727,7 +732,7 @@ def write_csv(records: dict, output_path: Path) -> None:
         "city", "region", "country", "road", "postalcode",
         # Evidence fields — see validation.annotate_record(). Written last so any
         # positional consumer of the historical columns keeps working.
-        "confidence", "oui_tier", "out_of_market",
+        "confidence", "oui_tier", "out_of_market", "blocked_reason",
     ]
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -780,6 +785,7 @@ def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
                     "confidence": net.get("confidence", ""),
                     "oui_tier": net.get("oui_tier", ""),
                     "out_of_market": bool(net.get("out_of_market", False)),
+                    "blocked_reason": net.get("blocked_reason", ""),
                     "channel": net.get("channel"),
                     "encryption": net.get("encryption", ""),
                     "firsttime": net.get("firsttime", ""),
@@ -833,7 +839,7 @@ def write_csv_per_oui(records: dict, output_dir: Path) -> None:
         "netid", "ssid", "trilat", "trilong", "oui_match",
         "channel", "encryption", "firsttime", "lasttime",
         "city", "region", "country", "road", "postalcode",
-        "confidence", "oui_tier", "out_of_market",
+        "confidence", "oui_tier", "out_of_market", "blocked_reason",
     ]
 
     written = 0

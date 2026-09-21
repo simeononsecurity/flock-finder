@@ -31,6 +31,7 @@ from validation import (
     SSID_CONFIRM_PATTERNS,
     SSID_DENYLIST_NOTES,
     SSID_DENYLIST_PATTERNS,
+    SSID_DENYLIST_RULES,
     is_valid_oui,
     is_valid_tier,
     normalize_oui,
@@ -82,6 +83,10 @@ def load_oui_metadata(csv_path: Path = None) -> list[dict]:
                 "source": (row.get("source") or "").strip(),
                 "notes": (row.get("notes") or "").strip(),
                 "tier": tier if is_valid_tier(tier) else OUI_TIER_DEFAULT,
+                # IEEE registrant resolved from a registry snapshot — the OUI
+                # belongs to this vendor, which is usually NOT Flock Safety (see
+                # vendor_context for the role the prefix actually plays).
+                "vendor": (row.get("vendor") or "").strip(),
             })
     return entries
 
@@ -131,6 +136,13 @@ def write_oui_json(entries: list[dict] = None, json_path: Path = None) -> Path:
             "descriptions": {lvl: CONFIDENCE_DESCRIPTIONS[lvl] for lvl in CONFIDENCE_LEVELS},
             "ssid_confirm_patterns": list(SSID_CONFIRM_PATTERNS),
             "ssid_denylist_patterns": list(SSID_DENYLIST_PATTERNS),
+            # The actual rules, in order: label + regex + reason. The browser
+            # compiles these, so a record cannot be excluded in Python but counted
+            # in JavaScript (or vice versa).
+            "ssid_denylist_rules": [
+                {"label": label, "regex": regex, "why": why}
+                for label, regex, why in SSID_DENYLIST_RULES
+            ],
             "ssid_denylist_notes": {
                 pat: SSID_DENYLIST_NOTES[pat] for pat in SSID_DENYLIST_PATTERNS
             },
