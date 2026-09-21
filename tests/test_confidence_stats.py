@@ -41,9 +41,17 @@ SUMMARY = {
         CONFIDENCE_IDENTIFIED_OTHER: 150,
     },
     "by_oui_tier": {"high": 750, "mfr": 100},
+    # Per-prefix measurement. (These three are a subset of the fixture's 1,000
+    # records — the rest belong to prefixes below the 200-record display floor.)
+    "by_oui_confidence": {
+        "70:C9:4E": {CONFIDENCE_SSID_CONFIRMED: 240, CONFIDENCE_OUI_HIGH: 160},
+        "F4:6A:DD": {CONFIDENCE_OUI_MFR: 20, CONFIDENCE_IDENTIFIED_OTHER: 480},
+        "A4:CF:12": {CONFIDENCE_OUI_HIGH: 300},
+    },
     "out_of_market": 400,
     "actionable_out_of_market": 300,
-    "ssid_denylist_hits": {"clickshare": 120, "flock alpr [": 30},
+    "ssid_denylist_hits": {"clickshare": 120, "detector_verdict": 30},
+    "ssid_tool_verdicts": {"low": 26, "medium": 4},
     "countries": 12,
     "regions": 40,
 }
@@ -66,9 +74,30 @@ def test_breakdown_lists_every_tier_with_shares():
         assert f"`{label}`" in block
     assert "| **All records** | **1,000** | 100.0% | |" in block
     assert "`clickshare*` 120" in block      # denylist evidence is quoted
-    assert "`flock alpr [*` 30" in block     # self-referential tool text named
+    assert "`detector_verdict*` 30" in block
     assert "40.0%" in block                  # out-of-market share
     assert "suspected" in block              # policy caveat survives rendering
+
+
+def test_breakdown_calls_out_detector_output_with_its_verdict_tags():
+    block = render_breakdown_md(SUMMARY)
+    assert "Detector output ingested as data" in block
+    assert "another detector's verdict string" in block
+    assert "`low` 26" in block
+    assert "`medium` 4" in block
+
+
+def test_breakdown_measures_prefixes_three_ways():
+    block = render_breakdown_md(SUMMARY)
+    # F4:6A:DD is 96% other-hardware in the fixture → noisy table.
+    assert "| `F4:6A:DD` | 500 | 0 | 480 (96%) |" in block
+    # 70:C9:4E is 60% SSID-confirmed → the contrast line.
+    assert "`70:C9:4E` (60% SSID-confirmed, 240 of 400 records)" in block
+    # A4:CF:12 has neither confirmation nor contradiction → unverified, and the
+    # old single-share metric wrongly called it "clean".
+    assert "neither confirmed nor contradicted" in block
+    assert "`A4:CF:12` (300 records, 0 confirmed)" in block
+    assert "clean" not in block
 
 
 def test_hero_chips_expose_all_five_numbers():

@@ -135,10 +135,51 @@ a broadcast from a camera; it contains the word "flock", so it is denylisted
 ahead of the confirmation patterns — otherwise it would be counted as
 SSID-confirmed.
 
+**Denylisting is regex-based**, so a new spelling of a known non-camera SSID cannot
+slip through the way a literal prefix would:
+
+| Rule | What it proves |
+|------|----------------|
+| `clickshare` | Barco ClickShare presentation units |
+| `smartgate_` | SMARTGATE_###### gateway / intercom APs |
+| `direct-` | DIRECT-xx consumer set-top / TV adapters |
+| `androidap` | Android phone hotspots |
+| `audi\s*hud` | Audi head-up-display WiFi (car infotainment) |
+| `max[\s-]*printer` | MAX-PRINTER office printers |
+| `^\s*flock[\s_-]*alpr\b` | **detector output ingested as data** — see below |
+
+### Detector output ingested as data
+
+30 records carry *another tool's verdict string* in the SSID column — e.g.
+`Flock ALPR [wifi_receiver_oui;low]`, `Flock ALPR [wifi_bssid_oui;low]`,
+`Flock ALPR [wifi_oui_wildcard_probe;medium]`. All 30 sit in Texas, and the tool
+that produced them tagged 26 `low` and 4 `medium`.
+
+These are not observations of a camera. Someone ran a detector, wrote its output
+into the SSID column, uploaded the result to WiGLE, and this project's collector
+duly queried it — so counting them would mean scoring a detector's *opinion* as
+evidence, and they would otherwise inflate the SSID-confirmed subset (they
+contain the word "flock"). They are excluded outright: no Flock camera broadcasts
+an SSID beginning `Flock ALPR`, so the rule can be as blunt as it is here.
+
+The verdict tags are published rather than discarded (`ssid_tool_verdicts` in
+`scan_stats.json`, and in the README breakdown), because "26 of 30 were
+low-confidence guesses by the originating tool" is the most useful sentence
+anyone can write about this cluster.
+
 Denylisting is a *classification*, not a deletion: the records remain in
-`flock_cameras.geojson` with `"confidence": "identified_other"`, they are simply
-hidden by default and excluded from the headline. The map's evidence filter can
-show them again, greyed out.
+`flock_cameras.geojson` with `"confidence": "identified_other"` and a
+`blocked_reason` naming the rule that caught them, so anyone can audit the exact
+calls this project makes. They are hidden by default and excluded from the
+headline; the map's evidence filter can show them again, greyed out.
+
+**Prefixes are not equally credible.** The README breakdown measures, per prefix,
+how many of its records carry a Flock SSID and how many name other hardware. Nine
+prefixes with ≥200 records are *neither confirmed nor contradicted* — including
+the single largest contributor, `E0:4F:43` (22,303 records, 66 Flock-confirmed) —
+because their SSIDs are absent or unreadable. An OUI match on those means little
+on its own, and the published table says so rather than implying that all 39
+prefixes are equally good fingerprints.
 
 **Market flag.** Records outside `PRIMARY_MARKET_COUNTRIES` (currently `US`) carry
 `"out_of_market": true`. They are flagged rather than deleted, because Flock has

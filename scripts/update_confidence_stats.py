@@ -120,6 +120,31 @@ def render_stats_block(summary: dict, oui_with_data: int, oui_total: int,
     )
 
 
+def oui_signal_rows(summary: dict, min_records: int = 200) -> list:
+    """
+    Measured signal per OUI prefix, noisiest first.
+
+    Returns (oui, total, confirmed, excluded, confirmed_share, excluded_share)
+    for every prefix with at least `min_records`.
+
+    Two shares rather than one label, because either number alone misleads: a
+    prefix whose SSIDs are simply unreadable has ~0% "other hardware" *and* ~0%
+    Flock-confirmed, which is neither clean nor noisy — it is unverified. The OUI
+    list mixes all three populations, so the measurement is published instead of
+    asserting that every prefix is an equally credible fingerprint.
+    """
+    rows = []
+    for oui, counts in (summary.get("by_oui_confidence") or {}).items():
+        total = sum(counts.values())
+        if total < min_records:
+            continue
+        confirmed = counts.get(CONFIDENCE_SSID_CONFIRMED, 0)
+        excluded = counts.get(CONFIDENCE_IDENTIFIED_OTHER, 0)
+        rows.append((oui, total, confirmed, excluded, confirmed / total, excluded / total))
+    rows.sort(key=lambda row: (-row[5], -row[1]))
+    return rows
+
+
 def render_breakdown_md(summary: dict) -> str:
     """README 'what the numbers mean' block."""
     total = summary["total"]
@@ -158,6 +183,71 @@ def render_breakdown_md(summary: dict) -> str:
         f"| **All records** | **{total:,}** | 100.0% | |",
         "",
         f"SSID denylist hits: {denylist_txt}.",
+    ]
+
+    # Detector output ingested as data — called out separately because it is a
+    # provenance problem, not a false-positive class: these records are a copy of
+    # another tool's verdict, and the tool itself tagged most of them low.
+    verdicts = summary.get("ssid_tool_verdicts") or {}
+    if verdicts or denylist.get("detector_verdict"):
+        verdict_txt = " · ".join(
+            f"`{tag}` {count:,}" for tag, count in sorted(verdicts.items(), key=lambda kv: -kv[1])
+        ) or "untagged"
+        lines += [
+            "",
+            f"**Detector output ingested as data.** {denylist.get('detector_verdict', 0):,} records carry "
+            "another detector's verdict string in the SSID column (`Flock ALPR [wifi_receiver_oui;low]` "
+            f"and similar) — self-tagged {verdict_txt} by the tool that produced them. They are a "
+            "downstream copy of a detection, not an observation of a camera, so they are excluded "
+            "outright instead of being counted in the SSID-confirmed subset.",
+        ]
+
+    rows = oui_signal_rows(summary)
+    if rows:
+        noisy = [row for row in rows if row[5] >= 0.5][:8]
+        most_confirmed = sorted(rows, key=lambda row: -row[4])[:3]
+        unverified = [row for row in rows if row[5] < 0.5 and row[4] < 0.02]
+
+        lines += [
+            "",
+            f"**Per-prefix signal, measured.** Of the {len(rows)} prefixes with ≥200 records, "
+            "the ones whose records mostly name *other* hardware:",
+            "",
+            "| OUI prefix | Records | SSID-confirmed | Excluded as other hardware |",
+            "|------------|---------|----------------|----------------------------|",
+        ]
+        for oui, prefix_total, confirmed, excluded, _cshare, share in noisy:
+            lines.append(
+                f"| `{oui}` | {prefix_total:,} | {confirmed:,} | {excluded:,} ({share * 100:.0f}%) |"
+            )
+        lines += [
+            "",
+            "The most Flock-confirmed, for contrast: "
+            + ", ".join(
+                f"`{oui}` ({confirmed_share * 100:.0f}% SSID-confirmed, {confirmed:,} of {total:,} records)"
+                for oui, total, confirmed, _e, confirmed_share, _s in most_confirmed
+            ) + ".",
+        ]
+        if unverified:
+            lines += [
+                "",
+                f"**{len(unverified)} prefixes are neither confirmed nor contradicted** — under 2% of their "
+                "records carry a Flock SSID and under half name other hardware, so their MACs are simply "
+                "unverifiable from SSID evidence: "
+                + ", ".join(
+                    f"`{oui}` ({total:,} records, {confirmed:,} confirmed)"
+                    for oui, total, confirmed, _e, _cshare, _s in unverified[:6]
+                ) + (f" and {len(unverified) - 6} more" if len(unverified) > 6 else "") + "."
+                " These are the weakest entries in the list: an OUI match there means little on its own.",
+            ]
+        lines += [
+            "",
+            "The `tier` field in `data/flock_ouis.csv` is the curated (firmware-parity) judgement; these "
+            "numbers are the measurement. Where they disagree, the measurement is the honest summary of "
+            "what this dataset actually contains.",
+        ]
+
+    lines += [
         "",
         f"Market: {summary['out_of_market']:,} records "
         f"({_pct(summary['out_of_market'], total)}) are outside the primary US market and "
@@ -234,6 +324,8 @@ def refresh_scan_stats(summary: dict) -> Path:
     stats["by_confidence"] = summary["by_confidence"]
     stats["by_oui_tier"] = summary["by_oui_tier"]
     stats["out_of_market"] = summary["out_of_market"]
+    stats["ssid_tool_verdicts"] = summary.get("ssid_tool_verdicts", {})
+    stats["by_oui_confidence"] = summary.get("by_oui_confidence", {})
     stats["confidence_summary"] = summary
     stats["confidence_refreshed"] = datetime.now(timezone.utc).isoformat()
     _atomic_write_text(STATS_JSON, json.dumps(stats, indent=2) + "\n")

@@ -531,7 +531,7 @@
             <div class="label">Cameras Mapped</div>
         </div>
         <div class="stat-box">
-            <div class="number" id="total-ouis">38</div>
+            <div class="number" id="total-ouis">39</div>
             <div class="label">Known OUI Prefixes</div>
         </div>
         <div class="stat-box">
@@ -543,12 +543,12 @@
     <!-- CONFIDENCE_BREAKDOWN_START -->
     <div class="tier-strip" id="tier-strip">
         <span class="tier-chip tier-ssid"><strong>3,502</strong> SSID-confirmed</span>
-        <span class="tier-chip tier-high"><strong>73,963</strong> OUI-suspected (high)</span>
-        <span class="tier-chip tier-mfr"><strong>8,224</strong> OUI-suspected (contract-mfr)</span>
-        <span class="tier-chip tier-other"><strong>60,837</strong> excluded — other hardware</span>
+        <span class="tier-chip tier-high"><strong>73,691</strong> OUI-suspected (high)</span>
+        <span class="tier-chip tier-mfr"><strong>8,223</strong> OUI-suspected (contract-mfr)</span>
+        <span class="tier-chip tier-other"><strong>61,110</strong> excluded — other hardware</span>
         <span class="tier-chip tier-market"><strong>70,708</strong> flagged outside the US</span>
     </div>
-    <p class="tier-note" id="tier-note">“Cameras Mapped” counts the 85,689 records that pass evidence classification, out of 146,526 published. <a href="#confidence-breakdown">How the tiers work →</a></p>
+    <p class="tier-note" id="tier-note">“Cameras Mapped” counts the 85,416 records that pass evidence classification, out of 146,526 published. <a href="#confidence-breakdown">How the tiers work →</a></p>
 <!-- CONFIDENCE_BREAKDOWN_END -->
 
     <div style="max-width:720px;margin:0 auto 0.5rem;background:rgba(255,214,0,0.07);border:1px solid rgba(255,214,0,0.3);border-radius:10px;padding:0.85rem 1.1rem;text-align:left;font-size:0.875rem;line-height:1.55;color:#ccc;">
@@ -692,13 +692,20 @@
     <section class="info-section" id="oui-data">
         <h3><span class="icon">📡</span> Flock Safety WiFi OUI Fingerprints</h3>
         <p>
-            These 38 OUI prefixes were identified by <strong>@NitekryDPaul</strong> through promiscuous-mode
+            These 39 OUI prefixes were identified by <strong>@NitekryDPaul</strong> through promiscuous-mode
             analysis of Flock camera WiFi traffic. The 31st prefix (<code>82:6B:F2</code>) was contributed
             by <strong>Michael / DeFlockJoplin</strong> during field testing. Prefix <code>B4:1E:52</code>
             is Flock Safety's own IEEE registration, and the six-prefix
             <strong>FS Ext Battery</strong> series (<code>04:0D:84</code>, <code>F0:82:C0</code>,
             <code>1C:34:F1</code>, <code>38:5B:44</code>, <code>94:34:69</code>, <code>B4:E3:F9</code>)
-            came from <strong>dougborg/PR#39</strong>.
+            came from <strong>dougborg/PR#39</strong>, along with <code>E0:0A:F6</code>.
+        </p>
+        <p>
+            The <strong>Vendor</strong> column is the IEEE registrant — usually Liteon, Silicon Labs, USI or
+            Espressif rather than Flock Safety itself — and <strong>Signal</strong> is measured from the
+            published records: <em>mostly&nbsp;other</em> means most of a prefix's records name different
+            hardware, <em>confirmed&nbsp;n%</em> means that share carry a Flock SSID, and
+            <em>unverified</em> means neither — an OUI match on those prefixes means little on its own.
         </p>
         <div style="max-height: 400px; overflow-y: auto; margin-top: 1rem;">
             <table class="oui-table" id="oui-table">
@@ -706,8 +713,12 @@
                     <tr>
                         <th>#</th>
                         <th>OUI Prefix</th>
+                        <th>Tier</th>
+                        <th>Vendor (IEEE)</th>
                         <th>Source</th>
                         <th>Cameras Found</th>
+                        <th>SSID-confirmed</th>
+                        <th>Signal</th>
                     </tr>
                 </thead>
                 <tbody id="oui-table-body">
@@ -1044,12 +1055,12 @@ let FLOCK_OUIS = [
     { oui: "C0:35:32", source: "@NitekryDPaul" },
     { oui: "94:08:53", source: "@NitekryDPaul" },
     { oui: "E4:AA:EA", source: "@NitekryDPaul" },
-    { oui: "F4:6A:DD", source: "@NitekryDPaul" },
-    { oui: "F8:A2:D6", source: "@NitekryDPaul" },
+    { oui: "F4:6A:DD", source: "@NitekryDPaul", tier: "mfr", vendor: "Liteon Technology Corporation" },
+    { oui: "F8:A2:D6", source: "@NitekryDPaul", tier: "mfr", vendor: "Liteon Technology Corporation" },
     { oui: "24:B2:B9", source: "@NitekryDPaul" },
-    { oui: "00:F4:8D", source: "@NitekryDPaul" },
-    { oui: "D0:39:57", source: "@NitekryDPaul" },
-    { oui: "E8:D0:FC", source: "@NitekryDPaul" },
+    { oui: "00:F4:8D", source: "@NitekryDPaul", tier: "mfr", vendor: "Liteon Technology Corporation" },
+    { oui: "D0:39:57", source: "@NitekryDPaul", tier: "mfr", vendor: "Liteon Technology Corporation" },
+    { oui: "E8:D0:FC", source: "@NitekryDPaul", tier: "mfr", vendor: "Liteon Technology Corporation" },
     { oui: "E0:4F:43", source: "@NitekryDPaul" },
     { oui: "B8:1E:A4", source: "@NitekryDPaul" },
     { oui: "70:08:94", source: "@NitekryDPaul" },
@@ -1070,6 +1081,7 @@ let FLOCK_OUIS = [
     { oui: "38:5B:44", source: "dougborg/PR#39 — FS Ext Battery series" },
     { oui: "94:34:69", source: "dougborg/PR#39 — FS Ext Battery series" },
     { oui: "B4:E3:F9", source: "dougborg/PR#39 — FS Ext Battery series" },
+    { oui: "E0:0A:F6", source: "dougborg/PR#39 — contract-mfr silicon", tier: "mfr", vendor: "Liteon Technology Corporation" },
 ];
 
 // ── Initialize Map ─────────────────────────────────────────────────────────
@@ -1124,21 +1136,53 @@ const TIER_CHIP_LABELS = {
 };
 let CLASSIFIER = null;   // populated by loadOuiMetadata()
 const OUI_TIER = {};     // OUI → 'high' | 'mfr'
+const OUI_STATS = {};    // OUI → {confidence: count} from scan_stats.json
+
+// Compiled denylist rules from the classifier block. The inline copy below is a
+// fallback for the case where data/flock_ouis.json cannot be fetched at all —
+// without rules, ~61k office/consumer records would be counted as suspected
+// cameras. Keep it in sync with validation.SSID_DENYLIST_RULES.
+const DENYLIST_FALLBACK = [
+    { label: 'clickshare', regex: 'clickshare' },
+    { label: 'smartgate_', regex: 'smartgate_' },
+    { label: 'direct-', regex: 'direct-' },
+    { label: 'androidap', regex: 'androidap' },
+    { label: 'audi hud', regex: 'audi\\s*hud' },
+    { label: 'max-printer', regex: 'max[\\s-]*printer' },
+    { label: 'detector_verdict', regex: '^\\s*flock[\\s_-]*alpr\\b' },
+];
+let DENYLIST_RULES = DENYLIST_FALLBACK.map(r => ({
+    label: r.label, re: new RegExp(r.regex, 'i'), why: r.why,
+}));
+
+function denyListMatch(ssid) {
+    const value = String(ssid || '');
+    if (!value) return null;
+    for (const rule of DENYLIST_RULES) {
+        if (rule.re && rule.re.test(value)) return rule;
+    }
+    return null;
+}
 
 function confidenceOf(p) {
     p = p || {};
     if (CONFIDENCE_LEVELS.includes(p.confidence)) return p.confidence;
     const ssid = String(p.ssid || '').toLowerCase();
+    if (denyListMatch(p.ssid)) return 'identified_other';
     if (CLASSIFIER) {
-        if (CLASSIFIER.ssid_denylist_patterns.some(pat => ssid.includes(pat))) {
-            return 'identified_other';
-        }
         if (CLASSIFIER.ssid_confirm_patterns.some(pat => ssid.includes(pat))) {
             return 'ssid_confirmed';
         }
     }
     const tier = p.oui_tier || OUI_TIER[String(p.oui || '').toUpperCase()] || 'high';
     return tier === 'mfr' ? 'oui_mfr' : 'oui_high';
+}
+
+// Why a record is not on the map by default ('' when it is).
+function blockedReason(p) {
+    if (p && p.blocked_reason) return p.blocked_reason;
+    const rule = denyListMatch(p && p.ssid);
+    return rule ? rule.label : '';
 }
 
 function outOfMarket(p) {
@@ -1182,9 +1226,15 @@ async function loadStats() {
             if (!resp.ok) continue;
             const stats = await resp.json();
 
-            if (stats.total_cameras != null) {
+            const headline = (stats.total_actionable != null)
+                ? stats.total_actionable : stats.total_cameras;
+            if (headline != null) {
                 document.getElementById('total-cameras').textContent =
-                    Number(stats.total_cameras).toLocaleString();
+                    Number(headline).toLocaleString();
+            }
+            if (stats.by_oui_confidence) {
+                Object.assign(OUI_STATS, stats.by_oui_confidence);
+                populateOuiTable();
             }
             if (stats.cameras_by_region) {
                 document.getElementById('total-regions').textContent =
@@ -1428,8 +1478,9 @@ function buildPopup(p) {
     const conf = confidenceOf(p);
     const tierTxt = p.oui_tier ? ` (${escapeHtml(p.oui_tier)} tier)` : '';
     const marketTxt = outOfMarket(p) ? '<br><em style="color:var(--yellow)">⚠️ Outside the primary US market</em>' : '';
-    const otherTxt = conf === 'identified_other'
-        ? '<br><em style="color:var(--yellow)">SSID identifies other hardware — OUI match is spurious</em>'
+    const blocked = blockedReason(p);
+    const otherTxt = blocked
+        ? `<br><em style="color:var(--yellow)">Excluded from the map — ${escapeHtml(blocked)}</em>`
         : '';
     return `
         <strong>📸 Suspected Flock Camera</strong><br>
@@ -1449,6 +1500,9 @@ function buildPopup(p) {
 }
 
 // ── OUI Table ──────────────────────────────────────────────────────────────
+// Tier comes from the curated list, vendor from the IEEE registry, and "Signal"
+// from the measured per-prefix breakdown — so a prefix that looks like a
+// fingerprint but behaves like office hardware says so on the page.
 function populateOuiTable() {
     const tbody = document.getElementById('oui-table-body');
     tbody.innerHTML = '';
@@ -1457,12 +1511,40 @@ function populateOuiTable() {
         const count = ouiCounts[entry.oui] || 0;
         const oui = escapeHtml(entry.oui);
         const source = escapeHtml(entry.source);
+        const vendor = escapeHtml(entry.vendor || '—');
+        const tier = entry.tier === 'mfr'
+            ? '<span style="color:var(--yellow);font-weight:700;">mfr</span>'
+            : '<span style="color:var(--green);">high</span>';
+
+        const stats = OUI_STATS[entry.oui] || {};
+        const measured = Object.values(stats).reduce((a, b) => a + b, 0);
+        const confirmed = stats.ssid_confirmed || 0;
+        const excluded = stats.identified_other || 0;
+        const excludedShare = measured ? excluded / measured : 0;
+        const confirmedShare = measured ? confirmed / measured : 0;
+        // Three-way, because either share alone misleads: ~0% other AND ~0%
+        // confirmed means the MACs are unverifiable, not clean.
+        let signal = '<span style="color:var(--text-muted);">—</span>';
+        if (measured) {
+            if (excludedShare >= 0.5) {
+                signal = `<span style="color:var(--yellow);" title="${excluded.toLocaleString()} of ${measured.toLocaleString()} records name other hardware">mostly other (${Math.round(excludedShare * 100)}%)</span>`;
+            } else if (confirmedShare >= 0.02) {
+                signal = `<span style="color:var(--green);" title="${confirmed.toLocaleString()} of ${measured.toLocaleString()} records carry a Flock SSID">confirmed ${(confirmedShare * 100).toFixed(1)}%</span>`;
+            } else {
+                signal = `<span style="color:var(--text-muted);" title="Neither confirmed nor contradicted by SSID evidence — an OUI match here means little on its own">unverified</span>`;
+            }
+        }
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${i + 1}</td>
             <td style="color:${count > 0 ? 'var(--green)' : 'var(--text)'}">${oui}</td>
+            <td>${tier}</td>
+            <td>${vendor}</td>
             <td>${source}</td>
             <td style="color:${count > 0 ? 'var(--accent)' : 'var(--text-muted)'};font-weight:${count > 0 ? '700' : '400'}">${count > 0 ? count.toLocaleString() : '—'}</td>
+            <td style="color:${confirmed > 0 ? 'var(--green)' : 'var(--text-muted)'}">${confirmed > 0 ? confirmed.toLocaleString() : '—'}</td>
+            <td>${signal}</td>
         `;
         tbody.appendChild(tr);
     });
@@ -1482,13 +1564,34 @@ async function loadOuiMetadata() {
             if (!resp.ok) continue;
             const meta = await resp.json();
             if (Array.isArray(meta.ouis) && meta.ouis.length) {
-                FLOCK_OUIS = meta.ouis.map(e => ({ oui: e.oui, source: e.source }));
+                FLOCK_OUIS = meta.ouis.map(e => ({
+                    oui: e.oui,
+                    source: e.source,
+                    tier: e.tier || 'high',
+                    vendor: e.vendor || '',
+                }));
                 // Tier per prefix → needed to classify records that were published
                 // before the confidence field existed.
                 meta.ouis.forEach(e => {
                     if (e.oui) OUI_TIER[String(e.oui).toUpperCase()] = e.tier || 'high';
                 });
-                if (meta.classifier) CLASSIFIER = meta.classifier;
+                if (meta.classifier) {
+                    CLASSIFIER = meta.classifier;
+                    // Compile the published regex rules so the browser excludes
+                    // exactly what the collector excludes (labels alone would be
+                    // matched as substrings and let variants through).
+                    const rules = (meta.classifier.ssid_denylist_rules || [])
+                        .map(rule => {
+                            try {
+                                return { label: rule.label, re: new RegExp(rule.regex, 'i'), why: rule.why };
+                            } catch (e) {
+                                console.warn('Ignoring bad denylist rule', rule, e.message);
+                                return null;
+                            }
+                        })
+                        .filter(Boolean);
+                    if (rules.length) DENYLIST_RULES = rules;
+                }
                 document.getElementById('total-ouis').textContent = FLOCK_OUIS.length;
                 // Classification of the already-loaded dataset depends on this
                 // file, so re-render whatever has been plotted (no-op on first

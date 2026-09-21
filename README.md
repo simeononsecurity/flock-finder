@@ -11,13 +11,13 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** (actionable) | 85,689 |
+| 📸 **Cameras Mapped** (actionable) | 85,416 |
 | 🔎 *of which SSID-confirmed* | 3,502 |
-| 🛰️ *of which OUI-suspected (high tier)* | 73,963 |
-| 🧩 *of which OUI-suspected (contract-mfr tier)* | 8,224 |
-| 🚫 **Excluded — SSID is other hardware** | 60,837 |
+| 🛰️ *of which OUI-suspected (high tier)* | 73,691 |
+| 🧩 *of which OUI-suspected (contract-mfr tier)* | 8,223 |
+| 🚫 **Excluded — SSID is other hardware** | 61,110 |
 | 🌍 **Flagged outside the US** | 70,708 |
-| 📡 **OUI Prefixes with Data** | 31 / 38 |
+| 📡 **OUI Prefixes with Data** | 31 / 39 |
 | 🌎 **Countries** | 138 |
 | 🗺️ **Regions / provinces (distinct)** | 1,982 |
 | 🕐 **Last Updated** | 2026-09-20 |
@@ -34,12 +34,33 @@ Every published record carries a `confidence` field, because an OUI match on its
 | Confidence | Records | Share | Meaning |
 |------------|---------|-------|---------|
 | `ssid_confirmed` | 3,502 | 2.4% | SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, `Flock Camera net.`, `FS Ext Battery`) — strongest signal passive WiFi can give |
-| `oui_high` | 73,963 | 50.5% | High-confidence Flock OUI, SSID absent/hidden/unrecognised — suspected, unverified |
-| `oui_mfr` | 8,224 | 5.6% | Contract-manufacturer OUI (Liteon/USI) — weakest evidence, expect false positives |
-| `identified_other` | 60,837 | 41.5% | SSID positively identifies other hardware — excluded from the map and from the camera count above |
+| `oui_high` | 73,691 | 50.3% | High-confidence Flock OUI, SSID absent/hidden/unrecognised — suspected, unverified |
+| `oui_mfr` | 8,223 | 5.6% | Contract-manufacturer OUI (Liteon/USI) — weakest evidence, expect false positives |
+| `identified_other` | 61,110 | 41.7% | SSID positively identifies other hardware — excluded from the map and from the camera count above |
 | **All records** | **146,526** | 100.0% | |
 
-SSID denylist hits: `clickshare*` 50,278 · `smartgate_*` 6,099 · `direct-*` 3,801 · `androidap*` 629 · `flock alpr [*` 30.
+SSID denylist hits: `clickshare*` 50,278 · `smartgate_*` 6,099 · `direct-*` 3,801 · `androidap*` 629 · `audi hud*` 139 · `max-printer*` 134 · `detector_verdict*` 30.
+
+**Detector output ingested as data.** 30 records carry another detector's verdict string in the SSID column (`Flock ALPR [wifi_receiver_oui;low]` and similar) — self-tagged `low` 26 · `medium` 4 by the tool that produced them. They are a downstream copy of a detection, not an observation of a camera, so they are excluded outright instead of being counted in the SSID-confirmed subset.
+
+**Per-prefix signal, measured.** Of the 29 prefixes with ≥200 records, the ones whose records mostly name *other* hardware:
+
+| OUI prefix | Records | SSID-confirmed | Excluded as other hardware |
+|------------|---------|----------------|----------------------------|
+| `F4:6A:DD` | 11,819 | 327 | 8,420 (71%) |
+| `D0:39:57` | 11,695 | 473 | 8,270 (71%) |
+| `74:4C:A1` | 11,872 | 211 | 8,381 (71%) |
+| `9C:2F:9D` | 6,445 | 248 | 4,496 (70%) |
+| `C0:35:32` | 5,593 | 86 | 3,681 (66%) |
+| `D8:F3:BC` | 3,971 | 157 | 2,548 (64%) |
+| `70:08:94` | 3,510 | 94 | 2,234 (64%) |
+| `B8:1E:A4` | 3,643 | 80 | 2,206 (61%) |
+
+The most Flock-confirmed, for contrast: `70:C9:4E` (27% SSID-confirmed, 133 of 495 records), `00:F4:8D` (18% SSID-confirmed, 112 of 619 records), `3C:91:80` (15% SSID-confirmed, 139 of 914 records).
+
+**9 prefixes are neither confirmed nor contradicted** — under 2% of their records carry a Flock SSID and under half name other hardware, so their MACs are simply unverifiable from SSID evidence: `64:6E:69` (3,971 records, 32 confirmed), `58:00:E3` (4,805 records, 26 confirmed), `E0:4F:43` (22,303 records, 66 confirmed), `5C:93:A2` (3,856 records, 11 confirmed), `A4:CF:12` (4,316 records, 2 confirmed), `3C:71:BF` (3,836 records, 10 confirmed) and 3 more. These are the weakest entries in the list: an OUI match there means little on its own.
+
+The `tier` field in `data/flock_ouis.csv` is the curated (firmware-parity) judgement; these numbers are the measurement. Where they disagree, the measurement is the honest summary of what this dataset actually contains.
 
 Market: 70,708 records (48.3%) are outside the primary US market and carry `"out_of_market": true`. They are flagged, not deleted — Flock has expanded internationally — so consumers can filter them.
 
@@ -65,7 +86,7 @@ Flock Safety ALPR cameras have WiFi transceivers that periodically wake to uploa
 - **`04:0D:84`, `F0:82:C0`, `1C:34:F1`, `38:5B:44`, `94:34:69`, `B4:E3:F9`** — the **FS Ext Battery** accessory / battery-pack series ([dougborg/PR#39](https://github.com/colonelpanichacks/flock-you/pull/39)). These packs broadcast an `FS Ext Battery…` SSID, which is why that naming pattern is now queried alongside `Flock%` / `FLOCK%`.
 
 This project:
-1. Takes those 38 known Flock Safety WiFi OUI prefixes
+1. Takes those 39 known Flock Safety WiFi OUI prefixes
 2. Queries the WiGLE WiFi database for networks matching each prefix
 3. Deduplicates and exports results as GeoJSON + CSV
 4. Displays camera locations on a dark-themed interactive Leaflet map
@@ -107,7 +128,7 @@ cp .env.example .env
 ### Run the Scanner
 
 ```bash
-# Full scan — all 38 OUI prefixes, worldwide
+# Full scan — all 39 OUI prefixes, worldwide
 python3 scripts/wigle_query.py
 
 # Single OUI test
@@ -149,7 +170,7 @@ flock-finder/
 ├── scripts/
 │   └── wigle_query.py    # WiGLE API query script
 ├── data/
-│   ├── flock_ouis.csv    # 38 known Flock Safety OUI prefixes (canonical, tiers)
+│   ├── flock_ouis.csv    # 39 known Flock Safety OUI prefixes (canonical, tiers)
 │   ├── flock_cameras.geojson  # GENERATED + published (not committed) — see “Where Is the Data?”
 │   ├── flock_cameras.csv      # GENERATED + published (not committed)
 │   ├── by_oui/                # GENERATED per-OUI splits (not committed)
@@ -165,7 +186,7 @@ flock-finder/
 
 ## 📡 Flock Safety WiFi OUI Prefixes
 
-38 known prefixes identified by **@NitekryDPaul** + **DeFlockJoplin** + **dougborg/PR#39**:
+39 known prefixes identified by **@NitekryDPaul** + **DeFlockJoplin** + **dougborg/PR#39**:
 
 | # | OUI Prefix | Source |
 |---|------------|--------|
@@ -207,6 +228,11 @@ flock-finder/
 | 36 | `38:5B:44` | dougborg/PR#39 — FS Ext Battery series |
 | 37 | `94:34:69` | dougborg/PR#39 — FS Ext Battery series |
 | 38 | `B4:E3:F9` | dougborg/PR#39 — FS Ext Battery series |
+| 39 | `E0:0A:F6` | dougborg/PR#39 — contract-manufacturer silicon (mfr tier) |
+
+> **Reconciled with [flock-you-esp32](https://github.com/simeononsecurity/flock-you-esp32).** That firmware carries 41 prefixes; this list carries 39. The two deliberate omissions are `00:03:7F` (generic Qualcomm Atheros QCA9377 — see [the data policy](docs/DATA_POLICY.md#7-signatures-we-deliberately-do-not-query-and-why)) and `D4:11:D6` (SoundThinking/ShotSpotter, a different device class that the firmware alerts on but which is not a Flock camera). The remaining delta that this list *was* missing — `E0:0A:F6` — is now included.
+>
+> The per-prefix `vendor` column is the IEEE registrant, which is usually **not** Flock Safety: the hardware here runs on Liteon, Silicon Labs, USI and Espressif radio silicon, which is precisely why an OUI match needs the tier and the measured signal column.
 
 ---
 
