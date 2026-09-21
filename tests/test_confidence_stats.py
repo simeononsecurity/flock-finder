@@ -124,6 +124,35 @@ def test_missing_markers_raise_instead_of_silently_skipping():
         _replace_markers("no markers here", *STATS_MARKERS, "x")
 
 
+def test_refresh_scan_stats_is_idempotent(tmp_path, monkeypatch):
+    """
+    Re-running the renderer on unchanged data must not rewrite scan_stats.json:
+    the refresh timestamp alone would dirty the tree — and trip the CI bot's
+    `git diff` change check — on every run.
+    """
+    import json
+
+    from update_confidence_stats import refresh_scan_stats
+
+    stats_path = tmp_path / "scan_stats.json"
+    stats_path.write_text(json.dumps({"scan_timestamp": "2026-01-01T00:00:00Z"}) + "\n")
+    monkeypatch.setattr("update_confidence_stats.STATS_JSON", stats_path)
+
+    assert refresh_scan_stats(SUMMARY) is not None
+    first = stats_path.read_text()
+    assert json.loads(first)["total_actionable"] == 850
+
+    # Second call with identical input: no rewrite, no new timestamp.
+    assert refresh_scan_stats(SUMMARY) is None
+    assert stats_path.read_text() == first
+
+    # A changed number does rewrite.
+    changed = dict(SUMMARY, actionable=851)
+    changed["by_confidence"] = dict(SUMMARY["by_confidence"])
+    assert refresh_scan_stats(changed) is not None
+    assert json.loads(stats_path.read_text())["total_actionable"] == 851
+
+
 # ─── Drift guard: the published headline must describe the published dataset ──
 
 def test_readme_headline_matches_the_dataset():

@@ -317,16 +317,27 @@ def refresh_scan_stats(summary: dict) -> Path:
     Only derived keys are touched — scan_timestamp, api_requests,
     cameras_by_region and the rest stay exactly as scripts/wigle_query.py wrote
     them, so an incremental scan's provenance is preserved.
+
+    Returns the path when the file was rewritten, or None when every derived value
+    already matched. The early return matters: without it the refresh timestamp
+    alone would dirty the working tree (and trip the CI bot's `git diff` change
+    check) on every run, even when nothing had changed.
     """
     stats = load_stats()
-    stats["total_cameras"] = summary["total"]
-    stats["total_actionable"] = summary["actionable"]
-    stats["by_confidence"] = summary["by_confidence"]
-    stats["by_oui_tier"] = summary["by_oui_tier"]
-    stats["out_of_market"] = summary["out_of_market"]
-    stats["ssid_tool_verdicts"] = summary.get("ssid_tool_verdicts", {})
-    stats["by_oui_confidence"] = summary.get("by_oui_confidence", {})
-    stats["confidence_summary"] = summary
+    derived = {
+        "total_cameras": summary["total"],
+        "total_actionable": summary["actionable"],
+        "by_confidence": summary["by_confidence"],
+        "by_oui_tier": summary["by_oui_tier"],
+        "out_of_market": summary["out_of_market"],
+        "ssid_tool_verdicts": summary.get("ssid_tool_verdicts", {}),
+        "by_oui_confidence": summary.get("by_oui_confidence", {}),
+        "confidence_summary": summary,
+    }
+    if all(stats.get(key) == value for key, value in derived.items()):
+        return None
+
+    stats.update(derived)
     stats["confidence_refreshed"] = datetime.now(timezone.utc).isoformat()
     _atomic_write_text(STATS_JSON, json.dumps(stats, indent=2) + "\n")
     return STATS_JSON

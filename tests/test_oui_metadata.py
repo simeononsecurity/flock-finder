@@ -33,6 +33,19 @@ def test_write_oui_json_roundtrip(tmp_path):
     assert payload["total"] >= 1
 
 
+def test_write_oui_json_does_not_churn_when_unchanged(tmp_path):
+    """
+    CI regenerates this file on every push; if it rewrote the `generated`
+    timestamp unconditionally, every run would produce a diff for no change.
+    """
+    out = tmp_path / "flock_ouis.json"
+    write_oui_json(json_path=out)
+    first = out.read_text()
+
+    assert write_oui_json(json_path=out) == out
+    assert out.read_text() == first
+
+
 # ─── Firmware-derived additions (dougborg/PR#39) ──────────────────────────────
 
 # Flock Safety's own IEEE registration — the only prefix in the list that is

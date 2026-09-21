@@ -151,6 +151,19 @@ def write_oui_json(entries: list[dict] = None, json_path: Path = None) -> Path:
         "ouis": entries,
     }
     json_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Skip the rewrite when nothing but the timestamp would change: CI runs this
+    # script on every push, and churning `generated` (plus the git diff it
+    # creates) for unchanged content is pure noise.
+    if json_path.exists():
+        try:
+            existing = json.loads(json_path.read_text(encoding="utf-8"))
+            if ({k: v for k, v in existing.items() if k != "generated"}
+                    == {k: v for k, v in payload.items() if k != "generated"}):
+                return json_path
+        except (OSError, ValueError):
+            pass
+
     with open(json_path, "w") as f:
         json.dump(payload, f, indent=2)
     return json_path
