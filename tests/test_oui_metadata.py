@@ -89,3 +89,48 @@ def test_generic_qca9377_oui_is_not_queried():
     meaningful, and those are full 6-byte addresses rather than prefixes.
     """
     assert "00:03:7F" not in list_ouis()
+
+
+# ─── Confidence tiers (mirrors the firmware's high/mfr split) ─────────────────
+
+# Contract-manufacturer prefixes: Flock hardware, but the same silicon ships in
+# unrelated products (Liteon Technology / Universal Scientific Industrial).
+MFR_TIER_OUIS = {"F4:6A:DD", "F8:A2:D6", "00:F4:8D", "D0:39:57", "E8:D0:FC"}
+
+
+def test_every_entry_has_a_valid_tier():
+    for entry in load_oui_metadata():
+        assert entry["tier"] in ("high", "mfr"), entry
+
+
+def test_contract_manufacturer_prefixes_are_mfr_tier():
+    by_oui = {entry["oui"]: entry["tier"] for entry in load_oui_metadata()}
+    assert {oui for oui, tier in by_oui.items() if tier == "mfr"} == MFR_TIER_OUIS
+
+
+def test_tier_map_agrees_with_the_metadata():
+    from oui_metadata import oui_tier_map
+
+    assert oui_tier_map() == {e["oui"]: e["tier"] for e in load_oui_metadata()}
+
+
+def test_json_mirror_carries_tiers_and_classifier(tmp_path):
+    import json
+
+    from oui_metadata import write_oui_json
+
+    out = tmp_path / "flock_ouis.json"
+    write_oui_json(json_path=out)
+    payload = json.loads(out.read_text())
+
+    assert payload["total_by_tier"] == {"high": 33, "mfr": 5}
+    assert all(entry["tier"] in ("high", "mfr") for entry in payload["ouis"])
+
+    # The classifier block is what keeps the browser's rules identical to the
+    # collector's — if it disappears the site silently mis-tiers every record.
+    classifier = payload["classifier"]
+    assert "flock" in classifier["ssid_confirm_patterns"]
+    assert "flock alpr [" in classifier["ssid_denylist_patterns"]
+    assert classifier["primary_market_countries"] == ["US"]
+    assert classifier["confidence_levels"][0] == "ssid_confirmed"
+    assert "identified_other" not in classifier["actionable_levels"]

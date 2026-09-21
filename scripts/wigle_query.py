@@ -40,14 +40,16 @@ from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
-from oui_metadata import write_oui_json
+from oui_metadata import oui_tier_map, write_oui_json
 
 # Shared, unit-tested helpers (validation + public-data policy)
 from validation import (
     MATCH_CONFIDENCE,
+    annotate_record,
     is_valid_latlon,
     is_valid_oui,
     normalize_oui,
+    summarize_confidence,
     validate_record,
 )
 
@@ -597,13 +599,44 @@ def dedup_by_netid(records: dict) -> dict:
     return clean
 
 
+def annotate_records(records: dict) -> dict:
+    """
+    Stamp every record with its published confidence tier.
+
+    Adds three fields to each record (see validation.annotate_record):
+        confidence     "ssid_confirmed" | "oui_high" | "oui_mfr" | "identified_other"
+        oui_tier       "high" | "mfr"           (from data/flock_ouis.csv)
+        out_of_market  bool                     (outside PRIMARY_MARKET_COUNTRIES)
+
+    Runs over the *merged* record set immediately before writing, so records
+    carried over from a previous scan — which were loaded back without these
+    fields — are annotated too, and a tier change in the CSV is re-applied to
+    old records on the next scan instead of only affecting new ones.
+    """
+    try:
+        tiers = oui_tier_map()
+    except Exception as exc:              # missing CSV → every OUI is 'high'
+        print(f"  [!] Could not read OUI tiers ({exc}) — defaulting to 'high'")
+        tiers = {}
+    for net in records.values():
+        annotate_record(net, tiers)
+    return records
+
+
 def write_geojson(records: dict, output_path: Path) -> None:
     """
     Write networks as GeoJSON FeatureCollection for the web map.
 
     Coordinates are written at FULL precision (never modified) so the map is
     accurate. Every feature is tagged match_confidence="suspected" — an OUI
-    match is a heuristic, not a confirmation.
+    match is a heuristic, not a confirmation — plus three evidence fields that
+    let consumers tell the populations apart (see validation.annotate_record):
+        confidence     ssid_confirmed | oui_high | oui_mfr | identified_other
+        oui_tier       high | mfr
+        out_of_market  true when the record is outside the primary Flock market
+
+    The top level carries the matching summary (total / actionable / counts per
+    tier) so a consumer can show an honest headline without re-deriving it.
     """
     features = []
     for netid, net in sorted(records.items()):
@@ -626,6 +659,9 @@ def write_geojson(records: dict, output_path: Path) -> None:
                 "ssid": net.get("ssid", ""),
                 "oui": net.get("oui_match", netid[:8]),
                 "match_confidence": MATCH_CONFIDENCE,
+                "confidence": net.get("confidence", ""),
+                "oui_tier": net.get("oui_tier", ""),
+                "out_of_market": bool(net.get("out_of_market", False)),
                 "channel": net.get("channel"),
                 "encryption": net.get("encryption", ""),
                 "firsttime": net.get("firsttime", ""),
@@ -639,6 +675,8 @@ def write_geojson(records: dict, output_path: Path) -> None:
         }
         features.append(feature)
 
+    summary = summarize_confidence(records.values())
+
     geojson = {
         "type": "FeatureCollection",
         "features": features,
@@ -651,7 +689,22 @@ def write_geojson(records: dict, output_path: Path) -> None:
             "match_confidence": MATCH_CONFIDENCE,
             "oui_research": "@NitekryDPaul",
 
+            # `total_cameras` keeps its historical meaning (every feature in the
+            # file, including records whose own SSID identifies other hardware).
+            # `total_actionable` is the number of features that survive the
+            # confidence tiers — it is the honest headline figure.
             "total_cameras": len(features),
+            "total_features": len(features),
+            "total_actionable": summary["actionable"],
+            "by_confidence": summary["by_confidence"],
+            "by_oui_tier": summary["by_oui_tier"],
+            "out_of_market": summary["out_of_market"],
+            "confidence_tiers": {
+                "ssid_confirmed": "SSID is a Flock naming pattern — strongest",
+                "oui_high": "High-confidence Flock OUI, no contradicting SSID",
+                "oui_mfr": "Contract-manufacturer OUI (Liteon/USI) — weakest",
+                "identified_other": "SSID identifies other hardware — excluded",
+            },
         },
     }
 
@@ -672,6 +725,9 @@ def write_csv(records: dict, output_path: Path) -> None:
         "netid", "ssid", "trilat", "trilong", "oui_match",
         "channel", "encryption", "firsttime", "lasttime",
         "city", "region", "country", "road", "postalcode",
+        # Evidence fields — see validation.annotate_record(). Written last so any
+        # positional consumer of the historical columns keeps working.
+        "confidence", "oui_tier", "out_of_market",
     ]
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -707,6 +763,7 @@ def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
     for oui, items in sorted(by_oui.items()):
         slug = oui.replace(":", "_")
         features = []
+        subset_summary = summarize_confidence(net for _, net in items)
         for netid, net in sorted(items):
             lat = net.get("trilat")
             lon = net.get("trilong")
@@ -719,6 +776,10 @@ def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
                     "netid": net.get("netid", netid),
                     "ssid": net.get("ssid", ""),
                     "oui": oui,
+                    "match_confidence": MATCH_CONFIDENCE,
+                    "confidence": net.get("confidence", ""),
+                    "oui_tier": net.get("oui_tier", ""),
+                    "out_of_market": bool(net.get("out_of_market", False)),
                     "channel": net.get("channel"),
                     "encryption": net.get("encryption", ""),
                     "firsttime": net.get("firsttime", ""),
@@ -740,6 +801,8 @@ def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
                 "source": "WiGLE (wigle.net)",
                 "project": "flock-finder",
                 "total_cameras": len(features),
+                "total_actionable": subset_summary["actionable"],
+                "by_confidence": subset_summary["by_confidence"],
             },
         }
         path = out_dir / f"{slug}.geojson"
@@ -770,6 +833,7 @@ def write_csv_per_oui(records: dict, output_dir: Path) -> None:
         "netid", "ssid", "trilat", "trilong", "oui_match",
         "channel", "encryption", "firsttime", "lasttime",
         "city", "region", "country", "road", "postalcode",
+        "confidence", "oui_tier", "out_of_market",
     ]
 
     written = 0
@@ -813,14 +877,28 @@ def write_stats(records: dict, ouis_queried: int, api_requests: int,
         if country:
             country_counts[country] = country_counts.get(country, 0) + 1
 
+    # Evidence-tier breakdown — see validation.summarize_confidence().
+    summary = summarize_confidence(networks)
+
     stats = {
         "scan_timestamp": now.isoformat(),
+        # `total_cameras` is every record; `total_actionable` excludes records
+        # whose own SSID identifies other hardware (ClickShare, AndroidAP, ...).
+        # The headline reports the actionable figure.
         "total_cameras": len(networks),
+        "total_actionable": summary["actionable"],
         "new_this_scan": new_this_scan,
         "unique_ouis_found": len(oui_counts),
         "ouis_queried": ouis_queried,
         "api_requests": api_requests,
         "data_retention_days": MAX_AGE_DAYS,
+        # Evidence-tier breakdown (validation.summarize_confidence). Published so
+        # the headline can distinguish SSID-confirmed / OUI-suspected / excluded
+        # records instead of presenting every OUI hit as an equal "camera".
+        "confidence_summary": summary,
+        "by_confidence": summary["by_confidence"],
+        "by_oui_tier": summary["by_oui_tier"],
+        "out_of_market": summary["out_of_market"],
         "cameras_by_oui": dict(sorted(oui_counts.items(), key=lambda x: -x[1])),
         "cameras_by_region": dict(sorted(region_counts.items(), key=lambda x: -x[1])[:50]),
         "cameras_by_country": dict(sorted(country_counts.items(), key=lambda x: -x[1])),
@@ -832,65 +910,6 @@ def write_stats(records: dict, ouis_queried: int, api_requests: int,
 
 
 
-def update_readme(stats_path: Path, readme_path: Path = None) -> None:
-    """
-    Auto-update the README.md stats section between STATS_START/STATS_END markers.
-    Reads scan_stats.json and replaces the stats table in README.md.
-    """
-    if readme_path is None:
-        readme_path = PROJECT_DIR / "README.md"
-
-    if not stats_path.exists() or not readme_path.exists():
-        return
-
-    try:
-        with open(stats_path, "r") as f:
-            stats = json.load(f)
-
-        total = stats.get("total_cameras", 0)
-        ouis_found = stats.get("unique_ouis_found", 0)
-        # Denominator = size of the CANONICAL OUI list (data/flock_ouis.csv),
-        # not this scan's ouis_queried — a partial `--oui <prefix>` run reports
-        # 1 there. Falls back to the recorded scan value if the CSV cannot be
-        # read, so the stats line is never hand-maintained.
-        try:
-            ouis_total = len(load_ouis())
-        except OSError:
-            ouis_total = stats.get("ouis_queried", 0)
-        countries = stats.get("cameras_by_country", {})
-
-        regions = stats.get("cameras_by_region", {})
-        retention = stats.get("data_retention_days", 730)
-        timestamp = stats.get("scan_timestamp", "")[:10]
-
-        new_stats = (
-            "<!-- STATS_START -->\n"
-            "| Metric | Value |\n"
-            "|--------|-------|\n"
-            f"| 📸 **Cameras Mapped** | {total:,} |\n"
-            f"| 📡 **OUI Prefixes with Data** | {ouis_found} / {ouis_total} |\n"
-            f"| 🌎 **Countries** | {len(countries)} |\n"
-            f"| 🗺️ **Regions** | {len(regions)} |\n"
-            f"| 🕐 **Last Updated** | {timestamp} |\n"
-            f"| 📦 **Data Retention** | {retention} days ({retention // 365} years) |\n"
-            "<!-- STATS_END -->"
-        )
-
-        with open(readme_path, "r") as f:
-            content = f.read()
-
-        import re
-        pattern = r"<!-- STATS_START -->.*?<!-- STATS_END -->"
-        if re.search(pattern, content, re.DOTALL):
-            updated = re.sub(pattern, new_stats, content, flags=re.DOTALL)
-            with open(readme_path, "w") as f:
-                f.write(updated)
-            print(f"  [✓] README: updated stats ({total:,} cameras, {len(countries)} countries)")
-        else:
-            print("  [!] README: no STATS_START/STATS_END markers found — skipping")
-
-    except Exception as exc:
-        print(f"  [!] README update failed: {exc}")
 
 
 # ─── Main ─────────────────────────────────────────────────────────────────────
@@ -1164,6 +1183,12 @@ def main():
     merged = public
 
 
+    # Stamp the published evidence fields (confidence / oui_tier / out_of_market)
+    # on every record — including records carried over from earlier scans, which
+    # are loaded back without them — so the outputs and their summaries can never
+    # disagree with each other or with data/flock_ouis.csv.
+    annotate_records(merged)
+
     # Write combined outputs
 
     write_geojson(merged, geojson_out)
@@ -1182,8 +1207,11 @@ def main():
     except Exception as exc:
         print(f"  [!] Could not write OUI metadata JSON: {exc}")
 
-    # Update README with cumulative stats
-    update_readme(stats_out)
+    # NOTE: the README / website headline is rendered from the published CSV by
+    # scripts/update_confidence_stats.py, which runs after this script in
+    # .github/workflows/update-data.yml. It used to be rendered right here from
+    # scan_stats.json, which duplicated the counting logic and allowed the
+    # headline to drift away from the dataset it described.
 
 
     # ── Summary ───────────────────────────────────────────────────────────────

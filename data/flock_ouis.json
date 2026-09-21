@@ -1,274 +1,363 @@
 {
-  "generated": "2026-09-20T22:47:43.297140+00:00",
+  "generated": "2026-09-21T07:21:53.415778+00:00",
   "description": "Canonical list of SUSPECTED Flock Safety WiFi OUI prefixes. An OUI match is a heuristic, not a confirmation.",
   "match_confidence": "suspected",
   "total": 38,
+  "total_by_tier": {
+    "high": 33,
+    "mfr": 5
+  },
+  "tiers": {
+    "levels": [
+      "high",
+      "mfr"
+    ],
+    "description": "'high' = assigned to Flock Safety or observed exclusively on Flock hardware; 'mfr' = contract-manufacturer prefix (Liteon/USI) that is also shipped in unrelated products."
+  },
+  "classifier": {
+    "confidence_levels": [
+      "ssid_confirmed",
+      "oui_high",
+      "oui_mfr",
+      "identified_other"
+    ],
+    "actionable_levels": [
+      "ssid_confirmed",
+      "oui_high",
+      "oui_mfr"
+    ],
+    "descriptions": {
+      "ssid_confirmed": "The SSID itself is a Flock naming pattern (e.g. 'Flock', 'Flock-XXXXXX', 'FS Ext Battery'). Strongest evidence available from passive WiFi data.",
+      "oui_high": "OUI prefix is on the high-confidence Flock list; the SSID is absent, hidden, or unrecognised. Suspected, unverified.",
+      "oui_mfr": "OUI prefix belongs to a contract manufacturer (Liteon/USI) that also ships unrelated hardware. Weakest OUI evidence \u2014 expect false positives.",
+      "identified_other": "The SSID positively identifies other hardware (ClickShare, SMARTGATE_, DIRECT-, AndroidAP, or wardriving-tool output), so the OUI match is spurious. Excluded from the map by default and from the camera counts."
+    },
+    "ssid_confirm_patterns": [
+      "flock",
+      "fs ext battery"
+    ],
+    "ssid_denylist_patterns": [
+      "clickshare",
+      "smartgate_",
+      "direct-",
+      "androidap",
+      "flock alpr ["
+    ],
+    "ssid_denylist_notes": {
+      "clickshare": "Barco ClickShare presentation hardware",
+      "smartgate_": "SMARTGATE_###### gateway / intercom APs",
+      "direct-": "DIRECT-xx consumer set-top / TV adapters",
+      "androidap": "Android phone hotspots",
+      "flock alpr [": "wardriving-tool verdict text stored in the SSID field"
+    },
+    "primary_market_countries": [
+      "US"
+    ]
+  },
   "ouis": [
     {
       "oui": "70:C9:4E",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "3C:91:80",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "D8:F3:BC",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "80:30:49",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "B8:35:32",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "14:5A:FC",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "74:4C:A1",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "08:3A:88",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "9C:2F:9D",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "C0:35:32",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "94:08:53",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "E4:AA:EA",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "F4:6A:DD",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Liteon Technology (contract manufacturer)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "mfr"
     },
     {
       "oui": "F8:A2:D6",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Liteon Technology (contract manufacturer)",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "mfr"
     },
     {
       "oui": "24:B2:B9",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "00:F4:8D",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Universal Scientific Industrial (USI) - contract manufacturer",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "mfr"
     },
     {
       "oui": "D0:39:57",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Universal Scientific Industrial (USI) - contract manufacturer",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "mfr"
     },
     {
       "oui": "E8:D0:FC",
-      "vendor_context": "Flock Safety infrastructure",
+      "vendor_context": "Universal Scientific Industrial (USI) - contract manufacturer",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "mfr"
     },
     {
       "oui": "E0:4F:43",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "B8:1E:A4",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "70:08:94",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "58:8E:81",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "EC:1B:BD",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "3C:71:BF",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "58:00:E3",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "90:35:EA",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "5C:93:A2",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "64:6E:69",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "48:27:EA",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "A4:CF:12",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "@NitekryDPaul",
-      "notes": "promiscuous-mode research"
+      "notes": "promiscuous-mode research",
+      "tier": "high"
     },
     {
       "oui": "82:6B:F2",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz (wildcard probe)",
       "source": "Michael / DeFlockJoplin",
-      "notes": "field-test Joplin - 12th camera OUI"
+      "notes": "field-test Joplin - 12th camera OUI",
+      "tier": "high"
     },
     {
       "oui": "B4:1E:52",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
-      "notes": "direct IEEE registration to Flock Safety"
+      "notes": "direct IEEE registration to Flock Safety",
+      "tier": "high"
     },
     {
       "oui": "04:0D:84",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
-      "notes": "FS Ext Battery accessory series"
+      "notes": "FS Ext Battery accessory series",
+      "tier": "high"
     },
     {
       "oui": "F0:82:C0",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
-      "notes": "FS Ext Battery accessory series"
+      "notes": "FS Ext Battery accessory series",
+      "tier": "high"
     },
     {
       "oui": "1C:34:F1",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
-      "notes": "FS Ext Battery accessory series"
+      "notes": "FS Ext Battery accessory series",
+      "tier": "high"
     },
     {
       "oui": "38:5B:44",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
-      "notes": "FS Ext Battery accessory series"
+      "notes": "FS Ext Battery accessory series",
+      "tier": "high"
     },
     {
       "oui": "94:34:69",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
-      "notes": "FS Ext Battery accessory series"
+      "notes": "FS Ext Battery accessory series",
+      "tier": "high"
     },
     {
       "oui": "B4:E3:F9",
       "vendor_context": "Flock Safety infrastructure",
       "detection_protocol": "WiFi 2.4 GHz",
       "source": "dougborg/PR#39",
-      "notes": "FS Ext Battery accessory series"
+      "notes": "FS Ext Battery accessory series",
+      "tier": "high"
     }
   ]
 }
