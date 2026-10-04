@@ -1,24 +1,24 @@
 {
-  "scan_timestamp": "2026-10-03T10:50:01.920123+00:00",
-  "total_cameras": 123428,
-  "total_actionable": 66284,
-  "new_this_scan": 9842,
-  "unique_ouis_found": 21,
+  "scan_timestamp": "2026-10-04T11:33:59.921556+00:00",
+  "total_cameras": 132518,
+  "total_actionable": 74088,
+  "new_this_scan": 9425,
+  "unique_ouis_found": 24,
   "ouis_queried": 39,
   "api_requests": 100,
   "data_retention_days": 730,
   "confidence_summary": {
-    "total": 123428,
-    "actionable": 66284,
+    "total": 132518,
+    "actionable": 74088,
     "by_confidence": {
-      "ssid_confirmed": 3730,
-      "oui_high": 54318,
-      "oui_mfr": 8236,
-      "identified_other": 57144
+      "ssid_confirmed": 3773,
+      "oui_high": 62080,
+      "oui_mfr": 8235,
+      "identified_other": 58430
     },
     "by_oui_tier": {
-      "high": 96199,
-      "mfr": 27229
+      "high": 105298,
+      "mfr": 27220
     },
     "by_oui_confidence": {
       "00:F4:8D": {
@@ -27,28 +27,37 @@
         "identified_other": 8
       },
       "08:3A:88": {
-        "oui_high": 20019,
+        "oui_high": 20007,
         "ssid_confirmed": 460,
         "identified_other": 2
       },
       "14:5A:FC": {
         "oui_high": 1355,
         "ssid_confirmed": 270,
-        "identified_other": 2400
+        "identified_other": 2397
       },
       "24:B2:B9": {
         "identified_other": 1525,
         "oui_high": 948,
         "ssid_confirmed": 152
       },
+      "3C:71:BF": {
+        "oui_high": 3896,
+        "ssid_confirmed": 12
+      },
       "3C:91:80": {
         "oui_high": 669,
         "ssid_confirmed": 141,
         "identified_other": 106
       },
+      "58:00:E3": {
+        "oui_high": 2629,
+        "ssid_confirmed": 17,
+        "identified_other": 1311
+      },
       "58:8E:81": {
-        "oui_high": 387,
-        "ssid_confirmed": 6
+        "oui_high": 1212,
+        "ssid_confirmed": 13
       },
       "70:08:94": {
         "oui_high": 1218,
@@ -57,13 +66,13 @@
       },
       "70:C9:4E": {
         "ssid_confirmed": 135,
-        "oui_high": 331,
+        "oui_high": 330,
         "identified_other": 29
       },
       "74:4C:A1": {
         "oui_high": 3257,
         "ssid_confirmed": 217,
-        "identified_other": 8327
+        "identified_other": 8323
       },
       "80:30:49": {
         "ssid_confirmed": 92,
@@ -71,14 +80,14 @@
         "identified_other": 350
       },
       "94:08:53": {
-        "oui_high": 528,
+        "oui_high": 527,
         "ssid_confirmed": 102,
-        "identified_other": 911
+        "identified_other": 910
       },
       "9C:2F:9D": {
         "ssid_confirmed": 269,
         "oui_high": 1704,
-        "identified_other": 4502
+        "identified_other": 4499
       },
       "B8:1E:A4": {
         "identified_other": 2255,
@@ -93,45 +102,49 @@
       "D0:39:57": {
         "oui_mfr": 2964,
         "ssid_confirmed": 519,
-        "identified_other": 8303
+        "identified_other": 8300
       },
       "D8:F3:BC": {
-        "oui_high": 1259,
+        "oui_high": 1258,
         "ssid_confirmed": 159,
         "identified_other": 2525
       },
       "E0:4F:43": {
-        "oui_high": 16166,
+        "oui_high": 16161,
         "ssid_confirmed": 82,
-        "identified_other": 6246
+        "identified_other": 6241
       },
       "E4:AA:EA": {
-        "oui_high": 2874,
+        "oui_high": 2872,
         "ssid_confirmed": 100,
-        "identified_other": 4171
+        "identified_other": 4170
       },
       "E8:D0:FC": {
         "oui_mfr": 649,
         "ssid_confirmed": 96,
         "identified_other": 209
       },
+      "EC:1B:BD": {
+        "oui_high": 434,
+        "ssid_confirmed": 7
+      },
       "F4:6A:DD": {
         "oui_mfr": 3077,
         "ssid_confirmed": 343,
-        "identified_other": 8394
+        "identified_other": 8390
       },
       "F8:A2:D6": {
-        "oui_mfr": 1041,
+        "oui_mfr": 1040,
         "ssid_confirmed": 130,
-        "identified_other": 857
+        "identified_other": 856
       }
     },
-    "out_of_market": 63654,
-    "actionable_out_of_market": 22493,
+    "out_of_market": 65956,
+    "actionable_out_of_market": 24769,
     "ssid_denylist_hits": {
-      "clickshare": 50422,
-      "smartgate_": 6106,
-      "direct-": 314,
+      "clickshare": 50402,
+      "smartgate_": 6101,
+      "direct-": 1625,
       "androidap": 1,
       "audi hud": 138,
       "max-printer": 136,
@@ -142,189 +155,194 @@
       "medium": 4
     },
     "countries": 127,
-    "regions": 1761
+    "regions": 1789
   },
   "by_confidence": {
-    "ssid_confirmed": 3730,
-    "oui_high": 54318,
-    "oui_mfr": 8236,
-    "identified_other": 57144
+    "ssid_confirmed": 3773,
+    "oui_high": 62080,
+    "oui_mfr": 8235,
+    "identified_other": 58430
   },
   "by_oui_tier": {
-    "high": 96199,
-    "mfr": 27229
+    "high": 105298,
+    "mfr": 27220
   },
-  "out_of_market": 63654,
+  "out_of_market": 65956,
   "cameras_by_oui": {
-    "E0:4F:43": 22494,
-    "08:3A:88": 20481,
-    "F4:6A:DD": 11814,
-    "74:4C:A1": 11801,
-    "D0:39:57": 11786,
-    "E4:AA:EA": 7145,
-    "9C:2F:9D": 6475,
+    "E0:4F:43": 22484,
+    "08:3A:88": 20469,
+    "F4:6A:DD": 11810,
+    "74:4C:A1": 11797,
+    "D0:39:57": 11783,
+    "E4:AA:EA": 7142,
+    "9C:2F:9D": 6472,
     "C0:35:32": 5641,
-    "14:5A:FC": 4025,
-    "D8:F3:BC": 3943,
+    "14:5A:FC": 4022,
+    "58:00:E3": 3957,
+    "D8:F3:BC": 3942,
+    "3C:71:BF": 3908,
     "B8:1E:A4": 3735,
     "70:08:94": 3665,
     "24:B2:B9": 2625,
-    "F8:A2:D6": 2028,
-    "94:08:53": 1541,
+    "F8:A2:D6": 2026,
+    "94:08:53": 1539,
+    "58:8E:81": 1225,
     "E8:D0:FC": 954,
     "3C:91:80": 916,
     "80:30:49": 824,
     "00:F4:8D": 647,
-    "70:C9:4E": 495,
-    "58:8E:81": 393
+    "70:C9:4E": 494,
+    "EC:1B:BD": 441
   },
   "cameras_by_region": {
-    "CA": 8666,
-    "TX": 6687,
-    "England": 4034,
-    "FL": 3826,
-    "AZ": 3469,
-    "\u00cele-de-France": 2898,
-    "NY": 2617,
-    "Ontario": 2352,
-    "Baden-W\u00fcrttemberg": 2305,
-    "Nordrhein-Westfalen": 2260,
-    "MI": 2209,
-    "OH": 2059,
-    "Bayern": 2015,
-    "Manner-Suomi": 1934,
-    "NV": 1765,
-    "CO": 1750,
-    "VA": 1696,
-    "IL": 1672,
-    "PA": 1500,
-    "Z\u00fcrich": 1472,
-    "WA": 1428,
-    "MN": 1324,
-    "NC": 1289,
-    "New South Wales": 1286,
-    "NJ": 1272,
-    "GA": 1152,
-    "R\u00e9gion de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest": 1147,
-    "Hessen": 1144,
-    "MO": 1118,
-    "OK": 1088,
-    "IN": 1075,
-    "Region Hovedstaden": 1050,
-    "Qu\u00e9bec": 1022,
-    "MA": 1020,
-    "KS": 1019,
-    "Zuid-Holland": 1016,
-    "Niedersachsen": 1013,
-    "UT": 878,
-    "MD": 824,
-    "Sachsen": 785,
-    "Noord-Holland": 728,
-    "DC": 726,
-    "WI": 711,
-    "Victoria": 708,
-    "Stockholms l\u00e4n": 700,
-    "Auvergne-Rh\u00f4ne-Alpes": 699,
-    "OR": 682,
-    "Catalunya": 630,
-    "Utrecht": 620,
-    "Praha": 606
+    "CA": 9552,
+    "TX": 7215,
+    "FL": 4182,
+    "England": 4081,
+    "AZ": 3690,
+    "NY": 3025,
+    "\u00cele-de-France": 2996,
+    "Ontario": 2445,
+    "MI": 2390,
+    "Baden-W\u00fcrttemberg": 2341,
+    "OH": 2319,
+    "Nordrhein-Westfalen": 2312,
+    "Bayern": 2057,
+    "NV": 1997,
+    "Manner-Suomi": 1941,
+    "CO": 1931,
+    "IL": 1889,
+    "VA": 1813,
+    "PA": 1712,
+    "WA": 1657,
+    "MN": 1494,
+    "Z\u00fcrich": 1483,
+    "NJ": 1424,
+    "NC": 1391,
+    "GA": 1347,
+    "New South Wales": 1298,
+    "MO": 1233,
+    "IN": 1218,
+    "OK": 1197,
+    "MA": 1165,
+    "Hessen": 1165,
+    "R\u00e9gion de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest": 1152,
+    "Qu\u00e9bec": 1131,
+    "KS": 1104,
+    "Region Hovedstaden": 1070,
+    "Niedersachsen": 1038,
+    "Zuid-Holland": 1024,
+    "UT": 989,
+    "MD": 925,
+    "WI": 833,
+    "Sachsen": 788,
+    "OR": 763,
+    "Auvergne-Rh\u00f4ne-Alpes": 746,
+    "Victoria": 745,
+    "Noord-Holland": 744,
+    "DC": 735,
+    "Stockholms l\u00e4n": 708,
+    "TN": 685,
+    "ID": 660,
+    "Catalunya": 636
   },
   "cameras_by_country": {
-    "US": 59774,
-    "DE": 12696,
-    "FR": 5264,
-    "CA": 4771,
-    "GB": 4536,
-    "CH": 4394,
-    "NL": 4388,
-    "AU": 3135,
-    "BE": 2833,
-    "FI": 1940,
-    "JP": 1801,
-    "AT": 1619,
-    "DK": 1554,
-    "SE": 1495,
-    "CZ": 1398,
-    "ES": 1310,
-    "IT": 1224,
-    "ZA": 881,
-    "NO": 853,
-    "PL": 773,
+    "US": 66562,
+    "DE": 12939,
+    "FR": 5664,
+    "CA": 5113,
+    "GB": 4584,
+    "NL": 4460,
+    "CH": 4443,
+    "AU": 3228,
+    "BE": 2859,
+    "FI": 1947,
+    "JP": 1809,
+    "AT": 1649,
+    "DK": 1603,
+    "SE": 1517,
+    "CZ": 1416,
+    "ES": 1352,
+    "IT": 1266,
+    "ZA": 882,
+    "BR": 875,
+    "NO": 859,
+    "PL": 809,
     "IE": 420,
-    "HU": 390,
-    "BR": 372,
-    "MX": 372,
+    "HU": 397,
+    "MX": 387,
     "KR": 344,
-    "TW": 272,
-    "LU": 265,
-    "RO": 257,
-    "NZ": 239,
-    "CN": 228,
-    "SG": 206,
-    "CO": 194,
-    "MY": 190,
-    "SA": 183,
-    "SK": 182,
-    "GR": 179,
-    "RU": 174,
-    "PT": 157,
+    "TW": 275,
+    "LU": 271,
+    "RO": 261,
+    "NZ": 255,
+    "CN": 243,
+    "SG": 217,
+    "RU": 212,
+    "CO": 196,
+    "MY": 194,
+    "GR": 188,
+    "SA": 185,
+    "SK": 183,
+    "PT": 163,
     "EE": 133,
-    "TR": 130,
-    "IN": 126,
+    "TR": 132,
+    "IN": 132,
     "MA": 123,
-    "LT": 119,
-    "AE": 103,
+    "LT": 120,
+    "AE": 104,
+    "RS": 103,
     "LV": 100,
     "PE": 95,
-    "HR": 87,
+    "HR": 91,
     "CL": 86,
-    "BG": 74,
-    "CR": 64,
-    "ID": 60,
-    "PH": 56,
-    "GL": 52,
-    "VN": 49,
+    "BG": 76,
+    "CR": 66,
+    "ID": 62,
+    "PH": 60,
+    "GL": 53,
+    "VN": 50,
     "LI": 46,
     "AR": 46,
     "SI": 43,
-    "TH": 40,
-    "RS": 34,
-    "DO": 29,
+    "TH": 41,
+    "DO": 32,
     "MC": 27,
-    "GT": 23,
+    "GT": 22,
     "KE": 21,
     "PA": 20,
+    "MT": 18,
     "CY": 18,
+    "IL": 18,
     "BM": 18,
     "PY": 17,
-    "MT": 17,
-    "IL": 17,
+    "TT": 16,
     "BO": 16,
-    "TT": 15,
-    "IS": 14,
-    "MK": 14,
-    "BY": 12,
+    "MK": 16,
+    "BY": 15,
+    "IS": 15,
+    "JO": 12,
     "FO": 11,
     "MD": 10,
     "EG": 10,
-    "JO": 10,
+    "LK": 10,
     "KY": 9,
+    "GH": 9,
     "QA": 8,
-    "GH": 8,
     "TL": 8,
     "KZ": 7,
-    "LK": 7,
+    "BA": 7,
     "IM": 6,
     "GI": 6,
     "SV": 5,
+    "IR": 5,
     "XK": 5,
     "BD": 5,
-    "BA": 5,
-    "AM": 4,
+    "AM": 5,
+    "AL": 5,
     "EC": 4,
     "PS": 4,
-    "IR": 3,
+    "FJ": 4,
     "AZ": 3,
     "AD": 3,
     "BH": 3,
@@ -332,22 +350,20 @@
     "UG": 3,
     "NG": 3,
     "HN": 3,
-    "FJ": 3,
-    "AL": 3,
     "UZ": 2,
     "BB": 2,
+    "KW": 2,
     "CI": 2,
+    "VE": 2,
+    "JE": 2,
     "NA": 2,
+    "BS": 2,
     "SM": 2,
     "KG": 2,
-    "JE": 2,
     "LY": 1,
-    "KW": 1,
     "AO": 1,
     "LB": 1,
-    "VE": 1,
     "TZ": 1,
-    "BS": 1,
     "PG": 1,
     "GW": 1,
     "DZ": 1,
@@ -370,28 +386,37 @@
       "identified_other": 8
     },
     "08:3A:88": {
-      "oui_high": 20019,
+      "oui_high": 20007,
       "ssid_confirmed": 460,
       "identified_other": 2
     },
     "14:5A:FC": {
       "oui_high": 1355,
       "ssid_confirmed": 270,
-      "identified_other": 2400
+      "identified_other": 2397
     },
     "24:B2:B9": {
       "identified_other": 1525,
       "oui_high": 948,
       "ssid_confirmed": 152
     },
+    "3C:71:BF": {
+      "oui_high": 3896,
+      "ssid_confirmed": 12
+    },
     "3C:91:80": {
       "oui_high": 669,
       "ssid_confirmed": 141,
       "identified_other": 106
     },
+    "58:00:E3": {
+      "oui_high": 2629,
+      "ssid_confirmed": 17,
+      "identified_other": 1311
+    },
     "58:8E:81": {
-      "oui_high": 387,
-      "ssid_confirmed": 6
+      "oui_high": 1212,
+      "ssid_confirmed": 13
     },
     "70:08:94": {
       "oui_high": 1218,
@@ -400,13 +425,13 @@
     },
     "70:C9:4E": {
       "ssid_confirmed": 135,
-      "oui_high": 331,
+      "oui_high": 330,
       "identified_other": 29
     },
     "74:4C:A1": {
       "oui_high": 3257,
       "ssid_confirmed": 217,
-      "identified_other": 8327
+      "identified_other": 8323
     },
     "80:30:49": {
       "ssid_confirmed": 92,
@@ -414,14 +439,14 @@
       "identified_other": 350
     },
     "94:08:53": {
-      "oui_high": 528,
+      "oui_high": 527,
       "ssid_confirmed": 102,
-      "identified_other": 911
+      "identified_other": 910
     },
     "9C:2F:9D": {
       "ssid_confirmed": 269,
       "oui_high": 1704,
-      "identified_other": 4502
+      "identified_other": 4499
     },
     "B8:1E:A4": {
       "identified_other": 2255,
@@ -436,38 +461,42 @@
     "D0:39:57": {
       "oui_mfr": 2964,
       "ssid_confirmed": 519,
-      "identified_other": 8303
+      "identified_other": 8300
     },
     "D8:F3:BC": {
-      "oui_high": 1259,
+      "oui_high": 1258,
       "ssid_confirmed": 159,
       "identified_other": 2525
     },
     "E0:4F:43": {
-      "oui_high": 16166,
+      "oui_high": 16161,
       "ssid_confirmed": 82,
-      "identified_other": 6246
+      "identified_other": 6241
     },
     "E4:AA:EA": {
-      "oui_high": 2874,
+      "oui_high": 2872,
       "ssid_confirmed": 100,
-      "identified_other": 4171
+      "identified_other": 4170
     },
     "E8:D0:FC": {
       "oui_mfr": 649,
       "ssid_confirmed": 96,
       "identified_other": 209
     },
+    "EC:1B:BD": {
+      "oui_high": 434,
+      "ssid_confirmed": 7
+    },
     "F4:6A:DD": {
       "oui_mfr": 3077,
       "ssid_confirmed": 343,
-      "identified_other": 8394
+      "identified_other": 8390
     },
     "F8:A2:D6": {
-      "oui_mfr": 1041,
+      "oui_mfr": 1040,
       "ssid_confirmed": 130,
-      "identified_other": 857
+      "identified_other": 856
     }
   },
-  "confidence_refreshed": "2026-10-03T10:50:21.812679+00:00"
+  "confidence_refreshed": "2026-10-04T11:34:20.024424+00:00"
 }
