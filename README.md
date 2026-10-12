@@ -11,16 +11,16 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** (actionable) | 90,755 |
-| 🔎 *of which SSID-confirmed* | 4,936 |
-| 🛰️ *of which OUI-suspected (high tier)* | 76,702 |
-| 🧩 *of which OUI-suspected (contract-mfr tier)* | 9,117 |
-| 🚫 **Excluded — SSID is other hardware** | 62,778 |
-| 🌍 **Flagged outside the US** | 73,675 |
+| 📸 **Cameras Mapped** (actionable) | 90,930 |
+| 🔎 *of which SSID-confirmed* | 5,008 |
+| 🛰️ *of which OUI-suspected (high tier)* | 76,790 |
+| 🧩 *of which OUI-suspected (contract-mfr tier)* | 9,132 |
+| 🚫 **Excluded — SSID is other hardware** | 62,860 |
+| 🌍 **Flagged outside the US** | 73,796 |
 | 📡 **OUI Prefixes with Data** | 38 / 39 |
 | 🌎 **Countries** | 137 |
 | 🗺️ **Regions / provinces (distinct)** | 2,048 |
-| 🕐 **Last Updated** | 2026-10-11 |
+| 🕐 **Last Updated** | 2026-10-12 |
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
@@ -33,13 +33,13 @@ Every published record carries a `confidence` field, because an OUI match on its
 
 | Confidence | Records | Share | Meaning |
 |------------|---------|-------|---------|
-| `ssid_confirmed` | 4,936 | 3.2% | SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, `Flock Camera net.`, `FS Ext Battery`) — strongest signal passive WiFi can give |
-| `oui_high` | 76,702 | 50.0% | High-confidence Flock OUI, SSID absent/hidden/unrecognised — suspected, unverified |
-| `oui_mfr` | 9,117 | 5.9% | Contract-manufacturer OUI (Liteon/USI) — weakest evidence, expect false positives |
-| `identified_other` | 62,778 | 40.9% | SSID positively identifies other hardware — excluded from the map and from the camera count above |
-| **All records** | **153,533** | 100.0% | |
+| `ssid_confirmed` | 5,008 | 3.3% | SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, `Flock Camera net.`, `FS Ext Battery`) — strongest signal passive WiFi can give |
+| `oui_high` | 76,790 | 49.9% | High-confidence Flock OUI, SSID absent/hidden/unrecognised — suspected, unverified |
+| `oui_mfr` | 9,132 | 5.9% | Contract-manufacturer OUI (Liteon/USI) — weakest evidence, expect false positives |
+| `identified_other` | 62,860 | 40.9% | SSID positively identifies other hardware — excluded from the map and from the camera count above |
+| **All records** | **153,790** | 100.0% | |
 
-SSID denylist hits: `clickshare*` 52,039 · `smartgate_*` 6,125 · `direct-*` 3,706 · `androidap*` 601 · `audi hud*` 140 · `max-printer*` 140 · `detector_verdict*` 27.
+SSID denylist hits: `clickshare*` 52,115 · `smartgate_*` 6,131 · `direct-*` 3,708 · `androidap*` 599 · `audi hud*` 140 · `max-printer*` 140 · `detector_verdict*` 27.
 
 **Detector output ingested as data.** 27 records carry another detector's verdict string in the SSID column (`Flock ALPR [wifi_receiver_oui;low]` and similar) — self-tagged `low` 23 · `medium` 4 by the tool that produced them. They are a downstream copy of a detection, not an observation of a camera, so they are excluded outright instead of being counted in the SSID-confirmed subset.
 
@@ -47,22 +47,22 @@ SSID denylist hits: `clickshare*` 52,039 · `smartgate_*` 6,125 · `direct-*` 3,
 
 | OUI prefix | Records | SSID-confirmed | Excluded as other hardware |
 |------------|---------|----------------|----------------------------|
-| `F4:6A:DD` | 11,949 | 376 | 8,476 (71%) |
-| `74:4C:A1` | 12,011 | 255 | 8,437 (70%) |
-| `D0:39:57` | 11,909 | 563 | 8,361 (70%) |
-| `9C:2F:9D` | 6,609 | 321 | 4,573 (69%) |
-| `C0:35:32` | 5,828 | 128 | 3,805 (65%) |
-| `70:08:94` | 3,763 | 135 | 2,390 (64%) |
-| `D8:F3:BC` | 4,036 | 195 | 2,557 (63%) |
-| `B8:1E:A4` | 3,777 | 118 | 2,281 (60%) |
+| `F4:6A:DD` | 11,976 | 395 | 8,479 (71%) |
+| `74:4C:A1` | 12,024 | 258 | 8,447 (70%) |
+| `D0:39:57` | 11,931 | 567 | 8,381 (70%) |
+| `9C:2F:9D` | 6,619 | 322 | 4,577 (69%) |
+| `C0:35:32` | 5,846 | 129 | 3,817 (65%) |
+| `70:08:94` | 3,780 | 136 | 2,400 (63%) |
+| `D8:F3:BC` | 4,039 | 196 | 2,557 (63%) |
+| `B8:1E:A4` | 3,787 | 121 | 2,283 (60%) |
 
-The most Flock-confirmed, for contrast: `70:C9:4E` (34% SSID-confirmed, 192 of 564 records), `00:F4:8D` (23% SSID-confirmed, 152 of 667 records), `3C:91:80` (18% SSID-confirmed, 175 of 971 records).
+The most Flock-confirmed, for contrast: `70:C9:4E` (34% SSID-confirmed, 192 of 565 records), `00:F4:8D` (24% SSID-confirmed, 161 of 677 records), `3C:91:80` (18% SSID-confirmed, 177 of 973 records).
 
-**11 prefixes are neither confirmed nor contradicted** — under 2% of their records carry a Flock SSID and under half name other hardware, so their MACs are simply unverifiable from SSID evidence: `64:6E:69` (3,696 records, 15 confirmed), `58:00:E3` (4,900 records, 41 confirmed), `E0:4F:43` (22,676 records, 91 confirmed), `5C:93:A2` (3,890 records, 16 confirmed), `A4:CF:12` (4,370 records, 4 confirmed), `3C:71:BF` (3,916 records, 12 confirmed) and 5 more. These are the weakest entries in the list: an OUI match there means little on its own.
+**11 prefixes are neither confirmed nor contradicted** — under 2% of their records carry a Flock SSID and under half name other hardware, so their MACs are simply unverifiable from SSID evidence: `64:6E:69` (3,704 records, 17 confirmed), `58:00:E3` (4,907 records, 41 confirmed), `E0:4F:43` (22,696 records, 92 confirmed), `5C:93:A2` (3,894 records, 16 confirmed), `A4:CF:12` (4,374 records, 4 confirmed), `3C:71:BF` (3,925 records, 13 confirmed) and 5 more. These are the weakest entries in the list: an OUI match there means little on its own.
 
 The `tier` field in `data/flock_ouis.csv` is the curated (firmware-parity) judgement; these numbers are the measurement. Where they disagree, the measurement is the honest summary of what this dataset actually contains.
 
-Market: 73,675 records (48.0%) are outside the primary US market and carry `"out_of_market": true`. They are flagged, not deleted — Flock has expanded internationally — so consumers can filter them.
+Market: 73,796 records (48.0%) are outside the primary US market and carry `"out_of_market": true`. They are flagged, not deleted — Flock has expanded internationally — so consumers can filter them.
 
 Every record is still *suspected*: the tiers describe the strength of the evidence, not a confirmation from Flock that a device is theirs. See [docs/DATA_POLICY.md](docs/DATA_POLICY.md).
 <!-- CONFIDENCE_BREAKDOWN_END -->
@@ -245,18 +245,18 @@ The table below lists the ten most frequently observed SSID values across all Wi
 <!-- SSID_TOP10_START -->
 | # | SSID | Occurrences |
 |---|------|-------------|
-| 1 | `Flock` | 4,769 |
+| 1 | `Flock` | 4,841 |
 | 2 | `SMARTGATE_123456` | 868 |
-| 3 | `______________________` | 309 |
-| 4 | `TEST` | 301 |
-| 5 | `AndroidAP` | 299 |
+| 3 | `______________________` | 321 |
+| 4 | `TEST` | 302 |
+| 5 | `AndroidAP` | 297 |
 | 6 | `ClickShare` | 227 |
 | 7 | `ClickShare-Boardroom` | 224 |
 | 8 | `Compudopt Connect` | 221 |
 | 9 | `ClickShare-Conference Room` | 139 |
 | 10 | `MAX-PRINTER` | 139 |
 
-*Computed from 127,401 SSID-bearing records (113,901 unique values) across all 38 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
+*Computed from 127,629 SSID-bearing records (114,030 unique values) across all 38 OUI files in `data/by_oui/`. Stats update automatically after each scan.*
 <!-- SSID_TOP10_END -->
 
 ---
@@ -264,11 +264,11 @@ The table below lists the ten most frequently observed SSID values across all Wi
 ## 🔬 Flock SSID Pattern Analysis
 
 <!-- SSID_PATTERNS_START -->
-Filtering for only `Flock*`-prefixed SSIDs yields **171 unique variants** across **4,962 total records**. These fall into five distinct patterns:
+Filtering for only `Flock*`-prefixed SSIDs yields **171 unique variants** across **5,034 total records**. These fall into five distinct patterns:
 
 | Pattern | Unique SSIDs | Records | Description |
 |---------|-------------|---------|-------------|
-| `Flock` | 1 | 4,769 | Bare name — fully configured / deployed cameras |
+| `Flock` | 1 | 4,841 | Bare name — fully configured / deployed cameras |
 | `Flock-XXXXXX` | 158 | 158 | Mixed-case with 6-char uppercase hex suffix |
 | `FLOCK-XXXXXX` | 5 | 5 | All-caps variant with 6-char hex suffix |
 | `Flock-XXXX` | 1 | 1 | Shorter 4-char hex suffix (`Flock-6361`) |
