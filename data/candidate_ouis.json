@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-13T06:09:31.385883+00:00",
+  "generated": "2026-10-14T06:06:48.333463+00:00",
   "description": "Candidate Flock Safety OUI prefixes identified via SSID-pattern WiGLE queries. Each prefix appeared \u22655 times in Flock-SSID-bearing records but is NOT in the canonical flock_ouis.csv. Treat as unconfirmed leads requiring field verification.",
   "min_count_threshold": 5,
   "total_candidates": 0,
   "candidates": [],
   "ssid_pattern_coverage": {
-    "generated": "2026-10-13T06:09:30.522971+00:00",
+    "generated": "2026-10-14T06:06:47.646146+00:00",
     "patterns": {
       "Flock%": 0,
       "FLOCK%": 0,
@@ -13,8 +13,8 @@
       "fs ext battery%": 0
     },
     "dataset": {
-      "records_scanned": 153952,
-      "ssid_bearing": 128041,
+      "records_scanned": 154060,
+      "ssid_bearing": 128142,
       "flock_camera_net_records": 0,
       "fs_ext_battery_records": 1,
       "laa_records": 23,
