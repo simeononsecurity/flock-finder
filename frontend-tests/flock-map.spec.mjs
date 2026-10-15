@@ -2,7 +2,11 @@ import {expect, test} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 async function openMap(page, config = {}) {
-    await page.addInitScript(value => { window.FLOCK_FINDER_CONFIG = value; }, config);
+    await page.addInitScript(value => { window.FLOCK_FINDER_CONFIG = value; }, {
+        tileArchive: '/frontend-tests/fixtures/assets/flock-cameras.pmtiles',
+        bssidIndexPath: '/frontend-tests/fixtures/assets/bssid',
+        ...config,
+    });
     await page.route('https://a.basemaps.cartocdn.com/**', route => route.fulfill({
         status: 204,
         contentType: 'image/png',
