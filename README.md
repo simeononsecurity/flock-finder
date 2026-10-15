@@ -362,11 +362,6 @@ What stays in git are the small, diffable artifacts: `data/flock_ouis.csv` (the
 canonical OUI list), `scan_stats.json`, `candidate_ouis.json` and
 `ssid_candidate_cameras.*`.
 
-> **History note.** Untracking stops the growth; the old blobs are still in
-> history. Reclaiming the existing ~1.6 GB requires a history rewrite
-> (`git filter-repo --path data/flock_cameras.geojson --path data/flock_cameras.csv --path data/by_oui --invert-paths`),
-> which is a maintainer call because it rewrites every commit hash.
-
 ---
 
 ## 🔒 API Key Security
