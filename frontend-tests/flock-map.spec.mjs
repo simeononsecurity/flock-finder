@@ -8,10 +8,12 @@ async function openMap(page, config = {}) {
         bssidIndexPath: '/frontend-tests/fixtures/assets/bssid',
         ...config,
     });
-    await page.route('https://a.basemaps.cartocdn.com/**', route => route.fulfill({
-        status: 204,
-        contentType: 'image/png',
-        body: '',
+    await page.route('https://tiles.openfreemap.org/styles/dark', route => route.fulfill({
+        json: {
+            version: 8,
+            sources: {},
+            layers: [{id: 'test-basemap', type: 'background', paint: {'background-color': '#202028'}}],
+        },
     }));
     await page.goto('/docs/index.html');
     await page.waitForFunction(() => window.__flockFinderMetrics?.firstIdleMs > 0);
@@ -19,16 +21,22 @@ async function openMap(page, config = {}) {
 
 test('loads viewport PMTiles without fetching full GeoJSON', async ({page}) => {
     let legacyGeoJsonRequests = 0;
+    let cartoRequests = 0;
+    let openFreeMapStyleRequests = 0;
     const archiveRanges = [];
     const workerRequests = [];
     page.on('request', request => {
         if (request.url().includes('flock_cameras.geojson')) legacyGeoJsonRequests += 1;
+        if (request.url().includes('cartocdn.com')) cartoRequests += 1;
+        if (request.url() === 'https://tiles.openfreemap.org/styles/dark') openFreeMapStyleRequests += 1;
         if (request.url().includes('flock-cameras.pmtiles')) archiveRanges.push(request.headers().range || '');
         if (request.url().includes('maplibre-gl-csp-worker.js')) workerRequests.push(request.url());
     });
     await openMap(page);
 
     expect(legacyGeoJsonRequests).toBe(0);
+    expect(cartoRequests).toBe(0);
+    expect(openFreeMapStyleRequests).toBe(1);
     expect(archiveRanges.length).toBeGreaterThan(0);
     expect(archiveRanges.every(value => value.startsWith('bytes='))).toBeTruthy();
     expect(workerRequests).toHaveLength(1);
@@ -110,7 +118,7 @@ test('renders local camera results while the third-party basemap is stalled', as
         tileArchive: '/frontend-tests/fixtures/assets/flock-cameras.pmtiles',
         bssidIndexPath: '/frontend-tests/fixtures/assets/bssid',
     });
-    await page.route('https://a.basemaps.cartocdn.com/**', () => new Promise(() => {}));
+    await page.route('https://tiles.openfreemap.org/styles/dark', () => new Promise(() => {}));
     await page.goto('/docs/index.html', {waitUntil: 'domcontentloaded'});
 
     const input = page.getByLabel('Search by place or exact BSSID');

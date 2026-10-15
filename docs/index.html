@@ -10,9 +10,10 @@
     <meta name="flock-tile-archive" content="assets/flock-cameras.pmtiles">
     <meta name="flock-tile-chunks" content="">
     <meta name="flock-bssid-index" content="assets/bssid">
+    <meta name="basemap-style" content="https://tiles.openfreemap.org/styles/dark">
     <link rel="stylesheet" href="vendor/maplibre-gl-5.19.0/maplibre-gl.css">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob:; style-src 'self'; img-src 'self' data: blob: https://*.basemaps.cartocdn.com; connect-src 'self' https://nominatim.openstreetmap.org https://*.basemaps.cartocdn.com; worker-src 'self' blob:; child-src 'self' blob: https://www.youtube-nocookie.com; frame-src https://www.youtube-nocookie.com; font-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob:; style-src 'self'; img-src 'self' data: blob: https://tiles.openfreemap.org; connect-src 'self' https://nominatim.openstreetmap.org https://tiles.openfreemap.org; worker-src 'self' blob:; child-src 'self' blob: https://www.youtube-nocookie.com; frame-src https://www.youtube-nocookie.com; font-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
     <link rel="stylesheet" href="assets/index.css">
     <link rel="stylesheet" href="assets/flock-map.css">
 </head>
@@ -132,7 +133,7 @@
 
     <p class="index-style-5">
         Data: <a class="index-style-6" href="https://wigle.net" target="_blank">WiGLE</a> &nbsp;|&nbsp;
-        Map: © <a class="index-style-6" href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &nbsp;|&nbsp;
+        Map: <a class="index-style-6" href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> © <a class="index-style-6" href="https://openmaptiles.org" target="_blank" rel="noopener noreferrer">OpenMapTiles</a> © <a class="index-style-6" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors &nbsp;|&nbsp;
         Last updated: <span id="last-updated">—</span>
     </p>
 </section>

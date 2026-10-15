@@ -20,6 +20,7 @@
         tileChunks: document.querySelector('meta[name="flock-tile-chunks"]')?.content || '',
         tileChunkSize: 256 * 1024,
         bssidIndexPath: document.querySelector('meta[name="flock-bssid-index"]')?.content || 'assets/bssid',
+        basemapStyleUrl: document.querySelector('meta[name="basemap-style"]')?.content || 'https://tiles.openfreemap.org/styles/dark',
         geocoderUrl: document.querySelector('meta[name="geocoder-url"]')?.content || 'https://nominatim.openstreetmap.org/search',
         geocoderMinIntervalMs: 1000,
         geocoderCacheMs: 30 * 24 * 60 * 60 * 1000,
@@ -45,6 +46,57 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#39;');
+    }
+
+    function cameraSourceDefinition() {
+        return {
+            type: 'vector',
+            url: archiveUrl,
+            attribution: 'Camera observations: WiGLE',
+            minzoom: 0,
+            maxzoom: 12,
+        };
+    }
+
+    function cameraLayerDefinitions() {
+        return [
+            {
+                id: 'camera-clusters',
+                type: 'circle',
+                source: 'cameras',
+                'source-layer': 'cameras',
+                minzoom: 0,
+                maxzoom: DETAIL_ZOOM,
+                filter: ['all', ['has', 'point_count'], ['>', clusterCountExpression(), 0]],
+                paint: {
+                    'circle-color': '#b52323',
+                    'circle-opacity': 0.86,
+                    'circle-stroke-color': '#fff',
+                    'circle-stroke-width': 1.5,
+                    'circle-radius': ['step', clusterCountExpression(), 11, 10, 15, 100, 21, 1000, 29],
+                },
+            },
+            {
+                id: 'camera-points',
+                type: 'circle',
+                source: 'cameras',
+                'source-layer': 'cameras',
+                minzoom: DETAIL_ZOOM,
+                filter: detailFilter(),
+                paint: {
+                    'circle-color': [
+                        'match', ['get', 'confidence'],
+                        'ssid_correlated', '#00e676',
+                        'oui_high', '#ff3b3b',
+                        'oui_mfr', '#ffb300',
+                        '#969696',
+                    ],
+                    'circle-radius': 5,
+                    'circle-stroke-color': '#fff',
+                    'circle-stroke-width': 1.5,
+                },
+            },
+        ];
     }
 
     function setSearchStatus(message, state = '') {
@@ -147,62 +199,31 @@
         style: {
             version: 8,
             sources: {
-                basemap: {
-                    type: 'raster',
-                    tiles: ['https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png'],
-                    tileSize: 512,
-                    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-                },
-                cameras: {
-                    type: 'vector',
-                    url: archiveUrl,
-                    attribution: 'Camera observations: WiGLE',
-                    minzoom: 0,
-                    maxzoom: 12,
-                },
+                cameras: cameraSourceDefinition(),
             },
             layers: [
-                {id: 'basemap', type: 'raster', source: 'basemap'},
-                {
-                    id: 'camera-clusters',
-                    type: 'circle',
-                    source: 'cameras',
-                    'source-layer': 'cameras',
-                    minzoom: 0,
-                    maxzoom: DETAIL_ZOOM,
-                    filter: ['all', ['has', 'point_count'], ['>', clusterCountExpression(), 0]],
-                    paint: {
-                        'circle-color': '#b52323',
-                        'circle-opacity': 0.86,
-                        'circle-stroke-color': '#fff',
-                        'circle-stroke-width': 1.5,
-                        'circle-radius': ['step', clusterCountExpression(), 11, 10, 15, 100, 21, 1000, 29],
-                    },
-                },
-                {
-                    id: 'camera-points',
-                    type: 'circle',
-                    source: 'cameras',
-                    'source-layer': 'cameras',
-                    minzoom: DETAIL_ZOOM,
-                    filter: detailFilter(),
-                    paint: {
-                        'circle-color': [
-                            'match', ['get', 'confidence'],
-                            'ssid_correlated', '#00e676',
-                            'oui_high', '#ff3b3b',
-                            'oui_mfr', '#ffb300',
-                            '#969696',
-                        ],
-                        'circle-radius': 5,
-                        'circle-stroke-color': '#fff',
-                        'circle-stroke-width': 1.5,
-                    },
-                },
+                {id: 'basemap-fallback', type: 'background', paint: {'background-color': '#0d0d12'}},
+                ...cameraLayerDefinitions(),
             ],
         },
     });
     map.addControl(new maplibregl.NavigationControl({showCompass: false}), 'top-right');
+
+    async function loadBasemap() {
+        const response = await fetch(config.basemapStyleUrl, {headers: {'Accept': 'application/json'}});
+        if (!response.ok) throw new Error(`Basemap style request returned ${response.status}`);
+        const style = await response.json();
+        if (style.version !== 8 || !style.sources || !Array.isArray(style.layers)) {
+            throw new Error('Basemap style response is invalid');
+        }
+        style.sources = {...style.sources, cameras: cameraSourceDefinition()};
+        style.layers = [...style.layers, ...cameraLayerDefinitions()];
+        map.setStyle(style);
+    }
+
+    loadBasemap().catch(() => {
+        // The local camera layer remains usable over the dark fallback.
+    });
 
     function selectedClusterCount(properties) {
         const prefix = document.getElementById('filter-hide-out-of-market').checked
