@@ -8,6 +8,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "package_snapshot.py"
 UPDATE_WORKFLOW = REPO_ROOT / ".github" / "workflows" / "update-data.yml"
+DEPLOY_WORKFLOW = REPO_ROOT / ".github" / "workflows" / "deploy-pages.yml"
 SOURCE_COMMIT = "0123456789abcdef0123456789abcdef01234567"
 
 
@@ -191,6 +192,16 @@ def test_workflow_restores_and_gates_base_before_any_release_upload() -> None:
     assert "BASE_DATASET_STATUS=verified_restored_base" in workflow
     assert "BASE_DATASET_STATUS=explicit_full_scan" in workflow
     assert '--base-status "$BASE_DATASET_STATUS"' in workflow
+
+
+def test_pages_deploy_waits_for_a_verified_snapshot_update() -> None:
+    workflow = DEPLOY_WORKFLOW.read_text(encoding="utf-8")
+    triggers = workflow.partition("permissions:")[0]
+
+    assert "  push:" not in triggers
+    assert "  workflow_run:" in triggers
+    assert "Update Flock Camera Data" in triggers
+    assert "No verified immutable snapshot pointer exists" in workflow
 
 
 def test_verify_detects_changed_file(tmp_path: Path) -> None:

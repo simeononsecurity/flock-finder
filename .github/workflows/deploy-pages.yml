@@ -1,9 +1,6 @@
 name: Deploy GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows:
       - Update Flock Camera Data
@@ -40,8 +37,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p "$RUNNER_TEMP/flock-release"
-          gh release download data-latest --repo "$GITHUB_REPOSITORY" \
-            --pattern latest.json --dir "$RUNNER_TEMP/flock-release"
+          if ! gh release download data-latest --repo "$GITHUB_REPOSITORY" \
+            --pattern latest.json --dir "$RUNNER_TEMP/flock-release"; then
+            echo "::error::No verified immutable snapshot pointer exists. Run Update Flock Camera Data with full_rescan enabled once to create the initial snapshot."
+            exit 1
+          fi
           SNAPSHOT_TAG=$(python3 -c "import json; print(json.load(open('$RUNNER_TEMP/flock-release/latest.json'))['release_tag'])")
           ARCHIVE_NAME=$(python3 -c "import json; print(json.load(open('$RUNNER_TEMP/flock-release/latest.json'))['archive']['name'])")
           MANIFEST_NAME=$(python3 -c "import json; print(json.load(open('$RUNNER_TEMP/flock-release/latest.json'))['manifest']['name'])")
