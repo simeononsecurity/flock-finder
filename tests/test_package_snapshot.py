@@ -186,11 +186,23 @@ def test_build_is_deterministic_and_records_provenance(tmp_path: Path) -> None:
 def test_workflow_restores_and_gates_base_before_any_release_upload() -> None:
     workflow = UPDATE_WORKFLOW.read_text(encoding="utf-8")
     restore = workflow.index("Restore verified base snapshot or require explicit full scan")
+    scan = workflow.index("Query WiGLE for Flock cameras (incremental)")
+    checkpoint = workflow.index("Save scan campaign checkpoint")
+    stop = workflow.index("Stop after incomplete scan campaign")
     package = workflow.index("Build immutable snapshot package")
     upload = workflow.index("Publish immutable snapshot release")
-    assert restore < package < upload
+    assert restore < scan < checkpoint < stop < package < upload
     assert "BASE_DATASET_STATUS=verified_restored_base" in workflow
     assert "BASE_DATASET_STATUS=explicit_full_scan" in workflow
+    assert "RESUME_FULL_SCAN=true" in workflow
+    assert "BOOTSTRAP_PHASE=ssid_scan" in workflow
+    assert "BOOTSTRAP_PHASE=assets" in workflow
+    assert "data/full_scan_bootstrap.json" in workflow
+    assert "scan-campaign-v2-" in workflow
+    assert "actions/cache/restore@" in workflow
+    assert "actions/cache/save@" in workflow
+    assert "continue-on-error: true" in workflow
+    assert "steps.wigle_scan.outcome == 'failure'" in workflow
     assert '--base-status "$BASE_DATASET_STATUS"' in workflow
 
 

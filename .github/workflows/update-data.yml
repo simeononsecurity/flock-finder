@@ -43,20 +43,27 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Restore incremental scan state from previous runs.
-      # scan_state.json / ssid_scan_state.json are gitignored (local checkpoints),
-      # so we persist them across CI runs via the Actions cache.
-      # The cache key rotates monthly to force periodic full rescans.
-      - name: Restore scan state cache
-        if: ${{ github.event.inputs.full_rescan != 'true' }}
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+      # Restore scan checkpoints and generated files. A full scan often spans
+      # several WiGLE quota windows, so an explicit rescan resumes any active
+      # bootstrap campaign instead of discarding its pagination state.
+      - name: Restore scan campaign cache
+        uses: actions/cache/restore@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
         with:
           path: |
+            data/full_scan_bootstrap.json
             data/scan_state.json
             data/ssid_scan_state.json
-          key: scan-state-${{ hashFiles('data/flock_ouis.csv') }}-${{ github.run_id }}
+            data/flock_cameras.geojson
+            data/flock_cameras.csv
+            data/by_oui
+            data/scan_stats.json
+            data/candidate_ouis.json
+            data/ssid_candidate_cameras.geojson
+            data/ssid_candidate_cameras.csv
+          key: scan-campaign-v2-${{ hashFiles('data/flock_ouis.csv') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            scan-state-${{ hashFiles('data/flock_ouis.csv') }}-
+            scan-campaign-v2-${{ hashFiles('data/flock_ouis.csv') }}-
+            scan-campaign-v2-
 
       # Incremental scans require a hash-verified base snapshot. A missing or
       # corrupt base must stop the run instead of publishing only the current
@@ -64,12 +71,42 @@ jobs:
       - name: Restore verified base snapshot or require explicit full scan
         env:
           GH_TOKEN: ${{ github.token }}
+          INPUT_FULL_RESCAN: ${{ github.event.inputs.full_rescan }}
         run: |
-          if [ "${{ github.event.inputs.full_rescan }}" = "true" ]; then
-            echo "[i] explicit full scan requested; no base snapshot will be merged"
+          MARKER=data/full_scan_bootstrap.json
+
+          if [ -f "$MARKER" ]; then
+            test -s data/scan_state.json || {
+              echo "::error::Bootstrap marker exists without scan state" >&2
+              exit 1
+            }
+            BOOTSTRAP_PHASE=$(python3 -c "import json; print(json.load(open('$MARKER'))['phase'])")
+            case "$BOOTSTRAP_PHASE" in
+              oui_scan|ssid_scan|assets) ;;
+              *) echo "::error::Invalid bootstrap phase: $BOOTSTRAP_PHASE" >&2; exit 1 ;;
+            esac
+            if [ "$BOOTSTRAP_PHASE" != "oui_scan" ]; then
+              test -s data/flock_cameras.geojson
+              test -s data/flock_cameras.csv
+            fi
+            echo "[i] resuming full scan campaign at phase $BOOTSTRAP_PHASE"
             echo "BASE_DATASET_STATUS=explicit_full_scan" >> "$GITHUB_ENV"
+            echo "RESUME_FULL_SCAN=true" >> "$GITHUB_ENV"
+            echo "BOOTSTRAP_PHASE=$BOOTSTRAP_PHASE" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          if [ "$INPUT_FULL_RESCAN" = "true" ]; then
+            echo "[i] starting explicit full scan campaign"
+            rm -f data/scan_state.json data/ssid_scan_state.json
             rm -f data/flock_cameras.geojson data/flock_cameras.csv
             rm -rf data/by_oui
+            rm -f data/scan_stats.json data/candidate_ouis.json
+            rm -f data/ssid_candidate_cameras.geojson data/ssid_candidate_cameras.csv
+            python3 -c "import datetime, json, os; json.dump({'phase': 'oui_scan', 'started_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'run_id': os.environ['GITHUB_RUN_ID']}, open('$MARKER', 'w'), indent=2)"
+            echo "BASE_DATASET_STATUS=explicit_full_scan" >> "$GITHUB_ENV"
+            echo "RESUME_FULL_SCAN=false" >> "$GITHUB_ENV"
+            echo "BOOTSTRAP_PHASE=oui_scan" >> "$GITHUB_ENV"
             exit 0
           fi
 
@@ -96,12 +133,23 @@ jobs:
           rm -rf data/by_oui
           cp -R "$RESTORE_DIR/data/by_oui" data/
           echo "BASE_DATASET_STATUS=verified_restored_base" >> "$GITHUB_ENV"
+          echo "RESUME_FULL_SCAN=false" >> "$GITHUB_ENV"
+          echo "BOOTSTRAP_PHASE=incremental" >> "$GITHUB_ENV"
           echo "[i] restored and verified $(du -h data/flock_cameras.geojson | cut -f1) base dataset"
 
       - name: Record scan start
-        run: echo "SCAN_STARTED_AT=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_ENV"
+        run: |
+          if [ -f data/full_scan_bootstrap.json ]; then
+            SCAN_STARTED_AT=$(python3 -c "import json; print(json.load(open('data/full_scan_bootstrap.json'))['started_at'])")
+          else
+            SCAN_STARTED_AT=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          fi
+          echo "SCAN_STARTED_AT=$SCAN_STARTED_AT" >> "$GITHUB_ENV"
 
       - name: Query WiGLE for Flock cameras (incremental)
+        id: wigle_scan
+        if: ${{ env.BOOTSTRAP_PHASE == 'oui_scan' || env.BOOTSTRAP_PHASE == 'incremental' }}
+        continue-on-error: true
         env:
           WIGLE_API_NAME: ${{ secrets.WIGLE_API_NAME }}
           WIGLE_API_TOKEN: ${{ secrets.WIGLE_API_TOKEN }}
@@ -112,7 +160,7 @@ jobs:
           if [ -n "$INPUT_COUNTRY" ]; then
             ARGS+=(--country "$INPUT_COUNTRY")
           fi
-          if [ "$INPUT_FULL_RESCAN" = "true" ]; then
+          if [ "$INPUT_FULL_RESCAN" = "true" ] && [ "$RESUME_FULL_SCAN" != "true" ]; then
             ARGS+=(--full-rescan)
           fi
           if [ "${{ github.event_name }}" = "schedule" ]; then
@@ -120,14 +168,75 @@ jobs:
           fi
           python3 scripts/wigle_query.py "${ARGS[@]}"
 
+      - name: Advance bootstrap campaign to SSID scan
+        if: ${{ steps.wigle_scan.outcome == 'success' && env.BOOTSTRAP_PHASE == 'oui_scan' }}
+        run: |
+          python3 -c "import json; p='data/full_scan_bootstrap.json'; d=json.load(open(p)); d['phase']='ssid_scan'; json.dump(d, open(p, 'w'), indent=2)"
+          echo "BOOTSTRAP_PHASE=ssid_scan" >> "$GITHUB_ENV"
+
+      - name: Save scan campaign checkpoint after OUI scan
+        if: ${{ always() && steps.wigle_scan.outcome != 'skipped' }}
+        uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        with:
+          path: |
+            data/full_scan_bootstrap.json
+            data/scan_state.json
+            data/ssid_scan_state.json
+            data/flock_cameras.geojson
+            data/flock_cameras.csv
+            data/by_oui
+            data/scan_stats.json
+            data/candidate_ouis.json
+            data/ssid_candidate_cameras.geojson
+            data/ssid_candidate_cameras.csv
+          key: scan-campaign-v2-${{ hashFiles('data/flock_ouis.csv') }}-checkpoint-oui-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Stop after incomplete scan campaign
+        if: ${{ steps.wigle_scan.outcome == 'failure' }}
+        run: |
+          echo "::error::WiGLE OUI scan is incomplete. Checkpoint saved for the next run." >&2
+          exit 1
+
       - name: Update SSID stats in README and website
         run: python3 scripts/update_ssid_stats.py
 
       - name: Query WiGLE by SSID patterns for novel OUI discovery
+        id: ssid_scan
+        if: ${{ env.BOOTSTRAP_PHASE != 'assets' }}
+        continue-on-error: true
         env:
           WIGLE_API_NAME: ${{ secrets.WIGLE_API_NAME }}
           WIGLE_API_TOKEN: ${{ secrets.WIGLE_API_TOKEN }}
         run: python3 scripts/ssid_query.py
+
+      - name: Advance bootstrap campaign to asset build
+        if: ${{ steps.ssid_scan.outcome == 'success' && env.BOOTSTRAP_PHASE == 'ssid_scan' }}
+        run: |
+          python3 -c "import json; p='data/full_scan_bootstrap.json'; d=json.load(open(p)); d['phase']='assets'; json.dump(d, open(p, 'w'), indent=2)"
+          echo "BOOTSTRAP_PHASE=assets" >> "$GITHUB_ENV"
+
+      - name: Save scan campaign checkpoint after SSID scan
+        if: ${{ always() && steps.ssid_scan.outcome != 'skipped' }}
+        uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        with:
+          path: |
+            data/full_scan_bootstrap.json
+            data/scan_state.json
+            data/ssid_scan_state.json
+            data/flock_cameras.geojson
+            data/flock_cameras.csv
+            data/by_oui
+            data/scan_stats.json
+            data/candidate_ouis.json
+            data/ssid_candidate_cameras.geojson
+            data/ssid_candidate_cameras.csv
+          key: scan-campaign-v2-${{ hashFiles('data/flock_ouis.csv') }}-checkpoint-ssid-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Stop after incomplete SSID scan campaign
+        if: ${{ steps.ssid_scan.outcome == 'failure' }}
+        run: |
+          echo "::error::WiGLE SSID scan is incomplete. Checkpoint saved for the next run." >&2
+          exit 1
 
       # Render the evidence-tier headline (README stats + website hero chips) from
       # the CSV the scan just wrote. Single writer of those blocks — the collector
@@ -228,6 +337,25 @@ jobs:
           gh release upload data-latest --repo "$GITHUB_REPOSITORY" --clobber \
             data/flock_cameras.geojson data/flock_cameras.csv /tmp/by_oui.zip \
             "$LATEST_POINTER"
+
+      - name: Complete scan campaign
+        run: rm -f data/full_scan_bootstrap.json
+
+      - name: Save completed scan state
+        uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        with:
+          path: |
+            data/full_scan_bootstrap.json
+            data/scan_state.json
+            data/ssid_scan_state.json
+            data/flock_cameras.geojson
+            data/flock_cameras.csv
+            data/by_oui
+            data/scan_stats.json
+            data/candidate_ouis.json
+            data/ssid_candidate_cameras.geojson
+            data/ssid_candidate_cameras.csv
+          key: scan-campaign-v2-${{ hashFiles('data/flock_ouis.csv') }}-complete-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Check for data changes
         id: check
