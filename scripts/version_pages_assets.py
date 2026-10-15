@@ -25,11 +25,17 @@ def split_archive(source: Path, target_dir: Path, chunk_size: int = CHUNK_SIZE) 
             (target_dir / f"chunk-{index:06d}.bin").write_bytes(chunk)
 
 
-def version_pages_assets(latest_path: Path, docs_dir: Path) -> tuple[Path, Path, Path]:
+def version_pages_assets(
+    latest_path: Path,
+    docs_dir: Path,
+    site_version: str | None = None,
+) -> tuple[Path, Path, Path]:
     latest = json.loads(latest_path.read_text(encoding="utf-8"))
     snapshot_id = latest.get("snapshot_id")
     if not isinstance(snapshot_id, str) or not SNAPSHOT_ID_PATTERN.fullmatch(snapshot_id):
         raise ValueError("latest pointer contains an unsafe snapshot_id")
+    if site_version is not None and not SNAPSHOT_ID_PATTERN.fullmatch(site_version):
+        raise ValueError("site version contains unsafe characters")
 
     assets_dir = docs_dir / "assets"
     tile_source = assets_dir / "flock-cameras.pmtiles"
@@ -62,6 +68,12 @@ def version_pages_assets(latest_path: Path, docs_dir: Path) -> tuple[Path, Path,
         'name="flock-bssid-index" content="assets/bssid"',
         f'name="flock-bssid-index" content="assets/{bssid_target.name}"',
     )
+    if site_version is not None:
+        index = replace_once(
+            index,
+            '<script src="assets/flock-map.js"></script>',
+            f'<script src="assets/flock-map.js?v={site_version}"></script>',
+        )
 
     tile_source.rename(tile_target)
     split_archive(tile_target, chunk_target)
@@ -75,8 +87,9 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--latest", type=Path, required=True)
     parser.add_argument("--docs-dir", type=Path, required=True)
+    parser.add_argument("--site-version")
     args = parser.parse_args()
-    version_pages_assets(args.latest, args.docs_dir)
+    version_pages_assets(args.latest, args.docs_dir, args.site_version)
     return 0
 
 

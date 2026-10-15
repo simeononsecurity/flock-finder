@@ -68,7 +68,8 @@ jobs:
           cp "$RUNNER_TEMP/flock-restored/docs/assets/flock-cameras.pmtiles" docs/assets/
           python3 scripts/version_pages_assets.py \
             --latest "$RUNNER_TEMP/flock-release/latest.json" \
-            --docs-dir docs
+            --docs-dir docs \
+            --site-version "$GITHUB_SHA"
 
       - name: Prepare pages content
         run: |

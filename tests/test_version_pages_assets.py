@@ -15,7 +15,8 @@ def make_pages_tree(tmp_path: Path, snapshot_id: str = "20261014T060629Z-3cc05e5
     (docs / "index.html").write_text(
         '<meta name="flock-tile-archive" content="assets/flock-cameras.pmtiles">\n'
         '<meta name="flock-tile-chunks" content="">\n'
-        '<meta name="flock-bssid-index" content="assets/bssid">\n',
+        '<meta name="flock-bssid-index" content="assets/bssid">\n'
+        '<script src="assets/flock-map.js"></script>\n',
         encoding="utf-8",
     )
     latest = tmp_path / "latest.json"
@@ -26,7 +27,7 @@ def make_pages_tree(tmp_path: Path, snapshot_id: str = "20261014T060629Z-3cc05e5
 def test_versions_pages_assets_and_updates_index(tmp_path: Path) -> None:
     latest, docs = make_pages_tree(tmp_path)
 
-    tile, chunks, bssid = version_pages_assets(latest, docs)
+    tile, chunks, bssid = version_pages_assets(latest, docs, "853ac82")
 
     assert tile.name == "flock-cameras-20261014T060629Z-3cc05e523898.pmtiles"
     assert tile.read_bytes() == b"PMTiles"
@@ -36,6 +37,7 @@ def test_versions_pages_assets_and_updates_index(tmp_path: Path) -> None:
     assert tile.name in index
     assert chunks.name in index
     assert bssid.name in index
+    assert 'assets/flock-map.js?v=853ac82' in index
     assert not (docs / "assets" / "flock-cameras.pmtiles").exists()
     assert not (docs / "assets" / "bssid").exists()
 
@@ -45,3 +47,10 @@ def test_rejects_unsafe_snapshot_id(tmp_path: Path) -> None:
 
     with pytest.raises(ValueError, match="unsafe snapshot_id"):
         version_pages_assets(latest, docs)
+
+
+def test_rejects_unsafe_site_version(tmp_path: Path) -> None:
+    latest, docs = make_pages_tree(tmp_path)
+
+    with pytest.raises(ValueError, match="unsafe characters"):
+        version_pages_assets(latest, docs, "../unsafe")
