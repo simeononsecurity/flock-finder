@@ -76,6 +76,21 @@ test('keeps BSSID local and sends place queries only after submit', async ({page
     expect(geocoderCalls).toHaveLength(2);
 });
 
+test('renders local camera results while the third-party basemap is stalled', async ({page}) => {
+    await page.addInitScript(value => { window.FLOCK_FINDER_CONFIG = value; }, {
+        tileArchive: '/frontend-tests/fixtures/assets/flock-cameras.pmtiles',
+        bssidIndexPath: '/frontend-tests/fixtures/assets/bssid',
+    });
+    await page.route('https://a.basemaps.cartocdn.com/**', () => new Promise(() => {}));
+    await page.goto('/docs/index.html', {waitUntil: 'domcontentloaded'});
+
+    const input = page.getByLabel('Search by place or exact BSSID');
+    await input.fill('00:F4:8D:01:B7:DB');
+    await page.getByRole('button', {name: 'Search'}).click();
+    await expect(page.locator('#search-status')).toContainText('BSSID found');
+    await expect(page.locator('#results-list .result-button').first()).toBeVisible();
+});
+
 test('exposes empty, rate-limit, and failure search states', async ({page}) => {
     await page.route('**/test-geocoder**', async route => {
         const query = new URL(route.request().url()).searchParams.get('q');

@@ -198,6 +198,12 @@
         });
     }
 
+    function cameraResultsReady() {
+        return Boolean(map.getLayer('camera-clusters'))
+            && Boolean(map.getLayer('camera-points'))
+            && map.isSourceLoaded('cameras');
+    }
+
     function resultButton(primary, secondary, evidence, action, label) {
         const item = document.createElement('li');
         const button = document.createElement('button');
@@ -223,7 +229,7 @@
     }
 
     function renderResults() {
-        if (!map.isStyleLoaded()) return;
+        if (!cameraResultsReady()) return;
         resultsList.replaceChildren();
         const zoom = map.getZoom();
         let features;
@@ -276,7 +282,7 @@
     }
 
     function applyFilters() {
-        if (!map.isStyleLoaded()) return;
+        if (!map.getLayer('camera-clusters') || !map.getLayer('camera-points')) return;
         const count = clusterCountExpression();
         map.setFilter('camera-clusters', ['all', ['has', 'point_count'], ['>', count, 0]]);
         map.setPaintProperty('camera-clusters', 'circle-radius', ['step', count, 11, 10, 15, 100, 21, 1000, 29]);
@@ -315,6 +321,10 @@
                 archiveDecodedBytes: archiveEntries.reduce((sum, entry) => sum + (entry.decodedBodySize || 0), 0),
             };
         }
+    });
+    map.on('moveend', renderResults);
+    map.on('sourcedata', event => {
+        if (event.sourceId === 'cameras' && event.isSourceLoaded) renderResults();
     });
     map.on('error', event => {
         if (String(event.error?.message || '').toLowerCase().includes('pmtiles')) {
