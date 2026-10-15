@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 SNAPSHOT_ID_PATTERN = re.compile(r"^[A-Za-z0-9._-]+$")
+CHUNK_SIZE = 256 * 1024
 
 
 def replace_once(text: str, old: str, new: str) -> str:
@@ -17,7 +18,14 @@ def replace_once(text: str, old: str, new: str) -> str:
     return text.replace(old, new)
 
 
-def version_pages_assets(latest_path: Path, docs_dir: Path) -> tuple[Path, Path]:
+def split_archive(source: Path, target_dir: Path, chunk_size: int = CHUNK_SIZE) -> None:
+    target_dir.mkdir()
+    with source.open("rb") as archive:
+        for index, chunk in enumerate(iter(lambda: archive.read(chunk_size), b"")):
+            (target_dir / f"chunk-{index:06d}.bin").write_bytes(chunk)
+
+
+def version_pages_assets(latest_path: Path, docs_dir: Path) -> tuple[Path, Path, Path]:
     latest = json.loads(latest_path.read_text(encoding="utf-8"))
     snapshot_id = latest.get("snapshot_id")
     if not isinstance(snapshot_id, str) or not SNAPSHOT_ID_PATTERN.fullmatch(snapshot_id):
@@ -32,8 +40,9 @@ def version_pages_assets(latest_path: Path, docs_dir: Path) -> tuple[Path, Path]
         raise FileNotFoundError(bssid_source)
 
     tile_target = assets_dir / f"flock-cameras-{snapshot_id}.pmtiles"
+    chunk_target = assets_dir / f"flock-cameras-{snapshot_id}-chunks"
     bssid_target = assets_dir / f"bssid-{snapshot_id}"
-    if tile_target.exists() or bssid_target.exists():
+    if tile_target.exists() or chunk_target.exists() or bssid_target.exists():
         raise FileExistsError("snapshot-specific Pages asset already exists")
 
     index_path = docs_dir / "index.html"
@@ -45,15 +54,21 @@ def version_pages_assets(latest_path: Path, docs_dir: Path) -> tuple[Path, Path]
     )
     index = replace_once(
         index,
+        'name="flock-tile-chunks" content=""',
+        f'name="flock-tile-chunks" content="assets/{chunk_target.name}"',
+    )
+    index = replace_once(
+        index,
         'name="flock-bssid-index" content="assets/bssid"',
         f'name="flock-bssid-index" content="assets/{bssid_target.name}"',
     )
 
     tile_source.rename(tile_target)
+    split_archive(tile_target, chunk_target)
     bssid_source.rename(bssid_target)
     index_path.write_text(index, encoding="utf-8")
     print(f"Versioned Pages assets for snapshot {snapshot_id}")
-    return tile_target, bssid_target
+    return tile_target, chunk_target, bssid_target
 
 
 def main() -> int:

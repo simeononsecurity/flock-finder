@@ -1,5 +1,6 @@
 import {expect, test} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import {readFile} from 'node:fs/promises';
 
 async function openMap(page, config = {}) {
     await page.addInitScript(value => { window.FLOCK_FINDER_CONFIG = value; }, {
@@ -34,6 +35,31 @@ test('loads viewport PMTiles without fetching full GeoJSON', async ({page}) => {
     await expect(page.locator('#results-list .result-button').first()).toBeVisible();
     const firstOuiRow = page.locator('#oui-table-body tr').filter({hasText: '70:C9:4E'});
     await expect(firstOuiRow.locator('td').nth(6)).toHaveText('196');
+});
+
+test('loads PMTiles from static chunks without range requests', async ({page}) => {
+    const archive = await readFile(new URL('./fixtures/assets/flock-cameras.pmtiles', import.meta.url));
+    const chunkSize = 1024;
+    const requestRanges = [];
+    await page.route('**/test-map-chunks/chunk-*.bin', route => {
+        requestRanges.push(route.request().headers().range || '');
+        const match = route.request().url().match(/chunk-(\d+)\.bin$/);
+        const index = Number(match[1]);
+        return route.fulfill({
+            status: 200,
+            contentType: 'application/octet-stream',
+            body: archive.subarray(index * chunkSize, (index + 1) * chunkSize),
+        });
+    });
+
+    await openMap(page, {
+        tileChunks: '/test-map-chunks',
+        tileChunkSize: chunkSize,
+    });
+
+    expect(requestRanges.length).toBeGreaterThan(0);
+    expect(requestRanges.every(value => value === '')).toBeTruthy();
+    await expect(page.locator('#results-list .result-button').first()).toBeVisible();
 });
 
 test('keeps BSSID local and sends place queries only after submit', async ({page}) => {

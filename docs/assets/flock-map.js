@@ -13,6 +13,8 @@
     const MAX_RESULTS = 200;
     const config = Object.assign({
         tileArchive: document.querySelector('meta[name="flock-tile-archive"]')?.content || 'assets/flock-cameras.pmtiles',
+        tileChunks: document.querySelector('meta[name="flock-tile-chunks"]')?.content || '',
+        tileChunkSize: 256 * 1024,
         bssidIndexPath: document.querySelector('meta[name="flock-bssid-index"]')?.content || 'assets/bssid',
         geocoderUrl: document.querySelector('meta[name="geocoder-url"]')?.content || 'https://nominatim.openstreetmap.org/search',
         geocoderMinIntervalMs: 1000,
@@ -83,9 +85,53 @@
         return ['all', ...clauses];
     }
 
+    class ChunkedPmtilesSource {
+        constructor(root, chunkSize) {
+            this.root = new URL(root, document.baseURI).href.replace(/\/$/, '');
+            this.chunkSize = chunkSize;
+        }
+
+        getKey() {
+            return `${this.root}/archive.pmtiles`;
+        }
+
+        async getBytes(offset, length, signal) {
+            const firstChunk = Math.floor(offset / this.chunkSize);
+            const lastChunk = Math.floor((offset + length - 1) / this.chunkSize);
+            const chunks = await Promise.all(Array.from(
+                {length: lastChunk - firstChunk + 1},
+                async (_, position) => {
+                    const index = firstChunk + position;
+                    const response = await fetch(`${this.root}/chunk-${String(index).padStart(6, '0')}.bin`, {
+                        cache: 'force-cache',
+                        signal,
+                    });
+                    if (!response.ok) throw new Error(`Map chunk request returned ${response.status}`);
+                    return new Uint8Array(await response.arrayBuffer());
+                },
+            ));
+            const joinedLength = chunks.reduce((total, chunk) => total + chunk.length, 0);
+            const joined = new Uint8Array(joinedLength);
+            let cursor = 0;
+            for (const chunk of chunks) {
+                joined.set(chunk, cursor);
+                cursor += chunk.length;
+            }
+            const start = offset - firstChunk * this.chunkSize;
+            const data = joined.slice(start, start + length);
+            return {data: data.buffer};
+        }
+    }
+
     const protocol = new pmtiles.Protocol();
     maplibregl.addProtocol('pmtiles', protocol.tile);
-    const archiveUrl = `pmtiles://${new URL(config.tileArchive, document.baseURI).href}`;
+    let archiveKey = new URL(config.tileArchive, document.baseURI).href;
+    if (config.tileChunks) {
+        const chunkedSource = new ChunkedPmtilesSource(config.tileChunks, config.tileChunkSize);
+        archiveKey = chunkedSource.getKey();
+        protocol.add(new pmtiles.PMTiles(chunkedSource));
+    }
+    const archiveUrl = `pmtiles://${archiveKey}`;
     const map = new maplibregl.Map({
         container: 'map',
         center: DEFAULT_CENTER,
@@ -313,7 +359,7 @@
             firstIdleRecorded = true;
             performance.mark('flock-map-first-idle');
             const archiveEntries = performance.getEntriesByType('resource')
-                .filter(entry => entry.name.includes('flock-cameras.pmtiles'));
+                .filter(entry => entry.name.includes('flock-cameras'));
             window.__flockFinderMetrics = {
                 firstIdleMs: Math.round(performance.now()),
                 archiveRequests: archiveEntries.length,
