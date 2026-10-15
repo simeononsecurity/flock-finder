@@ -195,6 +195,7 @@ def test_workflow_restores_and_gates_base_before_any_release_upload() -> None:
     assert "BASE_DATASET_STATUS=verified_restored_base" in workflow
     assert "BASE_DATASET_STATUS=explicit_full_scan" in workflow
     assert "RESUME_FULL_SCAN=true" in workflow
+    assert "starting full scan campaign without a saved cursor" in workflow
     assert "BOOTSTRAP_PHASE=ssid_scan" in workflow
     assert "BOOTSTRAP_PHASE=assets" in workflow
     assert "data/full_scan_bootstrap.json" in workflow

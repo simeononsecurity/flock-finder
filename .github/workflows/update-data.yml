@@ -76,22 +76,28 @@ jobs:
           MARKER=data/full_scan_bootstrap.json
 
           if [ -f "$MARKER" ]; then
-            test -s data/scan_state.json || {
-              echo "::error::Bootstrap marker exists without scan state" >&2
-              exit 1
-            }
             BOOTSTRAP_PHASE=$(python3 -c "import json; print(json.load(open('$MARKER'))['phase'])")
             case "$BOOTSTRAP_PHASE" in
               oui_scan|ssid_scan|assets) ;;
               *) echo "::error::Invalid bootstrap phase: $BOOTSTRAP_PHASE" >&2; exit 1 ;;
             esac
+            RESUME_FULL_SCAN=true
+            if [ ! -s data/scan_state.json ]; then
+              if [ "$BOOTSTRAP_PHASE" = "oui_scan" ]; then
+                echo "[i] starting full scan campaign without a saved cursor"
+                RESUME_FULL_SCAN=false
+              else
+                echo "::error::Bootstrap phase $BOOTSTRAP_PHASE requires saved scan state" >&2
+                exit 1
+              fi
+            fi
             if [ "$BOOTSTRAP_PHASE" != "oui_scan" ]; then
               test -s data/flock_cameras.geojson
               test -s data/flock_cameras.csv
             fi
             echo "[i] resuming full scan campaign at phase $BOOTSTRAP_PHASE"
             echo "BASE_DATASET_STATUS=explicit_full_scan" >> "$GITHUB_ENV"
-            echo "RESUME_FULL_SCAN=true" >> "$GITHUB_ENV"
+            echo "RESUME_FULL_SCAN=$RESUME_FULL_SCAN" >> "$GITHUB_ENV"
             echo "BOOTSTRAP_PHASE=$BOOTSTRAP_PHASE" >> "$GITHUB_ENV"
             exit 0
           fi
