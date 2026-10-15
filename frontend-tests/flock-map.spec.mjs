@@ -20,15 +20,18 @@ async function openMap(page, config = {}) {
 test('loads viewport PMTiles without fetching full GeoJSON', async ({page}) => {
     let legacyGeoJsonRequests = 0;
     const archiveRanges = [];
+    const workerRequests = [];
     page.on('request', request => {
         if (request.url().includes('flock_cameras.geojson')) legacyGeoJsonRequests += 1;
         if (request.url().includes('flock-cameras.pmtiles')) archiveRanges.push(request.headers().range || '');
+        if (request.url().includes('maplibre-gl-csp-worker.js')) workerRequests.push(request.url());
     });
     await openMap(page);
 
     expect(legacyGeoJsonRequests).toBe(0);
     expect(archiveRanges.length).toBeGreaterThan(0);
     expect(archiveRanges.every(value => value.startsWith('bytes='))).toBeTruthy();
+    expect(workerRequests).toHaveLength(1);
     const metrics = await page.evaluate(() => window.__flockFinderMetrics);
     console.log(`PERF ${JSON.stringify(metrics)}`);
     expect(metrics.archiveRequests).toBeGreaterThan(0);

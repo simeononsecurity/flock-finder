@@ -11,6 +11,10 @@
     const DEFAULT_CENTER = [-98.5795, 39.8283];
     const DETAIL_ZOOM = 12;
     const MAX_RESULTS = 200;
+    maplibregl.setWorkerUrl(new URL(
+        'vendor/maplibre-gl-5.19.0/maplibre-gl-csp-worker.js',
+        document.baseURI,
+    ).href);
     const config = Object.assign({
         tileArchive: document.querySelector('meta[name="flock-tile-archive"]')?.content || 'assets/flock-cameras.pmtiles',
         tileChunks: document.querySelector('meta[name="flock-tile-chunks"]')?.content || '',
