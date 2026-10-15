@@ -12,8 +12,8 @@
     const DETAIL_ZOOM = 12;
     const MAX_RESULTS = 200;
     const config = Object.assign({
-        tileArchive: 'assets/flock-cameras.pmtiles',
-        bssidIndexPath: 'assets/bssid',
+        tileArchive: document.querySelector('meta[name="flock-tile-archive"]')?.content || 'assets/flock-cameras.pmtiles',
+        bssidIndexPath: document.querySelector('meta[name="flock-bssid-index"]')?.content || 'assets/bssid',
         geocoderUrl: document.querySelector('meta[name="geocoder-url"]')?.content || 'https://nominatim.openstreetmap.org/search',
         geocoderMinIntervalMs: 1000,
         geocoderCacheMs: 30 * 24 * 60 * 60 * 1000,

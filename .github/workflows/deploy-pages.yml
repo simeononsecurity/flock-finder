@@ -66,6 +66,9 @@ jobs:
           rm -rf docs/assets/bssid
           cp -R "$RUNNER_TEMP/flock-restored/docs/assets/bssid" docs/assets/
           cp "$RUNNER_TEMP/flock-restored/docs/assets/flock-cameras.pmtiles" docs/assets/
+          python3 scripts/version_pages_assets.py \
+            --latest "$RUNNER_TEMP/flock-release/latest.json" \
+            --docs-dir docs
 
       - name: Prepare pages content
         run: |
