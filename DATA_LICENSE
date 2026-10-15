@@ -1,0 +1,102 @@
+Flock Finder data rights and source terms
+=========================================
+
+Status reviewed: 2026-10-14
+
+This file records the source terms that apply to WiGLE-derived records. It does
+not grant new rights, replace WiGLE's terms, or provide legal advice.
+
+Source and access record
+------------------------
+
+Source: WiGLE wireless network database
+Source URL: https://wigle.net/
+API endpoint used: https://api.wigle.net/api/v2
+Data access method: authenticated WiGLE API queries
+
+Official terms reviewed:
+
+1. WiGLE Individual, Non-Commercial Data License Agreement
+   URL: https://wigle.net/eula.html
+   Accessed: 2026-10-14
+   Page states: Updated 7/12/18
+
+2. WiGLE Frequently Asked Questions, license and commercial-use sections
+   URL: https://wigle.net/faq#commercial
+   Accessed: 2026-10-14
+
+Rights confirmed by the reviewed sources
+-----------------------------------------
+
+The individual agreement grants a non-exclusive right to use WiGLE maps and
+the access-point database for personal, research, or educational noncommercial
+purposes. It reserves rights that the agreement does not expressly grant.
+
+The FAQ says WiGLE does not want its data used for unlicensed commercial gain.
+It also says commercial licensing is suspended at the time of this review.
+
+Limits and unresolved rights
+----------------------------
+
+The reviewed terms do not identify the WiGLE database as open data. The MIT
+license in this repository applies to project code, not to WiGLE-derived
+records.
+
+The individual agreement restricts copying, transfer, distribution, and sale
+of data for commercial consideration, gain, or benefit. It also bars sharing
+account credentials or using an account to give a third party API access.
+
+A free and unsponsored personal or research site aligns with the agreement's
+listed purposes. Free access alone does not settle every right. Publishing a
+searchable map, downloadable files, or release snapshots gives third parties
+copies of WiGLE-derived records. The reviewed pages do not expressly answer
+whether this form of public, noncommercial redistribution is permitted.
+
+The owner states that Flock Finder is a free, unsponsored, personal-use
+website. The repository and deployed pages contained store links, a discount
+code, and product promotion when reviewed on 2026-10-14. Those features do not
+by themselves prove sponsorship, affiliate compensation, or commercial gain.
+The reviewed terms do not answer whether uncompensated product promotion
+affects WiGLE's classification of this use.
+
+Written clarification or qualified legal review is still needed for these
+questions:
+
+1. Does WiGLE permit public display of the filtered records and their precise
+   coordinates on a free, noncommercial site?
+2. Does WiGLE permit downloadable GeoJSON, CSV, PMTiles, vector tiles, or other
+   snapshots derived from its API results?
+3. Does filtering, classifying, deduplicating, or combining records make a
+   derived dataset whose redistribution terms differ from the source data?
+4. Does uncompensated product promotion or use of a discount code affect
+   WiGLE's classification of a free, unsponsored, personal-use project?
+5. Does WiGLE require specific attribution, removal handling, access controls,
+   or retention limits for a public project?
+6. Must immutable snapshots be deleted if the individual license terminates?
+
+No answer or permission has been inferred for these questions.
+
+Attribution record
+------------------
+
+Use this factual attribution where WiGLE-derived records are displayed:
+
+    Data source: WiGLE (https://wigle.net/). Accessed through the WiGLE API.
+    WiGLE does not endorse Flock Finder. Source terms apply.
+
+The reviewed individual agreement does not state a standalone attribution
+condition. Attribution does not expand the project's rights to use or
+redistribute the data.
+
+Operational rules
+-----------------
+
+1. Do not label WiGLE-derived records as MIT-licensed, public-domain, or open
+   data.
+2. Do not treat public availability or API access as redistribution permission.
+3. Do not publish WiGLE credentials, tokens, account access, or raw API
+   responses containing secrets.
+4. Preserve the source URL, access date, source commit, scan window, record
+   counts, schemas, and hashes with each snapshot.
+5. Recheck the official terms before a material change in use, funding,
+   distribution, or access model.

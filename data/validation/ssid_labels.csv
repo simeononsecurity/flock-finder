@@ -1,0 +1,14 @@
+sample_id,oui,ssid,label,review_date,source
+base-001,70:C9:4E,Flock,positive,2026-10-14,human-reviewed published sample
+device-001,70:C9:4E,Flock-7EBB9D,positive,2026-10-14,human-reviewed published sample
+substring-001,70:C9:4E,Bird Flock Guest,negative,2026-10-14,anchoring regression case
+word-001,70:C9:4E,Flock of Birds,negative,2026-10-14,anchoring regression case
+direct-001,B4:1E:52,Flock001,positive,2026-10-14,human-reviewed published sample
+direct-002,B4:1E:52,Flock003,positive,2026-10-14,human-reviewed published sample
+direct-003,B4:1E:52,FlockSupport,negative,2026-10-14,anchoring regression case
+battery-001,04:0D:84,FS Ext Battery,positive,2026-10-14,documented device family
+battery-002,04:0D:84,FS Ext Battery 1234,positive,2026-10-14,documented device family
+battery-003,04:0D:84,FS Ext Battery Backup Guest,negative,2026-10-14,anchoring regression case
+other-001,74:4C:A1,ClickShare-Boardroom,negative,2026-10-14,human-reviewed unrelated hardware
+other-002,74:4C:A1,Flock ALPR [wifi_receiver_oui;low],negative,2026-10-14,detector output stored as SSID
+other-003,74:4C:A1,Flock,positive,2026-10-14,human-reviewed published sample

@@ -166,9 +166,11 @@ def test_json_mirror_carries_tiers_and_classifier(tmp_path):
     # The classifier block is what keeps the browser's rules identical to the
     # collector's — if it disappears the site silently mis-tiers every record.
     classifier = payload["classifier"]
-    assert "flock" in classifier["ssid_confirm_patterns"]
+    assert classifier["ssid_correlation_rules"]
+    assert all(rule["regex"].startswith("^") for rule in classifier["ssid_correlation_rules"])
+    assert "flock" not in classifier["ssid_confirm_patterns"]
     assert classifier["primary_market_countries"] == ["US"]
-    assert classifier["confidence_levels"][0] == "ssid_confirmed"
+    assert classifier["confidence_levels"][0] == "ssid_correlated"
     assert "identified_other" not in classifier["actionable_levels"]
 
     # Denylist rules must ship as regexes: the browser cannot robustly exclude

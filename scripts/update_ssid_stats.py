@@ -22,6 +22,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from validation import ssid_correlates_flock
+
 # ── Paths ─────────────────────────────────────────────────────────────────────
 REPO_ROOT = Path(__file__).parent.parent
 DATA_DIR = REPO_ROOT / "data" / "by_oui"
@@ -65,7 +67,7 @@ def collect_ssid_data():
                     continue
                 all_ssids[ssid] += 1
                 total_ssid_records += 1
-                if ssid.lower().startswith("flock"):
+                if ssid_correlates_flock(ssid):
                     flock_ssids[ssid] += 1
 
     return all_ssids, flock_ssids, total_ssid_records, oui_file_count

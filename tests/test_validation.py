@@ -11,7 +11,7 @@ from validation import (  # noqa: E402
     CONFIDENCE_IDENTIFIED_OTHER,
     CONFIDENCE_OUI_HIGH,
     CONFIDENCE_OUI_MFR,
-    CONFIDENCE_SSID_CONFIRMED,
+    CONFIDENCE_SSID_CORRELATED,
     MATCH_CONFIDENCE,
     OUI_TIER_MFR,
     annotate_record,
@@ -25,7 +25,7 @@ from validation import (  # noqa: E402
     is_valid_tier,
     normalize_oui,
     oui_from_netid,
-    ssid_confirms_flock,
+    ssid_correlates_flock,
     ssid_denylist_match,
     ssid_tool_verdict,
     summarize_confidence,
@@ -178,7 +178,7 @@ def test_every_observed_detector_verdict_variant_is_excluded():
     for ssid, expected_tag in variants.items():
         assert ssid_denylist_match(ssid) == "detector_verdict", ssid
         assert ssid_tool_verdict(ssid) == expected_tag, ssid
-        assert not ssid_confirms_flock(ssid), ssid
+        assert not ssid_correlates_flock(ssid), ssid
         assert classify_confidence(ssid) == CONFIDENCE_IDENTIFIED_OTHER, ssid
 
     # Future spellings with different brackets/spacing are covered too.
@@ -190,20 +190,20 @@ def test_every_observed_detector_verdict_variant_is_excluded():
     assert ssid_tool_verdict("ClickShare") == ""
 
 
-def test_ssid_confirms_flock_patterns():
+def test_ssid_correlates_flock_patterns():
     for ssid in ("Flock", "Flock-7EBB9D", "FLOCK-215CB4", "Flock Camera net.",
                  "FS Ext Battery", "fs ext battery 1234"):
-        assert ssid_confirms_flock(ssid), ssid
-        assert classify_confidence(ssid) == CONFIDENCE_SSID_CONFIRMED
-    for ssid in ("", "ClickShare", "Home WiFi", "TEST"):
-        assert not ssid_confirms_flock(ssid), ssid
+        assert ssid_correlates_flock(ssid), ssid
+        assert classify_confidence(ssid) == CONFIDENCE_SSID_CORRELATED
+    for ssid in ("", "ClickShare", "Home WiFi", "TEST", "Bird Flock Guest"):
+        assert not ssid_correlates_flock(ssid), ssid
 
 
 def test_classify_confidence_tiers():
     assert classify_confidence("", "high") == CONFIDENCE_OUI_HIGH
     assert classify_confidence("", "mfr") == CONFIDENCE_OUI_MFR
     # A Flock SSID outranks the OUI tier it sits on.
-    assert classify_confidence("Flock", "mfr") == CONFIDENCE_SSID_CONFIRMED
+    assert classify_confidence("Flock", "mfr") == CONFIDENCE_SSID_CORRELATED
     # An unknown/missing tier must never silently downgrade to mfr.
     assert classify_confidence("", "bogus") == CONFIDENCE_OUI_HIGH
     assert classify_confidence("", None) == CONFIDENCE_OUI_HIGH
@@ -222,7 +222,7 @@ def test_out_of_market_flagging():
 
 
 def test_is_actionable_confidence_excludes_only_other_hardware():
-    assert is_actionable_confidence(CONFIDENCE_SSID_CONFIRMED)
+    assert is_actionable_confidence(CONFIDENCE_SSID_CORRELATED)
     assert is_actionable_confidence(CONFIDENCE_OUI_HIGH)
     assert is_actionable_confidence(CONFIDENCE_OUI_MFR)
     assert not is_actionable_confidence(CONFIDENCE_IDENTIFIED_OTHER)
@@ -249,7 +249,7 @@ def test_annotate_record_recomputes_a_stale_confidence():
     rec = {"ssid": "Flock", "oui_match": "70:C9:4E", "country": "US",
            "confidence": "identified_other", "oui_tier": "mfr"}
     annotate_record(rec, {"70:C9:4E": "high"})
-    assert rec["confidence"] == CONFIDENCE_SSID_CONFIRMED
+    assert rec["confidence"] == CONFIDENCE_SSID_CORRELATED
     assert rec["oui_tier"] == "high"
 
 
@@ -267,7 +267,7 @@ def test_summarize_confidence_counts_and_totals():
     )
     assert summary["total"] == 5
     assert summary["by_confidence"] == {
-        CONFIDENCE_SSID_CONFIRMED: 1,
+        CONFIDENCE_SSID_CORRELATED: 1,
         CONFIDENCE_OUI_HIGH: 1,
         CONFIDENCE_OUI_MFR: 1,
         CONFIDENCE_IDENTIFIED_OTHER: 2,
@@ -280,7 +280,7 @@ def test_summarize_confidence_counts_and_totals():
     assert summary["ssid_tool_verdicts"] == {"low": 1}
     # Per-prefix measurement, used for the README's signal table.
     assert summary["by_oui_confidence"]["70:C9:4E"] == {
-        CONFIDENCE_SSID_CONFIRMED: 1,
+        CONFIDENCE_SSID_CORRELATED: 1,
         CONFIDENCE_OUI_HIGH: 1,
         CONFIDENCE_IDENTIFIED_OTHER: 1,
     }

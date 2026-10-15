@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "classifier": "ssid_correlated",
+  "per_prefix": {
+    "04:0D:84": {
+      "true_positive": 2,
+      "false_positive": 0,
+      "true_negative": 1,
+      "false_negative": 0,
+      "sample_size": 3,
+      "review_date": "2026-10-14",
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "70:C9:4E": {
+      "true_positive": 2,
+      "false_positive": 0,
+      "true_negative": 2,
+      "false_negative": 0,
+      "sample_size": 4,
+      "review_date": "2026-10-14",
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "74:4C:A1": {
+      "true_positive": 1,
+      "false_positive": 0,
+      "true_negative": 2,
+      "false_negative": 0,
+      "sample_size": 3,
+      "review_date": "2026-10-14",
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "B4:1E:52": {
+      "true_positive": 2,
+      "false_positive": 0,
+      "true_negative": 1,
+      "false_negative": 0,
+      "sample_size": 3,
+      "review_date": "2026-10-14",
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  }
+}

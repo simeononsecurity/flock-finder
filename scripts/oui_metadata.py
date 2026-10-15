@@ -29,6 +29,7 @@ from validation import (
     OUI_TIERS,
     PRIMARY_MARKET_COUNTRIES,
     SSID_CONFIRM_PATTERNS,
+    SSID_CORRELATION_RULES,
     SSID_DENYLIST_NOTES,
     SSID_DENYLIST_PATTERNS,
     SSID_DENYLIST_RULES,
@@ -135,6 +136,10 @@ def write_oui_json(entries: list[dict] = None, json_path: Path = None) -> Path:
             "actionable_levels": list(CONFIDENCE_ACTIONABLE),
             "descriptions": {lvl: CONFIDENCE_DESCRIPTIONS[lvl] for lvl in CONFIDENCE_LEVELS},
             "ssid_confirm_patterns": list(SSID_CONFIRM_PATTERNS),
+            "ssid_correlation_rules": [
+                {"label": label, "regex": regex, "why": why}
+                for label, regex, why in SSID_CORRELATION_RULES
+            ],
             "ssid_denylist_patterns": list(SSID_DENYLIST_PATTERNS),
             # The actual rules, in order: label + regex + reason. The browser
             # compiles these, so a record cannot be excluded in Python but counted

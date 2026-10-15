@@ -4,29 +4,26 @@ update_confidence_stats.py — render the honest headline from the published dat
 
 Why this exists
 ---------------
-The README used to lead with "Cameras Mapped: 146,526", a figure that counted
-every OUI match equally — including the ~61,000 records whose own SSID proves
-they are something else (ClickShare units, phone hotspots, gateway APs). The
-caveat that explained this sat far below the fold, so the top-line number and
-every map pin presented all 146,526 as equally likely cameras.
+The public headline separates anchored SSID correlations, OUI-only
+observations, candidate prefixes, and aggregate unrelated-device exclusions.
 
-This script recomputes the figures from the *published* dataset and renders them
+This script normalizes tracked scan statistics and renders them
 into the three surfaces that need to agree:
 
     data/scan_stats.json   machine-readable breakdown (confidence_summary, ...)
     README.md              <!-- STATS_START/END --> and the breakdown block
     docs/index.html        hero breakdown chips
 
-It is the single writer of the README headline: scripts/wigle_query.py used to
-render that block from scan_stats.json, which duplicated the counting rules and
-let the headline drift from the dataset. Now the CSV is the only input.
+It is the single writer of the README headline. Current suppression-aware
+statistics and legacy confidence keys share one compatibility path.
 
-Run it after scripts/wigle_query.py (as .github/workflows/update-data.yml does),
-or standalone to refresh the published numbers from the committed CSV.
+Run it after scripts/wigle_query.py, or standalone to refresh the tracked
+surfaces from data/scan_stats.json and data/candidate_ouis.json.
 """
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import os
@@ -40,8 +37,11 @@ PROJECT_DIR = SCRIPT_DIR.parent
 DATA_DIR = PROJECT_DIR / "data"
 CAMERAS_CSV = DATA_DIR / "flock_cameras.csv"
 STATS_JSON = DATA_DIR / "scan_stats.json"
+CANDIDATE_OUIS_JSON = DATA_DIR / "candidate_ouis.json"
+SUPPRESSION_REGISTRY_JSON = DATA_DIR / "suppression_registry.json"
 README = PROJECT_DIR / "README.md"
 INDEX_HTML = PROJECT_DIR / "docs" / "index.html"
+CLASSIFIER_REPORT = DATA_DIR / "validation" / "ssid_metrics.json"
 
 sys.path.insert(0, str(SCRIPT_DIR))
 
@@ -50,9 +50,9 @@ from validation import (  # noqa: E402
     CONFIDENCE_IDENTIFIED_OTHER,
     CONFIDENCE_OUI_HIGH,
     CONFIDENCE_OUI_MFR,
-    CONFIDENCE_SSID_CONFIRMED,
+    CONFIDENCE_SSID_CORRELATED,
+    LEGACY_CONFIDENCE_SSID_CONFIRMED,
     annotate_record,
-    summarize_confidence,
 )
 
 RETENTION_DAYS_DEFAULT = 730
@@ -87,6 +87,120 @@ def load_stats() -> dict:
         return {}
 
 
+def load_candidate_total(path: Path = CANDIDATE_OUIS_JSON) -> int:
+    """Read the separately published candidate OUI-prefix total."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return 0
+    total = payload.get("total_candidates") if isinstance(payload, dict) else None
+    return total if isinstance(total, int) and total >= 0 else 0
+
+
+def summary_from_stats(stats: dict) -> dict:
+    """Normalize current and legacy scan statistics for public rendering."""
+    if not isinstance(stats, dict):
+        raise ValueError("scan statistics must be an object")
+    base = stats.get("confidence_summary")
+    if not isinstance(base, dict):
+        base = {}
+    raw_by_conf = stats.get("by_confidence")
+    if not isinstance(raw_by_conf, dict):
+        raw_by_conf = base.get("by_confidence") or {}
+
+    correlated = raw_by_conf.get(CONFIDENCE_SSID_CORRELATED)
+    if not isinstance(correlated, int):
+        correlated = raw_by_conf.get(LEGACY_CONFIDENCE_SSID_CONFIRMED, 0)
+    oui_high = raw_by_conf.get(CONFIDENCE_OUI_HIGH, 0)
+    oui_mfr = raw_by_conf.get(CONFIDENCE_OUI_MFR, 0)
+    correlated = correlated if isinstance(correlated, int) else 0
+    oui_high = oui_high if isinstance(oui_high, int) else 0
+    oui_mfr = oui_mfr if isinstance(oui_mfr, int) else 0
+    public_total = correlated + oui_high + oui_mfr
+
+    suppression = stats.get("suppression")
+    suppression = suppression if isinstance(suppression, dict) else {}
+    suppression_stats = stats.get("suppression_stats")
+    suppression_stats = suppression_stats if isinstance(suppression_stats, dict) else {}
+    registry = stats.get("suppression_registry")
+    registry = registry if isinstance(registry, dict) else {}
+    registry_count = None
+    for source in (suppression, suppression_stats, stats, registry):
+        for key in ("registry_entries", "excluded_from_release", "excluded_count", "total_excluded"):
+            value = source.get(key)
+            if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
+                registry_count = value
+                break
+        if registry_count is not None:
+            break
+    suppression_aware = bool(stats.get("suppression_applied") or suppression or suppression_stats or registry)
+    if suppression_aware:
+        excluded = registry_count if registry_count is not None else 0
+        denylist_hits = (
+            suppression.get("registry_by_reason") or suppression.get("by_reason")
+            or suppression_stats.get("by_reason") or registry.get("by_reason") or {}
+        )
+        public_out_of_market = stats.get("out_of_market", base.get("out_of_market", 0))
+    else:
+        excluded = raw_by_conf.get(CONFIDENCE_IDENTIFIED_OTHER, 0)
+        denylist_hits = base.get("ssid_denylist_hits", {})
+        public_out_of_market = base.get(
+            "actionable_out_of_market",
+            stats.get("out_of_market", base.get("out_of_market", 0)),
+        )
+    excluded = excluded if isinstance(excluded, int) and not isinstance(excluded, bool) else 0
+    if suppression_aware and registry_count is None and SUPPRESSION_REGISTRY_JSON.exists():
+        try:
+            payload = json.loads(SUPPRESSION_REGISTRY_JSON.read_text(encoding="utf-8"))
+            count = payload.get("entry_count") if isinstance(payload, dict) else None
+            if not isinstance(count, int) and isinstance(payload, dict):
+                entries = payload.get("entries")
+                count = len(entries) if isinstance(entries, (dict, list)) else None
+            if isinstance(count, int) and not isinstance(count, bool) and count >= 0:
+                excluded = count
+        except (OSError, ValueError):
+            pass
+    public_out_of_market = public_out_of_market if isinstance(public_out_of_market, int) else 0
+
+    per_prefix = stats.get("by_oui_confidence")
+    if not isinstance(per_prefix, dict):
+        per_prefix = base.get("by_oui_confidence") or {}
+    normalized_prefixes = {}
+    for oui, counts in per_prefix.items():
+        if not isinstance(counts, dict):
+            continue
+        normalized = dict(counts)
+        if CONFIDENCE_SSID_CORRELATED not in normalized:
+            normalized[CONFIDENCE_SSID_CORRELATED] = normalized.pop(
+                LEGACY_CONFIDENCE_SSID_CONFIRMED, 0
+            )
+        normalized_prefixes[oui] = normalized
+
+    observed_total = stats.get("observed_total", stats.get("source_total"))
+    if not isinstance(observed_total, int) or isinstance(observed_total, bool):
+        observed_total = public_total + excluded
+    return {
+        "total": public_total,
+        "actionable": public_total,
+        "observed_total": observed_total,
+        "unrelated_excluded": excluded,
+        "by_confidence": {
+            CONFIDENCE_SSID_CORRELATED: correlated,
+            CONFIDENCE_OUI_HIGH: oui_high,
+            CONFIDENCE_OUI_MFR: oui_mfr,
+            CONFIDENCE_IDENTIFIED_OTHER: 0,
+        },
+        "by_oui_tier": stats.get("by_oui_tier", base.get("by_oui_tier", {})),
+        "by_oui_confidence": normalized_prefixes,
+        "out_of_market": public_out_of_market,
+        "actionable_out_of_market": public_out_of_market,
+        "ssid_denylist_hits": denylist_hits if isinstance(denylist_hits, dict) else {},
+        "ssid_tool_verdicts": base.get("ssid_tool_verdicts", stats.get("ssid_tool_verdicts", {})),
+        "countries": base.get("countries", len(stats.get("cameras_by_country") or {})),
+        "regions": base.get("regions", len(stats.get("cameras_by_region") or {})),
+    }
+
+
 # ─── Renderers (pure — covered by tests) ──────────────────────────────────────
 #
 # Each renderer returns the *inner* text of its marker block; _replace_markers()
@@ -98,20 +212,24 @@ def _pct(part: int, whole: int) -> str:
 
 
 def render_stats_block(summary: dict, oui_with_data: int, oui_total: int,
-                       timestamp: str, retention_days: int) -> str:
-    """README stats table. 'Cameras Mapped' is the actionable figure."""
+                       timestamp: str, retention_days: int,
+                       candidate_total: int = 0) -> str:
+    """README stats table led by the strongest published evidence."""
     by_conf = summary["by_confidence"]
-    actionable = (by_conf[CONFIDENCE_SSID_CONFIRMED] + by_conf[CONFIDENCE_OUI_HIGH]
-                  + by_conf[CONFIDENCE_OUI_MFR])
+    correlated = by_conf[CONFIDENCE_SSID_CORRELATED]
+    oui_only = by_conf[CONFIDENCE_OUI_HIGH] + by_conf[CONFIDENCE_OUI_MFR]
+    public_total = correlated + oui_only
+    excluded = summary.get("unrelated_excluded", by_conf.get(CONFIDENCE_IDENTIFIED_OTHER, 0))
     return (
         "| Metric | Value |\n"
         "|--------|-------|\n"
-        f"| 📸 **Cameras Mapped** (actionable) | {actionable:,} |\n"
-        f"| 🔎 *of which SSID-confirmed* | {by_conf[CONFIDENCE_SSID_CONFIRMED]:,} |\n"
-        f"| 🛰️ *of which OUI-suspected (high tier)* | {by_conf[CONFIDENCE_OUI_HIGH]:,} |\n"
-        f"| 🧩 *of which OUI-suspected (contract-mfr tier)* | {by_conf[CONFIDENCE_OUI_MFR]:,} |\n"
-        f"| 🚫 **Excluded — SSID is other hardware** | {by_conf[CONFIDENCE_IDENTIFIED_OTHER]:,} |\n"
-        f"| 🌍 **Flagged outside the US** | {summary['out_of_market']:,} |\n"
+        f"| 🔎 **SSID-correlated sightings** | {correlated:,} |\n"
+        f"| 📡 **OUI-only candidate sightings** (suspected, unverified) | {oui_only:,} |\n"
+        f"| 🗺️ **Total public candidate sightings** | {public_total:,} |\n"
+        f"| 📊 **Observed/source total** | {summary.get('observed_total', public_total + excluded):,} |\n"
+        f"| 🧭 **Novel OUI-prefix candidates** | {candidate_total:,} |\n"
+        f"| 🚫 **Unrelated-device exclusions** | {excluded:,} |\n"
+        f"| 🌍 **Published observations outside the US** | {summary['out_of_market']:,} |\n"
         f"| 📡 **OUI Prefixes with Data** | {oui_with_data} / {oui_total} |\n"
         f"| 🌎 **Countries** | {summary['countries']} |\n"
         f"| 🗺️ **Regions / provinces (distinct)** | {summary['regions']:,} |\n"
@@ -124,12 +242,12 @@ def oui_signal_rows(summary: dict, min_records: int = 200) -> list:
     """
     Measured signal per OUI prefix, noisiest first.
 
-    Returns (oui, total, confirmed, excluded, confirmed_share, excluded_share)
+    Returns (oui, total, correlated, excluded, correlated_share, excluded_share)
     for every prefix with at least `min_records`.
 
     Two shares rather than one label, because either number alone misleads: a
     prefix whose SSIDs are simply unreadable has ~0% "other hardware" *and* ~0%
-    Flock-confirmed, which is neither clean nor noisy — it is unverified. The OUI
+    Flock-correlated, which is neither clean nor noisy — it is unverified. The OUI
     list mixes all three populations, so the measurement is published instead of
     asserting that every prefix is an equally credible fingerprint.
     """
@@ -138,52 +256,47 @@ def oui_signal_rows(summary: dict, min_records: int = 200) -> list:
         total = sum(counts.values())
         if total < min_records:
             continue
-        confirmed = counts.get(CONFIDENCE_SSID_CONFIRMED, 0)
+        correlated = counts.get(CONFIDENCE_SSID_CORRELATED, 0)
         excluded = counts.get(CONFIDENCE_IDENTIFIED_OTHER, 0)
-        rows.append((oui, total, confirmed, excluded, confirmed / total, excluded / total))
+        rows.append((oui, total, correlated, excluded, correlated / total, excluded / total))
     rows.sort(key=lambda row: (-row[5], -row[1]))
     return rows
 
 
 def render_breakdown_md(summary: dict) -> str:
     """README 'what the numbers mean' block."""
-    total = summary["total"]
     by_conf = summary["by_confidence"]
+    correlated = by_conf[CONFIDENCE_SSID_CORRELATED]
+    oui_only = by_conf[CONFIDENCE_OUI_HIGH] + by_conf[CONFIDENCE_OUI_MFR]
+    total = correlated + oui_only
+    excluded = summary.get("unrelated_excluded", by_conf.get(CONFIDENCE_IDENTIFIED_OTHER, 0))
     denylist = summary.get("ssid_denylist_hits", {})
     denylist_txt = " · ".join(
         f"`{pattern}*` {hits:,}"
         for pattern, hits in sorted(denylist.items(), key=lambda kv: -kv[1])
     ) or "none"
 
-    rows = (
-        ("ssid_confirmed", CONFIDENCE_SSID_CONFIRMED,
-         "SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, "
-         "`Flock Camera net.`, `FS Ext Battery`) — strongest signal passive WiFi can give"),
-        ("oui_high", CONFIDENCE_OUI_HIGH,
-         "High-confidence Flock OUI, SSID absent/hidden/unrecognised — suspected, unverified"),
-        ("oui_mfr", CONFIDENCE_OUI_MFR,
-         "Contract-manufacturer OUI (Liteon/USI) — weakest evidence, expect false positives"),
-        ("identified_other", CONFIDENCE_IDENTIFIED_OTHER,
-         "SSID positively identifies other hardware — excluded from the map and from the "
-         "camera count above"),
-    )
     lines = [
         "### What the numbers mean",
         "",
-        "Every published record carries a `confidence` field, because an OUI match on its "
-        "own is weak evidence. The map and the headline count only the records that survive "
-        "that classification.",
+        "SSID-correlated sightings match an anchored Flock naming pattern. OUI-only "
+        "observations match a configured MAC prefix but lack SSID correlation. They remain "
+        "suspected and unverified.",
         "",
-        "| Confidence | Records | Share | Meaning |",
-        "|------------|---------|-------|---------|",
-    ]
-    for label, key, meaning in rows:
-        lines.append(f"| `{label}` | {by_conf[key]:,} | {_pct(by_conf[key], total)} | {meaning} |")
-    lines += [
-        f"| **All records** | **{total:,}** | 100.0% | |",
+        "| Evidence | Observations | Share of published observations | Meaning |",
+        "|----------|--------------|---------------------------------|---------|",
+        f"| `ssid_correlated` | {correlated:,} | {_pct(correlated, total)} | "
+        "Anchored SSID correlation, the strongest passive WiFi signal |",
+        f"| `oui_only` | {oui_only:,} | {_pct(oui_only, total)} | "
+        "OUI match without SSID correlation, suspected and unverified |",
+        f"| **All published observations** | **{total:,}** | 100.0% | |",
+        f"| **Observed/source total** | **{summary.get('observed_total', total + excluded):,}** | | Includes public candidates and aggregate unrelated-device exclusions |",
         "",
-        f"SSID denylist hits: {denylist_txt}.",
+        f"Unrelated-device exclusions: {excluded:,}. These exclusions are aggregate counts, "
+        "not public point records.",
     ]
+    if denylist_txt != "none":
+        lines += ["", f"Exclusion reasons: {denylist_txt}."]
 
     # Detector output ingested as data — called out separately because it is a
     # provenance problem, not a false-positive class: these records are a copy of
@@ -199,13 +312,13 @@ def render_breakdown_md(summary: dict) -> str:
             "another detector's verdict string in the SSID column (`Flock ALPR [wifi_receiver_oui;low]` "
             f"and similar) — self-tagged {verdict_txt} by the tool that produced them. They are a "
             "downstream copy of a detection, not an observation of a camera, so they are excluded "
-            "outright instead of being counted in the SSID-confirmed subset.",
+            "outright instead of being counted in the SSID-correlated subset.",
         ]
 
     rows = oui_signal_rows(summary)
     if rows:
         noisy = [row for row in rows if row[5] >= 0.5][:8]
-        most_confirmed = sorted(rows, key=lambda row: -row[4])[:3]
+        most_correlated = sorted(rows, key=lambda row: -row[4])[:3]
         unverified = [row for row in rows if row[5] < 0.5 and row[4] < 0.02]
 
         lines += [
@@ -213,30 +326,31 @@ def render_breakdown_md(summary: dict) -> str:
             f"**Per-prefix signal, measured.** Of the {len(rows)} prefixes with ≥200 records, "
             "the ones whose records mostly name *other* hardware:",
             "",
-            "| OUI prefix | Records | SSID-confirmed | Excluded as other hardware |",
+            "| OUI prefix | Records | SSID-correlated | Excluded as other hardware |",
             "|------------|---------|----------------|----------------------------|",
         ]
-        for oui, prefix_total, confirmed, excluded, _cshare, share in noisy:
+        for oui, prefix_total, correlated, excluded, _cshare, share in noisy:
             lines.append(
-                f"| `{oui}` | {prefix_total:,} | {confirmed:,} | {excluded:,} ({share * 100:.0f}%) |"
+                f"| `{oui}` | {prefix_total:,} | {correlated:,} | {excluded:,} ({share * 100:.0f}%) |"
             )
         lines += [
             "",
-            "The most Flock-confirmed, for contrast: "
+            "The most Flock-correlated, for contrast: "
             + ", ".join(
-                f"`{oui}` ({confirmed_share * 100:.0f}% SSID-confirmed, {confirmed:,} of {total:,} records)"
-                for oui, total, confirmed, _e, confirmed_share, _s in most_confirmed
+                f"`{oui}` ({correlated_share * 100:.0f}% SSID-correlated, "
+                f"{correlated:,} of {total:,} records)"
+                for oui, total, correlated, _e, correlated_share, _s in most_correlated
             ) + ".",
         ]
         if unverified:
             lines += [
                 "",
-                f"**{len(unverified)} prefixes are neither confirmed nor contradicted** — under 2% of their "
+                f"**{len(unverified)} prefixes are neither correlated nor excluded** — under 2% of their "
                 "records carry a Flock SSID and under half name other hardware, so their MACs are simply "
                 "unverifiable from SSID evidence: "
                 + ", ".join(
-                    f"`{oui}` ({total:,} records, {confirmed:,} confirmed)"
-                    for oui, total, confirmed, _e, _cshare, _s in unverified[:6]
+                    f"`{oui}` ({total:,} records, {correlated:,} SSID-correlated)"
+                    for oui, total, correlated, _e, _cshare, _s in unverified[:6]
                 ) + (f" and {len(unverified) - 6} more" if len(unverified) > 6 else "") + "."
                 " These are the weakest entries in the list: an OUI match there means little on its own.",
             ]
@@ -249,7 +363,7 @@ def render_breakdown_md(summary: dict) -> str:
 
     lines += [
         "",
-        f"Market: {summary['out_of_market']:,} records "
+        f"Market: {summary['out_of_market']:,} published observations "
         f"({_pct(summary['out_of_market'], total)}) are outside the primary US market and "
         "carry `\"out_of_market\": true`. They are flagged, not deleted — Flock has expanded "
         "internationally — so consumers can filter them.",
@@ -264,17 +378,19 @@ def render_breakdown_md(summary: dict) -> str:
 def render_hero_chips_html(summary: dict) -> str:
     """Hero breakdown chips for docs/index.html (visible before any JS runs)."""
     by_conf = summary["by_confidence"]
+    correlated = by_conf[CONFIDENCE_SSID_CORRELATED]
+    oui_only = by_conf[CONFIDENCE_OUI_HIGH] + by_conf[CONFIDENCE_OUI_MFR]
+    public_total = correlated + oui_only
+    excluded = summary.get("unrelated_excluded", by_conf.get(CONFIDENCE_IDENTIFIED_OTHER, 0))
     return (
         '    <div class="tier-strip" id="tier-strip">\n'
-        f'        <span class="tier-chip tier-ssid"><strong>{by_conf[CONFIDENCE_SSID_CONFIRMED]:,}</strong> SSID-confirmed</span>\n'
-        f'        <span class="tier-chip tier-high"><strong>{by_conf[CONFIDENCE_OUI_HIGH]:,}</strong> OUI-suspected (high)</span>\n'
-        f'        <span class="tier-chip tier-mfr"><strong>{by_conf[CONFIDENCE_OUI_MFR]:,}</strong> OUI-suspected (contract-mfr)</span>\n'
-        f'        <span class="tier-chip tier-other"><strong>{by_conf[CONFIDENCE_IDENTIFIED_OTHER]:,}</strong> excluded — other hardware</span>\n'
-        f'        <span class="tier-chip tier-market"><strong>{summary["out_of_market"]:,}</strong> flagged outside the US</span>\n'
+        f'        <span class="tier-chip tier-ssid"><strong>{correlated:,}</strong> SSID-correlated sightings</span>\n'
+        f'        <span class="tier-chip tier-high"><strong>{oui_only:,}</strong> OUI-only candidate sightings</span>\n'
+        f'        <span class="tier-chip tier-total"><strong>{public_total:,}</strong> total public candidate sightings</span>\n'
+        f'        <span class="tier-chip tier-other"><strong>{excluded:,}</strong> unrelated-device exclusions</span>\n'
+        f'        <span class="tier-chip tier-market"><strong>{summary["out_of_market"]:,}</strong> published observations outside the US</span>\n'
         "    </div>\n"
-        f'    <p class="tier-note" id="tier-note">“Cameras Mapped” counts the '
-        f'{summary["actionable"]:,} records that pass evidence classification, out of '
-        f'{summary["total"]:,} published. '
+        '    <p class="tier-note" id="tier-note">OUI-only candidate sightings are suspected matches, not confirmed devices. '
         '<a href="#confidence-breakdown">How the tiers work →</a></p>'
     )
 
@@ -327,12 +443,18 @@ def refresh_scan_stats(summary: dict) -> Path:
     derived = {
         "total_cameras": summary["total"],
         "total_actionable": summary["actionable"],
+        "ssid_correlated": summary["by_confidence"].get(CONFIDENCE_SSID_CORRELATED, 0),
+        "oui_only": (
+            summary["by_confidence"].get(CONFIDENCE_OUI_HIGH, 0)
+            + summary["by_confidence"].get(CONFIDENCE_OUI_MFR, 0)
+        ),
         "by_confidence": summary["by_confidence"],
         "by_oui_tier": summary["by_oui_tier"],
         "out_of_market": summary["out_of_market"],
         "ssid_tool_verdicts": summary.get("ssid_tool_verdicts", {}),
         "by_oui_confidence": summary.get("by_oui_confidence", {}),
         "confidence_summary": summary,
+        "classifier_validation": json.loads(CLASSIFIER_REPORT.read_text(encoding="utf-8")),
     }
     if all(stats.get(key) == value for key, value in derived.items()):
         return None
@@ -344,41 +466,51 @@ def refresh_scan_stats(summary: dict) -> Path:
 
 
 def main() -> int:
-    if not CAMERAS_CSV.exists():
-        print(f"[!] {CAMERAS_CSV} not found — nothing to summarise.")
-        print("    Run scripts/wigle_query.py first, or download the dataset release "
-              "(see README: 'Where is the data?').")
+    parser = argparse.ArgumentParser(description="Render tracked evidence statistics")
+    parser.add_argument(
+        "--readme-only",
+        action="store_true",
+        help="Update README marker blocks without writing docs/index.html",
+    )
+    args = parser.parse_args()
+    stats = load_stats()
+    if not stats:
+        print(f"[!] {STATS_JSON} is missing or invalid. Nothing to render.")
         return 1
 
-    summary = summarize_confidence(load_published_records())
-    stats = load_stats()
+    summary = summary_from_stats(stats)
+    # Registry aggregates are tracked separately from published point records.
+    # Never consult an ignored/local scan CSV to derive public headline values.
+    candidate_total = load_candidate_total()
+    summary["candidate_total"] = candidate_total
     oui_total = len(load_oui_metadata())
     oui_with_data = stats.get("unique_ouis_found", 0)
     retention = stats.get("data_retention_days", RETENTION_DAYS_DEFAULT)
     timestamp = (stats.get("scan_timestamp") or datetime.now(timezone.utc).isoformat())[:10]
 
-    refresh_scan_stats(summary)
-
     readme = README.read_text(encoding="utf-8")
     readme = _replace_markers(
         readme, *STATS_MARKERS,
-        render_stats_block(summary, oui_with_data, oui_total, timestamp, retention),
+        render_stats_block(
+            summary, oui_with_data, oui_total, timestamp, retention, candidate_total
+        ),
     )
     readme = _replace_markers(readme, *BREAKDOWN_MARKERS, render_breakdown_md(summary))
     _atomic_write_text(README, readme)
 
-    html = INDEX_HTML.read_text(encoding="utf-8")
-    html = _replace_markers(html, *BREAKDOWN_MARKERS, render_hero_chips_html(summary))
-    _atomic_write_text(INDEX_HTML, html)
+    if not args.readme_only:
+        html = INDEX_HTML.read_text(encoding="utf-8")
+        html = _replace_markers(html, *BREAKDOWN_MARKERS, render_hero_chips_html(summary))
+        _atomic_write_text(INDEX_HTML, html)
 
     by_conf = summary["by_confidence"]
-    print(f"[✓] {summary['total']:,} records → {summary['actionable']:,} actionable "
-          f"(ssid_confirmed={by_conf[CONFIDENCE_SSID_CONFIRMED]:,}, "
-          f"oui_high={by_conf[CONFIDENCE_OUI_HIGH]:,}, "
-          f"oui_mfr={by_conf[CONFIDENCE_OUI_MFR]:,}, "
-          f"identified_other={by_conf[CONFIDENCE_IDENTIFIED_OTHER]:,})")
+    oui_only = by_conf[CONFIDENCE_OUI_HIGH] + by_conf[CONFIDENCE_OUI_MFR]
+    print(f"[✓] SSID-correlated sightings: {by_conf[CONFIDENCE_SSID_CORRELATED]:,} | "
+          f"OUI-only candidate sightings: {oui_only:,} | novel OUI candidates: {candidate_total:,} | "
+          f"unrelated exclusions: {summary['unrelated_excluded']:,}")
+    targets = "README" if args.readme_only else "README + index.html"
     print(f"[✓] Out-of-market: {summary['out_of_market']:,} | "
-          f"OUI list: {oui_with_data}/{oui_total} | README + index.html updated")
+          f"OUI list: {oui_with_data}/{oui_total} | {targets} updated")
     return 0
 
 

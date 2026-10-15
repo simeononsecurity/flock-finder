@@ -21,7 +21,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: "pages"
+  group: "update-data"
   cancel-in-progress: false
 
 jobs:
@@ -33,12 +33,12 @@ jobs:
     steps:
 
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: '3.12'
+          python-version: '3.15'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -49,7 +49,7 @@ jobs:
       # The cache key rotates monthly to force periodic full rescans.
       - name: Restore scan state cache
         if: ${{ github.event.inputs.full_rescan != 'true' }}
-        uses: actions/cache@v6
+        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
         with:
           path: |
             data/scan_state.json
@@ -58,38 +58,67 @@ jobs:
           restore-keys: |
             scan-state-${{ hashFiles('data/flock_ouis.csv') }}-
 
-      # The 90 MB dataset is not committed (see .gitignore). Restore the current
-      # published copy BEFORE scanning: the collector merges new results into the
-      # existing GeoJSON, so without it a CI run would rebuild the dataset from
-      # only the incremental window and silently lose every older record.
-      - name: Restore published dataset from the rolling release
-        continue-on-error: true
+      # Incremental scans require a hash-verified base snapshot. A missing or
+      # corrupt base must stop the run instead of publishing only the current
+      # incremental window. Only an explicit full_rescan may start without it.
+      - name: Restore verified base snapshot or require explicit full scan
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p /tmp/fy-dataset
-          gh release download data-latest --repo "$GITHUB_REPOSITORY" --clobber \
-            --pattern 'flock_cameras.geojson' --dir /tmp/fy-dataset || true
-          if [ -f /tmp/fy-dataset/flock_cameras.geojson ]; then
-            cp /tmp/fy-dataset/flock_cameras.geojson data/
-            echo "[i] restored $(du -h data/flock_cameras.geojson | cut -f1) of existing data"
-          else
-            echo "[i] no published dataset yet — this run starts from scratch"
+          if [ "${{ github.event.inputs.full_rescan }}" = "true" ]; then
+            echo "[i] explicit full scan requested; no base snapshot will be merged"
+            echo "BASE_DATASET_STATUS=explicit_full_scan" >> "$GITHUB_ENV"
+            rm -f data/flock_cameras.geojson data/flock_cameras.csv
+            rm -rf data/by_oui
+            exit 0
           fi
+
+          RELEASE_DIR="$RUNNER_TEMP/flock-base-release"
+          RESTORE_DIR="$RUNNER_TEMP/flock-base-restored"
+          mkdir -p "$RELEASE_DIR"
+          gh release download data-latest --repo "$GITHUB_REPOSITORY" \
+            --pattern latest.json --dir "$RELEASE_DIR"
+          SNAPSHOT_TAG=$(python3 -c "import json; print(json.load(open('$RELEASE_DIR/latest.json'))['release_tag'])")
+          ARCHIVE_NAME=$(python3 -c "import json; print(json.load(open('$RELEASE_DIR/latest.json'))['archive']['name'])")
+          MANIFEST_NAME=$(python3 -c "import json; print(json.load(open('$RELEASE_DIR/latest.json'))['manifest']['name'])")
+          gh release download "$SNAPSHOT_TAG" --repo "$GITHUB_REPOSITORY" \
+            --pattern "$ARCHIVE_NAME" --pattern "$MANIFEST_NAME" \
+            --dir "$RELEASE_DIR"
+          python3 scripts/package_snapshot.py restore \
+            --latest "$RELEASE_DIR/latest.json" \
+            --archive "$RELEASE_DIR/$ARCHIVE_NAME" \
+            --manifest "$RELEASE_DIR/$MANIFEST_NAME" \
+            --output-dir "$RESTORE_DIR" \
+            --require data/flock_cameras.geojson \
+            --require data/flock_cameras.csv
+          cp "$RESTORE_DIR/data/flock_cameras.geojson" data/
+          cp "$RESTORE_DIR/data/flock_cameras.csv" data/
+          rm -rf data/by_oui
+          cp -R "$RESTORE_DIR/data/by_oui" data/
+          echo "BASE_DATASET_STATUS=verified_restored_base" >> "$GITHUB_ENV"
+          echo "[i] restored and verified $(du -h data/flock_cameras.geojson | cut -f1) base dataset"
+
+      - name: Record scan start
+        run: echo "SCAN_STARTED_AT=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_ENV"
 
       - name: Query WiGLE for Flock cameras (incremental)
         env:
           WIGLE_API_NAME: ${{ secrets.WIGLE_API_NAME }}
           WIGLE_API_TOKEN: ${{ secrets.WIGLE_API_TOKEN }}
+          INPUT_COUNTRY: ${{ github.event.inputs.country }}
+          INPUT_FULL_RESCAN: ${{ github.event.inputs.full_rescan }}
         run: |
-          ARGS=""
-          if [ -n "${{ github.event.inputs.country }}" ]; then
-            ARGS="$ARGS --country ${{ github.event.inputs.country }}"
+          ARGS=()
+          if [ -n "$INPUT_COUNTRY" ]; then
+            ARGS+=(--country "$INPUT_COUNTRY")
           fi
-          if [ "${{ github.event.inputs.full_rescan }}" = "true" ]; then
-            ARGS="$ARGS --full-rescan"
+          if [ "$INPUT_FULL_RESCAN" = "true" ]; then
+            ARGS+=(--full-rescan)
           fi
-          python3 scripts/wigle_query.py $ARGS
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            ARGS+=(--rebuild-if-due)
+          fi
+          python3 scripts/wigle_query.py "${ARGS[@]}"
 
       - name: Update SSID stats in README and website
         run: python3 scripts/update_ssid_stats.py
@@ -112,19 +141,93 @@ jobs:
       - name: Validate generated data artifacts
         run: python3 scripts/validate_data.py
 
-      # Publish the generated dataset (deliberately not committed — see
-      # .gitignore) so the website and downstream consumers keep getting it.
-      - name: Publish dataset to the rolling release
+      - name: Build pinned Tippecanoe
+        env:
+          TIPPECANOE_COMMIT: 68ab8dcc229f95b8b25877697d5e8d66783af503
+          TIPPECANOE_RELEASE: 2.79.0
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            gcc g++ make libsqlite3-dev zlib1g-dev
+          git clone --filter=blob:none https://github.com/felt/tippecanoe.git \
+            "$RUNNER_TEMP/tippecanoe"
+          git -C "$RUNNER_TEMP/tippecanoe" checkout --detach "$TIPPECANOE_COMMIT"
+          test "$(git -C "$RUNNER_TEMP/tippecanoe" rev-parse HEAD)" = "$TIPPECANOE_COMMIT"
+          make -C "$RUNNER_TEMP/tippecanoe" -j2
+          TIPPECANOE_VERSION=$("$RUNNER_TEMP/tippecanoe/tippecanoe" --version)
+          case "$TIPPECANOE_VERSION" in
+            *"$TIPPECANOE_RELEASE"*) ;;
+            *) echo "unexpected Tippecanoe version: $TIPPECANOE_VERSION" >&2; exit 1 ;;
+          esac
+          echo "$RUNNER_TEMP/tippecanoe" >> "$GITHUB_PATH"
+          echo "TIPPECANOE_VERSION=$TIPPECANOE_VERSION" >> "$GITHUB_ENV"
+          echo "TIPPECANOE_COMMIT=$TIPPECANOE_COMMIT" >> "$GITHUB_ENV"
+
+      - name: Build fresh browser map assets
+        run: |
+          rm -f docs/assets/flock-cameras.pmtiles docs/assets/flock-cameras.pmtiles.tmp
+          rm -rf docs/assets/bssid
+          node docs/assets/build-map-assets.mjs \
+            data/flock_cameras.geojson data/flock_ouis.json docs/assets
+          test -s docs/assets/flock-cameras.pmtiles
+          test -d docs/assets/bssid
+          test "$(find docs/assets/bssid -type f -name '*.json' | wc -l)" -gt 0
+
+      - name: Build immutable snapshot package
+        id: snapshot
+        run: |
+          python3 scripts/package_snapshot.py build \
+            --data-dir data \
+            --output-dir "$RUNNER_TEMP/flock-snapshot" \
+            --source-commit "$GITHUB_SHA" \
+            --scan-started-at "$SCAN_STARTED_AT" \
+            --base-status "$BASE_DATASET_STATUS" \
+            --repository "$GITHUB_REPOSITORY" \
+            --extra-artifact-root docs/assets \
+            --require-map-assets \
+            --tippecanoe-version "$TIPPECANOE_VERSION" \
+            --tippecanoe-source-commit "$TIPPECANOE_COMMIT" \
+            --map-asset-builder docs/assets/build-map-assets.mjs \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Publish immutable snapshot release
         env:
           GH_TOKEN: ${{ github.token }}
+          SNAPSHOT_TAG: ${{ steps.snapshot.outputs.release_tag }}
+          SNAPSHOT_ARCHIVE: ${{ steps.snapshot.outputs.archive }}
+          SNAPSHOT_MANIFEST: ${{ steps.snapshot.outputs.manifest }}
+          SNAPSHOT_CHECKSUMS: ${{ steps.snapshot.outputs.checksums }}
+        run: |
+          if gh release view "$SNAPSHOT_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            mkdir -p "$RUNNER_TEMP/existing-snapshot"
+            gh release download "$SNAPSHOT_TAG" --repo "$GITHUB_REPOSITORY" \
+              --pattern "$(basename "$SNAPSHOT_CHECKSUMS")" \
+              --dir "$RUNNER_TEMP/existing-snapshot"
+            cmp "$SNAPSHOT_CHECKSUMS" \
+              "$RUNNER_TEMP/existing-snapshot/$(basename "$SNAPSHOT_CHECKSUMS")"
+          else
+            gh release create "$SNAPSHOT_TAG" --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "Flock Finder data snapshot ${{ steps.snapshot.outputs.snapshot_id }}" \
+              --notes "Immutable generated-data snapshot. Verify the archive and manifest with the attached SHA-256 file. Source rights and unresolved redistribution questions are recorded in DATA_LICENSE." \
+              "$SNAPSHOT_ARCHIVE" "$SNAPSHOT_MANIFEST" "$SNAPSHOT_CHECKSUMS"
+          fi
+
+      # Preserve the existing download names while pointing consumers to the
+      # uniquely tagged, hash-verified snapshot release.
+      - name: Update rolling release and latest pointer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LATEST_POINTER: ${{ steps.snapshot.outputs.latest_pointer }}
         run: |
           (cd data && zip -qr /tmp/by_oui.zip by_oui)
           gh release view data-latest --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
             gh release create data-latest --repo "$GITHUB_REPOSITORY" \
               --title "Flock Finder dataset (rolling)" \
-              --notes "Machine-generated dataset, rebuilt by .github/workflows/update-data.yml and intentionally not stored in git (see README: 'Where is the data?'). Assets: flock_cameras.geojson (combined), flock_cameras.csv (same records, flat), by_oui.zip (per-OUI splits)."
+              --notes "Mutable compatibility downloads. latest.json identifies the immutable snapshot release and hashes. Source rights and unresolved questions are recorded in DATA_LICENSE."
           gh release upload data-latest --repo "$GITHUB_REPOSITORY" --clobber \
-            data/flock_cameras.geojson data/flock_cameras.csv /tmp/by_oui.zip
+            data/flock_cameras.geojson data/flock_cameras.csv /tmp/by_oui.zip \
+            "$LATEST_POINTER"
 
       - name: Check for data changes
         id: check
@@ -150,58 +253,3 @@ jobs:
           CANDS=$(python3 -c "import json; d=json.load(open('data/candidate_ouis.json')); print(d.get('total_candidates', 0))" 2>/dev/null || echo 0)
           git commit -m "data: update Flock camera data ($CAMERAS total, +$NEW new, ${CANDS} candidate OUIs) [skip ci]"
           git push
-
-  deploy-pages:
-    needs: update
-    runs-on: ubuntu-latest
-    # Pages deployment needs to write Pages + mint an OIDC token, plus read a
-    # release asset (the dataset is published, not committed — see .gitignore).
-    permissions:
-      pages: write
-      id-token: write
-      contents: read
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          ref: main  # Get latest after data commit
-
-      - name: Pull latest changes
-        run: git pull origin main || true
-
-      # The dataset is not committed (see .gitignore) — restore the published copy
-      # from the rolling release so Pages keeps serving /data/… unchanged.
-      - name: Restore published dataset from the rolling release
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          mkdir -p /tmp/fy-dataset
-          gh release download data-latest --repo "$GITHUB_REPOSITORY" --clobber \
-            --pattern 'flock_cameras.geojson' --pattern 'flock_cameras.csv' \
-            --dir /tmp/fy-dataset || true
-          for f in flock_cameras.geojson flock_cameras.csv; do
-            if [ -f "/tmp/fy-dataset/$f" ]; then cp "/tmp/fy-dataset/$f" data/; fi
-          done
-          ls -la data/ | head -20
-
-      - name: Prepare pages content
-        run: |
-          mkdir -p _site
-          cp -r docs/* _site/
-          cp -r data _site/data
-      - name: Setup Pages
-        uses: actions/configure-pages@v6
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: '_site'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5

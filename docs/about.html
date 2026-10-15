@@ -6,369 +6,12 @@
     <title>About ALPRs — Flock Finder</title>
     <meta name="description" content="What are Automated License Plate Readers (ALPRs)? Why should you care? Research, evidence, and community resources for fighting mass vehicle surveillance.">
 
-    <style>
-        :root {
-            --bg-dark: #0a0a0f;
-            --bg-card: #12121a;
-            --bg-card-hover: #1a1a25;
-            --accent: #ff3b3b;
-            --accent-glow: rgba(255, 59, 59, 0.3);
-            --text: #e0e0e0;
-            --text-muted: #888;
-            --border: #2a2a3a;
-            --green: #00e676;
-            --yellow: #ffd600;
-            --blue: #64b5f6;
-            --purple: #b388ff;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-
-        /* ── Header ──────────────────────────────────── */
-        header {
-            background: linear-gradient(135deg, #0d0d15 0%, #1a0a0a 100%);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-        }
-
-        .logo h1 { font-size: 1.3rem; font-weight: 700; color: #fff; }
-        .logo h1 span { color: var(--accent); }
-
-        nav a {
-            color: var(--text-muted);
-            margin-left: 1.5rem;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--accent); text-decoration: none; }
-
-        /* ── Hero ────────────────────────────────────── */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem 3rem;
-            background: radial-gradient(ellipse at center, rgba(255,59,59,0.08) 0%, transparent 70%);
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
-        }
-
-        .hero h2 .highlight { color: var(--accent); }
-
-        .hero p {
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        /* ── Content ─────────────────────────────────── */
-        .content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-        }
-
-        .section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .section h3 .icon { margin-right: 0.5rem; }
-
-        .section h4 {
-            font-size: 1.15rem;
-            color: #fff;
-            margin: 1.5rem 0 0.5rem;
-        }
-
-        .section p { margin-bottom: 1rem; }
-        .section p:last-child { margin-bottom: 0; }
-
-        /* ── Video ────────────────────────────────────── */
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 640px;
-            margin: 0 auto 1.5rem;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: 0;
-        }
-
-        .video-caption {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        /* ── Blockquote ──────────────────────────────── */
-        blockquote {
-            border-left: 3px solid var(--accent);
-            margin: 1.25rem 0;
-            padding: 0.75rem 1.25rem;
-            background: rgba(255, 59, 59, 0.05);
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-            color: var(--text-muted);
-        }
-
-        blockquote cite {
-            display: block;
-            margin-top: 0.5rem;
-            font-style: normal;
-            font-size: 0.85rem;
-        }
-
-        /* ── Cards ────────────────────────────────────── */
-        .danger-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-
-        .danger-card {
-            background: var(--bg-card-hover);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-        }
-
-        .danger-card h4 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            margin-top: 0;
-            font-size: 1.05rem;
-        }
-
-        .danger-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
-        /* ── Lists ────────────────────────────────────── */
-        .incident-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .incident-list li {
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95rem;
-        }
-
-        .incident-list li:last-child { border-bottom: none; }
-        .incident-list li::before { content: "⚠️ "; }
-
-        /* ── FAQ ──────────────────────────────────────── */
-        details {
-            background: var(--bg-card-hover);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-        }
-
-        details summary {
-            padding: 1rem 1.25rem;
-            cursor: pointer;
-            font-weight: 700;
-            color: #fff;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        details summary::-webkit-details-marker { display: none; }
-
-        details summary::after {
-            content: "▸";
-            font-size: 1.1rem;
-            transition: transform 0.2s;
-            color: var(--accent);
-        }
-
-        details[open] summary::after { transform: rotate(90deg); }
-
-        details .faq-body {
-            padding: 0 1.25rem 1.25rem;
-            color: var(--text-muted);
-        }
-
-        details .faq-body p { margin-bottom: 0.75rem; }
-
-        /* ── Resource grid ────────────────────────────── */
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-
-        .resource-card {
-            background: var(--bg-card-hover);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: var(--text);
-            display: block;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .resource-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-
-        .resource-card .resource-name {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.4rem;
-        }
-
-        .resource-card .resource-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* ── DeFlock banner ───────────────────────────── */
-        .deflock-banner {
-            background: linear-gradient(135deg, #0d1a0d 0%, #12121a 50%, #0d1a0d 100%);
-            border: 1px solid #2a4a2a;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .deflock-banner .tag {
-            display: inline-block;
-            background: rgba(0, 230, 118, 0.12);
-            border: 1px solid rgba(0, 230, 118, 0.3);
-            color: var(--green);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-        }
-
-        .deflock-banner h3 { font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
-
-        .deflock-banner p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .btn-deflock {
-            display: inline-block;
-            background: var(--green);
-            color: #000;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-deflock:hover {
-            background: #00c853;
-            box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
-            text-decoration: none;
-        }
-
-        /* ── Footer ──────────────────────────────────── */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 3rem;
-        }
-
-        /* ── Responsive ──────────────────────────────── */
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 1.6rem; }
-            .section { padding: 1.5rem; }
-            header { padding: 0.75rem 1rem; }
-            nav a { margin-left: 0.75rem; font-size: 0.8rem; }
-            .content { padding: 0 1rem 3rem; }
-        }
-    </style>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob:; style-src 'self'; img-src 'self' data: blob: https://*.basemaps.cartocdn.com; connect-src 'self' https://nominatim.openstreetmap.org https://*.basemaps.cartocdn.com; worker-src 'self' blob:; child-src 'self' blob: https://www.youtube-nocookie.com; frame-src https://www.youtube-nocookie.com; font-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; upgrade-insecure-requests">
+    <link rel="stylesheet" href="assets/about.css">
+    <link rel="stylesheet" href="assets/flock-map.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ── Header ──────────────────────────────────────────────── -->
 <header>
@@ -376,17 +19,18 @@
         <div class="logo-icon">📡</div>
         <h1>Flock <span>Finder</span></h1>
     </a>
-    <nav>
+    <nav aria-label="Primary navigation">
         <a href="index.html">Map</a>
         <a href="#what-are-alprs">What are ALPRs?</a>
         <a href="#why-care">Why Care?</a>
         <a href="#incidents">Incidents</a>
         <a href="#faq">FAQ</a>
         <a href="#resources">Resources</a>
-        <a href="https://github.com/simeononsecurity/flock-finder" target="_blank">GitHub</a>
+        <a href="https://github.com/simeononsecurity/flock-finder" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
 </header>
 
+<main id="main-content">
 <!-- ── Hero ────────────────────────────────────────────────── -->
 <section class="hero">
     <h2>Your Car Is Being <span class="highlight">Tracked</span></h2>
@@ -528,9 +172,9 @@
         <p>
             You can verify this yourself through Flock's own transparency portals:
         </p>
-        <ul class="incident-list" style="list-style:none;">
-            <li style="padding:0.4rem 0;">📊 <a href="https://transparency.flocksafety.com/oak-park-il-pd" target="_blank">Oak Park, IL Transparency Portal</a></li>
-            <li style="padding:0.4rem 0;">📊 <a href="https://transparency.flocksafety.com/vallejo-ca-pd" target="_blank">Vallejo, CA Transparency Portal</a></li>
+        <ul class="incident-list about-style-1">
+            <li class="about-style-2">📊 <a href="https://transparency.flocksafety.com/oak-park-il-pd" target="_blank">Oak Park, IL Transparency Portal</a></li>
+            <li class="about-style-2">📊 <a href="https://transparency.flocksafety.com/vallejo-ca-pd" target="_blank">Vallejo, CA Transparency Portal</a></li>
         </ul>
     </section>
 
@@ -667,7 +311,7 @@
         <div class="tag">🛡️ Community Partner</div>
         <h3>DeFlock — Fighting ALPR Surveillance</h3>
         <p>
-            <a href="https://deflock.org" target="_blank" style="color:var(--green);">DeFlock</a>
+            <a class="about-style-3" href="https://deflock.org" target="_blank">DeFlock</a>
             is a community-driven project dedicated to tracking, documenting, and raising awareness about
             ALPR surveillance infrastructure. Much of the research and information on this page comes from
             their work. Visit their site to learn more, submit camera locations, and get involved.
@@ -786,27 +430,27 @@
     </section>
 
 </div>
+</main>
 
 <!-- ── Footer ─────────────────────────────────────────────── -->
 <footer>
     <p>
         <strong>Flock Finder</strong> — Open-source ALPR surveillance mapping<br>
         Made by <a href="https://simeononsecurity.com" target="_blank">@simeononsecurity</a> &nbsp;|&nbsp;
-        Sponsored by <a href="https://stscollective.com" target="_blank">STSCollective</a>
-        — use code <strong>FLOCKFINDER</strong> for 20% off <a href="https://stscollective.com" target="_blank">FlockYou devices</a>
+        Hardware information: <a href="https://stscollective.com" target="_blank" rel="noopener noreferrer">STSCollective</a>.
     </p>
-    <p style="margin-top:0.5rem;">
+    <p class="about-style-4">
         OUI research: <a href="https://x.com/NitekryDPaul">@NitekryDPaul</a> &nbsp;|&nbsp;
         Data: <a href="https://wigle.net">WiGLE</a>
     </p>
-    <p style="margin-top:0.5rem;">
+    <p class="about-style-4">
         <a href="index.html">Map</a> &nbsp;|&nbsp;
         <a href="https://deflock.org">DeFlock.org</a> &nbsp;|&nbsp;
         <a href="https://github.com/simeononsecurity/flock-finder">GitHub</a> &nbsp;|&nbsp;
         <a href="https://github.com/DeflockJoplin/flock-you">DeFlockJoplin</a> &nbsp;|&nbsp;
         <a href="https://www.noalprs.com">NoALPRs.com</a>
     </p>
-    <p style="margin-top:1rem; font-size:0.8rem;">
+    <p class="about-style-5">
         Much of the ALPR research and documentation on this page is sourced from
         <a href="https://deflock.org">DeFlock.org</a> — a community resource for ALPR awareness.<br>
         Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors

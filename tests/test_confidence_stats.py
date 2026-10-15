@@ -14,28 +14,27 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
 from update_confidence_stats import (  # noqa: E402
     BREAKDOWN_MARKERS,
-    CAMERAS_CSV,
     README,
     STATS_MARKERS,
     _replace_markers,
-    load_published_records,
+    load_candidate_total,
     render_breakdown_md,
     render_hero_chips_html,
     render_stats_block,
+    summary_from_stats,
 )
 from validation import (  # noqa: E402
     CONFIDENCE_IDENTIFIED_OTHER,
     CONFIDENCE_OUI_HIGH,
     CONFIDENCE_OUI_MFR,
-    CONFIDENCE_SSID_CONFIRMED,
-    summarize_confidence,
+    CONFIDENCE_SSID_CORRELATED,
 )
 
 SUMMARY = {
     "total": 1000,
     "actionable": 850,
     "by_confidence": {
-        CONFIDENCE_SSID_CONFIRMED: 50,
+        CONFIDENCE_SSID_CORRELATED: 50,
         CONFIDENCE_OUI_HIGH: 700,
         CONFIDENCE_OUI_MFR: 100,
         CONFIDENCE_IDENTIFIED_OTHER: 150,
@@ -44,7 +43,7 @@ SUMMARY = {
     # Per-prefix measurement. (These three are a subset of the fixture's 1,000
     # records — the rest belong to prefixes below the 200-record display floor.)
     "by_oui_confidence": {
-        "70:C9:4E": {CONFIDENCE_SSID_CONFIRMED: 240, CONFIDENCE_OUI_HIGH: 160},
+        "70:C9:4E": {CONFIDENCE_SSID_CORRELATED: 240, CONFIDENCE_OUI_HIGH: 160},
         "F4:6A:DD": {CONFIDENCE_OUI_MFR: 20, CONFIDENCE_IDENTIFIED_OTHER: 480},
         "A4:CF:12": {CONFIDENCE_OUI_HIGH: 300},
     },
@@ -54,29 +53,41 @@ SUMMARY = {
     "ssid_tool_verdicts": {"low": 26, "medium": 4},
     "countries": 12,
     "regions": 40,
+    "candidate_total": 7,
+    "unrelated_excluded": 150,
 }
 
 
 # ─── Renderers ────────────────────────────────────────────────────────────────
 
-def test_stats_block_headline_is_the_actionable_count():
-    block = render_stats_block(SUMMARY, 31, 38, "2026-01-02", 730)
-    assert "| 📸 **Cameras Mapped** (actionable) | 850 |" in block
-    assert "| 🔎 *of which SSID-confirmed* | 50 |" in block
-    assert "| 🚫 **Excluded — SSID is other hardware** | 150 |" in block
+def test_stats_block_leads_with_correlation_and_combines_oui_only():
+    block = render_stats_block(SUMMARY, 31, 38, "2026-01-02", 730, 7)
+    assert "| 🔎 **SSID-correlated sightings** | 50 |" in block
+    assert "| 📡 **OUI-only candidate sightings** (suspected, unverified) | 800 |" in block
+    assert "| 🗺️ **Total public candidate sightings** | 850 |" in block
+    assert "| 📊 **Observed/source total** | 1,000 |" in block
+    assert "| 🧭 **Novel OUI-prefix candidates** | 7 |" in block
+    assert "| 🚫 **Unrelated-device exclusions** | 150 |" in block
     assert "| 📡 **OUI Prefixes with Data** | 31 / 38 |" in block
     assert "| 🕐 **Last Updated** | 2026-01-02 |" in block
+    assert "Cameras Mapped" not in block
+    assert "actionable" not in block.lower()
+    assert "OUI-suspected (high tier)" not in block
 
 
-def test_breakdown_lists_every_tier_with_shares():
+def test_breakdown_combines_oui_tiers_and_keeps_exclusions_aggregate_only():
     block = render_breakdown_md(SUMMARY)
-    for label in ("ssid_confirmed", "oui_high", "oui_mfr", "identified_other"):
-        assert f"`{label}`" in block
-    assert "| **All records** | **1,000** | 100.0% | |" in block
+    assert "`ssid_correlated`" in block
+    assert "`oui_only`" in block
+    assert "`oui_high`" not in block
+    assert "`oui_mfr`" not in block
+    assert "| **All published observations** | **850** | 100.0% | |" in block
+    assert "Unrelated-device exclusions: 150" in block
     assert "`clickshare*` 120" in block      # denylist evidence is quoted
     assert "`detector_verdict*` 30" in block
-    assert "40.0%" in block                  # out-of-market share
+    assert "47.1%" in block                  # public out-of-market share
     assert "suspected" in block              # policy caveat survives rendering
+    assert "ssid_confirmed" not in block
 
 
 def test_breakdown_calls_out_detector_output_with_its_verdict_tags():
@@ -91,21 +102,23 @@ def test_breakdown_measures_prefixes_three_ways():
     block = render_breakdown_md(SUMMARY)
     # F4:6A:DD is 96% other-hardware in the fixture → noisy table.
     assert "| `F4:6A:DD` | 500 | 0 | 480 (96%) |" in block
-    # 70:C9:4E is 60% SSID-confirmed → the contrast line.
-    assert "`70:C9:4E` (60% SSID-confirmed, 240 of 400 records)" in block
-    # A4:CF:12 has neither confirmation nor contradiction → unverified, and the
+    # 70:C9:4E is 60% SSID-correlated, which forms the contrast line.
+    assert "`70:C9:4E` (60% SSID-correlated, 240 of 400 records)" in block
+    # A4:CF:12 has neither correlation nor exclusion, so it stays unverified. The
     # old single-share metric wrongly called it "clean".
-    assert "neither confirmed nor contradicted" in block
-    assert "`A4:CF:12` (300 records, 0 confirmed)" in block
+    assert "neither correlated nor excluded" in block
+    assert "`A4:CF:12` (300 records, 0 SSID-correlated)" in block
     assert "clean" not in block
 
 
 def test_hero_chips_expose_all_five_numbers():
     html = render_hero_chips_html(SUMMARY)
-    for number in ("50", "700", "100", "150", "400"):
+    for number in ("50", "800", "850", "150", "400"):
         assert f"<strong>{number}</strong>" in html
     assert 'id="tier-strip"' in html
-    assert "850 records that" in html        # actionable total in the note
+    assert "OUI-only candidate sightings" in html
+    assert "suspected matches, not confirmed devices" in html
+    assert "Cameras Mapped" not in html
 
 
 def test_marker_replacement_is_idempotent():
@@ -153,24 +166,107 @@ def test_refresh_scan_stats_is_idempotent(tmp_path, monkeypatch):
     assert json.loads(stats_path.read_text())["total_actionable"] == 851
 
 
+def test_legacy_scan_stats_normalize_without_legacy_public_wording():
+    summary = summary_from_stats({
+        "by_confidence": {
+            "ssid_confirmed": 5,
+            "oui_high": 70,
+            "oui_mfr": 10,
+            "identified_other": 15,
+        },
+        "confidence_summary": {
+            "actionable_out_of_market": 12,
+            "countries": 3,
+            "regions": 4,
+            "by_oui_confidence": {
+                "70:C9:4E": {"ssid_confirmed": 5, "oui_high": 7},
+            },
+        },
+    })
+    assert summary["by_confidence"][CONFIDENCE_SSID_CORRELATED] == 5
+    assert summary["total"] == 85
+    assert summary["unrelated_excluded"] == 15
+    assert summary["out_of_market"] == 12
+    rendered = render_stats_block(summary, 1, 1, "2026-01-01", 730)
+    assert "ssid_confirmed" not in rendered
+    assert "OUI-only candidate sightings" in rendered
+
+
+def test_suppression_aware_stats_use_registry_aggregate_not_public_rows():
+    summary = summary_from_stats({
+        "suppression_applied": True,
+        "by_confidence": {
+            "ssid_correlated": 5,
+            "oui_high": 70,
+            "oui_mfr": 10,
+            "identified_other": 999,
+        },
+        "suppression": {
+            "registry_entries": 42,
+            "excluded_from_release": 8,
+            "registry_by_reason": {"clickshare": 42},
+        },
+        "out_of_market": 12,
+    })
+    assert summary["unrelated_excluded"] == 42
+    assert summary["total"] == 85
+    assert summary["by_confidence"][CONFIDENCE_IDENTIFIED_OTHER] == 0
+    assert summary["observed_total"] == 127
+
+
+def test_suppression_stats_shape_uses_aggregate_count_without_csv_rows():
+    summary = summary_from_stats({
+        "by_confidence": {"ssid_correlated": 5, "oui_high": 70, "oui_mfr": 10},
+        "suppression_stats": {"excluded_count": 42, "by_reason": {"clickshare": 42}},
+        "out_of_market": 12,
+    })
+    assert summary["unrelated_excluded"] == 42
+    assert summary["observed_total"] == 127
+
+
+def test_current_scan_stats_tracked_values_and_html_text():
+    import json
+
+    stats_path = os.path.join(os.path.dirname(__file__), "..", "data", "scan_stats.json")
+    stats = json.loads(open(stats_path, encoding="utf-8").read())
+    summary = summary_from_stats(stats)
+    assert summary["by_confidence"][CONFIDENCE_SSID_CORRELATED] == 5100
+    assert summary["by_confidence"][CONFIDENCE_OUI_HIGH] + summary["by_confidence"][CONFIDENCE_OUI_MFR] == 85999
+    assert summary["unrelated_excluded"] == 62961
+    assert summary["observed_total"] == 154060
+    summary["candidate_total"] = 0
+    html = render_hero_chips_html(summary)
+    assert "5,100</strong> SSID-correlated sightings" in html
+    assert "85,999</strong> OUI-only candidate sightings" in html
+    assert "91,099</strong> total public candidate sightings" in html
+    assert "62,961</strong> unrelated-device exclusions" in html
+
+
+def test_candidate_total_reads_tracked_candidate_metadata(tmp_path):
+    path = tmp_path / "candidate_ouis.json"
+    path.write_text('{"total_candidates": 9}', encoding="utf-8")
+    assert load_candidate_total(path) == 9
+
+
 # ─── Drift guard: the published headline must describe the published dataset ──
 
-def test_readme_headline_matches_the_dataset():
+def test_headline_renderer_matches_tracked_scan_stats():
     """
     If this fails, the committed README no longer describes the committed
     dataset — re-run `python3 scripts/update_confidence_stats.py`.
     """
-    if not CAMERAS_CSV.exists():
-        pytest.skip("published dataset absent (not committed — see README)")
+    import json
 
-    summary = summarize_confidence(load_published_records())
-    readme = README.read_text(encoding="utf-8")
-    block = readme.split(STATS_MARKERS[0], 1)[1].split(STATS_MARKERS[1], 1)[0]
-
-    assert f"| {summary['actionable']:,} |" in block
-    for key in (CONFIDENCE_SSID_CONFIRMED, CONFIDENCE_OUI_HIGH,
-                CONFIDENCE_OUI_MFR, CONFIDENCE_IDENTIFIED_OTHER):
-        assert f"{summary['by_confidence'][key]:,}" in block, key
+    stats_path = os.path.join(os.path.dirname(__file__), "..", "data", "scan_stats.json")
+    stats = json.loads(open(stats_path, encoding="utf-8").read())
+    summary = summary_from_stats(stats)
+    block = render_stats_block(summary, 0, 0, "2026-01-01", 730)
+    oui_only = (
+        summary["by_confidence"][CONFIDENCE_OUI_HIGH]
+        + summary["by_confidence"][CONFIDENCE_OUI_MFR]
+    )
+    assert f"{summary['by_confidence'][CONFIDENCE_SSID_CORRELATED]:,}" in block
+    assert f"{oui_only:,}" in block
 
 
 def test_readme_and_index_declare_both_marker_pairs():

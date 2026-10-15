@@ -26,6 +26,7 @@ venv/
 
 # Scan state (local incremental scan checkpoints — not shared)
 data/scan_state.json
+data/authoritative_rebuild_state.json
 data/ssid_scan_state.json
 
 # Generated dataset artifacts — deliberately NOT committed.
@@ -43,6 +44,18 @@ data/ssid_scan_state.json
 data/flock_cameras.geojson
 data/flock_cameras.csv
 data/by_oui/
+
+# Generated browser map assets are rebuilt from each immutable dataset release.
+docs/assets/flock-cameras.pmtiles
+docs/assets/flock-cameras.pmtiles-journal
+docs/assets/bssid/
+
+# Frontend browser test dependencies and generated artifacts
+frontend-tests/node_modules/
+frontend-tests/test-results/
+frontend-tests/playwright-report/
+frontend-tests/.playwright/
+frontend-tests/.cache/
 
 # Logs
 *.log

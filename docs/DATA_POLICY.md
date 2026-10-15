@@ -52,11 +52,12 @@ paths and from the `data-latest` release; see the README section
 
 ## 3. Coordinate precision
 
-Coordinates are published at **full precision, exactly as WiGLE reports them,
-and are never modified or truncated.** Accuracy matters for mapping — reducing
+Eligible records are published at **full precision, exactly as WiGLE reports
+them, and are never modified or truncated.** Accuracy matters for mapping — reducing
 precision was found to mislocate points, so the data is passed through
 unchanged. The collector only *validates* coordinates (drops missing / out‑of‑
-range / null‑island values); it never rounds them.
+range / null‑island values); it never rounds them. Records whose SSID identifies
+unrelated hardware are suppressed before any public point artifact is written.
 
 
 ## 4. Retention
@@ -68,15 +69,11 @@ pruned automatically on each scan.
 
 If you believe a point is wrong, misattributed, or should be removed:
 
-1. Open a GitHub issue titled `Data correction: <area / BSSID prefix>`.
-2. Include the approximate location and, if known, the BSSID prefix.
-3. Explain what's incorrect (e.g., "not a Flock camera", "camera removed",
-   "wrong location").
-
-Please **do not** post full precise addresses of private individuals. Because
-the dataset is regenerated from WiGLE on a schedule, corrections may need to be
-encoded as OUI/data adjustments to persist across runs — maintainers will
-advise in the issue.
+Use the private contact form at <https://simeononsecurity.com/contactus>. Include
+an approximate area and a short explanation, such as "not a Flock camera",
+"camera removed", or "wrong location". Do not post precise BSSIDs,
+coordinates, addresses, or private-location details in public issues. The
+maintainer will request any necessary identifier through private follow-up.
 
 ## 6. Ethics & scope
 
@@ -121,10 +118,12 @@ fields live in [DATA_DICTIONARY.md](DATA_DICTIONARY.md).
 
 | `confidence` | Meaning |
 |--------------|---------|
-| `ssid_confirmed` | The SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, `FLOCK-XXXXXX`, `Flock Camera net.`, `FS Ext Battery…`). The strongest signal passive WiFi can give. |
+| `ssid_correlated` | The SSID matches an anchored Flock naming pattern (`Flock`, `Flock-XXXXXX`, `Flock Camera net.`, `FS Ext Battery…`). This is correlation, not confirmation. |
 | `oui_high` | High-confidence Flock OUI; SSID absent, hidden or unrecognised. Suspected, unverified. |
 | `oui_mfr` | Contract-manufacturer OUI (Liteon/USI) that also ships in unrelated products. Weakest evidence. |
-| `identified_other` | The SSID positively identifies other hardware, so the OUI match is spurious. Excluded from the map by default and from the camera counts. |
+
+`identified_other` is an internal classification. Such records do not appear in
+public GeoJSON, CSV, per-prefix point files, or candidate point files.
 
 `identified_other` is produced by a **denylist of SSIDs** that prove the record
 is something else — `ClickShare*` (Barco presentation units), `SMARTGATE_*`
@@ -132,8 +131,14 @@ is something else — `ClickShare*` (Barco presentation units), `SMARTGATE_*`
 hotspots) and `Flock ALPR [*`. That last pattern is *wardriving-tool verdict
 text* stored in the SSID field (e.g. `Flock ALPR [wifi_receiver_oui;low]`), not
 a broadcast from a camera; it contains the word "flock", so it is denylisted
-ahead of the confirmation patterns — otherwise it would be counted as
-SSID-confirmed.
+ahead of the correlation patterns.
+
+Positive SSID matching uses full-string, case-insensitive expressions. The
+accepted families are `^flock$`, `^flock[-_]?[0-9a-f]{3,12}$`,
+`^flock camera net\.?$`, and `^fs ext battery( <device-id>)?$`. A name which
+merely contains the word `flock` does not count.
+The SSID-discovery pass still uses API prefix wildcards to gather candidates,
+then applies these anchored rules before publishing candidate points.
 
 **Denylisting is regex-based**, so a new spelling of a known non-camera SSID cannot
 slip through the way a literal prefix would:
@@ -158,25 +163,20 @@ that produced them tagged 26 `low` and 4 `medium`.
 These are not observations of a camera. Someone ran a detector, wrote its output
 into the SSID column, uploaded the result to WiGLE, and this project's collector
 duly queried it — so counting them would mean scoring a detector's *opinion* as
-evidence, and they would otherwise inflate the SSID-confirmed subset (they
+evidence, and they would otherwise inflate the SSID-correlated subset (they
 contain the word "flock"). They are excluded outright: no Flock camera broadcasts
 an SSID beginning `Flock ALPR`, so the rule can be as blunt as it is here.
 
-The verdict tags are published rather than discarded (`ssid_tool_verdicts` in
-`scan_stats.json`, and in the README breakdown), because "26 of 30 were
-low-confidence guesses by the originating tool" is the most useful sentence
-anyone can write about this cluster.
-
-Denylisting is a *classification*, not a deletion: the records remain in
-`flock_cameras.geojson` with `"confidence": "identified_other"` and a
-`blocked_reason` naming the rule that caught them, so anyone can audit the exact
-calls this project makes. They are hidden by default and excluded from the
-headline; the map's evidence filter can show them again, greyed out.
+Aggregate denylist counts remain in `scan_stats.json`. Precise points do not.
+The collector stores a SHA-256 fingerprint of each suppressed BSSID in
+`data/suppression_registry.json`. The registry contains no coordinates. It
+prevents a later blank or renamed SSID from restoring the point during an
+incremental merge.
 
 **Prefixes are not equally credible.** The README breakdown measures, per prefix,
 how many of its records carry a Flock SSID and how many name other hardware. Nine
-prefixes with ≥200 records are *neither confirmed nor contradicted* — including
-the single largest contributor, `E0:4F:43` (22,303 records, 66 Flock-confirmed) —
+prefixes with ≥200 records are *neither correlated nor contradicted* — including
+the single largest contributor, `E0:4F:43` (22,303 records, 66 SSID-correlated) —
 because their SSIDs are absent or unreadable. An OUI match on those means little
 on its own, and the published table says so rather than implying that all 39
 prefixes are equally good fingerprints.
@@ -191,3 +191,20 @@ deleting them.
 Neither the tiers nor the market flag change what a record *is*: every record
 remains **suspected**, and the tiers describe the strength of the evidence, not a
 confirmation from Flock that a device is theirs.
+
+## 9. Release completeness and authoritative rebuilds
+
+The collector records `complete`, `interrupted`, or `failed` for every OUI
+pagination attempt. A release is written only after every requested OUI reports
+`complete`. Interrupted pages retain local resume records and cursors. Failed or
+incomplete scans never advance the `last_completed` checkpoint.
+
+`data/rebuild_policy.json` defines the authoritative rebuild interval, release
+size floor, and labeled-fixture quality floors. `--rebuild-if-due` selects a
+resumable authoritative rebuild when the interval elapsed. Before then, the
+same scheduled command continues the normal incremental scan.
+
+`data/validation/ssid_labels.csv` is the committed human-reviewed fixture set.
+`data/validation/ssid_metrics.json` reports precision, recall, sample size, and
+review date for each OUI represented in the fixture. Validation rejects drift
+between the labels and the report.

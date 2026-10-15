@@ -31,11 +31,15 @@ Usage:
 
 import argparse
 import csv
+import io
 import json
 import os
+import random
 import sys
 import time
+from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from enum import Enum
 from pathlib import Path
 
 import requests
@@ -46,11 +50,16 @@ from oui_metadata import oui_tier_map, write_oui_json
 from validation import (
     MATCH_CONFIDENCE,
     annotate_record,
+    empty_suppression_registry,
     is_valid_latlon,
+    is_valid_mac,
     is_valid_oui,
+    netid_fingerprint,
     normalize_oui,
     summarize_confidence,
-    validate_record,
+    suppress_records,
+    validate_release_candidate,
+    validate_suppression_registry,
 )
 
 # ─── Configuration ────────────────────────────────────────────────────────────
@@ -68,6 +77,10 @@ WIGLE_SEARCH_ENDPOINT = f"{WIGLE_API_BASE}/network/search"
 # Rate limiting — WiGLE daily API limits are strict
 RATE_LIMIT_DELAY = 2.0      # seconds between requests
 PAGE_SIZE = 100              # WiGLE default page size
+MAX_RETRY_ATTEMPTS = 4
+RETRY_BASE_DELAY = 1.0
+RETRY_MAX_DELAY = 30.0
+RETRY_JITTER_RATIO = 0.25
 
 # Data retention — discard records with lasttime older than this
 MAX_AGE_DAYS = 730           # 2 years
@@ -81,6 +94,42 @@ GEOJSON_OUTPUT = DATA_DIR / "flock_cameras.geojson"
 CSV_OUTPUT = DATA_DIR / "flock_cameras.csv"
 STATS_OUTPUT = DATA_DIR / "scan_stats.json"
 SCAN_STATE_FILE = DATA_DIR / "scan_state.json"
+SUPPRESSION_REGISTRY_FILE = DATA_DIR / "suppression_registry.json"
+REBUILD_POLICY_FILE = DATA_DIR / "rebuild_policy.json"
+CLASSIFIER_REPORT_FILE = DATA_DIR / "validation" / "ssid_metrics.json"
+
+
+class PaginationStatus(str, Enum):
+    """Terminal outcome of one OUI pagination attempt."""
+
+    COMPLETE = "complete"
+    INTERRUPTED = "interrupted"
+    FAILED = "failed"
+
+
+@dataclass(frozen=True)
+class PaginationResult:
+    records: list[dict]
+    status: PaginationStatus
+    search_after: str | None
+    page: int
+    error: str | None = None
+
+
+def retry_delay(
+    attempt: int,
+    base_delay: float = RETRY_BASE_DELAY,
+    max_delay: float = RETRY_MAX_DELAY,
+    jitter_ratio: float = RETRY_JITTER_RATIO,
+    random_value: float | None = None,
+) -> float:
+    """Return bounded exponential backoff with symmetric jitter."""
+    if attempt < 1:
+        raise ValueError("attempt must be at least 1")
+    bounded = min(max_delay, base_delay * (2 ** (attempt - 1)))
+    sample = random.random() if random_value is None else random_value
+    jitter = bounded * jitter_ratio * ((sample * 2) - 1)
+    return max(0.0, min(max_delay, bounded + jitter))
 
 
 # ─── Atomic Writes (scan integrity) ──────────────────────────────────────────
@@ -101,7 +150,66 @@ def atomic_write_text(path: Path, text: str) -> None:
 
 def atomic_write_json(path: Path, obj) -> None:
     """Atomically write `obj` as indented JSON to `path`."""
-    atomic_write_text(path, json.dumps(obj, indent=2))
+    atomic_write_text(path, json.dumps(obj, indent=2) + "\n")
+
+
+def load_suppression_registry(path: Path = None) -> dict:
+    """Load the durable suppression registry and fail closed if malformed."""
+    path = path or SUPPRESSION_REGISTRY_FILE
+    if not path.exists():
+        return empty_suppression_registry()
+    try:
+        registry = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"could not load suppression registry {path}: {exc}") from exc
+    errors = validate_suppression_registry(registry)
+    if errors:
+        raise ValueError(f"invalid suppression registry {path}: {'; '.join(errors)}")
+    return registry
+
+
+def load_rebuild_policy(path: Path = None) -> dict:
+    """Load and validate scheduled authoritative-rebuild policy."""
+    path = path or REBUILD_POLICY_FILE
+    try:
+        policy = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"could not load rebuild policy {path}: {exc}") from exc
+    interval = policy.get("authoritative_rebuild_interval_days")
+    ratio = policy.get("minimum_release_record_ratio")
+    if not isinstance(interval, int) or interval < 1:
+        raise ValueError("authoritative_rebuild_interval_days must be a positive integer")
+    if not isinstance(ratio, (int, float)) or not 0 < ratio <= 1:
+        raise ValueError("minimum_release_record_ratio must be greater than 0 and at most 1")
+    for key in ("minimum_fixture_precision", "minimum_fixture_recall"):
+        floor = policy.get(key)
+        if not isinstance(floor, (int, float)) or not 0 <= floor <= 1:
+            raise ValueError(f"{key} must be between 0 and 1")
+    return policy
+
+
+def authoritative_rebuild_due(stats: dict, policy: dict, now: datetime = None) -> bool:
+    """Return whether the configured authoritative rebuild interval elapsed."""
+    now = now or datetime.now(timezone.utc)
+    raw = stats.get("last_authoritative_rebuild")
+    if not raw:
+        return True
+    try:
+        completed = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return True
+    return now - completed >= timedelta(days=policy["authoritative_rebuild_interval_days"])
+
+
+def select_authoritative_rebuild(
+    forced: bool,
+    scheduled: bool,
+    stats: dict,
+    policy: dict,
+    now: datetime = None,
+) -> bool:
+    """Select rebuild mode without skipping a scheduled incremental scan."""
+    return forced or (scheduled and authoritative_rebuild_due(stats, policy, now))
 
 
 
@@ -111,27 +219,32 @@ def load_ouis(oui_file: Path = None) -> list:
     """
     Load and validate Flock Safety OUI prefixes from the canonical CSV.
 
-    Malformed rows are skipped with a warning, and duplicates are removed,
-    so a bad edit to flock_ouis.csv can never inject a garbage query.
+    Malformed or duplicate rows reject the whole query set. Silently reducing
+    the configured prefixes would make a partial scan look complete.
     """
     if oui_file is None:
         oui_file = DATA_DIR / "flock_ouis.csv"
 
     ouis = []
     seen = set()
+    errors = []
     with open(oui_file, "r") as f:
         reader = csv.DictReader(f)
-        for row in reader:
+        for line_number, row in enumerate(reader, 2):
             raw = (row.get("oui") or "").strip()
             if not is_valid_oui(raw):
-                if raw:
-                    print(f"  [!] Skipping malformed OUI in CSV: {raw!r}")
+                errors.append(f"line {line_number}: malformed OUI {raw!r}")
                 continue
             oui = normalize_oui(raw)
             if oui in seen:
+                errors.append(f"line {line_number}: duplicate OUI {oui}")
                 continue
             seen.add(oui)
             ouis.append(oui)
+    if errors:
+        raise ValueError("invalid OUI query list: " + "; ".join(errors))
+    if not ouis:
+        raise ValueError("invalid OUI query list: no OUI prefixes")
     return ouis
 
 
@@ -168,7 +281,7 @@ def load_scan_state(state_path: Path = None) -> dict:
         {
             "70:C9:4E": {
                 "last_completed": "2025-07-14T12:00:00+00:00",
-                "status": "completed",       # completed | interrupted
+                "status": "completed",       # completed | interrupted | pending_publish
                 "search_after": null,         # pagination cursor (if interrupted)
                 "page": 0,                    # page reached (if interrupted)
                 "fetched_so_far": 0,          # results from interrupted scan
@@ -185,10 +298,12 @@ def load_scan_state(state_path: Path = None) -> dict:
         with open(state_path, "r") as f:
             data = json.load(f)
         # The state file has a top-level "ouis" dict
-        return data.get("ouis", {})
+        states = data.get("ouis")
+        if not isinstance(states, dict):
+            raise ValueError("missing ouis object")
+        return states
     except Exception as exc:
-        print(f"  [!] Could not load scan state: {exc}")
-        return {}
+        raise ValueError(f"could not load scan state {state_path}: {exc}") from exc
 
 
 def save_scan_state(oui_states: dict, state_path: Path = None) -> None:
@@ -224,7 +339,7 @@ def compute_since_date(oui_state: dict, max_age_days: int) -> str:
 
     status = oui_state.get("status", "")
 
-    if status == "interrupted":
+    if status in {"interrupted", "pending_publish"}:
         # Resume: reuse the exact same since_date so pagination is consistent
         saved = oui_state.get("since_date", "")
         if saved:
@@ -265,11 +380,13 @@ def sort_ouis_by_priority(ouis: list, oui_states: dict) -> list:
         status = state.get("status", "never")
         if status == "interrupted":
             return (0, "")  # Highest priority — finish what we started
+        elif status == "pending_publish":
+            return (1, "")  # Pagination done; await the rest of the campaign
         elif status == "never" or not status:
-            return (1, "")  # Second priority — never scanned
+            return (2, "")  # Next priority — never scanned
         else:
             # Completed — sort oldest first so stale data gets refreshed
-            return (2, state.get("last_completed", ""))
+            return (3, state.get("last_completed", ""))
 
     return sorted(ouis, key=sort_key)
 
@@ -351,16 +468,26 @@ class WiGLEClient:
                 return {"success": False, "error": "unauthorized"}
             elif resp.status_code == 429:
                 print("  [!] 429 Rate limited — daily API quota exceeded")
-                return {"success": False, "error": "rate_limited"}
+                return {
+                    "success": False,
+                    "error": "rate_limited",
+                    "retry_after": resp.headers.get("Retry-After"),
+                }
             elif resp.status_code == 404:
                 # WiGLE returns 404 when no results match the search
                 return {"success": True, "results": [], "totalResults": 0}
+            elif 500 <= resp.status_code < 600:
+                print(f"  [!] HTTP {resp.status_code}: transient server error")
+                return {"success": False, "error": f"http_{resp.status_code}", "transient": True}
             else:
                 print(f"  [!] HTTP {resp.status_code}: {resp.text[:200]}")
                 return {"success": False, "error": f"http_{resp.status_code}"}
         except requests.Timeout:
             print("  [!] Request timed out")
             return {"success": False, "error": "timeout"}
+        except requests.RequestException as exc:
+            print(f"  [!] Transient request error: {exc}")
+            return {"success": False, "error": "request_error", "transient": True}
         except Exception as exc:
             print(f"  [!] Request error: {exc}")
             return {"success": False, "error": str(exc)}
@@ -371,7 +498,10 @@ class WiGLEClient:
 def query_oui(client: WiGLEClient, oui: str, country: str = None,
               bbox: tuple = None, since_date: str = None,
               resume_search_after: str = None,
-              resume_page: int = 0) -> tuple:
+              resume_page: int = 0,
+              max_attempts: int = MAX_RETRY_ATTEMPTS,
+              sleep_fn=time.sleep,
+              random_fn=random.random) -> PaginationResult:
     """
     Query WiGLE for ALL WiFi networks matching a given OUI prefix.
     Paginates through every page until no more results.
@@ -381,18 +511,12 @@ def query_oui(client: WiGLEClient, oui: str, country: str = None,
         resume_search_after: Pagination cursor to resume from (if resuming)
         resume_page: Page number to resume from (cosmetic, for logging)
 
-    Returns:
-        (networks, rate_limited, final_search_after, final_page)
-        - networks: list of network dicts
-        - rate_limited: bool — whether we hit the API rate limit
-        - final_search_after: last pagination cursor (for save/resume)
-        - final_page: last page number reached
+    Returns an explicit complete, interrupted, or failed outcome. Only a
+    complete outcome is eligible for a completed OUI checkpoint.
     """
     networks = []
     search_after = resume_search_after
     page = resume_page
-    rate_limited = False
-
     netid_pattern = oui.upper()
 
     while True:
@@ -411,25 +535,38 @@ def query_oui(client: WiGLEClient, oui: str, country: str = None,
         if since_date:
             kwargs["lastupdt"] = since_date
 
-        result = client.search_wifi(**kwargs)
-
-        if not result.get("success", False):
+        result = None
+        for attempt in range(1, max_attempts + 1):
+            result = client.search_wifi(**kwargs)
+            if result.get("success", False):
+                break
             error = result.get("error", "unknown")
             if error == "rate_limited":
-                print(f"    ⚠ Rate limited after {len(networks)} results — saving state for resume")
-                rate_limited = True
-                break
-            elif error == "unauthorized":
-                break
-            # Retry once on transient errors
-            time.sleep(RATE_LIMIT_DELAY * 3)
-            result = client.search_wifi(**kwargs)
-            if not result.get("success", False):
-                break
+                print(f"    ⚠ Rate limited after {len(networks)} results; resume state retained")
+                return PaginationResult(
+                    networks, PaginationStatus.INTERRUPTED, search_after, page - 1, error
+                )
+            transient = bool(result.get("transient")) or error == "timeout"
+            if not transient or attempt == max_attempts:
+                return PaginationResult(
+                    networks, PaginationStatus.FAILED, search_after, page - 1, error
+                )
+            delay = retry_delay(attempt, random_value=random_fn())
+            print(f"    Retry {attempt}/{max_attempts - 1} in {delay:.1f}s after {error}")
+            sleep_fn(delay)
 
-        results = result.get("results", [])
+        if result is None or not result.get("success", False):
+            return PaginationResult(
+                networks, PaginationStatus.FAILED, search_after, page - 1, "unknown"
+            )
+
+        results = result.get("results")
+        if not isinstance(results, list):
+            return PaginationResult(
+                networks, PaginationStatus.FAILED, search_after, page - 1, "invalid_results"
+            )
         if not results:
-            break
+            return PaginationResult(networks, PaginationStatus.COMPLETE, None, page)
 
         for net in results:
             networks.append({
@@ -457,13 +594,19 @@ def query_oui(client: WiGLEClient, oui: str, country: str = None,
 
         # Pagination — get next page token
         search_after = result.get("searchAfter")
-        if not search_after or len(results) < PAGE_SIZE:
-            break  # No more pages
+        if len(results) < PAGE_SIZE:
+            return PaginationResult(networks, PaginationStatus.COMPLETE, None, page)
+        if not search_after:
+            return PaginationResult(
+                networks,
+                PaginationStatus.FAILED,
+                None,
+                page,
+                "missing_search_after_on_full_page",
+            )
 
         # Rate limiting between pages
-        time.sleep(RATE_LIMIT_DELAY)
-
-    return networks, rate_limited, search_after, page
+        sleep_fn(RATE_LIMIT_DELAY)
 
 
 # ─── Cumulative Data Management ──────────────────────────────────────────────
@@ -480,6 +623,8 @@ def load_existing_data(geojson_path: Path) -> dict:
     try:
         with open(geojson_path, "r") as f:
             data = json.load(f)
+        if data.get("type") != "FeatureCollection" or not isinstance(data.get("features"), list):
+            raise ValueError("existing dataset is not a GeoJSON FeatureCollection")
 
         for feature in data.get("features", []):
             props = feature.get("properties", {})
@@ -505,12 +650,12 @@ def load_existing_data(geojson_path: Path) -> dict:
 
         print(f"  [✓] Loaded {len(existing)} existing records from previous scan")
     except Exception as exc:
-        print(f"  [!] Could not load existing data: {exc}")
+        raise ValueError(f"could not load existing data {geojson_path}: {exc}") from exc
 
     return existing
 
 
-def merge_networks(existing: dict, new_networks: list) -> dict:
+def merge_networks(existing: dict, new_networks: list, suppression_registry: dict = None) -> dict:
     """
     Merge new scan results into existing data.
     For duplicate netids, keep the record with the most recent lasttime.
@@ -520,8 +665,13 @@ def merge_networks(existing: dict, new_networks: list) -> dict:
     updated = 0
     added = 0
 
+    suppressed = (suppression_registry or {}).get("entries", {})
+    skipped_suppressed = 0
     for net in new_networks:
         netid = net["netid"].upper()
+        if is_valid_mac(netid) and netid_fingerprint(netid) in suppressed:
+            skipped_suppressed += 1
+            continue
         if netid in merged:
             # Update if new record has a more recent lasttime
             old_lt = merged[netid].get("lasttime", "")
@@ -534,6 +684,8 @@ def merge_networks(existing: dict, new_networks: list) -> dict:
             added += 1
 
     print(f"  Merge: +{added} new, ~{updated} updated, {len(merged)} total")
+    if skipped_suppressed:
+        print(f"  Merge: kept {skipped_suppressed} registry-suppressed record(s) out")
     return merged
 
 
@@ -606,7 +758,7 @@ def annotate_records(records: dict) -> dict:
     Stamp every record with its published confidence tier.
 
     Adds three fields to each record (see validation.annotate_record):
-        confidence     "ssid_confirmed" | "oui_high" | "oui_mfr" | "identified_other"
+        confidence     "ssid_correlated" | "oui_high" | "oui_mfr"
         oui_tier       "high" | "mfr"           (from data/flock_ouis.csv)
         out_of_market  bool                     (outside PRIMARY_MARKET_COUNTRIES)
         blocked_reason which denylist rule identified the record as other hardware
@@ -635,7 +787,7 @@ def write_geojson(records: dict, output_path: Path) -> None:
     accurate. Every feature is tagged match_confidence="suspected" — an OUI
     match is a heuristic, not a confirmation — plus three evidence fields that
     let consumers tell the populations apart (see validation.annotate_record):
-        confidence     ssid_confirmed | oui_high | oui_mfr | identified_other
+        confidence     ssid_correlated | oui_high | oui_mfr
         oui_tier       high | mfr
         out_of_market  true when the record is outside the primary Flock market
 
@@ -686,6 +838,9 @@ def write_geojson(records: dict, output_path: Path) -> None:
         "type": "FeatureCollection",
         "features": features,
         "properties": {
+            "release_schema_version": 2,
+            "release_status": "complete",
+            "suppression_applied": True,
             "generated": datetime.now(timezone.utc).isoformat(),
             "source": "WiGLE (wigle.net)",
             "project": "flock-finder",
@@ -694,18 +849,21 @@ def write_geojson(records: dict, output_path: Path) -> None:
             "match_confidence": MATCH_CONFIDENCE,
             "oui_research": "@NitekryDPaul",
 
-            # `total_cameras` keeps its historical meaning (every feature in the
-            # file, including records whose own SSID identifies other hardware).
-            # `total_actionable` is the number of features that survive the
-            # confidence tiers — it is the honest headline figure.
+            # Suppression removes identified unrelated hardware before writing,
+            # so every feature in this release is actionable under this policy.
             "total_cameras": len(features),
             "total_features": len(features),
             "total_actionable": summary["actionable"],
+            "ssid_correlated": summary["by_confidence"].get("ssid_correlated", 0),
+            "oui_only": (
+                summary["by_confidence"].get("oui_high", 0)
+                + summary["by_confidence"].get("oui_mfr", 0)
+            ),
             "by_confidence": summary["by_confidence"],
             "by_oui_tier": summary["by_oui_tier"],
             "out_of_market": summary["out_of_market"],
             "confidence_tiers": {
-                "ssid_confirmed": "SSID is a Flock naming pattern — strongest",
+                "ssid_correlated": "SSID matches an anchored Flock naming pattern",
                 "oui_high": "High-confidence Flock OUI, no contradicting SSID",
                 "oui_mfr": "Contract-manufacturer OUI (Liteon/USI) — weakest",
                 "identified_other": "SSID identifies other hardware — excluded",
@@ -722,9 +880,6 @@ def write_geojson(records: dict, output_path: Path) -> None:
 def write_csv(records: dict, output_path: Path) -> None:
     """Write networks as CSV for data analysis."""
     networks = sorted(records.values(), key=lambda n: n.get("netid", ""))
-    if not networks:
-        print("  [!] No networks to write to CSV")
-        return
 
     fieldnames = [
         "netid", "ssid", "trilat", "trilong", "oui_match",
@@ -735,12 +890,12 @@ def write_csv(records: dict, output_path: Path) -> None:
         "confidence", "oui_tier", "out_of_market", "blocked_reason",
     ]
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        writer.writeheader()
-        for net in networks:
-            writer.writerow(net)
+    buffer = io.StringIO(newline="")
+    writer = csv.DictWriter(buffer, fieldnames=fieldnames, extrasaction="ignore")
+    writer.writeheader()
+    for net in networks:
+        writer.writerow(net)
+    atomic_write_text(output_path, buffer.getvalue())
 
     print(f"  [✓] CSV: {output_path}  ({len(networks)} rows)")
 
@@ -765,7 +920,14 @@ def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
     generated = datetime.now(timezone.utc).isoformat()
 
     written = 0
-    for oui, items in sorted(by_oui.items()):
+    existing_ouis = {
+        path.stem.replace("_", ":").upper()
+        for path in out_dir.glob("*.geojson")
+        if is_valid_oui(path.stem.replace("_", ":"))
+    }
+    all_ouis = set(by_oui) | set(load_ouis()) | existing_ouis
+    for oui in sorted(all_ouis):
+        items = by_oui.get(oui, [])
         slug = oui.replace(":", "_")
         features = []
         subset_summary = summarize_confidence(net for _, net in items)
@@ -802,6 +964,9 @@ def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
             "type": "FeatureCollection",
             "features": features,
             "properties": {
+                "release_schema_version": 2,
+                "release_status": "complete",
+                "suppression_applied": True,
                 "generated": generated,
                 "oui": oui,
                 "source": "WiGLE (wigle.net)",
@@ -812,8 +977,7 @@ def write_geojson_per_oui(records: dict, output_dir: Path) -> None:
             },
         }
         path = out_dir / f"{slug}.geojson"
-        with open(path, "w") as f:
-            json.dump(geojson, f, indent=2)
+        atomic_write_json(path, geojson)
         written += 1
 
     print(f"  [✓] Per-OUI GeoJSON: {out_dir}  ({written} files)")
@@ -843,22 +1007,33 @@ def write_csv_per_oui(records: dict, output_dir: Path) -> None:
     ]
 
     written = 0
-    for oui, nets in sorted(by_oui.items()):
+    existing_ouis = {
+        path.stem.replace("_", ":").upper()
+        for path in out_dir.glob("*.csv")
+        if is_valid_oui(path.stem.replace("_", ":"))
+    }
+    all_ouis = set(by_oui) | set(load_ouis()) | existing_ouis
+    for oui in sorted(all_ouis):
+        nets = by_oui.get(oui, [])
         slug = oui.replace(":", "_")
         path = out_dir / f"{slug}.csv"
         nets_sorted = sorted(nets, key=lambda n: n.get("netid", ""))
-        with open(path, "w", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-            writer.writeheader()
-            for net in nets_sorted:
-                writer.writerow(net)
+        buffer = io.StringIO(newline="")
+        writer = csv.DictWriter(buffer, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        for net in nets_sorted:
+            writer.writerow(net)
+        atomic_write_text(path, buffer.getvalue())
         written += 1
 
     print(f"  [✓] Per-OUI CSV:     {out_dir}  ({written} files)")
 
 
 def write_stats(records: dict, ouis_queried: int, api_requests: int,
-                new_this_scan: int, output_path: Path) -> None:
+                new_this_scan: int, output_path: Path,
+                suppression_summary: dict = None,
+                authoritative_rebuild: bool = False,
+                classifier_validation: dict = None) -> None:
     """Write scan statistics JSON."""
     now = datetime.now(timezone.utc)
     networks = list(records.values())
@@ -885,12 +1060,20 @@ def write_stats(records: dict, ouis_queried: int, api_requests: int,
 
     # Evidence-tier breakdown — see validation.summarize_confidence().
     summary = summarize_confidence(networks)
+    suppression_summary = suppression_summary or {
+        "excluded_from_release": 0,
+        "new_registry_entries": 0,
+        "by_reason": {},
+        "registry_entries": 0,
+        "registry_by_reason": {},
+    }
 
     stats = {
+        "release_schema_version": 2,
+        "release_status": "complete",
+        "suppression_applied": True,
         "scan_timestamp": now.isoformat(),
-        # `total_cameras` is every record; `total_actionable` excludes records
-        # whose own SSID identifies other hardware (ClickShare, AndroidAP, ...).
-        # The headline reports the actionable figure.
+        # Suppression removes identified unrelated hardware before this summary.
         "total_cameras": len(networks),
         "total_actionable": summary["actionable"],
         "new_this_scan": new_this_scan,
@@ -899,16 +1082,35 @@ def write_stats(records: dict, ouis_queried: int, api_requests: int,
         "api_requests": api_requests,
         "data_retention_days": MAX_AGE_DAYS,
         # Evidence-tier breakdown (validation.summarize_confidence). Published so
-        # the headline can distinguish SSID-confirmed / OUI-suspected / excluded
+        # the headline can distinguish SSID-correlated / OUI-only evidence
         # records instead of presenting every OUI hit as an equal "camera".
         "confidence_summary": summary,
         "by_confidence": summary["by_confidence"],
         "by_oui_tier": summary["by_oui_tier"],
         "out_of_market": summary["out_of_market"],
+        "ssid_correlated": summary["by_confidence"].get("ssid_correlated", 0),
+        "oui_only": (
+            summary["by_confidence"].get("oui_high", 0)
+            + summary["by_confidence"].get("oui_mfr", 0)
+        ),
+        "suppression": suppression_summary,
+        "classifier_validation": classifier_validation or {},
         "cameras_by_oui": dict(sorted(oui_counts.items(), key=lambda x: -x[1])),
         "cameras_by_region": dict(sorted(region_counts.items(), key=lambda x: -x[1])[:50]),
         "cameras_by_country": dict(sorted(country_counts.items(), key=lambda x: -x[1])),
     }
+    previous_rebuild = None
+    if output_path.exists():
+        try:
+            previous_rebuild = json.loads(
+                output_path.read_text(encoding="utf-8")
+            ).get("last_authoritative_rebuild")
+        except (OSError, ValueError, AttributeError):
+            previous_rebuild = None
+    if authoritative_rebuild:
+        stats["last_authoritative_rebuild"] = now.isoformat()
+    elif previous_rebuild:
+        stats["last_authoritative_rebuild"] = previous_rebuild
 
     atomic_write_json(output_path, stats)
 
@@ -954,10 +1156,43 @@ def main():
         help="Ignore saved scan state — query the full retention window for every OUI"
     )
     parser.add_argument(
+        "--authoritative-rebuild", action="store_true",
+        help="Build a full replacement in resumable staging and publish only after every OUI completes"
+    )
+    parser.add_argument(
+        "--rebuild-if-due", action="store_true",
+        help="Use authoritative mode when due, otherwise run the normal incremental scan"
+    )
+    parser.add_argument(
         "--max-age-days", type=int, default=MAX_AGE_DAYS,
         help=f"Prune records older than this many days (default: {MAX_AGE_DAYS})"
     )
     args = parser.parse_args()
+    output_dir = Path(args.output_dir) if args.output_dir else DATA_DIR
+    policy = load_rebuild_policy()
+    if args.rebuild_if_due:
+        stats_path = output_dir / "scan_stats.json"
+        try:
+            current_stats = json.loads(stats_path.read_text()) if stats_path.exists() else {}
+        except ValueError:
+            current_stats = {}
+        if not isinstance(current_stats, dict):
+            current_stats = {}
+        args.authoritative_rebuild = select_authoritative_rebuild(
+            args.authoritative_rebuild,
+            args.rebuild_if_due,
+            current_stats,
+            policy,
+        )
+        if args.authoritative_rebuild:
+            print("Authoritative rebuild is due. Selecting authoritative mode.")
+        else:
+            print("Authoritative rebuild is not due. Continuing in incremental mode.")
+    if args.authoritative_rebuild:
+        args.no_merge = True
+        if args.oui or args.country or args.bbox:
+            print("Authoritative rebuilds require the full OUI list and unscoped geography.")
+            return 1
 
     # ── Banner ────────────────────────────────────────────────────────────────
     banner = "=" * 62
@@ -1001,9 +1236,9 @@ def main():
         try:
             ouis = load_ouis()
             print(f"  [✓] Loaded {len(ouis)} OUI prefixes from flock_ouis.csv")
-        except FileNotFoundError:
-            ouis = FLOCK_OUIS_FALLBACK
-            print(f"  [!] CSV not found — using {len(ouis)} built-in OUIs")
+        except (FileNotFoundError, ValueError) as exc:
+            print(f"  [✗] Could not load complete OUI list: {exc}")
+            return 1
 
     bbox = None
     if args.bbox:
@@ -1016,22 +1251,35 @@ def main():
         print(f"  Country filter: {args.country}")
 
     # ── Load scan state for incremental mode ──────────────────────────────────
-    output_dir = Path(args.output_dir) if args.output_dir else DATA_DIR
-    state_path = output_dir / "scan_state.json"
+    state_name = "authoritative_rebuild_state.json" if args.authoritative_rebuild else "scan_state.json"
+    state_path = output_dir / state_name
 
     print("\n[4/7] Loading scan state for incremental mode…")
-    if args.full_rescan:
+    if args.full_rescan and not args.authoritative_rebuild:
         oui_states = {}
         print("  --full-rescan: ignoring saved state, querying full window")
     else:
-        oui_states = load_scan_state(state_path)
+        try:
+            oui_states = load_scan_state(state_path)
+        except ValueError as exc:
+            print(f"  [✗] {exc}")
+            return 1
         if oui_states:
             completed = sum(1 for s in oui_states.values() if s.get("status") == "completed")
             interrupted = sum(1 for s in oui_states.values() if s.get("status") == "interrupted")
+            pending = sum(1 for s in oui_states.values() if s.get("status") == "pending_publish")
             print(f"  [✓] Loaded state: {completed} completed, {interrupted} interrupted, "
-                  f"{len(ouis) - completed - interrupted} never scanned")
+                  f"{pending} pending publication")
         else:
             print("  No prior state — first run, will do full scan for all OUIs")
+
+    if (
+        args.authoritative_rebuild
+        and oui_states
+        and all(state.get("status") == "completed" for state in oui_states.values())
+    ):
+        oui_states = {}
+        print("  Starting a new authoritative campaign from the full retention window")
 
     # Sort OUIs: interrupted first, then never-scanned, then oldest completed
     ouis = sort_ouis_by_priority(ouis, oui_states)
@@ -1057,13 +1305,35 @@ def main():
     geojson_out = output_dir / "flock_cameras.geojson"
     csv_out = output_dir / "flock_cameras.csv"
     stats_out = output_dir / "scan_stats.json"
+    registry_path = output_dir / "suppression_registry.json"
+    try:
+        suppression_registry = load_suppression_registry(registry_path)
+    except ValueError as exc:
+        print(f"  [✗] {exc}")
+        return 1
 
     print("\n[5/7] Loading existing data for cumulative merge…")
     if args.no_merge:
         existing = {}
         print("  --no-merge: starting with empty dataset")
+        try:
+            baseline_source = load_existing_data(geojson_out) if args.authoritative_rebuild else {}
+        except ValueError as exc:
+            print(f"  [✗] {exc}")
+            return 1
     else:
-        existing = load_existing_data(geojson_out)
+        try:
+            existing = load_existing_data(geojson_out)
+        except ValueError as exc:
+            print(f"  [✗] {exc}")
+            return 1
+        baseline_source = existing
+    baseline_public, _baseline_registry, _baseline_suppression = suppress_records(
+        baseline_source,
+        suppression_registry,
+        datetime.now(timezone.utc).isoformat(),
+    )
+    baseline_count = len(baseline_public)
 
     # ── Query WiGLE (incremental + resumable) ─────────────────────────────────
     print(f"\n[6/7] Querying WiGLE for {len(ouis)} OUI prefixes (incremental)…")
@@ -1071,6 +1341,7 @@ def main():
     print()
 
     all_new_networks = []
+    pagination_outcomes = {}
     ouis_with_results = 0
     ouis_skipped_rate_limit = 0
     hit_rate_limit = False
@@ -1081,11 +1352,21 @@ def main():
         if hit_rate_limit:
             ouis_skipped_rate_limit += 1
             print(f"  [{i:2d}/{len(ouis)}] Skipping OUI {oui} — rate limited")
+            pagination_outcomes[oui_key] = PaginationStatus.INTERRUPTED
             continue
 
         # Determine incremental since_date for this OUI
         oui_state = oui_states.get(oui_key, {})
         since_date = compute_since_date(oui_state, args.max_age_days)
+
+        if oui_state.get("status") == "pending_publish":
+            pending_records = oui_state.get("pending_records", [])
+            all_new_networks.extend(pending_records)
+            pagination_outcomes[oui_key] = PaginationStatus.COMPLETE
+            if pending_records:
+                ouis_with_results += 1
+            print(f"  [{i:2d}/{len(ouis)}] OUI {oui}: pagination complete, awaiting publication")
+            continue
 
         # Check if we should resume pagination
         resume_cursor = None
@@ -1095,7 +1376,7 @@ def main():
         if oui_state.get("status") == "interrupted":
             resume_cursor = oui_state.get("search_after")
             resume_page = oui_state.get("page", 0)
-            prev_fetched = oui_state.get("fetched_so_far", 0)
+            prev_fetched = len(oui_state.get("pending_records", []))
             status_label = f"RESUME from page {resume_page} ({prev_fetched} prior)"
             print(f"  [{i:2d}/{len(ouis)}] Resuming OUI {oui}  [{status_label}]  "
                   f"(lastupdt≥{since_date})")
@@ -1108,7 +1389,7 @@ def main():
             print(f"  [{i:2d}/{len(ouis)}] Querying OUI {oui}  [{status_label}]  "
                   f"(lastupdt≥{since_date})")
 
-        networks, was_limited, final_cursor, final_page = query_oui(
+        result = query_oui(
             client, oui,
             country=args.country,
             bbox=bbox,
@@ -1116,10 +1397,14 @@ def main():
             resume_search_after=resume_cursor,
             resume_page=resume_page,
         )
+        prior_records = (
+            oui_state.get("pending_records", [])
+            if oui_state.get("status") == "interrupted" else []
+        )
+        networks = prior_records + result.records
 
         if networks:
             ouis_with_results += 1
-            all_new_networks.extend(networks)
             print(f"         → {len(networks)} cameras found")
         else:
             print("         → no new results")
@@ -1127,33 +1412,41 @@ def main():
         # Update per-OUI state
         now_iso = datetime.now(timezone.utc).isoformat()
 
-        if was_limited:
-            # Save interrupted state for resumption
-            prev_fetched = oui_state.get("fetched_so_far", 0) if oui_state.get("status") == "interrupted" else 0
+        state_changed = False
+        if result.status == PaginationStatus.INTERRUPTED:
+            # This is resume state, not a completed scan checkpoint.
             oui_states[oui_key] = {
                 "status": "interrupted",
-                "search_after": final_cursor,
-                "page": final_page,
-                "fetched_so_far": prev_fetched + len(networks),
+                "search_after": result.search_after,
+                "page": result.page,
+                "pending_records": networks,
                 "since_date": since_date,
                 "interrupted_at": now_iso,
             }
+            pagination_outcomes[oui_key] = result.status
+            state_changed = True
             hit_rate_limit = True
             print("  ⚠ Rate limit hit — state saved, will resume next run")
-        else:
-            # Completed successfully
+        elif result.status == PaginationStatus.COMPLETE:
+            # Hold results until every requested OUI is complete. The durable
+            # last_completed checkpoint advances only after publication.
             oui_states[oui_key] = {
-                "status": "completed",
-                "last_completed": now_iso,
+                "status": "pending_publish",
                 "search_after": None,
-                "page": final_page,
-                "fetched_so_far": 0,
+                "page": result.page,
                 "since_date": since_date,
-                "results_this_scan": len(networks),
+                "pending_records": networks,
+                "pagination_completed_at": now_iso,
             }
+            pagination_outcomes[oui_key] = result.status
+            all_new_networks.extend(networks)
+            state_changed = True
+        else:
+            pagination_outcomes[oui_key] = result.status
+            print(f"  [✗] OUI {oui} failed after retries: {result.error}")
 
-        # Save state after EVERY OUI so we don't lose progress on crash/kill
-        save_scan_state(oui_states, state_path)
+        if state_changed:
+            save_scan_state(oui_states, state_path)
 
         # Rate limit between OUI queries
         if i < len(ouis) and not hit_rate_limit:
@@ -1163,9 +1456,18 @@ def main():
     print("\n[7/7] Merging and writing output…")
     print(f"  New results this scan: {len(all_new_networks)}")
 
-    count_before = len(existing)
-    merged = merge_networks(existing, all_new_networks)
-    new_this_scan = len(merged) - count_before
+    incomplete = {
+        oui: getattr(pagination_outcomes.get(oui), "value", pagination_outcomes.get(oui))
+        for oui in ouis
+        if pagination_outcomes.get(oui) != PaginationStatus.COMPLETE
+    }
+    if incomplete:
+        print("  [✗] Publication withheld because the scan campaign is incomplete.")
+        for oui, status in incomplete.items():
+            print(f"      {oui}: {status or 'missing'}")
+        return 2
+
+    merged = merge_networks(existing, all_new_networks, suppression_registry)
 
     # Prune old records
     merged = prune_old_records(merged, max_age_days=args.max_age_days)
@@ -1174,36 +1476,77 @@ def main():
     merged = dedup_by_netid(merged)
 
     # ── Output validation ─────────────────────────────────────────────────────
-    # Drop records that fail validation (bad BSSID or invalid/missing coords).
-    # Coordinates are kept at FULL precision — they are never modified so the
-    # map stays accurate.
-    public = {}
-    dropped = 0
-    for netid, net in merged.items():
-        if not validate_record(net):
-            dropped += 1
-            continue
-        public[netid] = net
-    if dropped:
-        print(f"  Output validation: dropped {dropped} invalid/incomplete record(s)")
-    merged = public
-
-
     # Stamp the published evidence fields (confidence / oui_tier / out_of_market)
     # on every record — including records carried over from earlier scans, which
     # are loaded back without them — so the outputs and their summaries can never
     # disagree with each other or with data/flock_ouis.csv.
     annotate_records(merged)
 
+    observed_at = datetime.now(timezone.utc).isoformat()
+    merged, updated_registry, suppression_summary = suppress_records(
+        merged, suppression_registry, observed_at
+    )
+    new_this_scan = len(merged) - baseline_count
+
+    release_check = validate_release_candidate(
+        merged,
+        ouis,
+        pagination_outcomes,
+        baseline_count=baseline_count or None,
+        minimum_record_ratio=policy["minimum_release_record_ratio"],
+    )
+    if not release_check.valid:
+        print("  [✗] Candidate release failed closed validation.")
+        for error in release_check.errors:
+            print(f"      {error}")
+        return 3
+
+    try:
+        classifier_validation = json.loads(
+            CLASSIFIER_REPORT_FILE.read_text(encoding="utf-8")
+        )
+    except (OSError, ValueError) as exc:
+        print(f"  [✗] Classifier validation report is unavailable: {exc}")
+        return 3
+    if (
+        not isinstance(classifier_validation, dict)
+        or classifier_validation.get("classifier") != "ssid_correlated"
+        or not isinstance(classifier_validation.get("per_prefix"), dict)
+    ):
+        print("  [✗] Classifier validation report is malformed")
+        return 3
+
     # Write combined outputs
 
+    atomic_write_json(registry_path, updated_registry)
     write_geojson(merged, geojson_out)
     write_csv(merged, csv_out)
-    write_stats(merged, len(ouis), client.request_count, new_this_scan, stats_out)
+    write_stats(
+        merged,
+        len(ouis),
+        client.request_count,
+        new_this_scan,
+        stats_out,
+        suppression_summary=suppression_summary,
+        authoritative_rebuild=args.authoritative_rebuild,
+        classifier_validation=classifier_validation,
+    )
 
     # Write per-OUI split files (data/by_oui/<OUI_SLUG>.{geojson,csv})
     write_geojson_per_oui(merged, output_dir)
     write_csv_per_oui(merged, output_dir)
+    completed_at = datetime.now(timezone.utc).isoformat()
+    for oui in ouis:
+        state = oui_states[oui]
+        oui_states[oui] = {
+            "status": "completed",
+            "last_completed": completed_at,
+            "search_after": None,
+            "page": state.get("page", 0),
+            "since_date": state.get("since_date", ""),
+            "results_this_scan": len(state.get("pending_records", [])),
+        }
+    save_scan_state(oui_states, state_path)
 
     # Regenerate centralized OUI metadata JSON for the frontend so the map's
     # OUI list is never hand-duplicated / out of sync with the canonical CSV.
@@ -1256,4 +1599,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

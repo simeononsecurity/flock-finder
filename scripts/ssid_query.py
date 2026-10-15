@@ -39,6 +39,7 @@ Via CI:         called automatically after wigle_query.py in update-data.yml
 import argparse
 import csv
 import html as html_lib
+import io
 import json
 import os
 import re
@@ -53,7 +54,20 @@ from dotenv import load_dotenv
 
 # Shared validation helpers
 sys.path.insert(0, str(Path(__file__).parent))
-from validation import is_valid_latlon  # noqa: E402
+from validation import (  # noqa: E402
+    empty_suppression_registry,
+    is_valid_latlon,
+    is_valid_mac,
+    ssid_correlates_flock,
+    suppress_records,
+    validate_suppression_registry,
+)
+from wigle_query import (  # noqa: E402
+    MAX_RETRY_ATTEMPTS,
+    PaginationResult,
+    PaginationStatus,
+    retry_delay,
+)
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 SCRIPT_DIR   = Path(__file__).parent.absolute()
@@ -78,6 +92,7 @@ CANDIDATE_CSV        = DATA_DIR / "ssid_candidate_cameras.csv"
 CANDIDATE_OUIS_JSON  = DATA_DIR / "candidate_ouis.json"
 SSID_STATE_FILE      = DATA_DIR / "ssid_scan_state.json"
 CAMERAS_CSV          = DATA_DIR / "flock_cameras.csv"   # published dataset (coverage input)
+SUPPRESSION_REGISTRY = DATA_DIR / "suppression_registry.json"
 
 # SSID patterns — WiGLE supports % as a SQL-style wildcard suffix.
 # These deliberately cast a wide net; novel-OUI filtering happens in analysis.
@@ -151,10 +166,12 @@ def load_ssid_state() -> dict:
         return {}
     try:
         with open(SSID_STATE_FILE) as f:
-            return json.load(f).get("patterns", {})
+            envelope = json.load(f)
     except Exception as exc:
-        print(f"  [!] Could not load SSID state: {exc}")
-        return {}
+        raise ValueError(f"invalid SSID scan state: {exc}") from exc
+    if not isinstance(envelope, dict) or not isinstance(envelope.get("patterns"), dict):
+        raise ValueError("invalid SSID scan state: expected an object with a patterns object")
+    return envelope["patterns"]
 
 
 def save_ssid_state(pattern_states: dict) -> None:
@@ -200,17 +217,21 @@ def query_ssid_pattern(
     since_date: str = None,
     resume_cursor: str = None,
     resume_page: int = 0,
-) -> tuple:
+    max_attempts: int = MAX_RETRY_ATTEMPTS,
+    sleep_fn=time.sleep,
+    random_fn=None,
+) -> PaginationResult:
     """
     Query WiGLE for all WiFi networks whose SSID matches ssid_pattern.
-    Paginates until no more results or rate-limited.
-
-    Returns: (networks, rate_limited, final_cursor, final_page)
+    Paginates until complete, interrupted by rate limiting, or failed.
     """
     networks: list = []
     search_after = resume_cursor
     page = resume_page
-    rate_limited = False
+    if random_fn is None:
+        import random
+
+        random_fn = random.random
 
     while True:
         page += 1
@@ -220,35 +241,70 @@ def query_ssid_pattern(
         if since_date:
             params["lastupdt"] = since_date
 
-        try:
-            resp = session.get(WIGLE_SEARCH_EP, params=params, timeout=30)
-        except requests.Timeout:
-            print(f"    [!] Timeout on page {page} — stopping pagination")
-            break
-        except Exception as exc:
-            print(f"    [!] Request error: {exc}")
+        data = None
+        for attempt in range(1, max_attempts + 1):
+            try:
+                resp = session.get(WIGLE_SEARCH_EP, params=params, timeout=30)
+            except requests.RequestException as exc:
+                error = "timeout" if isinstance(exc, requests.Timeout) else "request_error"
+                if attempt == max_attempts:
+                    return PaginationResult(
+                        networks, PaginationStatus.FAILED, search_after, page - 1, error
+                    )
+                delay = retry_delay(attempt, random_value=random_fn())
+                print(f"    Retry {attempt}/{max_attempts - 1} in {delay:.1f}s after {error}")
+                sleep_fn(delay)
+                continue
+
+            if resp.status_code == 429:
+                return PaginationResult(
+                    networks, PaginationStatus.INTERRUPTED, search_after, page - 1, "rate_limited"
+                )
+            if resp.status_code == 404:
+                return PaginationResult(networks, PaginationStatus.COMPLETE, None, page)
+            if resp.status_code == 401:
+                return PaginationResult(
+                    networks, PaginationStatus.FAILED, search_after, page - 1, "unauthorized"
+                )
+            if 500 <= resp.status_code < 600:
+                if attempt == max_attempts:
+                    return PaginationResult(
+                        networks,
+                        PaginationStatus.FAILED,
+                        search_after,
+                        page - 1,
+                        f"http_{resp.status_code}",
+                    )
+                delay = retry_delay(attempt, random_value=random_fn())
+                sleep_fn(delay)
+                continue
+            if resp.status_code != 200:
+                return PaginationResult(
+                    networks,
+                    PaginationStatus.FAILED,
+                    search_after,
+                    page - 1,
+                    f"http_{resp.status_code}",
+                )
+            try:
+                data = resp.json()
+            except ValueError:
+                return PaginationResult(
+                    networks, PaginationStatus.FAILED, search_after, page - 1, "invalid_json"
+                )
             break
 
-        if resp.status_code == 429:
-            print(f"    ⚠ Rate limited after {len(networks)} results")
-            rate_limited = True
-            break
-        if resp.status_code == 401:
-            print("    [✗] 401 Unauthorized — check API credentials")
-            break
-        if resp.status_code == 404:
-            break  # WiGLE returns 404 for empty result sets
-        if resp.status_code != 200:
-            print(f"    [!] HTTP {resp.status_code} — stopping")
-            break
-
-        data = resp.json()
-        if not data.get("success", False):
-            break
-
-        results = data.get("results", [])
+        if not isinstance(data, dict) or not data.get("success", False):
+            return PaginationResult(
+                networks, PaginationStatus.FAILED, search_after, page - 1, "api_failure"
+            )
+        results = data.get("results")
+        if not isinstance(results, list):
+            return PaginationResult(
+                networks, PaginationStatus.FAILED, search_after, page - 1, "invalid_results"
+            )
         if not results:
-            break
+            return PaginationResult(networks, PaginationStatus.COMPLETE, None, page)
 
         for net in results:
             networks.append({
@@ -273,12 +329,18 @@ def query_ssid_pattern(
               f"(running: {len(networks)}, API total: {total})")
 
         search_after = data.get("searchAfter")
-        if not search_after or len(results) < PAGE_SIZE:
-            break
+        if len(results) < PAGE_SIZE:
+            return PaginationResult(networks, PaginationStatus.COMPLETE, None, page)
+        if not search_after:
+            return PaginationResult(
+                networks,
+                PaginationStatus.FAILED,
+                None,
+                page,
+                "missing_search_after_on_full_page",
+            )
 
-        time.sleep(RATE_LIMIT_DELAY)
-
-    return networks, rate_limited, search_after, page
+        sleep_fn(RATE_LIMIT_DELAY)
 
 
 # ── Candidate OUI analysis ────────────────────────────────────────────────────
@@ -337,7 +399,58 @@ def _atomic_write_json(path: Path, obj) -> None:
     os.replace(tmp, path)
 
 
-def write_candidate_geojson(networks: list, candidates: dict, path: Path) -> None:
+def _atomic_write_text(path: Path, content: str) -> None:
+    """Replace one text artifact only after its complete content is ready."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with open(tmp, "w", encoding="utf-8", newline="") as handle:
+        handle.write(content)
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(tmp, path)
+
+
+def load_suppression_registry(path: Path = SUPPRESSION_REGISTRY) -> dict:
+    """Load the hashed registry and fail closed when it is malformed."""
+    if not path.exists():
+        return empty_suppression_registry()
+    try:
+        registry = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"could not load suppression registry {path}: {exc}") from exc
+    errors = validate_suppression_registry(registry)
+    if errors:
+        raise ValueError(f"invalid suppression registry {path}: {'; '.join(errors)}")
+    return registry
+
+
+def suppress_candidate_networks(
+    networks: list,
+    registry: dict,
+    observed_at: str,
+) -> tuple[list, dict, dict]:
+    """Filter candidate points through the shared persistent registry."""
+    keyed = {
+        network["netid"].upper(): network
+        for network in networks
+        if is_valid_mac(network.get("netid") or "")
+    }
+    public, updated_registry, summary = suppress_records(keyed, registry, observed_at)
+    correlated = [
+        record
+        for record in public.values()
+        if ssid_correlates_flock(record.get("ssid") or "")
+    ]
+    summary["unmatched_ssid_records"] = len(public) - len(correlated)
+    return correlated, updated_registry, summary
+
+
+def write_candidate_geojson(
+    networks: list,
+    candidates: dict,
+    path: Path,
+    suppression: dict = None,
+) -> None:
     candidate_ouis = set(candidates.keys())
     features = []
     for net in networks:
@@ -374,6 +487,9 @@ def write_candidate_geojson(networks: list, candidates: dict, path: Path) -> Non
         "type": "FeatureCollection",
         "features": features,
         "properties": {
+            "release_schema_version": 2,
+            "release_status": "complete",
+            "suppression_applied": True,
             "generated":        datetime.now(timezone.utc).isoformat(),
             "source":           "WiGLE (wigle.net)",
             "project":          "flock-finder",
@@ -387,6 +503,7 @@ def write_candidate_geojson(networks: list, candidates: dict, path: Path) -> Non
             "match_confidence":  "unconfirmed_candidate",
             "total_cameras":     len(features),
             "candidate_ouis":    len(candidates),
+            "suppression":       suppression or {},
         },
     })
     print(f"  [✓] Candidate GeoJSON : {path}  ({len(features)} features)")
@@ -404,16 +521,21 @@ def write_candidate_csv(networks: list, candidates: dict, path: Path) -> None:
         "netid", "ssid", "trilat", "trilong", "channel", "encryption",
         "firsttime", "lasttime", "city", "region", "country", "road", "postalcode",
     ]
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        writer.writeheader()
-        for rec in records:
-            writer.writerow(rec)
+    buffer = io.StringIO(newline="")
+    writer = csv.DictWriter(buffer, fieldnames=fieldnames, extrasaction="ignore")
+    writer.writeheader()
+    for rec in records:
+        writer.writerow(rec)
+    _atomic_write_text(path, buffer.getvalue())
     print(f"  [✓] Candidate CSV     : {path}  ({len(records)} rows)")
 
 
-def write_candidate_ouis_json(candidates: dict, path: Path, coverage: dict = None) -> None:
+def write_candidate_ouis_json(
+    candidates: dict,
+    path: Path,
+    coverage: dict = None,
+    suppression: dict = None,
+) -> None:
     payload = {
         "generated": datetime.now(timezone.utc).isoformat(),
         "description": (
@@ -431,6 +553,8 @@ def write_candidate_ouis_json(candidates: dict, path: Path, coverage: dict = Non
     # class that was not searched.
     if coverage is not None:
         payload["ssid_pattern_coverage"] = coverage
+    if suppression is not None:
+        payload["suppression"] = suppression
     _atomic_write_json(path, payload)
     print(f"  [✓] Candidate OUIs    : {path}  ({len(candidates)} prefixes)")
 
@@ -523,12 +647,14 @@ def summarize_dataset_coverage(csv_path: Path) -> dict:
     with open(csv_path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             dataset["records_scanned"] += 1
-            ssid = (row.get("ssid") or "").strip().lower()
+            ssid = (row.get("ssid") or "").strip()
             if ssid:
                 dataset["ssid_bearing"] += 1
-                if "flock camera" in ssid:
+                if re.fullmatch(r"flock\s+camera\s+net\.?", ssid, re.IGNORECASE):
                     dataset["flock_camera_net_records"] += 1
-                if "fs ext battery" in ssid:
+                if re.fullmatch(
+                    r"fs\s+ext\s+battery(?:\s+[0-9a-z_-]+)?", ssid, re.IGNORECASE
+                ):
                     dataset["fs_ext_battery_records"] += 1
 
             netid = (row.get("netid") or "").upper()
@@ -814,7 +940,7 @@ def update_index_html(candidates: dict, html_path: Path) -> None:
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-def main() -> None:
+def main() -> int:
     parser = argparse.ArgumentParser(
         description="Detect novel Flock OUI prefixes from Flock SSID patterns in WiGLE"
     )
@@ -836,7 +962,7 @@ def main() -> None:
         print("\n[coverage-only] Recomputing coverage from the published dataset…")
         update_coverage_blocks(build_coverage(None), README_PATH, INDEX_HTML)
         print("  [✓] No WiGLE queries were made.")
-        return
+        return 0
 
     # ── Credentials ──────────────────────────────────────────────────────────
     print("\n[1/5] Loading credentials…")
@@ -871,7 +997,11 @@ def main() -> None:
 
     # ── Scan state ────────────────────────────────────────────────────────────
     print("\n[3/5] Loading SSID scan state…")
-    pattern_states = load_ssid_state()
+    try:
+        pattern_states = load_ssid_state()
+    except ValueError as exc:
+        print(f"  [✗] {exc}")
+        return 1
     if pattern_states:
         done = sum(1 for s in pattern_states.values() if s.get("status") == "completed")
         interrupted = sum(1 for s in pattern_states.values() if s.get("status") == "interrupted")
@@ -882,14 +1012,45 @@ def main() -> None:
     # ── SSID queries ──────────────────────────────────────────────────────────
     print(f"\n[4/5] Querying WiGLE for {len(FLOCK_SSID_PATTERNS)} SSID pattern(s)…")
     all_networks: dict = {}  # keyed by uppercase netid for dedup
+    pattern_outcomes: dict[str, str] = {}
+    stop_queries = False
+
+    def add_to_pool(records: list[dict]) -> None:
+        """Deduplicate records by MAC, keeping the latest observation."""
+        for net in records:
+            netid = str(net.get("netid", "")).upper()
+            if not netid:
+                continue
+            existing = all_networks.get(netid)
+            if existing is None or net.get("lasttime", "") >= existing.get("lasttime", ""):
+                all_networks[netid] = net
 
     for pat, description in FLOCK_SSID_PATTERNS:
         key = pat.replace("%", "_pct")
         state = pattern_states.get(key, {})
+        if state.get("status") == "pending_publish":
+            records = state.get("pending_records")
+            if not isinstance(records, list):
+                print(f"  [✗] Invalid pending records for {pat!r}")
+                pattern_outcomes[key] = PaginationStatus.FAILED.value
+                continue
+            add_to_pool(records)
+            pattern_outcomes[key] = PaginationStatus.COMPLETE.value
+            print(f"\n  Pattern : {pat!r}")
+            print(f"  Staged  : {len(records)} record(s) awaiting a complete release")
+            continue
+        if stop_queries:
+            pattern_outcomes[key] = PaginationStatus.INTERRUPTED.value
+            continue
         since = compute_since_date(state)
         is_resume = state.get("status") == "interrupted"
         cursor = state.get("search_after") if is_resume else None
         page0  = state.get("page", 0) if is_resume else 0
+        prior_records = state.get("pending_records", []) if is_resume else []
+        if not isinstance(prior_records, list):
+            print(f"  [✗] Invalid interrupted records for {pat!r}")
+            pattern_outcomes[key] = PaginationStatus.FAILED.value
+            continue
         label  = ("interrupted — resuming" if is_resume
                   else ("incremental" if state.get("status") == "completed" else "first scan"))
 
@@ -897,49 +1058,78 @@ def main() -> None:
         print(f"  Match   : {description}")
         print(f"  Mode    : {label}  (lastupdt≥{since})")
 
-        networks, rate_limited, final_cursor, final_page = query_ssid_pattern(
+        result = query_ssid_pattern(
             session, pat,
             since_date=since,
             resume_cursor=cursor,
             resume_page=page0,
         )
-
-        # Dedup by netid — keep latest lasttime
-        for net in networks:
-            netid = net.get("netid", "").upper()
-            if not netid:
-                continue
-            existing = all_networks.get(netid)
-            if existing is None or net.get("lasttime", "") >= existing.get("lasttime", ""):
-                all_networks[netid] = net
-
-        print(f"  → fetched {len(networks)}, dedup pool now {len(all_networks)}")
+        records = [*prior_records, *result.records]
+        pattern_outcomes[key] = result.status.value
+        print(f"  → fetched {len(result.records)}, outcome {result.status.value}")
 
         now_iso = datetime.now(timezone.utc).isoformat()
-        if rate_limited:
+        if result.status == PaginationStatus.INTERRUPTED:
             pattern_states[key] = {
                 "status":       "interrupted",
-                "search_after": final_cursor,
-                "page":         final_page,
+                "search_after": result.search_after,
+                "page":         result.page,
                 "since_date":   since,
                 "interrupted_at": now_iso,
+                "pending_records": records,
             }
             print("  ⚠ Rate limited — state saved, will resume next run")
-        else:
+            stop_queries = True
+        elif result.status == PaginationStatus.COMPLETE:
             pattern_states[key] = {
-                "status":         "completed",
-                "last_completed": now_iso,
+                "status":         "pending_publish",
+                "pagination_completed_at": now_iso,
                 "search_after":   None,
-                "page":           final_page,
+                "page":           result.page,
                 "since_date":     since,
+                "pending_records": records,
             }
+            add_to_pool(records)
+        else:
+            print(f"  [✗] Query failed: {result.error or 'unknown error'}")
 
-        save_ssid_state(pattern_states)
-        time.sleep(RATE_LIMIT_DELAY)
+        if result.status != PaginationStatus.FAILED:
+            save_ssid_state(pattern_states)
+        if not stop_queries:
+            time.sleep(RATE_LIMIT_DELAY)
+
+    incomplete = {
+        pattern: pattern_outcomes.get(pattern.replace("%", "_pct"), "missing")
+        for pattern, _description in FLOCK_SSID_PATTERNS
+        if pattern_outcomes.get(pattern.replace("%", "_pct"))
+        != PaginationStatus.COMPLETE.value
+    }
+    if incomplete:
+        print(f"  [✗] Candidate release withheld. Incomplete patterns: {incomplete}")
+        return 2
 
     # ── Candidate OUI analysis ────────────────────────────────────────────────
     print(f"\n[5/5] Analyzing {len(all_networks)} records for novel OUI prefixes…")
-    networks_list = list(all_networks.values())
+    try:
+        registry = load_suppression_registry()
+    except ValueError as exc:
+        print(f"  [✗] {exc}")
+        return 1
+    networks_list, updated_registry, suppression_summary = suppress_candidate_networks(
+        list(all_networks.values()),
+        registry,
+        datetime.now(timezone.utc).isoformat(),
+    )
+    if suppression_summary["excluded_from_release"]:
+        print(
+            f"  Suppressed {suppression_summary['excluded_from_release']} "
+            "unrelated candidate point(s)"
+        )
+    if suppression_summary["unmatched_ssid_records"]:
+        print(
+            f"  Excluded {suppression_summary['unmatched_ssid_records']} "
+            "record(s) outside anchored SSID families"
+        )
     candidates = analyze_candidate_ouis(networks_list, known_ouis)
 
     print(f"  Novel OUIs with ≥{CANDIDATE_MIN_COUNT} records: {len(candidates)}")
@@ -959,12 +1149,36 @@ def main() -> None:
           f"record(s), {dataset_cov['laa_records']} LAA record(s) in the published dataset")
 
     # ── Write outputs ─────────────────────────────────────────────────────────
-    write_candidate_geojson(networks_list, candidates, CANDIDATE_GEOJSON)
+    _atomic_write_json(SUPPRESSION_REGISTRY, updated_registry)
+    write_candidate_geojson(
+        networks_list,
+        candidates,
+        CANDIDATE_GEOJSON,
+        suppression=suppression_summary,
+    )
     write_candidate_csv(networks_list, candidates, CANDIDATE_CSV)
-    write_candidate_ouis_json(candidates, CANDIDATE_OUIS_JSON, coverage)
+    write_candidate_ouis_json(
+        candidates,
+        CANDIDATE_OUIS_JSON,
+        coverage,
+        suppression=suppression_summary,
+    )
     update_readme(candidates, README_PATH)
     update_index_html(candidates, INDEX_HTML)
     update_coverage_blocks(coverage, README_PATH, INDEX_HTML)
+
+    completed_at = datetime.now(timezone.utc).isoformat()
+    for pat, _description in FLOCK_SSID_PATTERNS:
+        key = pat.replace("%", "_pct")
+        staged = pattern_states[key]
+        pattern_states[key] = {
+            "status": "completed",
+            "last_completed": completed_at,
+            "search_after": None,
+            "page": staged.get("page", 0),
+            "since_date": staged.get("since_date"),
+        }
+    save_ssid_state(pattern_states)
 
     print()
     print(banner)
@@ -975,8 +1189,10 @@ def main() -> None:
     print(f"  Candidate GeoJSON       : {CANDIDATE_GEOJSON}")
     print(f"  Candidate CSV           : {CANDIDATE_CSV}")
     print(f"  Candidate OUIs JSON     : {CANDIDATE_OUIS_JSON}")
+    print(f"  Candidate points excluded: {suppression_summary['excluded_from_release']}")
     print(banner)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

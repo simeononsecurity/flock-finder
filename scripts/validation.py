@@ -20,6 +20,9 @@ IMPORTANT — Data policy:
 from __future__ import annotations
 
 import re
+from dataclasses import dataclass
+from hashlib import sha256
+from typing import Iterable, Mapping
 
 # ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -116,7 +119,11 @@ def is_valid_latlon(lat, lon) -> bool:
 # tier per feature lets the map, the README headline and downstream consumers
 # filter on evidence instead of trusting a single aggregate number.
 
-CONFIDENCE_SSID_CONFIRMED = "ssid_confirmed"
+CONFIDENCE_SSID_CORRELATED = "ssid_correlated"
+# Read compatibility for older callers and released CSV files. New output must
+# use ``ssid_correlated`` because an SSID pattern is correlation, not proof.
+CONFIDENCE_SSID_CONFIRMED = CONFIDENCE_SSID_CORRELATED
+LEGACY_CONFIDENCE_SSID_CONFIRMED = "ssid_confirmed"
 CONFIDENCE_OUI_HIGH = "oui_high"
 CONFIDENCE_OUI_MFR = "oui_mfr"
 CONFIDENCE_IDENTIFIED_OTHER = "identified_other"
@@ -124,7 +131,7 @@ CONFIDENCE_IDENTIFIED_OTHER = "identified_other"
 # Strongest → weakest. `unconfirmed_candidate` (candidate OUIs from the
 # SSID-discovery pass) is a different axis; it lives in ssid_query.py.
 CONFIDENCE_LEVELS = (
-    CONFIDENCE_SSID_CONFIRMED,
+    CONFIDENCE_SSID_CORRELATED,
     CONFIDENCE_OUI_HIGH,
     CONFIDENCE_OUI_MFR,
     CONFIDENCE_IDENTIFIED_OTHER,
@@ -133,13 +140,13 @@ CONFIDENCE_LEVELS = (
 # Tiers that represent a plausible Flock device — everything except a record
 # whose own SSID contradicts the match. This is the number the headline reports.
 CONFIDENCE_ACTIONABLE = (
-    CONFIDENCE_SSID_CONFIRMED,
+    CONFIDENCE_SSID_CORRELATED,
     CONFIDENCE_OUI_HIGH,
     CONFIDENCE_OUI_MFR,
 )
 
 CONFIDENCE_DESCRIPTIONS = {
-    CONFIDENCE_SSID_CONFIRMED: (
+    CONFIDENCE_SSID_CORRELATED: (
         "The SSID itself is a Flock naming pattern (e.g. 'Flock', 'Flock-XXXXXX', "
         "'FS Ext Battery'). Strongest evidence available from passive WiFi data."
     ),
@@ -154,18 +161,30 @@ CONFIDENCE_DESCRIPTIONS = {
     CONFIDENCE_IDENTIFIED_OTHER: (
         "The SSID positively identifies other hardware (ClickShare, SMARTGATE_, "
         "DIRECT-, AndroidAP, or wardriving-tool output), so the OUI match is "
-        "spurious. Excluded from the map by default and from the camera counts."
+        "spurious. Suppressed from public point artifacts and camera counts."
     ),
 }
 
 
-# SSID substrings that *confirm* a Flock device. Lowercase; matched as
-# substrings after lowercasing the SSID, so they are deliberately short:
-#   "flock"          → Flock, Flock-XXXXXX, FLOCK-XXXXXX, Flock Camera net.
-#   "fs ext battery" → FS Ext Battery accessory / battery-pack series
-SSID_CONFIRM_PATTERNS = (
-    "flock",
-    "fs ext battery",
+# Anchored patterns for documented SSID families. Broad substring matching such
+# as ``"flock" in ssid`` turns unrelated names like "Bird Flock Guest" into
+# positive evidence. Every expression below matches the full normalized SSID.
+SSID_CORRELATION_RULES = (
+    ("flock_base", r"^\s*flock\s*$", "documented base SSID"),
+    ("flock_device_id", r"^\s*flock(?:-|_)?[0-9a-f]{3,12}\s*$",
+     "documented Flock SSID with a hexadecimal device suffix"),
+    ("flock_camera_net", r"^\s*flock\s+camera\s+net\.?\s*$",
+     "documented camera-network SSID"),
+    ("fs_ext_battery", r"^\s*fs\s+ext\s+battery(?:\s+[0-9a-z_-]+)?\s*$",
+     "documented external-battery SSID family"),
+)
+
+# Narrow compatibility for metadata consumers which previously received a list
+# of plain substrings. Values are regexes now and must be treated as such.
+SSID_CONFIRM_PATTERNS = tuple(regex for _label, regex, _why in SSID_CORRELATION_RULES)
+_SSID_CORRELATION_REGEXES = tuple(
+    (label, re.compile(regex, re.IGNORECASE))
+    for label, regex, _why in SSID_CORRELATION_RULES
 )
 
 # SSID rules that *contradict* a Flock match — the record is provably some other
@@ -200,7 +219,7 @@ SSID_DENYLIST_RULES = (
     #     Flock ALPR [wifi_hidden_ssid_oui;low]
     #     Flock ALPR [wifi_oui_wildcard_probe;medium]
     # No Flock camera broadcasts an SSID beginning "Flock ALPR", and they contain
-    # "flock", so without this rule they would be counted as SSID-confirmed —
+    # "flock", so without this rule they would be counted as SSID-correlated —
     # i.e. the project would be scoring a detector's opinion as evidence.
     ("detector_verdict", r"^\s*flock[\s_-]*alpr\b",
      "another detector's verdict string stored in the SSID field"),
@@ -274,13 +293,17 @@ def ssid_tool_verdict(ssid: str) -> str:
 
 
 def ssid_confirms_flock(ssid: str) -> bool:
-    """Return True if `ssid` contains a Flock naming pattern (not denylisted)."""
+    """Compatibility wrapper for :func:`ssid_correlates_flock`."""
+    return ssid_correlates_flock(ssid)
+
+
+def ssid_correlates_flock(ssid: str) -> bool:
+    """Return True when an SSID matches one documented, anchored family."""
     if not ssid:
         return False
     if ssid_denylist_match(ssid):
         return False
-    low = ssid.strip().lower()
-    return any(pattern in low for pattern in SSID_CONFIRM_PATTERNS)
+    return any(regex.fullmatch(ssid) for _label, regex in _SSID_CORRELATION_REGEXES)
 
 
 def classify_confidence(ssid: str, oui_tier: str = OUI_TIER_DEFAULT) -> str:
@@ -293,8 +316,8 @@ def classify_confidence(ssid: str, oui_tier: str = OUI_TIER_DEFAULT) -> str:
     """
     if ssid_denylist_match(ssid):
         return CONFIDENCE_IDENTIFIED_OTHER
-    if ssid_confirms_flock(ssid):
-        return CONFIDENCE_SSID_CONFIRMED
+    if ssid_correlates_flock(ssid):
+        return CONFIDENCE_SSID_CORRELATED
     return CONFIDENCE_OUI_MFR if oui_tier == OUI_TIER_MFR else CONFIDENCE_OUI_HIGH
 
 
@@ -392,6 +415,8 @@ def summarize_confidence(records) -> dict:
             tier = OUI_TIER_DEFAULT
 
         confidence = record.get("confidence")
+        if confidence == LEGACY_CONFIDENCE_SSID_CONFIRMED:
+            confidence = CONFIDENCE_SSID_CORRELATED
         if confidence not in CONFIDENCE_LEVELS:
             confidence = classify_confidence(ssid, tier)
 
@@ -440,6 +465,219 @@ def summarize_confidence(records) -> dict:
         "countries": len(countries),
         "regions": len(regions),
     }
+
+
+# ─── Suppression registry ───────────────────────────────────────────────
+
+SUPPRESSION_REGISTRY_VERSION = 1
+SUPPRESSION_HASH_ALGORITHM = "sha256"
+
+
+def netid_fingerprint(netid: str) -> str:
+    """Return a stable, non-reversible key for a valid BSSID."""
+    if not is_valid_mac(netid):
+        raise ValueError(f"Invalid BSSID for suppression registry: {netid!r}")
+    normalized = netid.strip().upper().encode("ascii")
+    return sha256(normalized).hexdigest()
+
+
+def empty_suppression_registry() -> dict:
+    """Return a new suppression registry with no device identifiers exposed."""
+    return {
+        "schema_version": SUPPRESSION_REGISTRY_VERSION,
+        "hash_algorithm": SUPPRESSION_HASH_ALGORITHM,
+        "entries": {},
+    }
+
+
+def validate_suppression_registry(registry: object) -> tuple[str, ...]:
+    """Return validation errors. Invalid registries must fail closed on load."""
+    errors = []
+    if not isinstance(registry, dict):
+        return ("registry must be an object",)
+    if registry.get("schema_version") != SUPPRESSION_REGISTRY_VERSION:
+        errors.append("unsupported schema_version")
+    if registry.get("hash_algorithm") != SUPPRESSION_HASH_ALGORITHM:
+        errors.append("unsupported hash_algorithm")
+    entries = registry.get("entries")
+    if not isinstance(entries, dict):
+        errors.append("entries must be an object")
+        return tuple(errors)
+    for fingerprint, metadata in entries.items():
+        if not re.fullmatch(r"[0-9a-f]{64}", fingerprint):
+            errors.append(f"invalid fingerprint: {fingerprint!r}")
+        if not isinstance(metadata, dict) or not metadata.get("reason"):
+            errors.append(f"missing suppression reason: {fingerprint!r}")
+    return tuple(errors)
+
+
+def suppress_records(
+    records: Mapping[str, dict],
+    registry: dict,
+    observed_at: str,
+) -> tuple[dict, dict, dict]:
+    """Remove suppressed points and update the hashed durable registry.
+
+    The returned counts describe records excluded from this candidate release.
+    Registry entries protect later incremental merges when a newer observation
+    hides or renames the SSID which originally proved the device unrelated.
+    """
+    errors = validate_suppression_registry(registry)
+    if errors:
+        raise ValueError("invalid suppression registry: " + "; ".join(errors))
+
+    updated = {
+        **registry,
+        "entries": {key: dict(value) for key, value in registry["entries"].items()},
+    }
+    public = {}
+    by_reason: dict[str, int] = {}
+    new_entries = 0
+
+    for key, record in records.items():
+        netid = record.get("netid") or key
+        fingerprint = netid_fingerprint(netid)
+        reason = ssid_denylist_match(record.get("ssid") or "")
+        prior = updated["entries"].get(fingerprint)
+        if reason or prior:
+            reason = reason or prior["reason"]
+            by_reason[reason] = by_reason.get(reason, 0) + 1
+            if prior is None:
+                new_entries += 1
+                prior = {"reason": reason, "first_suppressed": observed_at}
+            prior["reason"] = reason
+            prior["last_seen"] = observed_at
+            updated["entries"][fingerprint] = prior
+            continue
+        public[key] = record
+
+    updated["updated"] = observed_at
+    updated["entry_count"] = len(updated["entries"])
+    updated["counts_by_reason"] = {}
+    for metadata in updated["entries"].values():
+        reason = metadata["reason"]
+        updated["counts_by_reason"][reason] = updated["counts_by_reason"].get(reason, 0) + 1
+    summary = {
+        "excluded_from_release": sum(by_reason.values()),
+        "new_registry_entries": new_entries,
+        "by_reason": dict(sorted(by_reason.items())),
+        "registry_entries": len(updated["entries"]),
+        "registry_by_reason": dict(sorted(updated["counts_by_reason"].items())),
+    }
+    return public, updated, summary
+
+
+# ─── Release validation ─────────────────────────────────────────────────
+
+@dataclass(frozen=True)
+class ReleaseValidationResult:
+    """Fail-closed validation result for a candidate public dataset."""
+
+    valid: bool
+    errors: tuple[str, ...]
+    record_count: int
+    complete_ouis: int
+    expected_ouis: int
+
+
+def validate_release_candidate(
+    records: Mapping[str, dict],
+    expected_ouis: Iterable[str],
+    pagination_outcomes: Mapping[str, object],
+    baseline_count: int | None = None,
+    minimum_record_ratio: float = 0.90,
+) -> ReleaseValidationResult:
+    """Validate a candidate release and reject any incomplete scan.
+
+    Outcome values may be status strings, mappings with ``status``, or objects
+    exposing a ``status`` attribute. Only the literal ``complete`` passes.
+    """
+    errors = []
+    expected = tuple(dict.fromkeys(normalize_oui(oui) for oui in expected_ouis))
+    complete = 0
+    for oui in expected:
+        raw = pagination_outcomes.get(oui)
+        status = raw if isinstance(raw, str) else (
+            raw.get("status") if isinstance(raw, Mapping) else getattr(raw, "status", None)
+        )
+        status = getattr(status, "value", status)
+        if status == "complete":
+            complete += 1
+        else:
+            errors.append(f"{oui}: pagination outcome is {status or 'missing'}")
+
+    if expected and not records:
+        errors.append("candidate dataset is empty")
+
+    seen = set()
+    for key, record in records.items():
+        if not validate_record(record):
+            errors.append(f"invalid record: {key}")
+            continue
+        netid = record["netid"].upper()
+        if netid in seen:
+            errors.append(f"duplicate netid: {netid}")
+        seen.add(netid)
+
+    if not 0 < minimum_record_ratio <= 1:
+        errors.append("minimum_record_ratio must be greater than 0 and at most 1")
+    elif baseline_count is not None and baseline_count > 0:
+        floor = int(baseline_count * minimum_record_ratio)
+        if len(records) < floor:
+            errors.append(
+                f"candidate record count {len(records)} is below release floor {floor} "
+                f"from baseline {baseline_count}"
+            )
+
+    return ReleaseValidationResult(
+        valid=not errors,
+        errors=tuple(errors),
+        record_count=len(records),
+        complete_ouis=complete,
+        expected_ouis=len(expected),
+    )
+
+
+# ─── Labeled classifier evaluation ────────────────────────────────────────────
+
+def evaluate_labeled_samples(samples: Iterable[Mapping[str, str]]) -> dict:
+    """Report SSID matcher precision and recall for each labeled prefix."""
+    buckets: dict[str, dict] = {}
+    for row in samples:
+        prefix = normalize_oui(row.get("oui", ""))
+        label = (row.get("label") or "").strip().lower()
+        if label not in {"positive", "negative"}:
+            raise ValueError(f"invalid fixture label for {prefix}: {label!r}")
+        review_date = (row.get("review_date") or "").strip()
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", review_date):
+            raise ValueError(f"invalid review_date for {prefix}: {review_date!r}")
+        bucket = buckets.setdefault(prefix, {
+            "true_positive": 0, "false_positive": 0,
+            "true_negative": 0, "false_negative": 0,
+            "sample_size": 0, "review_date": review_date,
+        })
+        bucket["review_date"] = max(bucket["review_date"], review_date)
+        predicted = ssid_correlates_flock(row.get("ssid") or "")
+        actual = label == "positive"
+        outcome = (
+            "true_positive" if predicted and actual else
+            "false_positive" if predicted else
+            "false_negative" if actual else
+            "true_negative"
+        )
+        bucket[outcome] += 1
+        bucket["sample_size"] += 1
+
+    for bucket in buckets.values():
+        predicted_positive = bucket["true_positive"] + bucket["false_positive"]
+        actual_positive = bucket["true_positive"] + bucket["false_negative"]
+        bucket["precision"] = (
+            bucket["true_positive"] / predicted_positive if predicted_positive else None
+        )
+        bucket["recall"] = (
+            bucket["true_positive"] / actual_positive if actual_positive else None
+        )
+    return {prefix: buckets[prefix] for prefix in sorted(buckets)}
 
 
 # ─── Output record validation ─────────────────────────────────────────────────

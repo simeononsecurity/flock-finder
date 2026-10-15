@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-21T07:44:40.516317+00:00",
+  "generated": "2026-10-15T01:56:18.376396+00:00",
   "description": "Canonical list of SUSPECTED Flock Safety WiFi OUI prefixes. An OUI match is a heuristic, not a confirmation.",
   "match_confidence": "suspected",
   "total": 39,
@@ -16,25 +16,49 @@
   },
   "classifier": {
     "confidence_levels": [
-      "ssid_confirmed",
+      "ssid_correlated",
       "oui_high",
       "oui_mfr",
       "identified_other"
     ],
     "actionable_levels": [
-      "ssid_confirmed",
+      "ssid_correlated",
       "oui_high",
       "oui_mfr"
     ],
     "descriptions": {
-      "ssid_confirmed": "The SSID itself is a Flock naming pattern (e.g. 'Flock', 'Flock-XXXXXX', 'FS Ext Battery'). Strongest evidence available from passive WiFi data.",
+      "ssid_correlated": "The SSID itself is a Flock naming pattern (e.g. 'Flock', 'Flock-XXXXXX', 'FS Ext Battery'). Strongest evidence available from passive WiFi data.",
       "oui_high": "OUI prefix is on the high-confidence Flock list; the SSID is absent, hidden, or unrecognised. Suspected, unverified.",
       "oui_mfr": "OUI prefix belongs to a contract manufacturer (Liteon/USI) that also ships unrelated hardware. Weakest OUI evidence \u2014 expect false positives.",
-      "identified_other": "The SSID positively identifies other hardware (ClickShare, SMARTGATE_, DIRECT-, AndroidAP, or wardriving-tool output), so the OUI match is spurious. Excluded from the map by default and from the camera counts."
+      "identified_other": "The SSID positively identifies other hardware (ClickShare, SMARTGATE_, DIRECT-, AndroidAP, or wardriving-tool output), so the OUI match is spurious. Suppressed from public point artifacts and camera counts."
     },
     "ssid_confirm_patterns": [
-      "flock",
-      "fs ext battery"
+      "^\\s*flock\\s*$",
+      "^\\s*flock(?:-|_)?[0-9a-f]{3,12}\\s*$",
+      "^\\s*flock\\s+camera\\s+net\\.?\\s*$",
+      "^\\s*fs\\s+ext\\s+battery(?:\\s+[0-9a-z_-]+)?\\s*$"
+    ],
+    "ssid_correlation_rules": [
+      {
+        "label": "flock_base",
+        "regex": "^\\s*flock\\s*$",
+        "why": "documented base SSID"
+      },
+      {
+        "label": "flock_device_id",
+        "regex": "^\\s*flock(?:-|_)?[0-9a-f]{3,12}\\s*$",
+        "why": "documented Flock SSID with a hexadecimal device suffix"
+      },
+      {
+        "label": "flock_camera_net",
+        "regex": "^\\s*flock\\s+camera\\s+net\\.?\\s*$",
+        "why": "documented camera-network SSID"
+      },
+      {
+        "label": "fs_ext_battery",
+        "regex": "^\\s*fs\\s+ext\\s+battery(?:\\s+[0-9a-z_-]+)?\\s*$",
+        "why": "documented external-battery SSID family"
+      }
     ],
     "ssid_denylist_patterns": [
       "clickshare",

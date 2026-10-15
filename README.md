@@ -11,12 +11,13 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 <!-- STATS_START -->
 | Metric | Value |
 |--------|-------|
-| 📸 **Cameras Mapped** (actionable) | 91,099 |
-| 🔎 *of which SSID-confirmed* | 5,100 |
-| 🛰️ *of which OUI-suspected (high tier)* | 76,859 |
-| 🧩 *of which OUI-suspected (contract-mfr tier)* | 9,140 |
-| 🚫 **Excluded — SSID is other hardware** | 62,961 |
-| 🌍 **Flagged outside the US** | 73,907 |
+| 🔎 **SSID-correlated sightings** | 5,100 |
+| 📡 **OUI-only candidate sightings** (suspected, unverified) | 85,999 |
+| 🗺️ **Total public candidate sightings** | 91,099 |
+| 📊 **Observed/source total** | 154,060 |
+| 🧭 **Novel OUI-prefix candidates** | 0 |
+| 🚫 **Unrelated-device exclusions** | 62,961 |
+| 🌍 **Published observations outside the US** | 30,453 |
 | 📡 **OUI Prefixes with Data** | 38 / 39 |
 | 🌎 **Countries** | 137 |
 | 🗺️ **Regions / provinces (distinct)** | 2,050 |
@@ -24,28 +25,29 @@ Inspired by [DeFlock](https://www.deflock.me) and [track-openroaming-passpoint](
 | 📦 **Data Retention** | 730 days (2 years) |
 <!-- STATS_END -->
 
-> *Stats update automatically after each scan via GitHub Actions. “Cameras Mapped” counts only the records that pass evidence classification — the breakdown is below.*
+> *Stats update automatically after each scan via GitHub Actions. OUI-only candidates are suspected matches, not confirmed devices.*
 
 <!-- CONFIDENCE_BREAKDOWN_START -->
 ### What the numbers mean
 
-Every published record carries a `confidence` field, because an OUI match on its own is weak evidence. The map and the headline count only the records that survive that classification.
+SSID-correlated sightings match an anchored Flock naming pattern. OUI-only observations match a configured MAC prefix but lack SSID correlation. They remain suspected and unverified.
 
-| Confidence | Records | Share | Meaning |
-|------------|---------|-------|---------|
-| `ssid_confirmed` | 5,100 | 3.3% | SSID is a Flock naming pattern (`Flock`, `Flock-XXXXXX`, `Flock Camera net.`, `FS Ext Battery`) — strongest signal passive WiFi can give |
-| `oui_high` | 76,859 | 49.9% | High-confidence Flock OUI, SSID absent/hidden/unrecognised — suspected, unverified |
-| `oui_mfr` | 9,140 | 5.9% | Contract-manufacturer OUI (Liteon/USI) — weakest evidence, expect false positives |
-| `identified_other` | 62,961 | 40.9% | SSID positively identifies other hardware — excluded from the map and from the camera count above |
-| **All records** | **154,060** | 100.0% | |
+| Evidence | Observations | Share of published observations | Meaning |
+|----------|--------------|---------------------------------|---------|
+| `ssid_correlated` | 5,100 | 5.6% | Anchored SSID correlation, the strongest passive WiFi signal |
+| `oui_only` | 85,999 | 94.4% | OUI match without SSID correlation, suspected and unverified |
+| **All published observations** | **91,099** | 100.0% | |
+| **Observed/source total** | **154,060** | | Includes public candidates and aggregate unrelated-device exclusions |
 
-SSID denylist hits: `clickshare*` 52,220 · `smartgate_*` 6,131 · `direct-*` 3,704 · `androidap*` 598 · `max-printer*` 141 · `audi hud*` 140 · `detector_verdict*` 27.
+Unrelated-device exclusions: 62,961. These exclusions are aggregate counts, not public point records.
 
-**Detector output ingested as data.** 27 records carry another detector's verdict string in the SSID column (`Flock ALPR [wifi_receiver_oui;low]` and similar) — self-tagged `low` 23 · `medium` 4 by the tool that produced them. They are a downstream copy of a detection, not an observation of a camera, so they are excluded outright instead of being counted in the SSID-confirmed subset.
+Exclusion reasons: `clickshare*` 52,220 · `smartgate_*` 6,131 · `direct-*` 3,704 · `androidap*` 598 · `max-printer*` 141 · `audi hud*` 140 · `detector_verdict*` 27.
+
+**Detector output ingested as data.** 27 records carry another detector's verdict string in the SSID column (`Flock ALPR [wifi_receiver_oui;low]` and similar) — self-tagged `low` 23 · `medium` 4 by the tool that produced them. They are a downstream copy of a detection, not an observation of a camera, so they are excluded outright instead of being counted in the SSID-correlated subset.
 
 **Per-prefix signal, measured.** Of the 33 prefixes with ≥200 records, the ones whose records mostly name *other* hardware:
 
-| OUI prefix | Records | SSID-confirmed | Excluded as other hardware |
+| OUI prefix | Records | SSID-correlated | Excluded as other hardware |
 |------------|---------|----------------|----------------------------|
 | `F4:6A:DD` | 11,996 | 399 | 8,496 (71%) |
 | `74:4C:A1` | 12,039 | 261 | 8,458 (70%) |
@@ -56,13 +58,13 @@ SSID denylist hits: `clickshare*` 52,220 · `smartgate_*` 6,131 · `direct-*` 3,
 | `D8:F3:BC` | 4,042 | 196 | 2,561 (63%) |
 | `B8:1E:A4` | 3,799 | 124 | 2,289 (60%) |
 
-The most Flock-confirmed, for contrast: `70:C9:4E` (34% SSID-confirmed, 196 of 572 records), `00:F4:8D` (24% SSID-confirmed, 163 of 680 records), `3C:91:80` (18% SSID-confirmed, 178 of 974 records).
+The most Flock-correlated, for contrast: `70:C9:4E` (34% SSID-correlated, 196 of 572 records), `00:F4:8D` (24% SSID-correlated, 163 of 680 records), `3C:91:80` (18% SSID-correlated, 178 of 974 records).
 
-**11 prefixes are neither confirmed nor contradicted** — under 2% of their records carry a Flock SSID and under half name other hardware, so their MACs are simply unverifiable from SSID evidence: `64:6E:69` (3,711 records, 19 confirmed), `58:00:E3` (4,915 records, 43 confirmed), `E0:4F:43` (22,708 records, 95 confirmed), `5C:93:A2` (3,886 records, 17 confirmed), `A4:CF:12` (4,376 records, 4 confirmed), `3C:71:BF` (3,930 records, 15 confirmed) and 5 more. These are the weakest entries in the list: an OUI match there means little on its own.
+**11 prefixes are neither correlated nor excluded** — under 2% of their records carry a Flock SSID and under half name other hardware, so their MACs are simply unverifiable from SSID evidence: `64:6E:69` (3,711 records, 19 SSID-correlated), `58:00:E3` (4,915 records, 43 SSID-correlated), `E0:4F:43` (22,708 records, 95 SSID-correlated), `5C:93:A2` (3,886 records, 17 SSID-correlated), `A4:CF:12` (4,376 records, 4 SSID-correlated), `3C:71:BF` (3,930 records, 15 SSID-correlated) and 5 more. These are the weakest entries in the list: an OUI match there means little on its own.
 
 The `tier` field in `data/flock_ouis.csv` is the curated (firmware-parity) judgement; these numbers are the measurement. Where they disagree, the measurement is the honest summary of what this dataset actually contains.
 
-Market: 73,907 records (48.0%) are outside the primary US market and carry `"out_of_market": true`. They are flagged, not deleted — Flock has expanded internationally — so consumers can filter them.
+Market: 30,453 published observations (33.4%) are outside the primary US market and carry `"out_of_market": true`. They are flagged, not deleted — Flock has expanded internationally — so consumers can filter them.
 
 Every record is still *suspected*: the tiers describe the strength of the evidence, not a confirmation from Flock that a device is theirs. See [docs/DATA_POLICY.md](docs/DATA_POLICY.md).
 <!-- CONFIDENCE_BREAKDOWN_END -->
@@ -89,7 +91,7 @@ This project:
 1. Takes those 39 known Flock Safety WiFi OUI prefixes
 2. Queries the WiGLE WiFi database for networks matching each prefix
 3. Deduplicates and exports results as GeoJSON + CSV
-4. Displays camera locations on a dark-themed interactive Leaflet map
+4. Displays viewport-scoped clusters and points on a MapLibre map backed by PMTiles
 
 > **Note:** WiGLE is a historical, crowdsourced WiFi survey database — it does **not** use @NitekryDPaul's active detection technique. WiGLE entries are submitted by volunteers wardriving with passive scanners, so coverage is uneven and timestamps may be months or years old. The map is best used as a rough geographic reference, not a definitive or current inventory.
 
@@ -107,7 +109,7 @@ Combined with wildcard probe request detection (802.11 management frames type=0 
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.11+
 - A [WiGLE account](https://wigle.net/account) with API credentials
 
 ### Setup
@@ -176,7 +178,8 @@ flock-finder/
 │   ├── by_oui/                # GENERATED per-OUI splits (not committed)
 │   └── scan_stats.json        # Output: scan + evidence-tier statistics
 ├── docs/
-│   └── index.html        # Interactive web map (Leaflet + dark theme)
+│   ├── index.html        # Interactive MapLibre map
+│   └── assets/           # PMTiles builder, map code, and styles
 └── .github/
     └── workflows/
         └── update-data.yml  # GitHub Actions: daily auto-update
@@ -323,7 +326,20 @@ The included workflow runs daily and auto-commits updated camera data:
 
 2. The workflow runs at 6 AM UTC daily, or manually via "Run workflow"
 
-3. If new data is found, it commits updated GeoJSON/CSV/stats automatically
+3. Each successful scan creates a uniquely tagged, hash-verified snapshot release with a
+   manifest, source commit, scan window, schemas, record counts, and SHA-256
+   hashes. The snapshot includes the generated PMTiles file and BSSID lookup
+   shards. The mutable `data-latest` release contains compatibility downloads
+   and a `latest.json` pointer to the immutable snapshot.
+
+4. The separate Pages workflow is the only workflow that deploys the site. It
+   restores one snapshot, verifies every archived file, and stops if the map
+   data, PMTiles file, or BSSID shards are absent. It runs after a successful
+   data update and after changes reach `main`.
+
+All third-party Actions use full commit SHAs. See
+[`.github/ACTIONS.md`](.github/ACTIONS.md) for the pinned versions and update
+sources. Dependabot checks the pins and Python requirements each week.
 
 ---
 
@@ -338,7 +354,8 @@ now live in three places instead:
 | What | Where |
 |------|-------|
 | Live map (unchanged `/data/…` paths) | the [GitHub Pages site](https://simeononsecurity.github.io/flock-finder/) — the deploy jobs restore the files from the release before publishing |
-| Downloadable dataset | the rolling [`data-latest` release](https://github.com/simeononsecurity/flock-finder/releases/tag/data-latest): `flock_cameras.geojson`, `flock_cameras.csv`, `by_oui.zip` |
+| Downloadable dataset | the rolling [`data-latest` release](https://github.com/simeononsecurity/flock-finder/releases/tag/data-latest): `flock_cameras.geojson`, `flock_cameras.csv`, `by_oui.zip`, and `latest.json` |
+| Verifiable snapshot | the immutable release named by `latest.json`: deterministic archive, manifest, and SHA-256 checksum file |
 | A local checkout | run `python3 scripts/wigle_query.py` (needs WiGLE credentials), or fetch the published copy: `gh release download data-latest -p 'flock_cameras.geojson' -D data` |
 
 What stays in git are the small, diffable artifacts: `data/flock_ouis.csv` (the
@@ -367,7 +384,7 @@ canonical OUI list), `scan_stats.json`, `candidate_ouis.json` and
 - **Additional OUI prefixes:** [dougborg/PR#39](https://github.com/colonelpanichacks/flock-you/pull/39) — Flock Safety's own IEEE registration (`B4:1E:52`) and the six-prefix FS Ext Battery series
 - **Inspired by:** [DeFlock](https://www.deflock.me) (ALPR mapping) and [track-openroaming-passpoint](https://github.com/simeononsecurity/track-openroaming-passpoint) (WiGLE data mining)
 - **Data Source:** [WiGLE](https://wigle.net) — crowdsourced WiFi/cell network database
-- **Map:** [Leaflet](https://leafletjs.com) + [OpenStreetMap](https://www.openstreetmap.org)
+- **Map:** [MapLibre GL JS](https://maplibre.org/) + [PMTiles](https://docs.protomaps.com/pmtiles/) + [OpenStreetMap](https://www.openstreetmap.org)
 
 ---
 
@@ -382,15 +399,27 @@ canonical OUI list), `scan_stats.json`, `candidate_ouis.json` and
 
 ---
 
-## ⚖️ Legal & Ethics
+## ⚖️ Data Rights & Ethics
 
-This project uses only **publicly available data** from the WiGLE database, which aggregates voluntarily contributed WiFi survey data. No hacking, unauthorized access, or proprietary systems are involved.
+WiGLE API access does not make the source database open data. WiGLE's
+individual agreement permits personal, research, and educational
+noncommercial use, but the reviewed terms do not expressly resolve public
+redistribution through maps, downloads, or release snapshots. Flock Finder is
+free, unsponsored, and maintained for personal use. The reviewed terms do not
+explain whether uncompensated product promotion or a discount code affects
+WiGLE's classification of this use.
 
+See [`DATA_LICENSE`](DATA_LICENSE) for the source URL, access date,
+attribution, known limits, and questions that still require written
+clarification or qualified legal review. Do not infer permission from the
+project's free access or from WiGLE's public website.
 
-The goal is **transparency** — communities have a right to know where surveillance infrastructure is deployed in their neighborhoods.
+The project's goal is transparency about surveillance infrastructure.
 
 ---
 
 ## 📜 License
 
-MIT License — see [LICENSE](LICENSE) for details.
+Project code is available under the MIT License. See [LICENSE](LICENSE).
+WiGLE-derived records are not covered by the MIT License. See
+[`DATA_LICENSE`](DATA_LICENSE).

@@ -11,7 +11,7 @@
     "total": 154060,
     "actionable": 91099,
     "by_confidence": {
-      "ssid_confirmed": 5100,
+      "ssid_correlated": 5100,
       "oui_high": 76859,
       "oui_mfr": 9140,
       "identified_other": 62961
@@ -22,22 +22,22 @@
     },
     "by_oui_confidence": {
       "00:F4:8D": {
-        "ssid_confirmed": 163,
+        "ssid_correlated": 163,
         "oui_mfr": 509,
         "identified_other": 8
       },
       "04:0D:84": {
         "oui_high": 81,
-        "ssid_confirmed": 14
+        "ssid_correlated": 14
       },
       "08:3A:88": {
         "oui_high": 20407,
-        "ssid_confirmed": 570,
+        "ssid_correlated": 570,
         "identified_other": 2
       },
       "14:5A:FC": {
         "oui_high": 1371,
-        "ssid_confirmed": 351,
+        "ssid_correlated": 351,
         "identified_other": 2424
       },
       "1C:34:F1": {
@@ -47,155 +47,155 @@
       "24:B2:B9": {
         "identified_other": 1654,
         "oui_high": 995,
-        "ssid_confirmed": 195
+        "ssid_correlated": 195
       },
       "38:5B:44": {
         "oui_high": 132,
-        "ssid_confirmed": 40
+        "ssid_correlated": 40
       },
       "3C:71:BF": {
         "oui_high": 3915,
-        "ssid_confirmed": 15
+        "ssid_correlated": 15
       },
       "3C:91:80": {
         "oui_high": 687,
-        "ssid_confirmed": 178,
+        "ssid_correlated": 178,
         "identified_other": 109
       },
       "48:27:EA": {
         "identified_other": 597,
         "oui_high": 404,
-        "ssid_confirmed": 1
+        "ssid_correlated": 1
       },
       "58:00:E3": {
         "oui_high": 3286,
-        "ssid_confirmed": 43,
+        "ssid_correlated": 43,
         "identified_other": 1586
       },
       "58:8E:81": {
         "oui_high": 1224,
-        "ssid_confirmed": 14
+        "ssid_correlated": 14
       },
       "5C:93:A2": {
         "oui_high": 3500,
-        "ssid_confirmed": 17,
+        "ssid_correlated": 17,
         "identified_other": 369
       },
       "64:6E:69": {
         "oui_high": 2264,
-        "ssid_confirmed": 19,
+        "ssid_correlated": 19,
         "identified_other": 1428
       },
       "70:08:94": {
         "oui_high": 1251,
         "identified_other": 2414,
-        "ssid_confirmed": 138
+        "ssid_correlated": 138
       },
       "70:C9:4E": {
-        "ssid_confirmed": 196,
+        "ssid_correlated": 196,
         "oui_high": 345,
         "identified_other": 31
       },
       "74:4C:A1": {
         "oui_high": 3320,
-        "ssid_confirmed": 261,
+        "ssid_correlated": 261,
         "identified_other": 8458
       },
       "80:30:49": {
-        "ssid_confirmed": 118,
+        "ssid_correlated": 118,
         "oui_high": 389,
         "identified_other": 355
       },
       "82:6B:F2": {
         "oui_high": 22,
-        "ssid_confirmed": 1
+        "ssid_correlated": 1
       },
       "90:35:EA": {
         "oui_high": 651,
-        "ssid_confirmed": 12
+        "ssid_correlated": 12
       },
       "94:08:53": {
         "oui_high": 534,
-        "ssid_confirmed": 132,
+        "ssid_correlated": 132,
         "identified_other": 912
       },
       "94:34:69": {
         "oui_high": 911,
-        "ssid_confirmed": 63
+        "ssid_correlated": 63
       },
       "9C:2F:9D": {
-        "ssid_confirmed": 326,
+        "ssid_correlated": 326,
         "oui_high": 1722,
         "identified_other": 4581
       },
       "A4:CF:12": {
         "oui_high": 4372,
-        "ssid_confirmed": 4
+        "ssid_correlated": 4
       },
       "B4:1E:52": {
-        "ssid_confirmed": 1,
+        "ssid_correlated": 1,
         "oui_high": 3
       },
       "B4:E3:F9": {
         "oui_high": 236,
-        "ssid_confirmed": 3
+        "ssid_correlated": 3
       },
       "B8:1E:A4": {
         "identified_other": 2289,
         "oui_high": 1386,
-        "ssid_confirmed": 124
+        "ssid_correlated": 124
       },
       "C0:35:32": {
         "oui_high": 1901,
-        "ssid_confirmed": 135,
+        "ssid_correlated": 135,
         "identified_other": 3839
       },
       "D0:39:57": {
         "oui_mfr": 2986,
-        "ssid_confirmed": 576,
+        "ssid_correlated": 576,
         "identified_other": 8400
       },
       "D8:F3:BC": {
-        "ssid_confirmed": 196,
+        "ssid_correlated": 196,
         "oui_high": 1285,
         "identified_other": 2561
       },
       "E0:0A:F6": {
-        "ssid_confirmed": 304,
+        "ssid_correlated": 304,
         "oui_mfr": 833,
         "identified_other": 894
       },
       "E0:4F:43": {
         "oui_high": 16340,
-        "ssid_confirmed": 95,
+        "ssid_correlated": 95,
         "identified_other": 6273
       },
       "E4:AA:EA": {
         "oui_high": 2917,
-        "ssid_confirmed": 120,
+        "ssid_correlated": 120,
         "identified_other": 4210
       },
       "E8:D0:FC": {
         "oui_mfr": 659,
-        "ssid_confirmed": 112,
+        "ssid_correlated": 112,
         "identified_other": 212
       },
       "EC:1B:BD": {
         "oui_high": 433,
-        "ssid_confirmed": 7
+        "ssid_correlated": 7
       },
       "F0:82:C0": {
         "oui_high": 549,
-        "ssid_confirmed": 8
+        "ssid_correlated": 8
       },
       "F4:6A:DD": {
         "oui_mfr": 3101,
-        "ssid_confirmed": 399,
+        "ssid_correlated": 399,
         "identified_other": 8496
       },
       "F8:A2:D6": {
         "oui_mfr": 1052,
-        "ssid_confirmed": 149,
+        "ssid_correlated": 149,
         "identified_other": 858
       }
     },
@@ -218,7 +218,7 @@
     "regions": 2050
   },
   "by_confidence": {
-    "ssid_confirmed": 5100,
+    "ssid_correlated": 5100,
     "oui_high": 76859,
     "oui_mfr": 9140,
     "identified_other": 62961
@@ -465,22 +465,22 @@
   },
   "by_oui_confidence": {
     "00:F4:8D": {
-      "ssid_confirmed": 163,
+      "ssid_correlated": 163,
       "oui_mfr": 509,
       "identified_other": 8
     },
     "04:0D:84": {
       "oui_high": 81,
-      "ssid_confirmed": 14
+      "ssid_correlated": 14
     },
     "08:3A:88": {
       "oui_high": 20407,
-      "ssid_confirmed": 570,
+      "ssid_correlated": 570,
       "identified_other": 2
     },
     "14:5A:FC": {
       "oui_high": 1371,
-      "ssid_confirmed": 351,
+      "ssid_correlated": 351,
       "identified_other": 2424
     },
     "1C:34:F1": {
@@ -490,155 +490,155 @@
     "24:B2:B9": {
       "identified_other": 1654,
       "oui_high": 995,
-      "ssid_confirmed": 195
+      "ssid_correlated": 195
     },
     "38:5B:44": {
       "oui_high": 132,
-      "ssid_confirmed": 40
+      "ssid_correlated": 40
     },
     "3C:71:BF": {
       "oui_high": 3915,
-      "ssid_confirmed": 15
+      "ssid_correlated": 15
     },
     "3C:91:80": {
       "oui_high": 687,
-      "ssid_confirmed": 178,
+      "ssid_correlated": 178,
       "identified_other": 109
     },
     "48:27:EA": {
       "identified_other": 597,
       "oui_high": 404,
-      "ssid_confirmed": 1
+      "ssid_correlated": 1
     },
     "58:00:E3": {
       "oui_high": 3286,
-      "ssid_confirmed": 43,
+      "ssid_correlated": 43,
       "identified_other": 1586
     },
     "58:8E:81": {
       "oui_high": 1224,
-      "ssid_confirmed": 14
+      "ssid_correlated": 14
     },
     "5C:93:A2": {
       "oui_high": 3500,
-      "ssid_confirmed": 17,
+      "ssid_correlated": 17,
       "identified_other": 369
     },
     "64:6E:69": {
       "oui_high": 2264,
-      "ssid_confirmed": 19,
+      "ssid_correlated": 19,
       "identified_other": 1428
     },
     "70:08:94": {
       "oui_high": 1251,
       "identified_other": 2414,
-      "ssid_confirmed": 138
+      "ssid_correlated": 138
     },
     "70:C9:4E": {
-      "ssid_confirmed": 196,
+      "ssid_correlated": 196,
       "oui_high": 345,
       "identified_other": 31
     },
     "74:4C:A1": {
       "oui_high": 3320,
-      "ssid_confirmed": 261,
+      "ssid_correlated": 261,
       "identified_other": 8458
     },
     "80:30:49": {
-      "ssid_confirmed": 118,
+      "ssid_correlated": 118,
       "oui_high": 389,
       "identified_other": 355
     },
     "82:6B:F2": {
       "oui_high": 22,
-      "ssid_confirmed": 1
+      "ssid_correlated": 1
     },
     "90:35:EA": {
       "oui_high": 651,
-      "ssid_confirmed": 12
+      "ssid_correlated": 12
     },
     "94:08:53": {
       "oui_high": 534,
-      "ssid_confirmed": 132,
+      "ssid_correlated": 132,
       "identified_other": 912
     },
     "94:34:69": {
       "oui_high": 911,
-      "ssid_confirmed": 63
+      "ssid_correlated": 63
     },
     "9C:2F:9D": {
-      "ssid_confirmed": 326,
+      "ssid_correlated": 326,
       "oui_high": 1722,
       "identified_other": 4581
     },
     "A4:CF:12": {
       "oui_high": 4372,
-      "ssid_confirmed": 4
+      "ssid_correlated": 4
     },
     "B4:1E:52": {
-      "ssid_confirmed": 1,
+      "ssid_correlated": 1,
       "oui_high": 3
     },
     "B4:E3:F9": {
       "oui_high": 236,
-      "ssid_confirmed": 3
+      "ssid_correlated": 3
     },
     "B8:1E:A4": {
       "identified_other": 2289,
       "oui_high": 1386,
-      "ssid_confirmed": 124
+      "ssid_correlated": 124
     },
     "C0:35:32": {
       "oui_high": 1901,
-      "ssid_confirmed": 135,
+      "ssid_correlated": 135,
       "identified_other": 3839
     },
     "D0:39:57": {
       "oui_mfr": 2986,
-      "ssid_confirmed": 576,
+      "ssid_correlated": 576,
       "identified_other": 8400
     },
     "D8:F3:BC": {
-      "ssid_confirmed": 196,
+      "ssid_correlated": 196,
       "oui_high": 1285,
       "identified_other": 2561
     },
     "E0:0A:F6": {
-      "ssid_confirmed": 304,
+      "ssid_correlated": 304,
       "oui_mfr": 833,
       "identified_other": 894
     },
     "E0:4F:43": {
       "oui_high": 16340,
-      "ssid_confirmed": 95,
+      "ssid_correlated": 95,
       "identified_other": 6273
     },
     "E4:AA:EA": {
       "oui_high": 2917,
-      "ssid_confirmed": 120,
+      "ssid_correlated": 120,
       "identified_other": 4210
     },
     "E8:D0:FC": {
       "oui_mfr": 659,
-      "ssid_confirmed": 112,
+      "ssid_correlated": 112,
       "identified_other": 212
     },
     "EC:1B:BD": {
       "oui_high": 433,
-      "ssid_confirmed": 7
+      "ssid_correlated": 7
     },
     "F0:82:C0": {
       "oui_high": 549,
-      "ssid_confirmed": 8
+      "ssid_correlated": 8
     },
     "F4:6A:DD": {
       "oui_mfr": 3101,
-      "ssid_confirmed": 399,
+      "ssid_correlated": 399,
       "identified_other": 8496
     },
     "F8:A2:D6": {
       "oui_mfr": 1052,
-      "ssid_confirmed": 149,
+      "ssid_correlated": 149,
       "identified_other": 858
     }
   },

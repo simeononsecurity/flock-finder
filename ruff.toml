@@ -1,6 +1,6 @@
 # Ruff configuration — fast Python linter for the collector scripts.
 line-length = 100
-target-version = "py38"
+target-version = "py311"
 
 [lint]
 # A pragmatic default rule set: pyflakes (F), pycodestyle errors (E),

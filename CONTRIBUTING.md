@@ -20,6 +20,9 @@ python3 scripts/validate_data.py    # validate published data
 
 Open a pull request once `ruff`, `pytest`, and `validate_data.py` all pass.
 
+Local development requires Python 3.11 or newer. CI covers maintained versions
+from Python 3.11 through 3.15.
+
 ## Project layout
 
 | Path | Purpose |
@@ -32,7 +35,8 @@ Open a pull request once `ruff`, `pytest`, and `validate_data.py` all pass.
 | `scripts/ssid_query.py` | SSID-pattern OUI discovery + camera-class coverage reporting |
 | `scripts/validate_data.py` | CI data-integrity / precision / stats-consistency checks |
 | `data/flock_ouis.csv` | **Single source of truth** for OUI prefixes + their tier |
-| `docs/index.html` | Interactive Leaflet map (evidence filter + tier-coloured pins) |
+| `docs/index.html` | Interactive MapLibre and PMTiles map with synchronized accessible results |
+| `docs/assets/build-map-assets.mjs` | Builds viewport-scoped PMTiles and local BSSID lookup shards |
 | `docs/DATA_POLICY.md` | What the data means + corrections process |
 | `docs/DATA_DICTIONARY.md` | Field-level schema reference |
 | `tests/` | Pytest suite |
@@ -99,8 +103,12 @@ See [docs/DATA_POLICY.md](docs/DATA_POLICY.md).
 
 If you're a user (not a code contributor) and a point looks wrong, follow the
 process in [docs/DATA_POLICY.md](docs/DATA_POLICY.md#5-requesting-a-correction-or-removal).
+Send precise BSSIDs, coordinates, or private-location details only through the
+[maintainer's private contact form](https://simeononsecurity.com/contactus),
+not through a public issue.
 
 ## Reporting security issues
 
 Please avoid filing public issues for sensitive security problems. Use the
-`/reportbug` process or contact the maintainer directly.
+`/reportbug` process or the
+[maintainer's private contact form](https://simeononsecurity.com/contactus).
