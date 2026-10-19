@@ -182,7 +182,7 @@ jobs:
 
       - name: Save scan campaign checkpoint after OUI scan
         if: ${{ always() && steps.wigle_scan.outcome != 'skipped' }}
-        uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             data/full_scan_bootstrap.json
@@ -223,7 +223,7 @@ jobs:
 
       - name: Save scan campaign checkpoint after SSID scan
         if: ${{ always() && steps.ssid_scan.outcome != 'skipped' }}
-        uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             data/full_scan_bootstrap.json
@@ -348,7 +348,7 @@ jobs:
         run: rm -f data/full_scan_bootstrap.json
 
       - name: Save completed scan state
-        uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
             data/full_scan_bootstrap.json
